@@ -12,7 +12,7 @@ Afterwards you can input the directory where the repository will be cloned to, t
 ### - [CLI] Command Line
 If for some reason you cannot use a frontend client, you can instead clone the project using the **command line**.\
 You want to make sure you have [Git](https://git-scm.com/) installed and setup correctly, then from the command line you want to navigate to the directory you want to clone the repository to, again this should be an empty folder. Then you can use the command:
-```
+```bat
 git clone --recursive https://github.com/PsychicHavocTV/AIEGameProduction2022.git
 ```
 If you have a frontend client already installed, **Git** should already be installed and setup.
@@ -30,23 +30,23 @@ This is also easy using the Frontend Client as there should be a button labeled 
 
 For the **command line** it's a similar process:\
 To stage specific files use the command:
-```
+```bat
 git add [File Name]
 ```
 Though not recommended, you can also use this command to **stage** all modified files:
-```
+```bat
 git add .
 ```
 To see which files are currently **staged** use:
-```
+```bat
 git status
 ```
 To commit your **staged** changes use this command, do not forget the quotes:
-```
+```bat
 git commit -m "[Commit Message]"
 ```
 Then to finally **push** the **commit** to the repository use:
-```
+```bat
 git push origin [Branch Name]
 ```
 
@@ -60,7 +60,7 @@ If you do, you will have to either **[discard](https://www.atlassian.com/git/tut
 In the **frontend client** it is then simple as just clicking the button labeled **"Pull"**.
 
 For the **command line** the process is simply:
-```
+```bat
 git pull origin [Branch Name]
 ```
 
@@ -73,12 +73,12 @@ If you're using a **frontend client** you should be able to simply right click a
 If the **branch** you want to checkout doesn't seem to appear within the frontend client, you can use the client's interface to create a new **local** branch and then tell it to track the corresponding **remote** branch.
 
 In the **command line** this looks like:
-```
+```bat
 git checkout [Branch Name] 
 ```
 You should then **pull** from the current branch.
 
 Also, in the command line to find out which branch you're currently in:
-```
+```bat
 git branch
 ```
