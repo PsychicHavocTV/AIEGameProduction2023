@@ -26,27 +26,34 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+        //transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
         playerCamera.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
     }
 
     // Update is called once per frame
     void Update()
     {
-        m_mouseX += Input.GetAxis("Mouse X") * mouseSense * Time.deltaTime;
-        m_mouseY += Input.GetAxis("Mouse Y") * mouseSense * Time.deltaTime;
+        m_mouseX += Input.GetAxisRaw("Mouse X") * mouseSense * Time.deltaTime;
+        m_mouseY -= Input.GetAxisRaw("Mouse Y") * mouseSense * Time.deltaTime;
+
+        if (m_mouseX >= 360.0f)
+            m_mouseX -= 360.0f;
+        else if (m_mouseX < 0.0f)
+            m_mouseX += 360.0f;
+
+        m_mouseY = Mathf.Clamp(m_mouseY, -89.0f, 89.0f);
 
         playerCamera.transform.rotation = Quaternion.Euler(new Vector3(m_mouseY, m_mouseX, 0));
-        playerBody.transform.rotation = Quaternion.Euler(new Vector3(0, m_mouseX, 0));
 
-        m_inputX = Input.GetAxis("Horizontal");
-        m_inputZ = Input.GetAxis("Vertical");
+        m_inputX = Input.GetAxisRaw("Horizontal");
+        m_inputZ = Input.GetAxisRaw("Vertical");
 
-        Vector3 move = transform.right * m_inputX + transform.forward * m_inputZ;
+        Vector3 move = Vector3.zero;
+        move = m_inputX * playerCamera.transform.right + m_inputZ * playerCamera.transform.forward;
         move.y = 0;
 
-        controller.Move(move * speed * Time.deltaTime);
+        controller.Move(move.normalized * speed * Time.deltaTime);
+
         m_velocity.y++;
-        //transform.position -= move * speed * Time.deltaTime;
     }
 }
