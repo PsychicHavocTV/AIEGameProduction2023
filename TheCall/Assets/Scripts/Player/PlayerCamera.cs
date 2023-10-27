@@ -4,42 +4,52 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Camera))]
 public class PlayerCamera : MonoBehaviour
 {
-    [SerializeField]
+    [SerializeField, Tooltip("Reference to target, usually the player.")]
     private Transform target;
 
-    [SerializeField]
+    [SerializeField, Tooltip("The camera's offset from the target.")]
     private Vector3 offset;
-    [SerializeField]
-    private float mouseSensitivity = 1.0f;
 
-    private Vector2 mouseDelta;
+    [SerializeField, Tooltip("How fast the camera moves.")]
+    private float cameraSensitivity = 1.0f;
 
-    private Vector2 rotation;
+    private Vector2 m_input;
 
-    void Start()
+    private Vector2 m_rotation; // Camera's rotation.
+
+    private void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;   
+        Cursor.lockState = CursorLockMode.Locked; // Lock cursor into window.
     }
 
-    void Update()
+    private void Update()
     {
-        mouseDelta = Mouse.current.delta.ReadValue();
+        // Calculate rotation based on input.
+        m_rotation.x += m_input.x * cameraSensitivity * Time.deltaTime;
+        m_rotation.y -= m_input.y * cameraSensitivity * Time.deltaTime;
 
-        rotation.x += mouseDelta.x * mouseSensitivity * Time.deltaTime;
-        rotation.y -= mouseDelta.y * mouseSensitivity * Time.deltaTime;
+        // Wrap camera yaw between 0-360 degrees, (avoids floating point errors)
+        if (m_rotation.x >= 360.0f)
+            m_rotation.x -= 360.0f;
+        else if (m_rotation.x < 0.0f)
+            m_rotation.x += 360.0f;
 
-        if (rotation.x >= 360.0f)
-            rotation.x -= 360.0f;
-        else if (rotation.x < 0.0f)
-            rotation.x += 360.0f;
-
-        rotation.y = Mathf.Clamp(rotation.y, -89.0f, 89.0f);
+        // Clamp camera pitch within range, (Prevents camera flipping)
+        m_rotation.y = Mathf.Clamp(m_rotation.y, -89.0f, 89.0f);
     }
 
-    void LateUpdate()
+    private void LateUpdate() // Update camera after player movement.
     {
-        transform.rotation = Quaternion.Euler(rotation.y, rotation.x, 0.0f);
+        // Apply camera rotation.
+        transform.rotation = Quaternion.Euler(m_rotation.y, m_rotation.x, 0.0f);
 
+        // Apply target position and offset to camera.
         transform.position = offset + target.position;
+    }
+
+    // Input System messages.
+    private void OnLook(InputValue value)
+    {
+        m_input = value.Get<Vector2>(); // Get mouse/gamepad input.
     }
 }
