@@ -1,59 +1,61 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    public bool canMove = true;
+
     [SerializeField]
-    private Camera playerCamera;
-    [SerializeField]
-    private GameObject playerBody;
+    private Transform playerCamera;
     [SerializeField]
     private CharacterController controller;
+
     [SerializeField]
-    private float mouseSense = 200;
+    private float walkSpeed = 8.0f;
     [SerializeField]
+    private float runSpeed = 16.0f;
 
-    private float speed = 100;
-    private float m_mouseX = 0;
-    private float m_mouseY = 0;
-    private float m_inputX = 0;
-    private float m_inputZ = 0;
+    private Vector2 m_input;
+    private bool m_isRunning = false;
 
-    private Vector3 m_velocity;
+    private Vector3 m_velocity = Vector3.zero;
+    private float m_moveSpeed = 0.0f;
 
-    private void Start()
-    {
-        Cursor.lockState = CursorLockMode.Locked;
-        //transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
-        playerCamera.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        m_mouseX += Input.GetAxisRaw("Mouse X") * mouseSense * Time.deltaTime;
-        m_mouseY -= Input.GetAxisRaw("Mouse Y") * mouseSense * Time.deltaTime;
-
-        if (m_mouseX >= 360.0f)
-            m_mouseX -= 360.0f;
-        else if (m_mouseX < 0.0f)
-            m_mouseX += 360.0f;
-
-        m_mouseY = Mathf.Clamp(m_mouseY, -89.0f, 89.0f);
-
-        playerCamera.transform.rotation = Quaternion.Euler(new Vector3(m_mouseY, m_mouseX, 0));
-
-        m_inputX = Input.GetAxisRaw("Horizontal");
-        m_inputZ = Input.GetAxisRaw("Vertical");
+        if (m_isRunning)
+            m_moveSpeed = runSpeed;
+        else
+            m_moveSpeed = walkSpeed;
 
         Vector3 move = Vector3.zero;
-        move = m_inputX * playerCamera.transform.right + m_inputZ * playerCamera.transform.forward;
-        move.y = 0;
+        if (canMove)
+        {
+            move = m_input.x * playerCamera.right + m_input.y * playerCamera.forward;
+            move.y = 0;
+        }
+        controller.Move(move.normalized * m_moveSpeed * Time.deltaTime);
 
-        controller.Move(move.normalized * speed * Time.deltaTime);
+        if (controller.isGrounded)
+        {
+            m_velocity.y = -1.0f;
+        }
+        else
+        {
+            m_velocity.y += Physics.gravity.y * Time.deltaTime;
+        }
+        controller.Move(m_velocity * Time.deltaTime);
 
-        m_velocity.y++;
+        transform.rotation = Quaternion.Euler(transform.localEulerAngles.x, playerCamera.localEulerAngles.y, transform.localEulerAngles.z);
+    }
+
+    void OnMove(InputValue value)
+    {
+        m_input = value.Get<Vector2>();
+    }
+
+    void OnRun(InputValue value)
+    {
+        m_isRunning = value.isPressed;
     }
 }
