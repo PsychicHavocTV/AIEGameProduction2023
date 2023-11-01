@@ -97,7 +97,7 @@ public class PlayerController : MonoBehaviour
     {
         takingPhoto = true;
         Debug.Log("Taking Photo!!");
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.1f);
         takingPhoto = false;
         StopCoroutine(CameraTakePhoto());
     }

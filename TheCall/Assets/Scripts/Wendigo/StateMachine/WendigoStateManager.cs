@@ -27,7 +27,7 @@ public class WendigoStateManager : MonoBehaviour
         currentState.EnterState(this);
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         currentState.UpdateState(this);
     }
