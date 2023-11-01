@@ -3,7 +3,12 @@ guid: dd22ca820f6eb0343b72b6fb00802501
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Conifer_leaf_snow2
+    second: {fileID: 2100000, guid: 0cc4acbc05330e547802b8c309156e81, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
