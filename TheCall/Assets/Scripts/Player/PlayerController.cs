@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -23,6 +24,8 @@ public class PlayerController : MonoBehaviour
     private Vector3 m_velocity = Vector3.zero; // Velocity (Gravity)
     private float m_moveSpeed = 0.0f; // Move speed.
 
+    public bool takingPhoto = false;
+
     private void Start()
     {
         m_controller = GetComponent<CharacterController>();
@@ -35,6 +38,11 @@ public class PlayerController : MonoBehaviour
 
         // Rotate player body towards camera direction.
         transform.rotation = Quaternion.Euler(transform.localEulerAngles.x, playerCamera.localEulerAngles.y, transform.localEulerAngles.z);
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            TakePhoto();
+        }
     }
 
     private void DoPlayerMovement()
@@ -79,11 +87,18 @@ public class PlayerController : MonoBehaviour
         m_isRunning = value.isPressed; // Is running button pressed.
     }
 
-
-
-    // FOR WENDIGO TESTING ONLY
-    public void TakePhoto()
+    // WENDIGO TESTING ONLY
+    void TakePhoto()
     {
+        StartCoroutine(CameraTakePhoto());
+    }
 
+    private IEnumerator CameraTakePhoto()
+    {
+        takingPhoto = true;
+        Debug.Log("Taking Photo!!");
+        yield return new WaitForSeconds(0.5f);
+        takingPhoto = false;
+        StopCoroutine(CameraTakePhoto());
     }
 }

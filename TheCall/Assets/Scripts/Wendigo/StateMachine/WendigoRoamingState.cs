@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class WendigoRoamingState : BaseState
 {
@@ -14,7 +15,9 @@ public class WendigoRoamingState : BaseState
     float DestinationX = 0;
     float DestinationZ = 0;
     bool destinationSet = false;
+    bool findingPlayer = false;
     Vector3 destinationPosition;
+    public NavMeshAgent nma;
     
     
     public override void EnterState(WendigoStateManager wendigo)
@@ -25,40 +28,59 @@ public class WendigoRoamingState : BaseState
 
     public override void UpdateState(WendigoStateManager wendigo)
     {
-        if (moving == false)
+        if (wendigo.pController.takingPhoto == true)
         {
-            directionChoice = Random.Range(0, 7);
-            moveAmount = Random.Range(10, 25);
-            moving = true;
-            oldX = wendigo.transform.localPosition.x;
-            oldZ = wendigo.transform.localPosition.z;
-            destinationSet = false;
+            Debug.Log("ALERTED!!");
+            int alertChance = 0;
+            alertChance = Random.Range(1, 10);
+
+            if (alertChance <= 3)
+            {
+                findingPlayer = true;
+                AlertWendigo(wendigo);
+            }
+            else
+            {
+                findingPlayer = false;
+            }
         }
 
-        if (moving == true)
+        if (findingPlayer == true)
         {
-            if (moveAmount > 0)
+            if (nma.remainingDistance <= 1.2f)
             {
-                // TO BE OVERHAULED & USING NAVMESH
-                switch (directionChoice)
+                findingPlayer = false;
+            }
+        }
+        else if (findingPlayer == false)
+        {
+            if (moving == false)
+            {
+                directionChoice = Random.Range(0, 7);
+                moveAmount = Random.Range(20, 25);
+                moving = true;
+                oldX = wendigo.transform.localPosition.x;
+                oldZ = wendigo.transform.localPosition.z;
+                nma.ResetPath();
+                destinationSet = false;
+            }
+
+            if (moving == true)
+            {
+                if (nma.hasPath == false)
+                {
+                    switch (directionChoice)
                 {
                     // Forward
                     case 0:
                         {
-                            //if (destinationSet == false)
-                            //{
-                            //    DestinationX = (oldX + moveAmount);
-                            //    DestinationZ = oldZ;
-                            //    destinationSet = true;
-                            //}
-                            //if (wendigo.transform.localPosition.x > DestinationX)
-                            //{
-                            //    wendigo.transform.localPosition = new Vector3(DestinationX, wendigo.transform.localPosition.y, wendigo.transform.localPosition.z);
-                            //}
-                            //else
-                            //{
-                            //    wendigo.transform.localPosition += new Vector3(1, 0, 0) * roamSpeed * Time.deltaTime;
-                            //}
+                            if (destinationSet == false)
+                            {
+                                DestinationX = (oldX + moveAmount);
+                                DestinationZ = oldZ;
+                                destinationSet = true;
+                            }
+                            MoveWendigo(wendigo, DestinationX, DestinationZ);
                             break;
                         }
                     // Backwards
@@ -70,14 +92,7 @@ public class WendigoRoamingState : BaseState
                                 DestinationZ = oldZ;
                                 destinationSet = true;
                             }
-                            if (wendigo.transform.localPosition.x < DestinationX)
-                            {
-                                wendigo.transform.localPosition = new Vector3(DestinationX, wendigo.transform.localPosition.y, wendigo.transform.localPosition.z);
-                            }
-                            else
-                            {
-                                wendigo.transform.localPosition -= new Vector3(1, 0, 0) * roamSpeed * Time.deltaTime;
-                            }
+                            MoveWendigo(wendigo, DestinationX, DestinationZ);
                             break;
                         }
                     // Right
@@ -89,14 +104,7 @@ public class WendigoRoamingState : BaseState
                                 DestinationZ = (oldZ + moveAmount);
                                 destinationSet = true;
                             }
-                            if (wendigo.transform.localPosition.z > DestinationZ)
-                            {
-                                wendigo.transform.localPosition = new Vector3(wendigo.transform.localPosition.x, wendigo.transform.localPosition.y, DestinationZ);
-                            }
-                            else
-                            {
-                                wendigo.transform.localPosition += new Vector3(0, 0, 1) * roamSpeed * Time.deltaTime;
-                            }
+                            MoveWendigo(wendigo, DestinationX, DestinationZ);
                             break;
                         }
                     // Left
@@ -108,14 +116,7 @@ public class WendigoRoamingState : BaseState
                                 DestinationZ = (oldZ - moveAmount);
                                 destinationSet = true;
                             }
-                            if (wendigo.transform.localPosition.z < DestinationZ)
-                            {
-                                wendigo.transform.localPosition = new Vector3(wendigo.transform.localPosition.x, wendigo.transform.localPosition.y, DestinationZ);
-                            }
-                            else
-                            {
-                                wendigo.transform.localPosition -= new Vector3(0, 0, 1) * roamSpeed * Time.deltaTime;
-                            }
+                            MoveWendigo(wendigo, DestinationX, DestinationZ);
                             break;
                         }
                     // Forward + Right
@@ -127,22 +128,7 @@ public class WendigoRoamingState : BaseState
                                 DestinationZ = (oldZ + moveAmount);
                                 destinationSet = true;
                             }
-                            if (wendigo.transform.localPosition.x > DestinationX)
-                            {
-                                wendigo.transform.localPosition = new Vector3(DestinationX, wendigo.transform.localPosition.y, wendigo.transform.localPosition.z);
-                            }
-                            else
-                            {
-                                wendigo.transform.localPosition += new Vector3(1, 0, 0) * roamSpeed * Time.deltaTime;
-                            }
-                            if (wendigo.transform.localPosition.z > DestinationZ)
-                            {
-                                wendigo.transform.localPosition = new Vector3(wendigo.transform.localPosition.x, wendigo.transform.localPosition.y, DestinationZ);
-                            }
-                            else
-                            {
-                                wendigo.transform.localPosition += new Vector3(0, 0, 1) * roamSpeed * Time.deltaTime;
-                            }
+                            MoveWendigo(wendigo, DestinationX, DestinationZ);
                             break;
                         }
                     // Forward + Left
@@ -154,22 +140,7 @@ public class WendigoRoamingState : BaseState
                                 DestinationZ = (oldZ - moveAmount);
                                 destinationSet = true;
                             }
-                            if (wendigo.transform.localPosition.x > DestinationX)
-                            {
-                                wendigo.transform.localPosition = new Vector3(DestinationX, wendigo.transform.localPosition.y, wendigo.transform.localPosition.z);
-                            }
-                            else
-                            {
-                                wendigo.transform.localPosition += new Vector3(1, 0, 0) * roamSpeed * Time.deltaTime;
-                            }
-                            if (wendigo.transform.localPosition.z < DestinationZ)
-                            {
-                                wendigo.transform.localPosition = new Vector3(wendigo.transform.localPosition.x, wendigo.transform.localPosition.y, DestinationZ);
-                            }
-                            else
-                            {
-                                wendigo.transform.localPosition -= new Vector3(0, 0, 1) * roamSpeed * Time.deltaTime;
-                            }
+                            MoveWendigo(wendigo, DestinationX, DestinationZ);
                             break;
                         }
                     // Backwards + Right
@@ -181,22 +152,7 @@ public class WendigoRoamingState : BaseState
                                 DestinationZ = (oldZ + moveAmount);
                                 destinationSet = true;
                             }
-                            if (wendigo.transform.localPosition.x < DestinationX)
-                            {
-                                wendigo.transform.localPosition = new Vector3(DestinationX, wendigo.transform.localPosition.y, wendigo.transform.localPosition.z);
-                            }
-                            else
-                            {
-                                wendigo.transform.localPosition -= new Vector3(1, 0, 0) * roamSpeed * Time.deltaTime;
-                            }
-                            if (wendigo.transform.localPosition.z > DestinationZ)
-                            {
-                                wendigo.transform.localPosition = new Vector3(wendigo.transform.localPosition.x, wendigo.transform.localPosition.y, DestinationZ);
-                            }
-                            else
-                            {
-                                wendigo.transform.localPosition += new Vector3(0, 0, 1) * roamSpeed * Time.deltaTime;
-                            }
+                            MoveWendigo(wendigo, DestinationX, DestinationZ);
                             break;
                         }
                     // Backwards + Left
@@ -208,44 +164,34 @@ public class WendigoRoamingState : BaseState
                                 DestinationZ = (oldZ - moveAmount);
                                 destinationSet = true;
                             }
-                            if (wendigo.transform.localPosition.x < DestinationX)
-                            {
-                                wendigo.transform.localPosition = new Vector3(DestinationX, wendigo.transform.localPosition.y, wendigo.transform.localPosition.z);
-                            }
-                            else
-                            {
-                                wendigo.transform.localPosition -= new Vector3(1, 0, 0) * roamSpeed * Time.deltaTime;
-                            }
-                            if (wendigo.transform.localPosition.z < DestinationZ)
-                            {
-                                wendigo.transform.localPosition = new Vector3(wendigo.transform.localPosition.x, wendigo.transform.localPosition.y, DestinationZ);
-                            }
-                            else
-                            {
-                                wendigo.transform.localPosition -= new Vector3(0, 0, 1) * roamSpeed * Time.deltaTime;
-                            }
+                            MoveWendigo(wendigo, DestinationX, DestinationZ);
                             break;
                         }
                 }
-                moveAmount -= 1 * roamSpeed * (int)Time.deltaTime;
-                destinationPosition = new Vector3(DestinationX, wendigo.transform.localPosition.y, DestinationZ);
-                Debug.Log("oldX: " + oldX);
-                Debug.Log("oldZ: " + oldZ);
-                Debug.Log("DestinationX: " + DestinationX);
-                Debug.Log("DestinationZ: " + DestinationZ);
-                Debug.Log("CurrentX: " + wendigo.transform.localPosition.x);
-                Debug.Log("CurrentZ: " + wendigo.transform.localPosition.z);
-            }
-            if (wendigo.transform.localPosition == destinationPosition)
-            {
-                Debug.Log("COMPLETED PROCESS!!");
-                moving = false;
+                }
+                if (nma.remainingDistance <= 1)
+                {
+                    Debug.Log("COMPLETED PROCESS!!");
+                    moving = false;
+                }
             }
         }
     }
 
-    public void AlertWendigo()
+    public void MoveWendigo(WendigoStateManager wendigo, float x, float z)
     {
+        if (findingPlayer == false)
+        {
+            destinationPosition = new Vector3(x, wendigo.transform.localPosition.y, z);
+            nma.SetDestination(destinationPosition);
+        }
+    }
 
+    public void AlertWendigo(WendigoStateManager wendigo)
+    {
+        nma.isStopped = true;
+        nma.ResetPath();
+        destinationPosition = new Vector3(wendigo.playerRef.transform.position.x, wendigo.playerRef.transform.position.y, wendigo.playerRef.transform.position.z);
+        nma.SetDestination(destinationPosition);
     }
 }

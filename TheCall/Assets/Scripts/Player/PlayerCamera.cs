@@ -1,4 +1,3 @@
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -21,7 +20,6 @@ public class PlayerCamera : MonoBehaviour
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked; // Lock cursor into window.
-        m_rotation = new Vector2(0, transform.rotation.y);
     }
 
     private void Update()
