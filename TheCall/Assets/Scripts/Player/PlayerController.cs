@@ -1,52 +1,89 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField]
-    private Camera playerCamera;
-    [SerializeField]
-    private GameObject playerBody;
-    [SerializeField]
-    private CharacterController controller;
-    [SerializeField]
-    private float mouseSense = 200;
-    [SerializeField]
+    [Tooltip("Enable/Disable player input.")]
+    public bool canMove = true;
 
-    private float speed = 100;
-    private float m_mouseX = 0;
-    private float m_mouseY = 0;
-    private float m_inputX = 0;
-    private float m_inputZ = 0;
+    [SerializeField, Tooltip("Reference to the player's camera.")]
+    private Transform playerCamera;
 
-    private Vector3 m_velocity;
+    [SerializeField, Tooltip("How fast the player can walk.")]
+    private float walkSpeed = 8.0f;
+    [SerializeField, Tooltip("How fast the player can run.")]
+    private float runSpeed = 16.0f;
+
+    private CharacterController m_controller; // Character Controller component.
+
+    private Vector2 m_input; // Moving input.
+    private bool m_isRunning = false; // Run button input.
+
+    private Vector3 m_velocity = Vector3.zero; // Velocity (Gravity)
+    private float m_moveSpeed = 0.0f; // Move speed.
 
     private void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
-        playerCamera.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+        m_controller = GetComponent<CharacterController>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        m_mouseX += Input.GetAxis("Mouse X") * mouseSense * Time.deltaTime;
-        m_mouseY += Input.GetAxis("Mouse Y") * mouseSense * Time.deltaTime;
+        DoPlayerMovement();
+        DoGravity();
 
-        playerCamera.transform.rotation = Quaternion.Euler(new Vector3(m_mouseY, m_mouseX, 0));
-        playerBody.transform.rotation = Quaternion.Euler(new Vector3(0, m_mouseX, 0));
+        // Rotate player body towards camera direction.
+        transform.rotation = Quaternion.Euler(transform.localEulerAngles.x, playerCamera.localEulerAngles.y, transform.localEulerAngles.z);
+    }
 
-        m_inputX = Input.GetAxis("Horizontal");
-        m_inputZ = Input.GetAxis("Vertical");
+    private void DoPlayerMovement()
+    {
+        // Change move speed whether running or not.
+        if (m_isRunning)
+            m_moveSpeed = runSpeed;
+        else
+            m_moveSpeed = walkSpeed;
 
-        Vector3 move = transform.right * m_inputX + transform.forward * m_inputZ;
-        move.y = 0;
+        // Player movement.
+        Vector3 move = Vector3.zero;
+        if (canMove)
+        {
+            move = m_input.x * playerCamera.right + m_input.y * playerCamera.forward; // Get movement direction relative to camera direction.
+            move.y = 0;
+        }
+        m_controller.Move(move.normalized * m_moveSpeed * Time.deltaTime); // Apply movement input.
+    }
 
-        controller.Move(move * speed * Time.deltaTime);
-        m_velocity.y++;
-        //transform.position -= move * speed * Time.deltaTime;
+    private void DoGravity()
+    {
+        if (m_controller.isGrounded) // Is player touching ground.
+        {
+            m_velocity.y = -1.0f; // Push player out of ground.
+        }
+        else
+        {
+            m_velocity.y += Physics.gravity.y * Time.deltaTime; // Gravity.
+        }
+        m_controller.Move(m_velocity * Time.deltaTime); // Apply player velocity.
+    }
+
+    // Input System messages.
+    private void OnMove(InputValue value)
+    {
+        m_input = value.Get<Vector2>(); // Get movement input.
+    }
+
+    private void OnRun(InputValue value)
+    {
+        m_isRunning = value.isPressed; // Is running button pressed.
+    }
+
+
+
+    // FOR WENDIGO TESTING ONLY
+    public void TakePhoto()
+    {
+
     }
 }
