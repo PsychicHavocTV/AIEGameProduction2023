@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 752564198954703532}
   - component: {fileID: 4458139990879114505}
   - component: {fileID: 1889974702504468931}
+  - component: {fileID: 7934229412853720325}
   m_Layer: 0
   m_Name: Stylized_Conifer_Winter_LowPoly_FNL (1)
   m_TagString: Untagged
@@ -85,3 +86,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &7934229412853720325
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 88512379594162198}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.75
+  m_Height: 9.699108
+  m_Direction: 1
+  m_Center: {x: -0.045021534, y: 4.849554, z: -0.0067173243}
