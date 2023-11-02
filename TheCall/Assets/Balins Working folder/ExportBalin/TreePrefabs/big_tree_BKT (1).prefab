@@ -463,6 +463,7 @@ GameObject:
   - component: {fileID: 6063572412043949536}
   - component: {fileID: 7140421321458642750}
   - component: {fileID: 6678757647847908394}
+  - component: {fileID: 8786620469407676133}
   m_Layer: 0
   m_Name: trunk_GEO
   m_TagString: Untagged
@@ -535,3 +536,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &8786620469407676133
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9216875582978038145}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.01726512
+  m_Height: 0.05
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}

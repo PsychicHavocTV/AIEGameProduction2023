@@ -57,7 +57,7 @@ public class WendigoRoamingState : BaseState
             if (moving == false)
             {
                 directionChoice = Random.Range(0, 7);
-                moveAmount = Random.Range(20, 25);
+                moveAmount = Random.Range(10, 15);
                 moving = true;
                 oldX = wendigo.transform.localPosition.x;
                 oldZ = wendigo.transform.localPosition.z;
@@ -182,8 +182,14 @@ public class WendigoRoamingState : BaseState
     {
         if (findingPlayer == false)
         {
-            destinationPosition = new Vector3(x, wendigo.transform.localPosition.y, z);
-            nma.SetDestination(destinationPosition);
+            destinationPosition = wendigo.playerRef.transform.position;
+            var path = new NavMeshPath();
+            nma.CalculatePath(destinationPosition, path);
+            if (path.status == NavMeshPathStatus.PathComplete)
+            {
+                //nma.SetDestination(destinationPosition);
+                nma.SetPath(path);
+            }
         }
     }
 
@@ -191,7 +197,12 @@ public class WendigoRoamingState : BaseState
     {
         nma.isStopped = true;
         nma.ResetPath();
-        destinationPosition = new Vector3(wendigo.playerRef.transform.position.x, wendigo.playerRef.transform.position.y, wendigo.playerRef.transform.position.z);
-        nma.SetDestination(destinationPosition);
+        var path = new NavMeshPath();
+        destinationPosition = wendigo.playerRef.transform.position;
+        if (path.status == NavMeshPathStatus.PathComplete)
+        {
+            //nma.SetDestination(destinationPosition);
+            nma.SetPath(path);
+        }
     }
 }
