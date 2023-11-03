@@ -1,50 +1,55 @@
-using UnityEditor;
 using UnityEngine;
 
 public class ObjectDetector : MonoBehaviour
 {
+    [Tooltip("Reference to the target camera. usually the player's camera.")]
     public GameObject targetCamera;
 
-    ObjectsInView camObjects;
+    private ObjectsInView m_camObjects; // Reference to target camera's ObjectsInView script.
+    private Collider m_thisCollider; // Reference to the object's collider.
 
-    Collider thisCollider;
+    private Plane[] m_cameraFrustrum; // Contains calculated frustrum planes from the target camera.
 
-    Plane[] cameraFrustrum;
-
-    void Awake()
+    private void Awake()
     {
-        thisCollider = GetComponentInChildren<Collider>();
+        m_thisCollider = GetComponentInChildren<Collider>(); // Get reference to the collider.
 
-        camObjects = targetCamera.GetComponentInChildren<ObjectsInView>();
+        m_camObjects = targetCamera.GetComponentInChildren<ObjectsInView>(); // Get reference to camera's ObjectsInView script.
     }
 
-    void OnDisable()
+    private void OnDisable()
     {
-        camObjects.RemoveObject(gameObject);
+        if (m_camObjects == null) // Return if camera does not have the ObjectsInView script.
+            return;
+
+        m_camObjects.RemoveObject(gameObject); // Remove itself when disabled.
     }
 
-    void Update()
+    private void Update()
     {
         DetectObject();
     }
 
+    /// <summary>
+    /// Test whether object is within camera frustrum and add/remove itself from the camera's list.
+    /// </summary>
     private void DetectObject()
     {
-        if (camObjects == null)
+        if (m_camObjects == null) // Return if camera does not have the ObjectsInView script.
             return;
 
         Camera cam = targetCamera.GetComponent<Camera>();
 
         // If in camera view add to List, otherwise remove from list.
-        var bounds = thisCollider.bounds;
-        cameraFrustrum = GeometryUtility.CalculateFrustumPlanes(cam);
-        if (GeometryUtility.TestPlanesAABB(cameraFrustrum, bounds))
+        var bounds = m_thisCollider.bounds;
+        m_cameraFrustrum = GeometryUtility.CalculateFrustumPlanes(cam);
+        if (GeometryUtility.TestPlanesAABB(m_cameraFrustrum, bounds)) // Test whether object's bounds is within camera frustrum.
         {
-            camObjects.AddObject(gameObject);
+            m_camObjects.AddObject(gameObject); // Add itself to target camera's object list.
         }
         else
         {
-            camObjects.RemoveObject(gameObject);
+            m_camObjects.RemoveObject(gameObject); // Remove itself from target camera's object list.
         }
     }
 }

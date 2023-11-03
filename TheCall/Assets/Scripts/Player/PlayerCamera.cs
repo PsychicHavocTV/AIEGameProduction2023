@@ -13,7 +13,7 @@ public class PlayerCamera : MonoBehaviour
     [SerializeField, Tooltip("How fast the camera moves.")]
     private float cameraSensitivity = 1.0f;
 
-    private Vector2 m_input;
+    private Vector2 m_input; // Contains player input for camera look.
 
     private Vector2 m_rotation; // Camera's rotation.
 
