@@ -11,13 +11,13 @@ C:\Program Files\Unity\Hub\Editor\2021.3.13f1\Editor\Unity.exe
 -name
 AssetImportWorker0
 -projectPath
-E:/Unity/Projects/TheCall
+C:/Users/balin/Documents/GitHub/AIEGameProduction2023/TheCall
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-50527
-Successfully changed project path to: E:/Unity/Projects/TheCall
-E:/Unity/Projects/TheCall
+54653
+Successfully changed project path to: C:/Users/balin/Documents/GitHub/AIEGameProduction2023/TheCall
+C:/Users/balin/Documents/GitHub/AIEGameProduction2023/TheCall
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
     "memorysetup-bucket-allocator-granularity=16"
     "memorysetup-bucket-allocator-bucket-count=8"
@@ -47,11 +47,11 @@ E:/Unity/Projects/TheCall
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Refreshing native plugins compatible for Editor in 139.09 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 241.97 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.3.13f1 (9e7d58001ecf)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.13f1/Editor/Data/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path E:/Unity/Projects/TheCall/Assets
+[Subsystems] Discovering subsystems at path C:/Users/balin/Documents/GitHub/AIEGameProduction2023/TheCall/Assets
 GfxDevice: creating device client; threaded=0; jobified=0
 Direct3D:
     Version:  Direct3D 11.0 [level 11.1]
@@ -63,90 +63,90 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.13f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.13f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.13f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56220
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56900
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.13f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.006930 seconds.
+Registered in 0.009440 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 117.04 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 169.65 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.541 seconds
+- Completed reload, in  0.827 seconds
 Domain Reload Profiling:
-	ReloadAssembly (541ms)
-		BeginReloadAssembly (56ms)
+	ReloadAssembly (827ms)
+		BeginReloadAssembly (96ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (399ms)
-			LoadAssemblies (53ms)
+			CreateAndSetChildDomain (2ms)
+		EndReloadAssembly (599ms)
+			LoadAssemblies (91ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (78ms)
+			SetupTypeCache (130ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (20ms)
-			SetupLoadedEditorAssemblies (260ms)
+			RebuildScriptCaches (30ms)
+			SetupLoadedEditorAssemblies (382ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (8ms)
+				InitializePlatformSupportModulesInManaged (7ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (117ms)
-				BeforeProcessingInitializeOnLoad (1ms)
-				ProcessInitializeOnLoadAttributes (100ms)
-				ProcessInitializeOnLoadMethodAttributes (34ms)
+				RefreshPlugins (170ms)
+				BeforeProcessingInitializeOnLoad (2ms)
+				ProcessInitializeOnLoadAttributes (152ms)
+				ProcessInitializeOnLoadMethodAttributes (50ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.007411 seconds.
+Registered in 0.012180 seconds.
 Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image E:\Unity\Projects\TheCall\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Symbol file LoadedFromMemory doesn't match image E:\Unity\Projects\TheCall\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\balin\Documents\GitHub\AIEGameProduction2023\TheCall\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\balin\Documents\GitHub\AIEGameProduction2023\TheCall\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 115.44 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 170.30 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Package Manager log level set to [2]
 Mono: successfully reloaded assembly
-- Completed reload, in  1.413 seconds
+- Completed reload, in  2.010 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1414ms)
-		BeginReloadAssembly (98ms)
+	ReloadAssembly (2011ms)
+		BeginReloadAssembly (141ms)
 			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (5ms)
+			DisableScriptedObjects (6ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (16ms)
-		EndReloadAssembly (1218ms)
-			LoadAssemblies (96ms)
+			CreateAndSetChildDomain (34ms)
+		EndReloadAssembly (1735ms)
+			LoadAssemblies (131ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (280ms)
+			SetupTypeCache (416ms)
 			ReleaseScriptCaches (2ms)
-			RebuildScriptCaches (80ms)
-			SetupLoadedEditorAssemblies (732ms)
+			RebuildScriptCaches (127ms)
+			SetupLoadedEditorAssemblies (1023ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (4ms)
+				InitializePlatformSupportModulesInManaged (5ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (116ms)
-				BeforeProcessingInitializeOnLoad (114ms)
-				ProcessInitializeOnLoadAttributes (282ms)
-				ProcessInitializeOnLoadMethodAttributes (208ms)
-				AfterProcessingInitializeOnLoad (9ms)
+				RefreshPlugins (170ms)
+				BeforeProcessingInitializeOnLoad (169ms)
+				ProcessInitializeOnLoadAttributes (382ms)
+				ProcessInitializeOnLoadMethodAttributes (286ms)
+				AfterProcessingInitializeOnLoad (10ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (4ms)
+			AwakeInstancesAfterBackupRestoration (5ms)
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
-Refreshing native plugins compatible for Editor in 1.46 ms, found 3 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
+Refreshing native plugins compatible for Editor in 2.30 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 7308 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 96 unused Assets / (3.5 MB). Loaded Objects now: 7730.
-Memory consumption went from 316.7 MB to 313.2 MB.
-Total: 8.000000 ms (FindLiveObjects: 0.490200 ms CreateObjectMapping: 0.364300 ms MarkObjects: 6.507100 ms  DeleteObjects: 0.637700 ms)
+Unloading 96 unused Assets / (3.5 MB). Loaded Objects now: 7731.
+Memory consumption went from 316.9 MB to 313.3 MB.
+Total: 11.768100 ms (FindLiveObjects: 0.987100 ms CreateObjectMapping: 0.710000 ms MarkObjects: 8.889400 ms  DeleteObjects: 1.180200 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -160,391 +160,314 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 561.278563 seconds.
-  path: Assets/Balins Working folder/ExportBalin/TreePrefabs
-  artifactKey: Guid(80692669598ddc34b96d67be91a5468d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/TreePrefabs using Guid(80692669598ddc34b96d67be91a5468d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6d1f46d79f75da04ad54c100e689b86a') in 0.019303 seconds 
+  Time since last request: 5905.278961 seconds.
+  path: Assets/New Terrain.asset
+  artifactKey: Guid(f029489a24a78ee44b4e2162f672b192) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/New Terrain.asset using Guid(f029489a24a78ee44b4e2162f672b192) Importer(815301076,1909f56bfc062723c751e8b465ee728b) The tree Conifer_High_Production_NoSnow_GEO must use the Nature/Soft Occlusion shader. Otherwise billboarding/lighting will not work correctly.
+The tree Stylized_Conifer_Winter_LowPoly_GEO couldn't be instanced because one of the materials is missing.
+The tree Stylized_Conifer_Winter_LowPoly_GEO couldn't be instanced because the mesh renderer material is null.
+The tree Stylized_Conifer_Winter_LowPoly_GEO couldn't be instanced because one of the materials is missing.
+The tree WinterTree_High_Production_FNL must use the Nature/Soft Occlusion shader. Otherwise billboarding/lighting will not work correctly.
+ -> (artifact id: '34f48fedec8ea859be8bde453aedfbaf') in 0.203338 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.008912 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\balin\Documents\GitHub\AIEGameProduction2023\TheCall\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\balin\Documents\GitHub\AIEGameProduction2023\TheCall\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 1.57 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.251 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1251ms)
+		BeginReloadAssembly (149ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (5ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (52ms)
+		EndReloadAssembly (1018ms)
+			LoadAssemblies (90ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (269ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (54ms)
+			SetupLoadedEditorAssemblies (498ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (11ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (2ms)
+				BeforeProcessingInitializeOnLoad (102ms)
+				ProcessInitializeOnLoadAttributes (272ms)
+				ProcessInitializeOnLoadMethodAttributes (99ms)
+				AfterProcessingInitializeOnLoad (11ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (32ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 8.83 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 6999 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 83 unused Assets / (3.5 MB). Loaded Objects now: 7737.
+Memory consumption went from 303.9 MB to 300.5 MB.
+Total: 7.040200 ms (FindLiveObjects: 0.496100 ms CreateObjectMapping: 0.195600 ms MarkObjects: 5.698300 ms  DeleteObjects: 0.649500 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.026971 seconds.
-  path: Assets/Balins Working folder/ExportBalin/TreePrefabs/big_tree_BKT (1).prefab
-  artifactKey: Guid(fa2a43464be7b8d49a8449e3f14c5e74) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/TreePrefabs/big_tree_BKT (1).prefab using Guid(fa2a43464be7b8d49a8449e3f14c5e74) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ba52fbe0ae46b7c8b2a51e036dd33c0e') in 0.094308 seconds 
+  Time since last request: 7443.915768 seconds.
+  path: Assets/Balins Working folder/ExportBalin/Models/Grass
+  artifactKey: Guid(a1696a02dae6a7e4d8a8215b4a813200) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Balins Working folder/ExportBalin/Models/Grass using Guid(a1696a02dae6a7e4d8a8215b4a813200) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a94647d1cd5acef4f607587749af05a1') in 0.021805 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000020 seconds.
-  path: Assets/Balins Working folder/ExportBalin/TreePrefabs/Conifer_LowPoly_GEO.prefab
-  artifactKey: Guid(dcc68a21beb080b47a43f5ec921b8d25) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/TreePrefabs/Conifer_LowPoly_GEO.prefab using Guid(dcc68a21beb080b47a43f5ec921b8d25) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '088925f8e61f8a3fa1f657eec11f0a9b') in 0.012197 seconds 
+  Time since last request: 5.602167 seconds.
+  path: Assets/Balins Working folder/ExportBalin/Models/Grass/grass_FNL.fbx
+  artifactKey: Guid(d76f598d485750143b9d444147bd73d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Balins Working folder/ExportBalin/Models/Grass/grass_FNL.fbx using Guid(d76f598d485750143b9d444147bd73d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f09754d424628cb4315003220a5c7ee0') in 0.924143 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000029 seconds.
-  path: Assets/Balins Working folder/ExportBalin/TreePrefabs/Stylized_Conifer_Winter_LowPoly_GEO.prefab
-  artifactKey: Guid(0442e98c7323b3b4fa1af9d68f8f2886) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/TreePrefabs/Stylized_Conifer_Winter_LowPoly_GEO.prefab using Guid(0442e98c7323b3b4fa1af9d68f8f2886) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a24b35993e68e2119699986d9c1aa53a') in 0.027207 seconds 
+  Time since last request: 15.949238 seconds.
+  path: Assets/Balins Working folder/ExportBalin/Prefabs/grass_FNL.prefab
+  artifactKey: Guid(6b092908819a948428d07f2350e928e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Balins Working folder/ExportBalin/Prefabs/grass_FNL.prefab using Guid(6b092908819a948428d07f2350e928e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2ce2211d640c5547b8559e0f87bf0526') in 0.022550 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.018224 seconds.
-  path: Assets/Balins Working folder/ExportBalin/TreePrefabs/ZWinterTree_High_Production_FNL 1.prefab
-  artifactKey: Guid(7ce2cff25d569204d8eb106206abda75) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/TreePrefabs/ZWinterTree_High_Production_FNL 1.prefab using Guid(7ce2cff25d569204d8eb106206abda75) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4cab4b9a83a754f6dd6b8d5157630df3') in 0.027589 seconds 
+  Time since last request: 201.876121 seconds.
+  path: Assets/Balins Working folder/ExportBalin/Models/Tents
+  artifactKey: Guid(a32a30f5ede175a49b1916107ae448ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Balins Working folder/ExportBalin/Models/Tents using Guid(a32a30f5ede175a49b1916107ae448ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '931b624b3b6f1cf673d4c6c34fae9ac6') in 0.007613 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 45.180135 seconds.
-  path: Assets/Balins Working folder/ExportBalin/Tree MODELS
-  artifactKey: Guid(9acdc4308e2579b419b6e4da401b412a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/Tree MODELS using Guid(9acdc4308e2579b419b6e4da401b412a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '10093626eefc6502c490ec82c1fe663c') in 0.007074 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.027171 seconds.
-  path: Assets/Balins Working folder/ExportBalin/Tree MODELS/big_tree_BKT (1).fbx
-  artifactKey: Guid(105a9834c5dc8e64883e4ca4d8a33c21) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/Tree MODELS/big_tree_BKT (1).fbx using Guid(105a9834c5dc8e64883e4ca4d8a33c21) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f2f4f1e52593c7a866a319b16aab7d5d') in 0.879350 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000033 seconds.
-  path: Assets/Balins Working folder/ExportBalin/Tree MODELS/Conifer_leaf_snow2 1.mat
-  artifactKey: Guid(fa41bbc5980a5cf4b9d666355582113f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/Tree MODELS/Conifer_leaf_snow2 1.mat using Guid(fa41bbc5980a5cf4b9d666355582113f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3708bf780e3081f0425dfd59a797afd9') in 1.430603 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000040 seconds.
-  path: Assets/Balins Working folder/ExportBalin/Tree MODELS/Foilage2_FNL.fbx
-  artifactKey: Guid(9dbb2675cc0006647b8f090c738e41fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/Tree MODELS/Foilage2_FNL.fbx using Guid(9dbb2675cc0006647b8f090c738e41fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '323e1ac35d09004571f5ab9ad624993e') in 0.227628 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000033 seconds.
-  path: Assets/Balins Working folder/ExportBalin/Tree MODELS/Leaf_Low.mat
-  artifactKey: Guid(6ee4a971fa9759646a8eaf73b95182f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/Tree MODELS/Leaf_Low.mat using Guid(6ee4a971fa9759646a8eaf73b95182f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1b590f678b0b75e6dd25e0feeba86759') in 0.223337 seconds 
+  Time since last request: 5.462740 seconds.
+  path: Assets/Balins Working folder/ExportBalin/Models/Tents/tent_closed_FNL.fbx
+  artifactKey: Guid(2975bf98ad9d02c4fa8dfeeb3a3066ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Balins Working folder/ExportBalin/Models/Tents/tent_closed_FNL.fbx using Guid(2975bf98ad9d02c4fa8dfeeb3a3066ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5c180a38c7a6b05d333ad1e49d1e3732') in 0.146544 seconds 
 ========================================================================
 Received Import Request.
   Time since last request: 0.000036 seconds.
-  path: Assets/Balins Working folder/ExportBalin/Tree MODELS/Conifer_High_Production_Normal.tga
-  artifactKey: Guid(bfe93409af3c4944c9e3b881b69251c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/Tree MODELS/Conifer_High_Production_Normal.tga using Guid(bfe93409af3c4944c9e3b881b69251c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '85e8869e4b603136b21f60018744c767') in 0.100691 seconds 
+  path: Assets/Balins Working folder/ExportBalin/Models/Tents/tent_open_FNL.fbx
+  artifactKey: Guid(6e3d6c2d3a18e1343939e85536c7e0af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Balins Working folder/ExportBalin/Models/Tents/tent_open_FNL.fbx using Guid(6e3d6c2d3a18e1343939e85536c7e0af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c4912fcc9f07c7c35384f8c1eb9113f1') in 0.143453 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.009799 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\balin\Documents\GitHub\AIEGameProduction2023\TheCall\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\balin\Documents\GitHub\AIEGameProduction2023\TheCall\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 1.91 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.141 seconds
+Domain Reload Profiling:
+	ReloadAssembly (2142ms)
+		BeginReloadAssembly (335ms)
+			ExecutionOrderSort (1ms)
+			DisableScriptedObjects (42ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (88ms)
+		EndReloadAssembly (1668ms)
+			LoadAssemblies (212ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (767ms)
+			ReleaseScriptCaches (3ms)
+			RebuildScriptCaches (63ms)
+			SetupLoadedEditorAssemblies (550ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (13ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (2ms)
+				BeforeProcessingInitializeOnLoad (116ms)
+				ProcessInitializeOnLoadAttributes (302ms)
+				ProcessInitializeOnLoadMethodAttributes (104ms)
+				AfterProcessingInitializeOnLoad (11ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (35ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 13.65 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 6999 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 83 unused Assets / (3.5 MB). Loaded Objects now: 7890.
+Memory consumption went from 311.5 MB to 308.0 MB.
+Total: 9.286900 ms (FindLiveObjects: 0.726200 ms CreateObjectMapping: 0.219800 ms MarkObjects: 7.606700 ms  DeleteObjects: 0.732600 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000031 seconds.
-  path: Assets/Balins Working folder/ExportBalin/Tree MODELS/Conifer_LowPoly_GEO.fbx
-  artifactKey: Guid(466093edd3aaf464d89464694afd810d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/Tree MODELS/Conifer_LowPoly_GEO.fbx using Guid(466093edd3aaf464d89464694afd810d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '80e91ff103f7fe9ae8f8cec7de89e2ab') in 4.304898 seconds 
+  Time since last request: 817.637472 seconds.
+  path: Assets/Balins Working folder/ExportBalin/Prefabs/campfire_lit_BKT.prefab
+  artifactKey: Guid(079681edd6a159148a7dee95e64b9a14) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Balins Working folder/ExportBalin/Prefabs/campfire_lit_BKT.prefab using Guid(079681edd6a159148a7dee95e64b9a14) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5cb8570b0f0964de6a4e6ca3ba384e82') in 0.607264 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000058 seconds.
-  path: Assets/Balins Working folder/ExportBalin/Tree MODELS/Tree2/Cap_04_Normal.tga
-  artifactKey: Guid(c006c3dbf64da5f45a5caffbcaed2c24) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/Tree MODELS/Tree2/Cap_04_Normal.tga using Guid(c006c3dbf64da5f45a5caffbcaed2c24) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '81b1a0566173040e9ce95161110612bb') in 0.015208 seconds 
+  Time since last request: 18.654491 seconds.
+  path: Assets/Balins Working folder/ExportBalin/Prefabs/campfire_lit_BKT.prefab
+  artifactKey: Guid(079681edd6a159148a7dee95e64b9a14) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Balins Working folder/ExportBalin/Prefabs/campfire_lit_BKT.prefab using Guid(079681edd6a159148a7dee95e64b9a14) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c52726a86b94011a180c0f1e4756a0fd') in 0.022822 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000059 seconds.
-  path: Assets/Balins Working folder/ExportBalin/Tree MODELS/Tree2/Branch.mat
-  artifactKey: Guid(864c67bdba9baee438c46336298e4497) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/Tree MODELS/Tree2/Branch.mat using Guid(864c67bdba9baee438c46336298e4497) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c62fa8dad04c77769936a37037b19992') in 0.048247 seconds 
+  Time since last request: 1.759488 seconds.
+  path: Assets/Balins Working folder/ExportBalin/Prefabs/campfire_lit_BKT.prefab
+  artifactKey: Guid(079681edd6a159148a7dee95e64b9a14) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Balins Working folder/ExportBalin/Prefabs/campfire_lit_BKT.prefab using Guid(079681edd6a159148a7dee95e64b9a14) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '836877ce1f5598135516646cd10b867c') in 0.022626 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000053 seconds.
-  path: Assets/Balins Working folder/ExportBalin/Tree MODELS/Tree2/BlueSpruceBark.tga
-  artifactKey: Guid(c6e46b74876abd74db3a3723db9086e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/Tree MODELS/Tree2/BlueSpruceBark.tga using Guid(c6e46b74876abd74db3a3723db9086e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0079c12cd5e23935682e02c664f7a1bc') in 0.012705 seconds 
+  Time since last request: 65.122789 seconds.
+  path: Assets/Balins Working folder/ExportBalin/Materials/Default_Mat.mat
+  artifactKey: Guid(3142fa8ff681f9a41931782b6f1db2e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Balins Working folder/ExportBalin/Materials/Default_Mat.mat using Guid(3142fa8ff681f9a41931782b6f1db2e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a1783b249c673eecd2731be18122543d') in 0.027282 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000044 seconds.
-  path: Assets/Balins Working folder/ExportBalin/Tree MODELS/Tree2/Leaf_Low_Normal.tga
-  artifactKey: Guid(0f6dbfb6cc94a9d4e8a94775707cfebb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/Tree MODELS/Tree2/Leaf_Low_Normal.tga using Guid(0f6dbfb6cc94a9d4e8a94775707cfebb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a49b6f79c31f78ea02b2fd1517ddfdea') in 0.013894 seconds 
+  Time since last request: 13.251730 seconds.
+  path: Assets/Balins Working folder/ExportBalin/Prefabs/campfire_lit_BKT.prefab
+  artifactKey: Guid(079681edd6a159148a7dee95e64b9a14) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Balins Working folder/ExportBalin/Prefabs/campfire_lit_BKT.prefab using Guid(079681edd6a159148a7dee95e64b9a14) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '74c5e3bae7a212e40d2d410a17d1a61d') in 0.022132 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.009933 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\balin\Documents\GitHub\AIEGameProduction2023\TheCall\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\balin\Documents\GitHub\AIEGameProduction2023\TheCall\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 1.64 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.310 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1311ms)
+		BeginReloadAssembly (168ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (23ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (59ms)
+		EndReloadAssembly (1051ms)
+			LoadAssemblies (91ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (279ms)
+			ReleaseScriptCaches (3ms)
+			RebuildScriptCaches (56ms)
+			SetupLoadedEditorAssemblies (490ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (11ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (2ms)
+				BeforeProcessingInitializeOnLoad (109ms)
+				ProcessInitializeOnLoadAttributes (261ms)
+				ProcessInitializeOnLoadMethodAttributes (96ms)
+				AfterProcessingInitializeOnLoad (11ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (31ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 7.66 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 6999 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 83 unused Assets / (3.5 MB). Loaded Objects now: 7998.
+Memory consumption went from 311.6 MB to 308.1 MB.
+Total: 8.577200 ms (FindLiveObjects: 0.583000 ms CreateObjectMapping: 0.506300 ms MarkObjects: 6.782100 ms  DeleteObjects: 0.705000 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000053 seconds.
-  path: Assets/Balins Working folder/ExportBalin/Tree MODELS/WinterTree_High_Production_FNL.fbx
-  artifactKey: Guid(ba775ca55913c454e861f851ae1bfa77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/Tree MODELS/WinterTree_High_Production_FNL.fbx using Guid(ba775ca55913c454e861f851ae1bfa77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0159423075889b4a5d348a3000897c93') in 4.916004 seconds 
+  Time since last request: 20.280292 seconds.
+  path: Assets/Balins Working folder/ExportBalin/Prefabs/campfire_lit_BKT.prefab
+  artifactKey: Guid(079681edd6a159148a7dee95e64b9a14) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Balins Working folder/ExportBalin/Prefabs/campfire_lit_BKT.prefab using Guid(079681edd6a159148a7dee95e64b9a14) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0950db7f424b8ac5be9c7fdcb0e0c162') in 0.415323 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000035 seconds.
-  path: Assets/Balins Working folder/ExportBalin/Tree MODELS/Tree2
-  artifactKey: Guid(6729b89d4aab71e4986a2606bcceb5f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/Tree MODELS/Tree2 using Guid(6729b89d4aab71e4986a2606bcceb5f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2468b40840b4ca5d8a70eec20c2d187a') in 0.001870 seconds 
+  Time since last request: 12.642354 seconds.
+  path: Assets/Balins Working folder/ExportBalin/Prefabs/campfire_lit_BKT.prefab
+  artifactKey: Guid(079681edd6a159148a7dee95e64b9a14) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Balins Working folder/ExportBalin/Prefabs/campfire_lit_BKT.prefab using Guid(079681edd6a159148a7dee95e64b9a14) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '64399b2d817527ddd3a8cf8e241cb705') in 0.022880 seconds 
 ========================================================================
-Received Import Request.
-  Time since last request: 0.000048 seconds.
-  path: Assets/Balins Working folder/ExportBalin/Tree MODELS/Tree2/Cap_04.tga
-  artifactKey: Guid(c53a8d357513d3a46a4ee4e7813920bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/Tree MODELS/Tree2/Cap_04.tga using Guid(c53a8d357513d3a46a4ee4e7813920bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a04fd797c50ef66fa866542de6d89ec1') in 0.013924 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 100.332614 seconds.
-  path: Assets/Balins Working folder/ExportBalin/TreePrefabs/WinterTree_High_Production_FNL.prefab
-  artifactKey: Guid(66a4936018c707e4d8844c9359f04fbc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/TreePrefabs/WinterTree_High_Production_FNL.prefab using Guid(66a4936018c707e4d8844c9359f04fbc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cd241a4ce778df964e176d5033eb8561') in 0.043668 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 29.169986 seconds.
-  path: Assets/Balins Working folder/ExportBalin/TreePrefabs/Stylized_Conifer_Winter_LowPoly_FNL (1).prefab
-  artifactKey: Guid(af8786e5c2363a543b36825f821a47d6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/TreePrefabs/Stylized_Conifer_Winter_LowPoly_FNL (1).prefab using Guid(af8786e5c2363a543b36825f821a47d6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1843ff6a4342a1af9bbe75981f72f204') in 0.045406 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 33.761927 seconds.
-  path: Assets/Balins Working folder/ExportBalin/TreePrefabs/Conifer_High_Production_NoSnow_GEO.prefab
-  artifactKey: Guid(97e81c8c7972dc34b8f459b36ed99cde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/TreePrefabs/Conifer_High_Production_NoSnow_GEO.prefab using Guid(97e81c8c7972dc34b8f459b36ed99cde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7fc3b2374cdfa7db8df23bcb327bcb46') in 0.033302 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 139.141127 seconds.
-  path: Assets/Balins Working folder/ExportBalin/TreePrefabs/Conifer_High_Production_NoSnow_GEO.prefab
-  artifactKey: Guid(97e81c8c7972dc34b8f459b36ed99cde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/TreePrefabs/Conifer_High_Production_NoSnow_GEO.prefab using Guid(97e81c8c7972dc34b8f459b36ed99cde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4f2056f72132247df1575c93026b266a') in 0.031952 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 4.210681 seconds.
-  path: Assets/Balins Working folder/ExportBalin/TreePrefabs/Stylized_Conifer_Winter_LowPoly_GEO.prefab
-  artifactKey: Guid(0442e98c7323b3b4fa1af9d68f8f2886) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/TreePrefabs/Stylized_Conifer_Winter_LowPoly_GEO.prefab using Guid(0442e98c7323b3b4fa1af9d68f8f2886) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '53bf2ed83d2a468bed62af6615f67364') in 0.015386 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 3.435813 seconds.
-  path: Assets/Balins Working folder/ExportBalin/TreePrefabs/WinterTree_High_Production_FNL.prefab
-  artifactKey: Guid(66a4936018c707e4d8844c9359f04fbc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/TreePrefabs/WinterTree_High_Production_FNL.prefab using Guid(66a4936018c707e4d8844c9359f04fbc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a54dee585e014d260493a6d629955bbd') in 0.022450 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 72.023621 seconds.
-  path: Assets/Balins Working folder/ExportBalin/Models
-  artifactKey: Guid(105f46d411c2b8145821f6994d4e54bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/Models using Guid(105f46d411c2b8145821f6994d4e54bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b6cf750d00d38dc8784fb26d07cdd8bf') in 0.007270 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 28.455387 seconds.
-  path: Assets/Balins Working folder/ExportBalin/TreePrefabs/Conifer_High_Production_NoSnow_GEO.prefab
-  artifactKey: Guid(97e81c8c7972dc34b8f459b36ed99cde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/TreePrefabs/Conifer_High_Production_NoSnow_GEO.prefab using Guid(97e81c8c7972dc34b8f459b36ed99cde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '26b19842f74a154c83823de4fffc91cd') in 0.027199 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.553116 seconds.
-  path: Assets/Balins Working folder/ExportBalin/TreePrefabs/Conifer_High_Production_NoSnow_GEO.prefab
-  artifactKey: Guid(97e81c8c7972dc34b8f459b36ed99cde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/TreePrefabs/Conifer_High_Production_NoSnow_GEO.prefab using Guid(97e81c8c7972dc34b8f459b36ed99cde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd238d4113ff62c83d59e3990f2a07dbd') in 0.029563 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.557098 seconds.
-  path: Assets/Balins Working folder/ExportBalin/TreePrefabs/Conifer_High_Production_NoSnow_GEO.prefab
-  artifactKey: Guid(97e81c8c7972dc34b8f459b36ed99cde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/TreePrefabs/Conifer_High_Production_NoSnow_GEO.prefab using Guid(97e81c8c7972dc34b8f459b36ed99cde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1a58bcb1d63c41634e19509a543c3f27') in 0.022717 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 20.344419 seconds.
-  path: Assets/Balins Working folder/ExportBalin/TreePrefabs/Conifer_High_Production_NoSnow_GEO.prefab
-  artifactKey: Guid(97e81c8c7972dc34b8f459b36ed99cde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/TreePrefabs/Conifer_High_Production_NoSnow_GEO.prefab using Guid(97e81c8c7972dc34b8f459b36ed99cde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3de0caf89ccb41a10135aded5a526e59') in 0.017784 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 3.019630 seconds.
-  path: Assets/Balins Working folder/ExportBalin/TreePrefabs/Conifer_High_Production_NoSnow_GEO.prefab
-  artifactKey: Guid(97e81c8c7972dc34b8f459b36ed99cde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/TreePrefabs/Conifer_High_Production_NoSnow_GEO.prefab using Guid(97e81c8c7972dc34b8f459b36ed99cde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1cad908adf0c8157c4d6c19b3008592b') in 0.032069 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 1.360510 seconds.
-  path: Assets/Balins Working folder/ExportBalin/TreePrefabs/Conifer_High_Production_NoSnow_GEO.prefab
-  artifactKey: Guid(97e81c8c7972dc34b8f459b36ed99cde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/TreePrefabs/Conifer_High_Production_NoSnow_GEO.prefab using Guid(97e81c8c7972dc34b8f459b36ed99cde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c58cd5bdf9ab638d1cb213f2b4ea4b9d') in 0.017527 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 1.247194 seconds.
-  path: Assets/Balins Working folder/ExportBalin/TreePrefabs/Conifer_High_Production_NoSnow_GEO.prefab
-  artifactKey: Guid(97e81c8c7972dc34b8f459b36ed99cde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/TreePrefabs/Conifer_High_Production_NoSnow_GEO.prefab using Guid(97e81c8c7972dc34b8f459b36ed99cde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6f81f156bbd04dba4fa8a29a29f1ea67') in 0.024173 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.556203 seconds.
-  path: Assets/Balins Working folder/ExportBalin/TreePrefabs/Conifer_High_Production_NoSnow_GEO.prefab
-  artifactKey: Guid(97e81c8c7972dc34b8f459b36ed99cde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/TreePrefabs/Conifer_High_Production_NoSnow_GEO.prefab using Guid(97e81c8c7972dc34b8f459b36ed99cde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2c492cce5afda78927849941f2d0d0cd') in 0.020468 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 1.522508 seconds.
-  path: Assets/Balins Working folder/ExportBalin/TreePrefabs/Conifer_High_Production_NoSnow_GEO.prefab
-  artifactKey: Guid(97e81c8c7972dc34b8f459b36ed99cde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/TreePrefabs/Conifer_High_Production_NoSnow_GEO.prefab using Guid(97e81c8c7972dc34b8f459b36ed99cde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a120e271ffe1488caaf626dfe6d4ecfd') in 0.026300 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.919118 seconds.
-  path: Assets/Balins Working folder/ExportBalin/TreePrefabs/Conifer_High_Production_NoSnow_GEO.prefab
-  artifactKey: Guid(97e81c8c7972dc34b8f459b36ed99cde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/TreePrefabs/Conifer_High_Production_NoSnow_GEO.prefab using Guid(97e81c8c7972dc34b8f459b36ed99cde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2c83ac48b9fe71559d80c6d469fdef0a') in 0.017060 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 3.449935 seconds.
-  path: Assets/Balins Working folder/ExportBalin/TreePrefabs/Conifer_High_Production_NoSnow_GEO.prefab
-  artifactKey: Guid(97e81c8c7972dc34b8f459b36ed99cde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/TreePrefabs/Conifer_High_Production_NoSnow_GEO.prefab using Guid(97e81c8c7972dc34b8f459b36ed99cde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '851eedecc4d0cad76e2cbdda5f6b5af2') in 0.018252 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.799044 seconds.
-  path: Assets/Balins Working folder/ExportBalin/TreePrefabs/Conifer_High_Production_NoSnow_GEO.prefab
-  artifactKey: Guid(97e81c8c7972dc34b8f459b36ed99cde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/TreePrefabs/Conifer_High_Production_NoSnow_GEO.prefab using Guid(97e81c8c7972dc34b8f459b36ed99cde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '555734d97763fe08ba1233c04814b309') in 0.022324 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 1.806288 seconds.
-  path: Assets/Balins Working folder/ExportBalin/TreePrefabs/Conifer_High_Production_NoSnow_GEO.prefab
-  artifactKey: Guid(97e81c8c7972dc34b8f459b36ed99cde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/TreePrefabs/Conifer_High_Production_NoSnow_GEO.prefab using Guid(97e81c8c7972dc34b8f459b36ed99cde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5ff28942c4c048fc7fd58172974261cc') in 0.023775 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.560693 seconds.
-  path: Assets/Balins Working folder/ExportBalin/TreePrefabs/Conifer_High_Production_NoSnow_GEO.prefab
-  artifactKey: Guid(97e81c8c7972dc34b8f459b36ed99cde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/TreePrefabs/Conifer_High_Production_NoSnow_GEO.prefab using Guid(97e81c8c7972dc34b8f459b36ed99cde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e53ca81d4bb871a2fb3c71b45a1c5670') in 0.017024 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 9.292620 seconds.
-  path: Assets/Balins Working folder/ExportBalin/TreePrefabs/Stylized_Conifer_Winter_LowPoly_GEO.prefab
-  artifactKey: Guid(0442e98c7323b3b4fa1af9d68f8f2886) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/TreePrefabs/Stylized_Conifer_Winter_LowPoly_GEO.prefab using Guid(0442e98c7323b3b4fa1af9d68f8f2886) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c14e2a002494612baef0948a98d890dd') in 0.011010 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 1.995983 seconds.
-  path: Assets/Balins Working folder/ExportBalin/TreePrefabs/Stylized_Conifer_Winter_LowPoly_GEO.prefab
-  artifactKey: Guid(0442e98c7323b3b4fa1af9d68f8f2886) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/TreePrefabs/Stylized_Conifer_Winter_LowPoly_GEO.prefab using Guid(0442e98c7323b3b4fa1af9d68f8f2886) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bc5a562c4e39e72edc74212afd99b81c') in 0.011752 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.799870 seconds.
-  path: Assets/Balins Working folder/ExportBalin/TreePrefabs/Stylized_Conifer_Winter_LowPoly_GEO.prefab
-  artifactKey: Guid(0442e98c7323b3b4fa1af9d68f8f2886) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/TreePrefabs/Stylized_Conifer_Winter_LowPoly_GEO.prefab using Guid(0442e98c7323b3b4fa1af9d68f8f2886) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e3f12ce6156f0dc6d5ff656ebee7b210') in 0.019948 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.756610 seconds.
-  path: Assets/Balins Working folder/ExportBalin/TreePrefabs/Stylized_Conifer_Winter_LowPoly_GEO.prefab
-  artifactKey: Guid(0442e98c7323b3b4fa1af9d68f8f2886) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/TreePrefabs/Stylized_Conifer_Winter_LowPoly_GEO.prefab using Guid(0442e98c7323b3b4fa1af9d68f8f2886) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9b70cf1f6ec47187160a4a1480cec20e') in 0.012127 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 1.015909 seconds.
-  path: Assets/Balins Working folder/ExportBalin/TreePrefabs/Stylized_Conifer_Winter_LowPoly_GEO.prefab
-  artifactKey: Guid(0442e98c7323b3b4fa1af9d68f8f2886) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/TreePrefabs/Stylized_Conifer_Winter_LowPoly_GEO.prefab using Guid(0442e98c7323b3b4fa1af9d68f8f2886) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '56193bdc7aa6b444d7d62997d8c910bd') in 0.011962 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.790090 seconds.
-  path: Assets/Balins Working folder/ExportBalin/TreePrefabs/Stylized_Conifer_Winter_LowPoly_GEO.prefab
-  artifactKey: Guid(0442e98c7323b3b4fa1af9d68f8f2886) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/TreePrefabs/Stylized_Conifer_Winter_LowPoly_GEO.prefab using Guid(0442e98c7323b3b4fa1af9d68f8f2886) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '110a81f574c099e8bf4a29f3ce2cc910') in 0.010787 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 2.293844 seconds.
-  path: Assets/Balins Working folder/ExportBalin/TreePrefabs/Stylized_Conifer_Winter_LowPoly_GEO.prefab
-  artifactKey: Guid(0442e98c7323b3b4fa1af9d68f8f2886) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/TreePrefabs/Stylized_Conifer_Winter_LowPoly_GEO.prefab using Guid(0442e98c7323b3b4fa1af9d68f8f2886) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dd4bab9e3a75866d0bbd429f845e01a8') in 0.011422 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 5.417118 seconds.
-  path: Assets/Balins Working folder/ExportBalin/TreePrefabs/Stylized_Conifer_Winter_LowPoly_GEO.prefab
-  artifactKey: Guid(0442e98c7323b3b4fa1af9d68f8f2886) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/TreePrefabs/Stylized_Conifer_Winter_LowPoly_GEO.prefab using Guid(0442e98c7323b3b4fa1af9d68f8f2886) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd892eb44362412d3ca1e7dda36f4077d') in 0.011740 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.805476 seconds.
-  path: Assets/Balins Working folder/ExportBalin/TreePrefabs/Stylized_Conifer_Winter_LowPoly_GEO.prefab
-  artifactKey: Guid(0442e98c7323b3b4fa1af9d68f8f2886) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/TreePrefabs/Stylized_Conifer_Winter_LowPoly_GEO.prefab using Guid(0442e98c7323b3b4fa1af9d68f8f2886) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '70126d6d0d28cd79cd1e2a69c86dfdf1') in 0.010333 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 6.705808 seconds.
-  path: Assets/Balins Working folder/ExportBalin/TreePrefabs/Stylized_Conifer_Winter_LowPoly_GEO.prefab
-  artifactKey: Guid(0442e98c7323b3b4fa1af9d68f8f2886) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/TreePrefabs/Stylized_Conifer_Winter_LowPoly_GEO.prefab using Guid(0442e98c7323b3b4fa1af9d68f8f2886) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '22740b5bb349c1279428a199d711ac6c') in 0.010724 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 10.326352 seconds.
-  path: Assets/Balins Working folder/ExportBalin/TreePrefabs/WinterTree_High_Production_FNL.prefab
-  artifactKey: Guid(66a4936018c707e4d8844c9359f04fbc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/TreePrefabs/WinterTree_High_Production_FNL.prefab using Guid(66a4936018c707e4d8844c9359f04fbc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4503a62a6312a86fb774d2cd032bcc37') in 0.018290 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 4.588801 seconds.
-  path: Assets/Balins Working folder/ExportBalin/TreePrefabs/WinterTree_High_Production_FNL.prefab
-  artifactKey: Guid(66a4936018c707e4d8844c9359f04fbc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/TreePrefabs/WinterTree_High_Production_FNL.prefab using Guid(66a4936018c707e4d8844c9359f04fbc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '79e916b5c8e3d58dea560139f98e6f9a') in 0.018793 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 1.814333 seconds.
-  path: Assets/Balins Working folder/ExportBalin/TreePrefabs/WinterTree_High_Production_FNL.prefab
-  artifactKey: Guid(66a4936018c707e4d8844c9359f04fbc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/TreePrefabs/WinterTree_High_Production_FNL.prefab using Guid(66a4936018c707e4d8844c9359f04fbc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c2c617a75ef4b864b25c1d2eb4fe03a2') in 0.024256 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 2.007506 seconds.
-  path: Assets/Balins Working folder/ExportBalin/TreePrefabs/WinterTree_High_Production_FNL.prefab
-  artifactKey: Guid(66a4936018c707e4d8844c9359f04fbc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/TreePrefabs/WinterTree_High_Production_FNL.prefab using Guid(66a4936018c707e4d8844c9359f04fbc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '14daee335ba8674607eefcfef2115c0e') in 0.023510 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 3.815176 seconds.
-  path: Assets/Balins Working folder/ExportBalin/TreePrefabs/WinterTree_High_Production_FNL.prefab
-  artifactKey: Guid(66a4936018c707e4d8844c9359f04fbc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/TreePrefabs/WinterTree_High_Production_FNL.prefab using Guid(66a4936018c707e4d8844c9359f04fbc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '01607272505baee3e7015457934f2a58') in 0.017080 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 2.205435 seconds.
-  path: Assets/Balins Working folder/ExportBalin/TreePrefabs/WinterTree_High_Production_FNL.prefab
-  artifactKey: Guid(66a4936018c707e4d8844c9359f04fbc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/TreePrefabs/WinterTree_High_Production_FNL.prefab using Guid(66a4936018c707e4d8844c9359f04fbc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0306da98ed203c3e70c9ff364dead555') in 0.016730 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 1.430746 seconds.
-  path: Assets/Balins Working folder/ExportBalin/TreePrefabs/WinterTree_High_Production_FNL.prefab
-  artifactKey: Guid(66a4936018c707e4d8844c9359f04fbc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/TreePrefabs/WinterTree_High_Production_FNL.prefab using Guid(66a4936018c707e4d8844c9359f04fbc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '66456b9b58a61c76f35bbf0eedf110cc') in 0.022470 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 1.360889 seconds.
-  path: Assets/Balins Working folder/ExportBalin/TreePrefabs/WinterTree_High_Production_FNL.prefab
-  artifactKey: Guid(66a4936018c707e4d8844c9359f04fbc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/TreePrefabs/WinterTree_High_Production_FNL.prefab using Guid(66a4936018c707e4d8844c9359f04fbc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00add3df187a2f0cf8b28895af919ea6') in 0.027006 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 1.383117 seconds.
-  path: Assets/Balins Working folder/ExportBalin/TreePrefabs/WinterTree_High_Production_FNL.prefab
-  artifactKey: Guid(66a4936018c707e4d8844c9359f04fbc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/TreePrefabs/WinterTree_High_Production_FNL.prefab using Guid(66a4936018c707e4d8844c9359f04fbc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ec2a251b428c46aae8b0b7d9a054f937') in 0.016607 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 1.165749 seconds.
-  path: Assets/Balins Working folder/ExportBalin/TreePrefabs/WinterTree_High_Production_FNL.prefab
-  artifactKey: Guid(66a4936018c707e4d8844c9359f04fbc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/TreePrefabs/WinterTree_High_Production_FNL.prefab using Guid(66a4936018c707e4d8844c9359f04fbc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '562dbdd085c9169800fdeaf3b7ddc70a') in 0.017767 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 1.613326 seconds.
-  path: Assets/Balins Working folder/ExportBalin/TreePrefabs/WinterTree_High_Production_FNL.prefab
-  artifactKey: Guid(66a4936018c707e4d8844c9359f04fbc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/TreePrefabs/WinterTree_High_Production_FNL.prefab using Guid(66a4936018c707e4d8844c9359f04fbc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6c67e6f3b9eedff86fb8a7f9abd5e822') in 0.018697 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 4.521673 seconds.
-  path: Assets/Balins Working folder/ExportBalin/TreePrefabs/WinterTree_High_Production_FNL.prefab
-  artifactKey: Guid(66a4936018c707e4d8844c9359f04fbc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/TreePrefabs/WinterTree_High_Production_FNL.prefab using Guid(66a4936018c707e4d8844c9359f04fbc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e583cb779901079e3a1e10f5e0b54525') in 0.017687 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 3.389857 seconds.
-  path: Assets/Balins Working folder/ExportBalin/TreePrefabs/WinterTree_High_Production_FNL.prefab
-  artifactKey: Guid(66a4936018c707e4d8844c9359f04fbc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/TreePrefabs/WinterTree_High_Production_FNL.prefab using Guid(66a4936018c707e4d8844c9359f04fbc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '907f656ce3bea404dd846ac82f54dbae') in 0.017095 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 1.408540 seconds.
-  path: Assets/Balins Working folder/ExportBalin/TreePrefabs/WinterTree_High_Production_FNL.prefab
-  artifactKey: Guid(66a4936018c707e4d8844c9359f04fbc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/TreePrefabs/WinterTree_High_Production_FNL.prefab using Guid(66a4936018c707e4d8844c9359f04fbc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '141e7f5b0d527ecf7a9421700db52285') in 0.016683 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 5.236598 seconds.
-  path: Assets/Balins Working folder/ExportBalin/TreePrefabs/WinterTree_High_Production_FNL.prefab
-  artifactKey: Guid(66a4936018c707e4d8844c9359f04fbc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/TreePrefabs/WinterTree_High_Production_FNL.prefab using Guid(66a4936018c707e4d8844c9359f04fbc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '520e0c5c859bbc789f1696c4e0ac2dd6') in 0.020792 seconds 
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.008945 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\balin\Documents\GitHub\AIEGameProduction2023\TheCall\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\balin\Documents\GitHub\AIEGameProduction2023\TheCall\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 1.60 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.303 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1303ms)
+		BeginReloadAssembly (178ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (24ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (67ms)
+		EndReloadAssembly (1045ms)
+			LoadAssemblies (88ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (279ms)
+			ReleaseScriptCaches (3ms)
+			RebuildScriptCaches (55ms)
+			SetupLoadedEditorAssemblies (486ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (11ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (2ms)
+				BeforeProcessingInitializeOnLoad (105ms)
+				ProcessInitializeOnLoadAttributes (263ms)
+				ProcessInitializeOnLoadMethodAttributes (95ms)
+				AfterProcessingInitializeOnLoad (10ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (32ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 6.95 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 6999 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 83 unused Assets / (3.5 MB). Loaded Objects now: 8106.
+Memory consumption went from 311.7 MB to 308.2 MB.
+Total: 8.276600 ms (FindLiveObjects: 0.619800 ms CreateObjectMapping: 0.567900 ms MarkObjects: 6.395600 ms  DeleteObjects: 0.692200 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
