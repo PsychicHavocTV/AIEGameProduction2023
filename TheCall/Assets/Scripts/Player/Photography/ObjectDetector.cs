@@ -10,7 +10,7 @@ public class ObjectDetector : MonoBehaviour
 
     private Plane[] m_cameraFrustrum; // Contains calculated frustrum planes from the target camera.
 
-    private void Awake()
+    private void Start()
     {
         m_thisCollider = GetComponentInChildren<Collider>(); // Get reference to the collider.
 
