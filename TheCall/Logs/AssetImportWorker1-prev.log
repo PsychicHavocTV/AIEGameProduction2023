@@ -15,7 +15,7 @@ E:/Unity/Projects/TheCall
 -logFile
 Logs/AssetImportWorker1.log
 -srvPort
-63679
+50527
 Successfully changed project path to: E:/Unity/Projects/TheCall
 E:/Unity/Projects/TheCall
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -47,7 +47,7 @@ E:/Unity/Projects/TheCall
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Refreshing native plugins compatible for Editor in 131.57 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 123.30 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.3.13f1 (9e7d58001ecf)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.13f1/Editor/Data/Resources/UnitySubsystems
@@ -58,95 +58,95 @@ Direct3D:
     Renderer: AMD Radeon RX 6600 XT (ID=0x73ff)
     Vendor:   ATI
     VRAM:     8147 MB
-    Driver:   31.0.22017.3004
+    Driver:   31.0.22023.1014
 Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.13f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.13f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.13f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56684
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56280
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.13f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.058980 seconds.
+Registered in 0.007913 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 529.58 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 115.63 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  3.099 seconds
+- Completed reload, in  0.546 seconds
 Domain Reload Profiling:
-	ReloadAssembly (3100ms)
-		BeginReloadAssembly (62ms)
+	ReloadAssembly (546ms)
+		BeginReloadAssembly (64ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (0ms)
-		EndReloadAssembly (2694ms)
+			CreateAndSetChildDomain (1ms)
+		EndReloadAssembly (390ms)
 			LoadAssemblies (61ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (435ms)
+			SetupTypeCache (69ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (210ms)
-			SetupLoadedEditorAssemblies (1731ms)
+			RebuildScriptCaches (17ms)
+			SetupLoadedEditorAssemblies (263ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (55ms)
+				InitializePlatformSupportModulesInManaged (7ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (530ms)
-				BeforeProcessingInitializeOnLoad (3ms)
-				ProcessInitializeOnLoadAttributes (1058ms)
-				ProcessInitializeOnLoadMethodAttributes (85ms)
+				RefreshPlugins (116ms)
+				BeforeProcessingInitializeOnLoad (1ms)
+				ProcessInitializeOnLoadAttributes (108ms)
+				ProcessInitializeOnLoadMethodAttributes (31ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.046538 seconds.
+Registered in 0.007847 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image E:\Unity\Projects\TheCall\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
 Symbol file LoadedFromMemory doesn't match image E:\Unity\Projects\TheCall\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 156.03 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 125.78 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Package Manager log level set to [2]
 Mono: successfully reloaded assembly
-- Completed reload, in  1.936 seconds
+- Completed reload, in  1.440 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1937ms)
-		BeginReloadAssembly (144ms)
+	ReloadAssembly (1441ms)
+		BeginReloadAssembly (99ms)
 			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (6ms)
+			DisableScriptedObjects (4ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (34ms)
-		EndReloadAssembly (1656ms)
-			LoadAssemblies (135ms)
+			CreateAndSetChildDomain (17ms)
+		EndReloadAssembly (1241ms)
+			LoadAssemblies (94ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (387ms)
+			SetupTypeCache (293ms)
 			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (97ms)
-			SetupLoadedEditorAssemblies (1004ms)
+			RebuildScriptCaches (73ms)
+			SetupLoadedEditorAssemblies (757ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (5ms)
+				InitializePlatformSupportModulesInManaged (6ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (156ms)
-				BeforeProcessingInitializeOnLoad (175ms)
-				ProcessInitializeOnLoadAttributes (395ms)
-				ProcessInitializeOnLoadMethodAttributes (262ms)
-				AfterProcessingInitializeOnLoad (10ms)
+				RefreshPlugins (126ms)
+				BeforeProcessingInitializeOnLoad (117ms)
+				ProcessInitializeOnLoadAttributes (294ms)
+				ProcessInitializeOnLoadMethodAttributes (205ms)
+				AfterProcessingInitializeOnLoad (9ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (5ms)
+			AwakeInstancesAfterBackupRestoration (4ms)
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
-Refreshing native plugins compatible for Editor in 2.76 ms, found 3 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Refreshing native plugins compatible for Editor in 2.05 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 7308 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 99 unused Assets / (3.9 MB). Loaded Objects now: 7723.
-Memory consumption went from 316.0 MB to 312.1 MB.
-Total: 8.611500 ms (FindLiveObjects: 0.649800 ms CreateObjectMapping: 0.619300 ms MarkObjects: 6.409600 ms  DeleteObjects: 0.931600 ms)
+Unloading 96 unused Assets / (3.5 MB). Loaded Objects now: 7730.
+Memory consumption went from 316.7 MB to 313.2 MB.
+Total: 9.057600 ms (FindLiveObjects: 0.731700 ms CreateObjectMapping: 0.643600 ms MarkObjects: 6.919300 ms  DeleteObjects: 0.761700 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -160,232 +160,61 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 8816.939092 seconds.
-  path: Assets/Prefabs/Player Wrapper.prefab
-  artifactKey: Guid(a63a357ee7a20354583929b045743df6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Player Wrapper.prefab using Guid(a63a357ee7a20354583929b045743df6) Importer(815301076,1909f56bfc062723c751e8b465ee728b) Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.07 seconds
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.08 seconds
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.08 seconds
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.10 seconds
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.11 seconds
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.11 seconds
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.12 seconds
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.13 seconds
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.14 seconds
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.16 seconds
- -> (artifact id: '04b45a9f4e2d94289de6f15acfe95d27') in 18.545654 seconds 
+  Time since last request: 509.569266 seconds.
+  path: Assets/HDRP
+  artifactKey: Guid(734d5e9f0d0c647419df1bc2e49b997c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HDRP using Guid(734d5e9f0d0c647419df1bc2e49b997c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ed47a59cf3cc375c6e3e32ce058041cc') in 0.020055 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000083 seconds.
-  path: Assets/Balins Working folder/ExportBalin/Prefabs/SmallRock1_FNL.prefab
-  artifactKey: Guid(eb760deffbc25a14785670a7cf1b98ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/Prefabs/SmallRock1_FNL.prefab using Guid(eb760deffbc25a14785670a7cf1b98ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '25fbbb6b5e53bc0a619e91e63c42c23e') in 0.359765 seconds 
+  Time since last request: 51.790658 seconds.
+  path: Assets/Balins Working folder/ExportBalin/TreePrefabs/Conifer_High_Production_NoSnow_GEO 1.prefab
+  artifactKey: Guid(959bb501007a4c44bb76ac45a8124dbd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Balins Working folder/ExportBalin/TreePrefabs/Conifer_High_Production_NoSnow_GEO 1.prefab using Guid(959bb501007a4c44bb76ac45a8124dbd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f3ca44b014a246cb2e9862915660411c') in 0.060375 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000092 seconds.
-  path: Assets/Balins Working folder/ExportBalin/Prefabs/Cabin.prefab
-  artifactKey: Guid(788aeb780f6ffd644b782474e86d0d0f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/Prefabs/Cabin.prefab using Guid(788aeb780f6ffd644b782474e86d0d0f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '333e12172756e2382cdcc40f8c1696be') in 0.280779 seconds 
+  Time since last request: 0.023531 seconds.
+  path: Assets/Balins Working folder/ExportBalin/TreePrefabs/The Big tree.prefab
+  artifactKey: Guid(eb9f02dcc8c8a9c40ba2818f862e4dc6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Balins Working folder/ExportBalin/TreePrefabs/The Big tree.prefab using Guid(eb9f02dcc8c8a9c40ba2818f862e4dc6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a2752cfc088dccc3e72ad61fea280fea') in 0.611830 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000092 seconds.
-  path: Assets/Balins Working folder/ExportBalin/Prefabs/campfire_lit_BKT.prefab
-  artifactKey: Guid(079681edd6a159148a7dee95e64b9a14) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/Prefabs/campfire_lit_BKT.prefab using Guid(079681edd6a159148a7dee95e64b9a14) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c7ac7d59bb06f6f197bd312c035a0a8c') in 0.320945 seconds 
+  Time since last request: 44.668557 seconds.
+  path: Assets/Balins Working folder/ExportBalin/Tree MODELS/Conifer_High_Production.tga
+  artifactKey: Guid(79873bfc1a4ff634487675b0a3c7e135) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Balins Working folder/ExportBalin/Tree MODELS/Conifer_High_Production.tga using Guid(79873bfc1a4ff634487675b0a3c7e135) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c6d2ccc2e4df413ec78315f1dadbf7ab') in 0.157811 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000086 seconds.
-  path: Assets/Balins Working folder/ExportBalin/Sky and Fog Volume.prefab
-  artifactKey: Guid(723932552f088d640b72fcd1acb5e40c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/Sky and Fog Volume.prefab using Guid(723932552f088d640b72fcd1acb5e40c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '30dce7e5ca5ed1daf798bb5f396ba900') in 0.054499 seconds 
+  Time since last request: 0.000041 seconds.
+  path: Assets/Balins Working folder/ExportBalin/Tree MODELS/Conifer_High_Production_NoSnow_GEO.fbx
+  artifactKey: Guid(58999a0c7475a7346aae6bd64a755864) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Balins Working folder/ExportBalin/Tree MODELS/Conifer_High_Production_NoSnow_GEO.fbx using Guid(58999a0c7475a7346aae6bd64a755864) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ad85da9cdca06e261ade3923af85a9bc') in 11.105435 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000150 seconds.
-  path: Assets/Balins Working folder/ExportBalin/pCube4.prefab
-  artifactKey: Guid(7ff9426db5470bb4fb65137850187a2a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/pCube4.prefab using Guid(7ff9426db5470bb4fb65137850187a2a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '494ce7d622fb386a36f5fbf5a7ce6f1d') in 0.295273 seconds 
+  Time since last request: 0.000037 seconds.
+  path: Assets/Balins Working folder/ExportBalin/Tree MODELS/Tree2/Leaf_Low.tga
+  artifactKey: Guid(8047d4eaaca316747a1755a0130ffcd9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Balins Working folder/ExportBalin/Tree MODELS/Tree2/Leaf_Low.tga using Guid(8047d4eaaca316747a1755a0130ffcd9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '08e7813cc0b791cd083849338970fcfb') in 0.010607 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000076 seconds.
-  path: Assets/Balins Working folder/ExportBalin/Prefabs/FireLight.prefab
-  artifactKey: Guid(c62b7c31e25e0f54cad9c4cab76d30eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/Prefabs/FireLight.prefab using Guid(c62b7c31e25e0f54cad9c4cab76d30eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '653147fb8aaadf74c1f26b167a54f3c9') in 0.131969 seconds 
+  Time since last request: 0.000030 seconds.
+  path: Assets/Balins Working folder/ExportBalin/Tree MODELS/Tree2/BlueSpruceBark_Normal.tga
+  artifactKey: Guid(5f256f9439a18094b84681eaad0e3e58) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Balins Working folder/ExportBalin/Tree MODELS/Tree2/BlueSpruceBark_Normal.tga using Guid(5f256f9439a18094b84681eaad0e3e58) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7ad1bec7a42a38e99aee8699717c704c') in 0.033897 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000078 seconds.
-  path: Assets/Balins Working folder/ExportBalin/Smoke.mat
-  artifactKey: Guid(c6105ee7537605d4e953da286c7ce373) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/Smoke.mat using Guid(c6105ee7537605d4e953da286c7ce373) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b03761e441ecffb021fcbc36e6e42fab') in 0.200921 seconds 
+  Time since last request: 0.000038 seconds.
+  path: Assets/Balins Working folder/ExportBalin/Tree MODELS/Tree2/Conifer_Low.fbx
+  artifactKey: Guid(7155f108c36f4854794d4751b00c4c70) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Balins Working folder/ExportBalin/Tree MODELS/Tree2/Conifer_Low.fbx using Guid(7155f108c36f4854794d4751b00c4c70) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '23aed62d02a9b642fe351293cdf14eed') in 0.040159 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000106 seconds.
-  path: Assets/Balins Working folder/ExportBalin/Prefabs/tree_massive_high_FNL.prefab
-  artifactKey: Guid(cf252c14fb673f44bafb7900babd966e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/Prefabs/tree_massive_high_FNL.prefab using Guid(cf252c14fb673f44bafb7900babd966e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '20c7a3b5a1e4c7ab32a3883b7a2efd72') in 0.220554 seconds 
+  Time since last request: 0.000040 seconds.
+  path: Assets/Balins Working folder/ExportBalin/Tree MODELS/Tree2/Tree2.mat
+  artifactKey: Guid(27feaea30482722459c3f93d8de96fd5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Balins Working folder/ExportBalin/Tree MODELS/Tree2/Tree2.mat using Guid(27feaea30482722459c3f93d8de96fd5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2d0336e13e8138f108e450702660c5dc') in 0.766355 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000093 seconds.
-  path: Assets/Balins Working folder/ExportBalin/Prefabs/cliff.prefab
-  artifactKey: Guid(dc93f17ba9bf55948aa5fc4f5316a82e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/Prefabs/cliff.prefab using Guid(dc93f17ba9bf55948aa5fc4f5316a82e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e74e8289130d23fdc4f842fa653e2203') in 0.147593 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000067 seconds.
-  path: Assets/Balins Working folder/ExportBalin/campfire_lit_BKT.prefab
-  artifactKey: Guid(4a317b3cd5a75374f963f17ec7ca9905) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/campfire_lit_BKT.prefab using Guid(4a317b3cd5a75374f963f17ec7ca9905) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7c32730f756125e17abbeaf07277ca1c') in 0.118690 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000085 seconds.
-  path: Assets/Balins Working folder
-  artifactKey: Guid(aa04586261a29b842affb9e301a2218e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder using Guid(aa04586261a29b842affb9e301a2218e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '23aebd350c32e00dcba0ee394ea07d98') in 0.194642 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000122 seconds.
-  path: Assets/Balins Working folder/ExportBalin/Cabin.prefab
-  artifactKey: Guid(03b64076f1214134ab9765ab3c3602de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/Cabin.prefab using Guid(03b64076f1214134ab9765ab3c3602de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f999697043846a054ef931dae375c44c') in 0.118902 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000099 seconds.
-  path: Assets/Balins Working folder/ExportBalin
-  artifactKey: Guid(4b88f2bfdf23dfb47a487920a97ba757) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin using Guid(4b88f2bfdf23dfb47a487920a97ba757) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b68d23e9a032de07c3350b35654faa7d') in 0.196959 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000585 seconds.
-  path: Assets/Balins Working folder/ExportBalin/FireLight.prefab
-  artifactKey: Guid(d659855d05570e242aa273ced7271158) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/FireLight.prefab using Guid(d659855d05570e242aa273ced7271158) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd4e349e19c3339afbfc3533bb281bbc9') in 0.139020 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000145 seconds.
-  path: Assets/Prefabs/Wendigo.prefab
-  artifactKey: Guid(199fa694e9a0ab641a4a5c5eece73af1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Wendigo.prefab using Guid(199fa694e9a0ab641a4a5c5eece73af1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7b7f6bc2f188d0805bcfb7f07112d9eb') in 1.049428 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000079 seconds.
-  path: Assets/Balins Working folder/ExportBalin/Firewood.prefab
-  artifactKey: Guid(c221e8da2275e744a99ff4db1839b3fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/Firewood.prefab using Guid(c221e8da2275e744a99ff4db1839b3fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ebfb533008359a9e56fc24125a901bd8') in 0.134285 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000834 seconds.
-  path: Assets/Balins Working folder/ExportBalin/Template thingo.mat
-  artifactKey: Guid(155f94713c1068141ad694bf2bf24067) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/Template thingo.mat using Guid(155f94713c1068141ad694bf2bf24067) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e8172e1fa33d82a85944604e7bf82761') in 0.048122 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000058 seconds.
-  path: Assets/Balins Working folder/ExportBalin/firesmoke.png
-  artifactKey: Guid(b2cfd4c6992f7c44db9792d0bfe52331) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/firesmoke.png using Guid(b2cfd4c6992f7c44db9792d0bfe52331) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5841006bd2f75cc9bb60ef72861708b8') in 0.121768 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000071 seconds.
-  path: Assets/Balins Working folder/ExportBalin/Prefabs/LargeRock2_FNL.prefab
-  artifactKey: Guid(9a4305c550fd1a8489063f840da8ef50) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/Prefabs/LargeRock2_FNL.prefab using Guid(9a4305c550fd1a8489063f840da8ef50) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3d122bb9759748fe4c76f0a96e37cc7d') in 0.051069 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000101 seconds.
-  path: Assets/Balins Working folder/ExportBalin/Snow 1.prefab
-  artifactKey: Guid(7292eb31b5ea8a5418a47fdc304f3294) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/Snow 1.prefab using Guid(7292eb31b5ea8a5418a47fdc304f3294) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd506e49431a76027450eccbe4ee41b7c') in 0.060524 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000086 seconds.
-  path: Assets/Balins Working folder/ExportBalin/New Material.mat
-  artifactKey: Guid(207b83fdd6f8fa84493f839917f6840d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/New Material.mat using Guid(207b83fdd6f8fa84493f839917f6840d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f12709d6a07f461361e9c58ef049da10') in 0.149657 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000072 seconds.
-  path: Assets/Balins Working folder/ExportBalin/Prefabs/SmallRock2_FNL.prefab
-  artifactKey: Guid(1fb0509d0bf49b0428e3b634dc481e2f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/Prefabs/SmallRock2_FNL.prefab using Guid(1fb0509d0bf49b0428e3b634dc481e2f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4f9c712c242ab843a497ac8a72d9b289') in 0.038763 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000129 seconds.
-  path: Assets/Balins Working folder/ExportBalin/Prefabs/Tent.prefab
-  artifactKey: Guid(0999639cfcd31e347a41fe4dd1084bc8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/Prefabs/Tent.prefab using Guid(0999639cfcd31e347a41fe4dd1084bc8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bdc26d4ce3c925f4b8ebd6b5b30b2072') in 0.050150 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000089 seconds.
-  path: Assets/Balins Working folder/ExportBalin/Prefabs/pCube4.prefab
-  artifactKey: Guid(257d26d52d040c649aa946804a9bf6f6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/Prefabs/pCube4.prefab using Guid(257d26d52d040c649aa946804a9bf6f6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '836eee681cf0aadbea1a167b85dda374') in 0.010917 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000089 seconds.
-  path: Assets/Balins Working folder/ExportBalin/Prefabs
-  artifactKey: Guid(31b23dbccd26a464ba1a1db27f4952b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/Prefabs using Guid(31b23dbccd26a464ba1a1db27f4952b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'caaf9392fa38062bee3f9326787b9a65') in 0.007233 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000080 seconds.
-  path: Assets/Balins Working folder/ExportBalin/Prefabs/Bonfire_lit_BKT.prefab
-  artifactKey: Guid(1c35459c0511d0e49b5387850c50427a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/Prefabs/Bonfire_lit_BKT.prefab using Guid(1c35459c0511d0e49b5387850c50427a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fba99837078db4a36d553c35d50848b4') in 0.058785 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000067 seconds.
-  path: Assets/Balins Working folder/ExportBalin/fire/flame.mat
-  artifactKey: Guid(a76bd782ffecd9d49b042ad536bdf56b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/fire/flame.mat using Guid(a76bd782ffecd9d49b042ad536bdf56b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '28b68baf54c8efe5aea9e652abd15c2b') in 0.038516 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000093 seconds.
-  path: Assets/Balins Working folder/ExportBalin/cliff.prefab
-  artifactKey: Guid(b4347914017f8c0418e6dffccca0b70b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/cliff.prefab using Guid(b4347914017f8c0418e6dffccca0b70b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '642ae23aeeb55ad7350e483a92d2190b') in 0.007738 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000118 seconds.
-  path: Assets/Balins Working folder/ExportBalin/Gray Volume Fog (1).prefab
-  artifactKey: Guid(1a2ed5aac2bd1c946a0f6a5ed2205a09) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/Gray Volume Fog (1).prefab using Guid(1a2ed5aac2bd1c946a0f6a5ed2205a09) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9c12f010785341f3d2bb9fe64ebb71ea') in 0.066460 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000086 seconds.
-  path: Assets/Balins Working folder/ExportBalin/Local Volumetric Fog.prefab
-  artifactKey: Guid(745d7f06cc8600e468bbc27ac1208ac8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/Local Volumetric Fog.prefab using Guid(745d7f06cc8600e468bbc27ac1208ac8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c911df9c923e6febc9b3aed637d99f1c') in 0.019747 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000072 seconds.
-  path: Assets/Balins Working folder/ExportBalin/Prefabs/BonfireLight.prefab
-  artifactKey: Guid(579f7d6fb4fa266479857db1a85817fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/Prefabs/BonfireLight.prefab using Guid(579f7d6fb4fa266479857db1a85817fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '70fddb9dedf2523ad45dabc2dc1c4f46') in 0.016579 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000082 seconds.
-  path: Assets/Balins Working folder/ExportBalin/Prefabs/LargeRock1_FNL.prefab
-  artifactKey: Guid(c025086e646ca5a48a2fd33e82be09aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/Prefabs/LargeRock1_FNL.prefab using Guid(c025086e646ca5a48a2fd33e82be09aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fcaf65506522043bcd3523723347cc08') in 0.035895 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000064 seconds.
-  path: Assets/Balins Working folder/ExportBalin/Environment.png
-  artifactKey: Guid(50361df009d669149ae5ad1bae64ff30) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/Environment.png using Guid(50361df009d669149ae5ad1bae64ff30) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c2b341dfd5af7f6b2e282c4c0b86c5e4') in 0.023599 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000088 seconds.
-  path: Assets/Balins Working folder/ExportBalin/Gray Volume Fog (2).prefab
-  artifactKey: Guid(f5f55eb52e45a7f408b0e8410d5c0a86) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/Gray Volume Fog (2).prefab using Guid(f5f55eb52e45a7f408b0e8410d5c0a86) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '671470ff403c85fcb9821f5b92dd59ee') in 0.027366 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 59.381348 seconds.
-  path: Assets/Balins Working folder/ExportBalin/TreePrefabs/Stylized_Conifer_Winter_LowPoly_FNL (1).prefab
-  artifactKey: Guid(af8786e5c2363a543b36825f821a47d6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Balins Working folder/ExportBalin/TreePrefabs/Stylized_Conifer_Winter_LowPoly_FNL (1).prefab using Guid(af8786e5c2363a543b36825f821a47d6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '56b1cf27f3197f7e5204083e373125c4') in 0.009046 seconds 
+  Time since last request: 0.000053 seconds.
+  path: Assets/Balins Working folder/ExportBalin/Tree MODELS/Stylized_Conifer_Winter_LowPoly_GEO.fbx
+  artifactKey: Guid(47c7fc942a08ec449b14d913695da9aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Balins Working folder/ExportBalin/Tree MODELS/Stylized_Conifer_Winter_LowPoly_GEO.fbx using Guid(47c7fc942a08ec449b14d913695da9aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c72a548164ce9698871362d86903dd1d') in 0.173183 seconds 
