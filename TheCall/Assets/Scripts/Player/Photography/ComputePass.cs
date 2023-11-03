@@ -3,19 +3,28 @@ using UnityEngine.Rendering.HighDefinition;
 using UnityEngine.Rendering.RendererUtils;
 using UnityEngine.Rendering;
 using UnityEngine.Experimental.Rendering;
+using RendererListDesc = UnityEngine.Rendering.RendererUtils.RendererListDesc;
 
 class ComputePass : CustomPass
 {
-    public Material whiteMat;
-    public LayerMask objMask = 0;
+    public LayerMask objLayer = 0;
+
+    Material whiteMaterial;
 
     ShaderTagId[] shaderTags;
 
     RTHandle maskBuffer;
-    RTHandle maskDepthBuffer;
+
+    [SerializeField, HideInInspector]
+    Shader whiteShader;
 
     protected override void Setup(ScriptableRenderContext renderContext, CommandBuffer cmd)
     {
+        if (whiteShader == null)
+            whiteShader = Shader.Find("Hidden/Custom/White");
+
+        whiteMaterial = CoreUtils.CreateEngineMaterial(whiteShader);
+
         shaderTags = new ShaderTagId[4]
         {
             new ShaderTagId("Forward"),
@@ -35,36 +44,30 @@ class ComputePass : CustomPass
                     useDynamicScale: true, name: "_MaskBuffer"
                 );
         }
-        if (maskDepthBuffer?.rt == null || !maskDepthBuffer.rt.IsCreated())
-        {
-            maskDepthBuffer = RTHandles.Alloc(
-                    Vector2.one, TextureXR.slices, dimension: TextureXR.dimension,
-                    colorFormat: GraphicsFormat.R16_UInt,
-                    useDynamicScale: true, name: "_MaskBufferDepth", depthBufferBits: DepthBits.Depth16
-                );
-        }
     }
 
     protected override void Execute(CustomPassContext ctx)
     {
         AllocateMask();
 
-        if (whiteMat == null)
+        if (whiteMaterial == null)
             return;
 
-        CoreUtils.SetRenderTarget(ctx.cmd, maskBuffer, maskDepthBuffer, ClearFlag.All);
-        CustomPassUtils.DrawRenderers(ctx, objMask, overrideMaterial: whiteMat, overrideRenderState: new RenderStateBlock(RenderStateMask.Depth)
-        {
-            depthState = new DepthState(true, CompareFunction.LessEqual)
-        });
+        CoreUtils.SetRenderTarget(ctx.cmd, maskBuffer, ctx.cameraDepthBuffer, ClearFlag.Color);
+        CustomPassUtils.DrawRenderers(ctx, objLayer, 
+            overrideMaterial: whiteMaterial, overrideMaterialIndex: whiteMaterial.FindPass("FirstPass"),
+            overrideRenderState: new RenderStateBlock(RenderStateMask.Depth)
+            {
+                depthState = new DepthState(true, CompareFunction.LessEqual),
+            });
 
-        ctx.cmd.SetGlobalTexture("_CountMap", maskBuffer);
+        ctx.cmd.SetGlobalTexture("_MaskBuffer", maskBuffer);
 
     }
 
     protected override void Cleanup()
     {
-        maskDepthBuffer?.Release();
+        CoreUtils.Destroy(whiteMaterial);
         maskBuffer?.Release();
     }
 }

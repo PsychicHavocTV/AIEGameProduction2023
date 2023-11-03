@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 
 // https://www.youtube.com/watch?v=YP723zBCXfk
 
@@ -17,8 +18,7 @@ public class AreaCompute : MonoBehaviour
 
     float area = 0.0f;
 
-    int width = 640;
-    int height = 480;
+    int width, height;
 
     int handle_init;
     int handle_main;
@@ -30,16 +30,15 @@ public class AreaCompute : MonoBehaviour
 
         compute_buffer = new ComputeBuffer(1, sizeof(uint));
         data = new uint[1];
+
+        RenderPipelineManager.endCameraRendering += ComputeArea;
     }
 
     void OnDisable()
     {
-        Cleanup();   
-    }
+        RenderPipelineManager.endCameraRendering -= ComputeArea;
 
-    void OnPostRender()
-    {
-        ComputeArea();
+        Cleanup();   
     }
 
     void OnGUI()
@@ -47,9 +46,14 @@ public class AreaCompute : MonoBehaviour
         GUI.Label(new Rect(10, 10, 300, 20), (area * 100.0f).ToString());
     }
 
-    public void ComputeArea()
+    public void ComputeArea(ScriptableRenderContext context, Camera camera)
     {
-        compute_shader.SetTextureFromGlobal(handle_main, "image", "_CountMap");
+        Debug.Log("Compute");
+
+        width = Screen.width;
+        height = Screen.height;
+
+        compute_shader.SetTextureFromGlobal(handle_main, "image", "_MaskBuffer");
         compute_shader.SetBuffer(handle_main, "compute_buffer", compute_buffer);
         compute_shader.SetBuffer(handle_init, "compute_buffer", compute_buffer);
 

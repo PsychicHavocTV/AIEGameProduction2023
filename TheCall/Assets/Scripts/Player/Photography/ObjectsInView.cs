@@ -22,6 +22,7 @@ public class ObjectsInView : MonoBehaviour
 
         if (objects.Contains(obj)) // Don't try to remove if not in list.
         {
+            obj.layer = 0;
             objects.Remove(obj);
             SortByDistance();
         }
@@ -37,5 +38,11 @@ public class ObjectsInView : MonoBehaviour
         {
             return Vector3.Distance(transform.position, a.transform.position).CompareTo(Vector3.Distance(transform.position, b.transform.position));
         });
+
+        for (int i = objects.Count; i < 0; i--)
+        {
+            objects[i].layer = 0;
+        }
+        objects[0].layer = 31;
     }
 }
