@@ -20,16 +20,11 @@ public class WendigoChaseState : BaseState
         RaycastHit hit;
         playerDistance = Vector3.Distance(wendigo.playerRef.transform.position, wendigo.transform.position);
 
-        //if (Physics.Raycast(wendigo.RaycastOrigin.transform.position, wendigo.RaycastOrigin.transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity))
-        //{
-            //Debug.Log(hit.transform.tag);
-            //if (hit.transform.gameObject.tag == "Player")
-            //{
-                nma.ResetPath();
-                nma.SetDestination(wendigo.playerRef.transform.position);
-        //}
-        //}
+        nma.ResetPath();
+        nma.SetDestination(wendigo.playerRef.transform.position);
         Vector3 rayDirection = wendigo.playerRef.transform.position - wendigo.transform.position;
+
+        // Check if the player is in front of the Wendigo & within its Field Of View.
          if ((Vector3.Angle(rayDirection, wendigo.transform.forward)) < 25) 
          {
              if ((Vector3.Angle(rayDirection, wendigo.transform.forward)) < 25) // Is player within field of view
