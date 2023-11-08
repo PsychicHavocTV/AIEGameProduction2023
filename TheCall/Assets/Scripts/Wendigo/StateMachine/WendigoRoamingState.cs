@@ -18,18 +18,58 @@ public class WendigoRoamingState : BaseState
     bool findingPlayer = false;
     Vector3 destinationPosition;
     public NavMeshAgent nma;
+    float playerDistance;
+    
     
     
     public override void EnterState(WendigoStateManager wendigo)
     {
+        nma.speed = 8;
+        nma.ResetPath();
         Debug.Log("Roaming State Entered..");
     }
 
 
     public override void UpdateState(WendigoStateManager wendigo)
     {
+        playerDistance = Vector3.Distance(wendigo.playerRef.transform.position, wendigo.transform.position);
+        if (playerDistance >= 85)
+        {
+            nma.speed = 20;
+        }
+        else
+        {
+            nma.speed = 8;
+        }
+
+        RaycastHit hit;
+
+        if (playerDistance <= 50)
+        {
+            Vector3 rayDirection = wendigo.playerRef.transform.position - wendigo.transform.position;
+            if ((Vector3.Angle(rayDirection, wendigo.transform.forward)) < 25) //Physics.Raycast(wendigo.RaycastOrigin.transform.position, wendigo.RaycastOrigin.transform.TransformDirection(Vector3.forward), out hit, 70, wendigo.layerMask))
+            {
+                if ((Vector3.Angle(rayDirection, wendigo.transform.forward)) < 25) // Is player within field of view
+                {
+                    if (Physics.Raycast(wendigo.transform.position, rayDirection, out hit, 40))
+                    {
+                        if (hit.collider.gameObject.tag == "Player")
+                        {
+                            //Debug.Log("player in front");
+                            wendigo.StartChasing();
+                        }
+                    }
+                }
+            }
+        }
+
+
         if (wendigo.pController.takingPhoto == true)
         {
+            if (playerDistance <= 15)
+            {
+                wendigo.StartChasing();
+            }
             Debug.Log("ALERTED!!");
             int alertChance = 0;
             alertChance = Random.Range(1, 10);
@@ -57,7 +97,7 @@ public class WendigoRoamingState : BaseState
             if (moving == false)
             {
                 directionChoice = Random.Range(0, 7);
-                moveAmount = Random.Range(10, 15);
+                moveAmount = Random.Range(15, 25);
                 moving = true;
                 oldX = wendigo.transform.localPosition.x;
                 oldZ = wendigo.transform.localPosition.z;
@@ -171,7 +211,7 @@ public class WendigoRoamingState : BaseState
                 }
                 if (nma.remainingDistance <= 1)
                 {
-                    Debug.Log("COMPLETED PROCESS!!");
+                    //Debug.Log("COMPLETED PROCESS!!");
                     moving = false;
                 }
             }
@@ -182,27 +222,27 @@ public class WendigoRoamingState : BaseState
     {
         if (findingPlayer == false)
         {
-            destinationPosition = wendigo.playerRef.transform.position;
+            destinationPosition = new Vector3(x, wendigo.transform.localPosition.y, z);//wendigo.playerRef.transform.position;
             var path = new NavMeshPath();
             nma.CalculatePath(destinationPosition, path);
             if (path.status == NavMeshPathStatus.PathComplete)
             {
-                //nma.SetDestination(destinationPosition);
                 nma.SetPath(path);
+                //nma.SetDestination(destinationPosition);
             }
         }
     }
 
     public void AlertWendigo(WendigoStateManager wendigo)
     {
-        nma.isStopped = true;
         nma.ResetPath();
-        var path = new NavMeshPath();
+        //var path = new NavMeshPath();
         destinationPosition = wendigo.playerRef.transform.position;
-        if (path.status == NavMeshPathStatus.PathComplete)
-        {
-            //nma.SetDestination(destinationPosition);
-            nma.SetPath(path);
-        }
+        //if (path.status == NavMeshPathStatus.PathComplete)
+        //{
+        nma.SetDestination(destinationPosition);
+        //    nma.SetPath(path);
+        //}
+        //nma.SetDestination(destinationPosition);
     }
 }
