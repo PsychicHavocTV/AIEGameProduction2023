@@ -106,15 +106,15 @@ NavMeshSettings:
   m_BuildSettings:
     serializedVersion: 2
     agentTypeID: 0
-    agentRadius: 1
-    agentHeight: 4
+    agentRadius: 1.5
+    agentHeight: 6
     agentSlope: 60
-    agentClimb: 2.4
-    ledgeDropHeight: 8
-    maxJumpAcrossDistance: 8
-    minRegionArea: 1
+    agentClimb: 5
+    ledgeDropHeight: 10
+    maxJumpAcrossDistance: 10
+    minRegionArea: 0.5
     manualCellSize: 0
-    cellSize: 0.33333334
+    cellSize: 0.5
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 1
@@ -1512,18 +1512,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 848137067, guid: 199fa694e9a0ab641a4a5c5eece73af1, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.7392
-      objectReference: {fileID: 0}
-    - target: {fileID: 848137067, guid: 199fa694e9a0ab641a4a5c5eece73af1, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.34
-      objectReference: {fileID: 0}
-    - target: {fileID: 848137069, guid: 199fa694e9a0ab641a4a5c5eece73af1, type: 3}
-      propertyPath: m_CastShadows
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6443310105166568167, guid: 199fa694e9a0ab641a4a5c5eece73af1, type: 3}
       propertyPath: m_Name
       value: Wendigo
@@ -1579,14 +1567,6 @@ PrefabInstance:
     - target: {fileID: 6443310105166568185, guid: 199fa694e9a0ab641a4a5c5eece73af1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6443310105166568186, guid: 199fa694e9a0ab641a4a5c5eece73af1, type: 3}
-      propertyPath: m_Radius
-      value: 0.94
-      objectReference: {fileID: 0}
-    - target: {fileID: 6443310105166568186, guid: 199fa694e9a0ab641a4a5c5eece73af1, type: 3}
-      propertyPath: m_AutoRepath
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 199fa694e9a0ab641a4a5c5eece73af1, type: 3}

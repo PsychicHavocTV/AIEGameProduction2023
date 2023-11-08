@@ -33,20 +33,32 @@ public class WendigoRoamingState : BaseState
     public override void UpdateState(WendigoStateManager wendigo)
     {
         playerDistance = Vector3.Distance(wendigo.playerRef.transform.position, wendigo.transform.position);
-        //Debug.Log(playerDistance);
+        if (playerDistance >= 85)
+        {
+            nma.speed = 20;
+        }
+        else
+        {
+            nma.speed = 8;
+        }
+
         RaycastHit hit;
 
-        if (playerDistance <= 34)
+        if (playerDistance <= 50)
         {
-            if (Physics.Raycast(wendigo.RaycastOrigin.transform.position, wendigo.RaycastOrigin.transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity))
+            Vector3 rayDirection = wendigo.playerRef.transform.position - wendigo.transform.position;
+            if ((Vector3.Angle(rayDirection, wendigo.transform.forward)) < 25) //Physics.Raycast(wendigo.RaycastOrigin.transform.position, wendigo.RaycastOrigin.transform.TransformDirection(Vector3.forward), out hit, 70, wendigo.layerMask))
             {
-                Debug.Log(hit.transform.tag);
-                if (hit.transform.gameObject.tag == "Player")
+                if ((Vector3.Angle(rayDirection, wendigo.transform.forward)) < 25) // Is player within field of view
                 {
-                    //Debug.Log("Found Player!");
-                    //AlertWendigo(wendigo);
-                    //findingPlayer = true;
-                    wendigo.StartChasing();
+                    if (Physics.Raycast(wendigo.transform.position, rayDirection, out hit, 40))
+                    {
+                        if (hit.collider.gameObject.tag == "Player")
+                        {
+                            //Debug.Log("player in front");
+                            wendigo.StartChasing();
+                        }
+                    }
                 }
             }
         }
