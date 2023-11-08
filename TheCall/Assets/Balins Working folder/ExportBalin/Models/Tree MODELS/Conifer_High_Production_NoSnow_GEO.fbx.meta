@@ -3,7 +3,17 @@ guid: 58999a0c7475a7346aae6bd64a755864
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BlueSpruceBark
+    second: {fileID: 2100000, guid: cdf1d958a48580948ab87e442577fc30, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Leaf_Low
+    second: {fileID: 2100000, guid: 340badf980bff5d4da92e007c2bc1a5c, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
