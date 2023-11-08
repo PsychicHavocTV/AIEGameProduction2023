@@ -2,21 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager
+public class GameManager : MonoBehaviour
 {
     private static GameManager instance;
 
     public int checkpointIndex = 0;
     public enum Checkpoints
     {
+        NOCHECKPOINT,
         STARTINGSTATUE,
         CEARINGSTATUE,
         CAMPSITESTATUE,
     }
-
+    public Vector3 wendigoSaveLocation = new Vector3();
     public Vector3 playerSaveLocation = new Vector3();
-
     public Checkpoints currentCheckpoint;
+    public GameObject player;
+    public GameObject wendigo;
 
     public void SaveCheckpointData()
     {

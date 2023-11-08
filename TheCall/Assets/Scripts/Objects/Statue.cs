@@ -8,8 +8,6 @@ public class Statue : MonoBehaviour
     [SerializeField]
     private int statueIndex = 0;
     [SerializeField]
-    private GameObject playerBodyRef;
-    [SerializeField]
     private GameObject playerParentRef;
     [SerializeField]
     private CharacterController playerCharacterController;
@@ -20,7 +18,7 @@ public class Statue : MonoBehaviour
         {
             Debug.Log("Player Can Now Interact.");
             GameManager.Instance.UpdateCheckpoint(statueIndex);
-            GameManager.Instance.playerSaveLocation = playerBodyRef.transform.position;
+            GameManager.Instance.playerSaveLocation = GameManager.Instance.player.transform.position;
             Debug.Log("Saved X Position: " + GameManager.Instance.playerSaveLocation.x);
             Debug.Log("Saved Y Position: " + GameManager.Instance.playerSaveLocation.y);
             Debug.Log("Saved Z Position: " + GameManager.Instance.playerSaveLocation.z);
@@ -49,9 +47,9 @@ public class Statue : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.L))
         {
             playerCharacterController.enabled = false;
-            playerBodyRef.transform.position = new Vector3(GameManager.Instance.playerSaveLocation.x, GameManager.Instance.playerSaveLocation.y, GameManager.Instance.playerSaveLocation.z);
+            GameManager.Instance.player.transform.position = new Vector3(GameManager.Instance.playerSaveLocation.x, GameManager.Instance.playerSaveLocation.y, GameManager.Instance.playerSaveLocation.z);
             playerCharacterController.enabled = true;
-            Debug.Log(playerBodyRef.transform.position);
+            Debug.Log(GameManager.Instance.player.transform.position);
         }
     }
 }
