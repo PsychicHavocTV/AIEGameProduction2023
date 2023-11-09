@@ -571,7 +571,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 63e704f4682e1424883d6202025ced25, type: 2}
+  - {fileID: 2100000, guid: 26e50ff96b4334a4db41923a5a139997, type: 2}
   - {fileID: 2100000, guid: 245d201b3b915144695bc61f12ec9218, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -1086,6 +1086,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8892119110899110899}
     m_Modifications:
+    - target: {fileID: 781414180373881217, guid: 6222cd4cd55b1424f9f4037fed44c03d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 29b442c50d2014b48981845164ffefb8, type: 2}
     - target: {fileID: 5827135172785056149, guid: 6222cd4cd55b1424f9f4037fed44c03d, type: 3}
       propertyPath: m_Name
       value: Door_FNL
@@ -2807,6 +2811,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8892119110899110899}
     m_Modifications:
+    - target: {fileID: 134635174023326279, guid: ce82c5fb42d192249bc2b4dce2f8e860, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f8971bc570108e64583908a71f362ef1, type: 2}
     - target: {fileID: 5774902138434562371, guid: ce82c5fb42d192249bc2b4dce2f8e860, type: 3}
       propertyPath: m_Name
       value: Desk_FNL (1)
@@ -3499,6 +3507,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shelf_FNL (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6144999038162186950, guid: 069a80a30f1709849985863921fbd288, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ca3d4082b5c322449a55cabd6c272cea, type: 2}
     - target: {fileID: 6464891600746465186, guid: 069a80a30f1709849985863921fbd288, type: 3}
       propertyPath: m_RootOrder
       value: 53
@@ -3735,6 +3747,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8892119110899110899}
     m_Modifications:
+    - target: {fileID: 22534591047959935, guid: 2b30939dfe9c1fd49b800145fc0b57e7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7ce94d1f792c2fa418b8f07c1a62cba5, type: 2}
     - target: {fileID: 26361530353394193, guid: 2b30939dfe9c1fd49b800145fc0b57e7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 48.6
@@ -3969,6 +3985,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shelf_FNL
       objectReference: {fileID: 0}
+    - target: {fileID: 6144999038162186950, guid: 069a80a30f1709849985863921fbd288, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ca3d4082b5c322449a55cabd6c272cea, type: 2}
     - target: {fileID: 6464891600746465186, guid: 069a80a30f1709849985863921fbd288, type: 3}
       propertyPath: m_RootOrder
       value: 52
@@ -5929,6 +5949,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8892119110899110899}
     m_Modifications:
+    - target: {fileID: 5329832451343798141, guid: 84babb7806e2b3b48bea5c5ed17e6b4b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 211969d2758c05f4abc695107caf4f65, type: 2}
     - target: {fileID: 7030614801752449449, guid: 84babb7806e2b3b48bea5c5ed17e6b4b, type: 3}
       propertyPath: m_Name
       value: Book_Open_FNL

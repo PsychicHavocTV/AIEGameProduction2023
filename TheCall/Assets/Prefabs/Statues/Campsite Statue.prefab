@@ -142,8 +142,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.4577198, y: 1, z: 2.336696}
-  m_Center: {x: -0.08190533, y: 0, z: -0.011965412}
+  m_Size: {x: 2.0893776, y: 1, z: 1.9912854}
+  m_Center: {x: -0.26607585, y: 0, z: 0.014715846}
 --- !u!114 &8861045660716310334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,6 +158,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canInteract: 1
   statueIndex: 3
+  playerBodyRef: {fileID: 0}
   playerParentRef: {fileID: 0}
-  wendigo: {fileID: 0}
   playerCharacterController: {fileID: 0}
