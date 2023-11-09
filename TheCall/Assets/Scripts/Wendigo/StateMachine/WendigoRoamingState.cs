@@ -24,7 +24,7 @@ public class WendigoRoamingState : BaseState
     
     public override void EnterState(WendigoStateManager wendigo)
     {
-        nma.speed = 8;
+        nma.speed = 6.5f;
         nma.ResetPath();
         Debug.Log("Roaming State Entered..");
     }
@@ -39,7 +39,7 @@ public class WendigoRoamingState : BaseState
         }
         else
         {
-            nma.speed = 8;
+            nma.speed = 6.5f;
         }
 
         RaycastHit hit;
