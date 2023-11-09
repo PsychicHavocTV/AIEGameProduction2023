@@ -301,56 +301,6 @@ Transform:
   m_Father: {fileID: 235555951}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &171930820
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 171930822}
-  - component: {fileID: 171930821}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &171930821
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 171930820}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 598a632ebf89c0847881af0ef1bcf9d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  checkpointIndex: 0
-  wendigoSaveLocation: {x: 0, y: 0, z: 0}
-  playerSaveLocation: {x: 0, y: 0, z: 0}
-  currentCheckpoint: 0
-  player: {fileID: 1800083943}
-  wendigo: {fileID: 810986008}
---- !u!4 &171930822
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 171930820}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 771.8409, y: 36.777206, z: 425.25656}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &184241269 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5615965475610360787, guid: 788aeb780f6ffd644b782474e86d0d0f, type: 3}
@@ -2085,22 +2035,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6443310105166568186, guid: 199fa694e9a0ab641a4a5c5eece73af1, type: 3}
-      propertyPath: m_Height
-      value: 2.99
-      objectReference: {fileID: 0}
-    - target: {fileID: 6443310105166568186, guid: 199fa694e9a0ab641a4a5c5eece73af1, type: 3}
-      propertyPath: m_Radius
-      value: 0.83
-      objectReference: {fileID: 0}
-    - target: {fileID: 6443310105166568186, guid: 199fa694e9a0ab641a4a5c5eece73af1, type: 3}
-      propertyPath: m_AutoTraverseOffMeshLink
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6443310106971151831, guid: 199fa694e9a0ab641a4a5c5eece73af1, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 199fa694e9a0ab641a4a5c5eece73af1, type: 3}
 --- !u!1001 &1076306319
@@ -2232,11 +2166,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 745d7f06cc8600e468bbc27ac1208ac8, type: 3}
---- !u!1 &1125454618 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 328919029877250500, guid: a63a357ee7a20354583929b045743df6, type: 3}
-  m_PrefabInstance: {fileID: 1347380098}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1142159283 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2884188553925443601, guid: 1fb0509d0bf49b0428e3b634dc481e2f, type: 3}
@@ -4395,13 +4324,13 @@ PrefabInstance:
       value: Campsite Statue
       objectReference: {fileID: 0}
     - target: {fileID: 8861045660716310334, guid: 85805db249c4f6344bb3972debc86a0f, type: 3}
-      propertyPath: playerBodyRef
+      propertyPath: wendigo
       value: 
-      objectReference: {fileID: 1800083943}
+      objectReference: {fileID: 810986008}
     - target: {fileID: 8861045660716310334, guid: 85805db249c4f6344bb3972debc86a0f, type: 3}
       propertyPath: playerParentRef
       value: 
-      objectReference: {fileID: 1125454618}
+      objectReference: {fileID: 1800083943}
     - target: {fileID: 8861045660716310334, guid: 85805db249c4f6344bb3972debc86a0f, type: 3}
       propertyPath: playerCharacterController
       value: 
@@ -4416,13 +4345,13 @@ PrefabInstance:
     m_TransformParent: {fileID: 235555951}
     m_Modifications:
     - target: {fileID: 3152428548268231704, guid: fdb9bf551080b8f4f80f16cce7d1f6f5, type: 3}
-      propertyPath: playerBodyRef
+      propertyPath: wendigo
       value: 
-      objectReference: {fileID: 1800083943}
+      objectReference: {fileID: 810986008}
     - target: {fileID: 3152428548268231704, guid: fdb9bf551080b8f4f80f16cce7d1f6f5, type: 3}
       propertyPath: playerParentRef
       value: 
-      objectReference: {fileID: 1125454618}
+      objectReference: {fileID: 1800083943}
     - target: {fileID: 3152428548268231704, guid: fdb9bf551080b8f4f80f16cce7d1f6f5, type: 3}
       propertyPath: playerCharacterController
       value: 
@@ -4485,13 +4414,13 @@ PrefabInstance:
     m_TransformParent: {fileID: 235555951}
     m_Modifications:
     - target: {fileID: 1914626916942233536, guid: f470d0cd243301a4fbbd74b5cc9713f1, type: 3}
-      propertyPath: playerBodyRef
+      propertyPath: wendigo
       value: 
-      objectReference: {fileID: 1800083943}
+      objectReference: {fileID: 810986008}
     - target: {fileID: 1914626916942233536, guid: f470d0cd243301a4fbbd74b5cc9713f1, type: 3}
       propertyPath: playerParentRef
       value: 
-      objectReference: {fileID: 1125454618}
+      objectReference: {fileID: 1800083943}
     - target: {fileID: 1914626916942233536, guid: f470d0cd243301a4fbbd74b5cc9713f1, type: 3}
       propertyPath: playerCharacterController
       value: 
