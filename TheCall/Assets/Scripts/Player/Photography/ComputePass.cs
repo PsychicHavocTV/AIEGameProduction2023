@@ -1,21 +1,30 @@
 using UnityEngine;
 using UnityEngine.Rendering.HighDefinition;
-using UnityEngine.Rendering.RendererUtils;
 using UnityEngine.Rendering;
 using UnityEngine.Experimental.Rendering;
 
 class ComputePass : CustomPass
 {
-    public Material whiteMat;
-    public LayerMask objMask = 0;
+    [Tooltip("The Key Object layer.")]
+    public LayerMask objLayer = 0;
 
-    ShaderTagId[] shaderTags;
+    protected ShaderTagId[] shaderTags; //
 
-    RTHandle maskBuffer;
-    RTHandle maskDepthBuffer;
+    private RTHandle maskBuffer; // The buffer for the mask render target.
+
+    private Material whiteMaterial; // Pure white material.
+
+    [SerializeField, HideInInspector] // Workaround so the shader is included in the final build.
+    private Shader whiteShader; // Pure white shader.
 
     protected override void Setup(ScriptableRenderContext renderContext, CommandBuffer cmd)
     {
+        if (whiteShader == null) // Get a reference to the shader.
+            whiteShader = Shader.Find("Hidden/Custom/White");
+
+        whiteMaterial = CoreUtils.CreateEngineMaterial(whiteShader); // Create the white material.
+
+        // Setup shader tags.
         shaderTags = new ShaderTagId[4]
         {
             new ShaderTagId("Forward"),
@@ -25,9 +34,12 @@ class ComputePass : CustomPass
         };
     }
 
+    /// <summary>
+    /// Allocate buffers for mask render target.
+    /// </summary>
     void AllocateMask()
     {
-        if (maskBuffer?.rt == null || !maskBuffer.rt.IsCreated())
+        if (maskBuffer?.rt == null || !maskBuffer.rt.IsCreated()) // Allocate mask buffer if it doesn't exist.
         {
             maskBuffer = RTHandles.Alloc(
                     Vector2.one, TextureXR.slices, dimension: TextureXR.dimension,
@@ -35,36 +47,32 @@ class ComputePass : CustomPass
                     useDynamicScale: true, name: "_MaskBuffer"
                 );
         }
-        if (maskDepthBuffer?.rt == null || !maskDepthBuffer.rt.IsCreated())
-        {
-            maskDepthBuffer = RTHandles.Alloc(
-                    Vector2.one, TextureXR.slices, dimension: TextureXR.dimension,
-                    colorFormat: GraphicsFormat.R16_UInt,
-                    useDynamicScale: true, name: "_MaskBufferDepth", depthBufferBits: DepthBits.Depth16
-                );
-        }
     }
 
     protected override void Execute(CustomPassContext ctx)
     {
-        AllocateMask();
+        AllocateMask(); // Allocate buffers for mask render target. 
 
-        if (whiteMat == null)
+        if (whiteMaterial == null) // Return if white material doesn't exist.
             return;
 
-        CoreUtils.SetRenderTarget(ctx.cmd, maskBuffer, maskDepthBuffer, ClearFlag.All);
-        CustomPassUtils.DrawRenderers(ctx, objMask, overrideMaterial: whiteMat, overrideRenderState: new RenderStateBlock(RenderStateMask.Depth)
-        {
-            depthState = new DepthState(true, CompareFunction.LessEqual)
-        });
+        // Draw renderers within Key Object layer to the mask's render target.
+        CoreUtils.SetRenderTarget(ctx.cmd, maskBuffer, ctx.cameraDepthBuffer, ClearFlag.Color); // Only clear color so that the objects get culled by the camera's depth buffer.
+        CustomPassUtils.DrawRenderers(ctx, objLayer, 
+            overrideMaterial: whiteMaterial, overrideMaterialIndex: whiteMaterial.FindPass("FirstPass"),
+            overrideRenderState: new RenderStateBlock(RenderStateMask.Depth)
+            {
+                depthState = new DepthState(true, CompareFunction.LessEqual),
+            });
 
-        ctx.cmd.SetGlobalTexture("_CountMap", maskBuffer);
+        // Set global texture.
+        ctx.cmd.SetGlobalTexture("_MaskBuffer", maskBuffer);
 
     }
 
     protected override void Cleanup()
     {
-        maskDepthBuffer?.Release();
-        maskBuffer?.Release();
+        CoreUtils.Destroy(whiteMaterial); // Destroy white material.
+        maskBuffer?.Release(); // Release mask buffer.
     }
 }
