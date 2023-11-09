@@ -4930,17 +4930,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 57
   m_LocalEulerAnglesHint: {x: 4.184, y: -78.968, z: 1.277}
---- !u!114 &778505785 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5254775967042098985, guid: a63a357ee7a20354583929b045743df6, type: 3}
-  m_PrefabInstance: {fileID: 1347380098}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00d7c94ae6e8cef4a9e75a1fc6c74ff1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &780874240
 GameObject:
   m_ObjectHideFlags: 0
@@ -8524,42 +8513,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 328919029877250503, guid: a63a357ee7a20354583929b045743df6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3378837107455296312, guid: a63a357ee7a20354583929b045743df6, type: 3}
-      propertyPath: m_Depth
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3378837107455296317, guid: a63a357ee7a20354583929b045743df6, type: 3}
-      propertyPath: playerController
-      value: 
-      objectReference: {fileID: 1606239965}
-    - target: {fileID: 3378837107455296317, guid: a63a357ee7a20354583929b045743df6, type: 3}
-      propertyPath: playerObjectives
-      value: 
-      objectReference: {fileID: 778505785}
-    - target: {fileID: 5079936336946383673, guid: a63a357ee7a20354583929b045743df6, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5915142100003235905, guid: a63a357ee7a20354583929b045743df6, type: 3}
-      propertyPath: useTargetCamera
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5915142100003235905, guid: a63a357ee7a20354583929b045743df6, type: 3}
-      propertyPath: managedReferences[7077622522267566080].enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6177964869556697374, guid: a63a357ee7a20354583929b045743df6, type: 3}
-      propertyPath: runSpeed
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 6177964869556697374, guid: a63a357ee7a20354583929b045743df6, type: 3}
-      propertyPath: walkSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7881539843786836286, guid: a63a357ee7a20354583929b045743df6, type: 3}
-      propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
