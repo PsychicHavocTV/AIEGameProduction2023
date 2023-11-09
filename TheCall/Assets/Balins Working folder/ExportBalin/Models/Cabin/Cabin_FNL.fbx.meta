@@ -3,7 +3,17 @@ guid: 1eec7bdbdf9ea9a4d8e857549de26371
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cabin_MAT
+    second: {fileID: 2100000, guid: 63e704f4682e1424883d6202025ced25, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cabin_WindowPane_MAT
+    second: {fileID: 2100000, guid: 245d201b3b915144695bc61f12ec9218, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
