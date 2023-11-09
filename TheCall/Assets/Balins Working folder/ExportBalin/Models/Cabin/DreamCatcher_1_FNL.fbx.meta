@@ -3,7 +3,12 @@ guid: a0404deb122f73741acad4594b2f43f1
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DreamCatcher_1_MAT
+    second: {fileID: 2100000, guid: 5b97e807d00a6c74bae4bef6f1d6545d, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
