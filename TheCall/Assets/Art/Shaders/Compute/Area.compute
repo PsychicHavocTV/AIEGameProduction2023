@@ -1,7 +1,10 @@
+#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Common.hlsl" // required by the below file (I believe)
+#include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderVariables.hlsl" // for TEXTURE2D_X() and RW_TEXTURE2D_X
+
 #pragma kernel CSInit
 #pragma kernel CSMain
 
-Texture2D<float4> image;
+Texture2DArray<float4> image;
 SamplerState _LinearClamp;
 RWStructuredBuffer<uint> compute_buffer;
 
@@ -14,12 +17,8 @@ void CSInit(uint3 id : SV_DispatchThreadID)
 [numthreads(8,8,1)]
 void CSMain (uint3 id : SV_DispatchThreadID)
 {
-    float w, h;
-    image.GetDimensions(w, h);
-    float u = id.x / w;
-    float v = id.y / h;
-    float2 uv = float2(u, v);
-    float4 color = image.SampleLevel(_LinearClamp, uv, 0);
-    uint value = ceil(color.r);
+    float4 tex = image[COORD_TEXTURE2D_X(id.xy)];
+    uint value = ceil(tex.r);
+
     InterlockedAdd(compute_buffer[0], value);
 }
