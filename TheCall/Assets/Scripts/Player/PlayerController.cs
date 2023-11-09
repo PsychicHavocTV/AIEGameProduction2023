@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
     [Tooltip("Enable/Disable player input.")]
     public bool canMove = true;
 
+    public bool takingPhoto = false;
+
     [SerializeField, Tooltip("Reference to the player's camera.")]
     private Transform playerCamera;
 
@@ -23,8 +25,6 @@ public class PlayerController : MonoBehaviour
 
     private Vector3 m_velocity = Vector3.zero; // Velocity (Gravity)
     private float m_moveSpeed = 0.0f; // Move speed.
-
-    public bool takingPhoto = false;
 
     private void Start()
     {
