@@ -28,6 +28,9 @@ public class PlayerObjectives : MonoBehaviour
     {
         // [DEBUG]
         // Temporary text to say which is the current objective.
+        if (m_currentObjective == null)
+            return;
+
         GUI.Label(new Rect(10, 40, 300, 20), m_currentObjective.objectName);
     }
 }

@@ -11,7 +11,7 @@ public class WendigoChaseState : BaseState
 
     public override void EnterState(WendigoStateManager wendigo)
     {
-        nma.speed = 10f;
+        nma.speed = 9.5f;
         Debug.Log("CHASING!!");
     }
 
