@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 328919029877250503}
+  - component: {fileID: 6787504813065845052}
   m_Layer: 3
   m_Name: Player Wrapper
   m_TagString: Player
@@ -34,6 +35,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6787504813065845052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328919029877250500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: d1a8aa16ab12c594985e0021774ec19a, type: 3}
+  m_NotificationBehavior: 1
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 3378837107455296312}
 --- !u!1 &7791315487044197684
 GameObject:
   m_ObjectHideFlags: 0
@@ -370,7 +401,8 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6838499337852892785, guid: d94a2c33e0a50db438a62e3e7475bfde, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d94a2c33e0a50db438a62e3e7475bfde, type: 3}
 --- !u!114 &6177964869556697374 stripped
 MonoBehaviour:
@@ -550,17 +582,9 @@ PrefabInstance:
       propertyPath: playerObjectives
       value: 
       objectReference: {fileID: 5254775967042098985}
-    - target: {fileID: 9015932540448210171, guid: d9d03454ea58acb40bd4cfb0f877dddf, type: 3}
-      propertyPath: cameraSensitivity
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 9015932540448210172, guid: d9d03454ea58acb40bd4cfb0f877dddf, type: 3}
       propertyPath: m_Name
       value: Player Camera
-      objectReference: {fileID: 0}
-    - target: {fileID: 9015932540448210174, guid: d9d03454ea58acb40bd4cfb0f877dddf, type: 3}
-      propertyPath: m_Depth
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9015932540448210174, guid: d9d03454ea58acb40bd4cfb0f877dddf, type: 3}
       propertyPath: m_OcclusionCulling
@@ -572,6 +596,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9d03454ea58acb40bd4cfb0f877dddf, type: 3}
+--- !u!20 &3378837107455296312 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 9015932540448210174, guid: d9d03454ea58acb40bd4cfb0f877dddf, type: 3}
+  m_PrefabInstance: {fileID: 6051444345767526342}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3378837107455296319 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9015932540448210169, guid: d9d03454ea58acb40bd4cfb0f877dddf, type: 3}

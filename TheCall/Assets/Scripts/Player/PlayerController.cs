@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -22,6 +23,7 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 m_input; // Moving input.
     private bool m_isRunning = false; // Run button input.
+    private bool m_photoInput = false; // Taking photo input.
 
     private Vector3 m_velocity = Vector3.zero; // Velocity (Gravity)
     private float m_moveSpeed = 0.0f; // Move speed.
@@ -33,34 +35,41 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        DoPlayerMovement();
-        DoGravity();
-
-        // Rotate player body towards camera direction.
-        transform.rotation = Quaternion.Euler(transform.localEulerAngles.x, playerCamera.localEulerAngles.y, transform.localEulerAngles.z);
-
-        if (Input.GetMouseButtonDown(0))
+        if (GameManager.Instance.GameOver == false)
         {
-            TakePhoto();
+            DoPlayerMovement();
+            DoGravity();
+
+            // Rotate player body towards camera direction.
+            transform.rotation = Quaternion.Euler(transform.localEulerAngles.x, playerCamera.localEulerAngles.y, transform.localEulerAngles.z);
+
+            if (m_photoInput)
+            {
+                m_photoInput = false;
+                TakePhoto();
+            }
         }
     }
 
     private void DoPlayerMovement()
     {
-        // Change move speed whether running or not.
-        if (m_isRunning)
-            m_moveSpeed = runSpeed;
-        else
-            m_moveSpeed = walkSpeed;
-
-        // Player movement.
-        Vector3 move = Vector3.zero;
-        if (canMove)
+        if (GameManager.Instance.GameOver == false)
         {
-            move = m_input.x * playerCamera.right + m_input.y * playerCamera.forward; // Get movement direction relative to camera direction.
-            move.y = 0;
+            // Change move speed whether running or not.
+            if (m_isRunning)
+                m_moveSpeed = runSpeed;
+            else
+                m_moveSpeed = walkSpeed;
+
+            // Player movement.
+            Vector3 move = Vector3.zero;
+            if (canMove)
+            {
+                move = m_input.x * playerCamera.right + m_input.y * playerCamera.forward; // Get movement direction relative to camera direction.
+                move.y = 0;
+            }
+            m_controller.Move(move.normalized * m_moveSpeed * Time.deltaTime); // Apply movement input.
         }
-        m_controller.Move(move.normalized * m_moveSpeed * Time.deltaTime); // Apply movement input.
     }
 
     private void DoGravity()
@@ -87,18 +96,29 @@ public class PlayerController : MonoBehaviour
         m_isRunning = value.isPressed; // Is running button pressed.
     }
 
+    private void OnPhoto(InputValue value)
+    {
+        m_photoInput = value.Get<float>() >= 0.5f; // Is photo button pressed.
+    }
+
     // WENDIGO TESTING ONLY
     void TakePhoto()
     {
-        StartCoroutine(CameraTakePhoto());
+        if (GameManager.Instance.GameOver == false)
+        {
+            StartCoroutine(CameraTakePhoto());
+        }
     }
 
     private IEnumerator CameraTakePhoto()
     {
-        takingPhoto = true;
-        Debug.Log("Taking Photo!!");
-        yield return new WaitForSeconds(0.5f);
-        takingPhoto = false;
-        StopCoroutine(CameraTakePhoto());
+        if (GameManager.Instance.GameOver == false)
+        {
+            takingPhoto = true;
+            Debug.Log("Taking Photo!!");
+            yield return new WaitForNextFrameUnit();
+            takingPhoto = false;
+            StopCoroutine(CameraTakePhoto());
+        }
     }
 }
