@@ -372,6 +372,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d94a2c33e0a50db438a62e3e7475bfde, type: 3}
+--- !u!114 &6177964869556697374 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6838499337852892787, guid: d94a2c33e0a50db438a62e3e7475bfde, type: 3}
+  m_PrefabInstance: {fileID: 818442076545077101}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbfd6dd39834f6b489c5b5c54456343c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &6177964869556697375 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6838499337852892786, guid: d94a2c33e0a50db438a62e3e7475bfde, type: 3}
@@ -457,6 +468,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 98125898670601055, guid: 8eae939d0afac2b459ed5480d3bc7fc7, type: 3}
   m_PrefabInstance: {fileID: 1290050689709361648}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5254775967042098985 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6416389919019769561, guid: 8eae939d0afac2b459ed5480d3bc7fc7, type: 3}
+  m_PrefabInstance: {fileID: 1290050689709361648}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00d7c94ae6e8cef4a9e75a1fc6c74ff1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6051444345767526342
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -464,6 +486,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 328919029877250503}
     m_Modifications:
+    - target: {fileID: 138981518845564807, guid: d9d03454ea58acb40bd4cfb0f877dddf, type: 3}
+      propertyPath: useTargetCamera
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 161226652945707630, guid: d9d03454ea58acb40bd4cfb0f877dddf, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -517,12 +543,24 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6177964869556697375}
     - target: {fileID: 9015932540448210171, guid: d9d03454ea58acb40bd4cfb0f877dddf, type: 3}
+      propertyPath: playerController
+      value: 
+      objectReference: {fileID: 6177964869556697374}
+    - target: {fileID: 9015932540448210171, guid: d9d03454ea58acb40bd4cfb0f877dddf, type: 3}
+      propertyPath: playerObjectives
+      value: 
+      objectReference: {fileID: 5254775967042098985}
+    - target: {fileID: 9015932540448210171, guid: d9d03454ea58acb40bd4cfb0f877dddf, type: 3}
       propertyPath: cameraSensitivity
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 9015932540448210172, guid: d9d03454ea58acb40bd4cfb0f877dddf, type: 3}
       propertyPath: m_Name
       value: Player Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 9015932540448210174, guid: d9d03454ea58acb40bd4cfb0f877dddf, type: 3}
+      propertyPath: m_Depth
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9015932540448210174, guid: d9d03454ea58acb40bd4cfb0f877dddf, type: 3}
       propertyPath: m_OcclusionCulling

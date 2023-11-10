@@ -71,18 +71,8 @@ public class WendigoRoamingState : BaseState
                 wendigo.StartChasing();
             }
             Debug.Log("ALERTED!!");
-            int alertChance = 0;
-            alertChance = Random.Range(1, 10);
-
-            if (alertChance <= 3)
-            {
-                findingPlayer = true;
-                AlertWendigo(wendigo);
-            }
-            else
-            {
-                findingPlayer = false;
-            }
+            findingPlayer = true;
+            AlertWendigo(wendigo);
         }
 
         if (findingPlayer == true)
