@@ -39,6 +39,7 @@ public class WendigoStateManager : MonoBehaviour
 
     private void FixedUpdate()
     {
+        
         currentState.UpdateState(this);
     }
 
@@ -57,17 +58,17 @@ public class WendigoStateManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (currentState == roamingState)
-        {
-            if (other.tag != "Player" && other.tag != "Ground")
-            {
-                if (roamingState.moving == true)
-                {
-                    roamingState.moving = false;
-                    roamingState.moveAmount = 0;
-                }
-            }
-        }
+        //if (currentState == roamingState)
+        //{
+        //    if (other.tag != "Player" && other.tag != "Ground")
+        //    {
+        //        if (roamingState.moving == true)
+        //        {
+        //            roamingState.moving = false;
+        //            roamingState.moveAmount = 0;
+        //        }
+        //    }
+        //}
     }
 
     public void ControlTimer()
