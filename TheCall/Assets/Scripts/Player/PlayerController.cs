@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -97,7 +98,7 @@ public class PlayerController : MonoBehaviour
     {
         takingPhoto = true;
         Debug.Log("Taking Photo!!");
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForNextFrameUnit();
         takingPhoto = false;
         StopCoroutine(CameraTakePhoto());
     }

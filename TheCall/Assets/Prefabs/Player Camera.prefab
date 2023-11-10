@@ -327,6 +327,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  playerController: {fileID: 0}
+  playerObjectives: {fileID: 0}
   offset: {x: 0, y: 0.5, z: 0}
   cameraSensitivity: 4
 --- !u!114 &5840075211637764737
@@ -354,5 +356,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cac7cdecc258c2438813ec957a73ffc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  compute_shader: {fileID: 7200000, guid: face025390191b14d96ae9d2f14b1487, type: 3}
+  compute_shader: {fileID: 7200000, guid: 9271ba1ffe8a4a246814e0838f558204, type: 3}
   data: 
