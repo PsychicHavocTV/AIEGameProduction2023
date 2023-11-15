@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 328919029877250503}
   - component: {fileID: 6787504813065845052}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Player Wrapper
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -290,16 +290,8 @@ PrefabInstance:
     m_TransformParent: {fileID: 328919029877250503}
     m_Modifications:
     - target: {fileID: 6838499336129691399, guid: d94a2c33e0a50db438a62e3e7475bfde, type: 3}
-      propertyPath: m_Layer
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6838499336129691399, guid: d94a2c33e0a50db438a62e3e7475bfde, type: 3}
       propertyPath: m_TagString
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 6838499336178893662, guid: d94a2c33e0a50db438a62e3e7475bfde, type: 3}
-      propertyPath: m_Layer
-      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6838499336178893662, guid: d94a2c33e0a50db438a62e3e7475bfde, type: 3}
       propertyPath: m_TagString
@@ -392,10 +384,6 @@ PrefabInstance:
     - target: {fileID: 6838499337852892789, guid: d94a2c33e0a50db438a62e3e7475bfde, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 6838499337852892789, guid: d94a2c33e0a50db438a62e3e7475bfde, type: 3}
-      propertyPath: m_Layer
-      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6838499337852892789, guid: d94a2c33e0a50db438a62e3e7475bfde, type: 3}
       propertyPath: m_TagString

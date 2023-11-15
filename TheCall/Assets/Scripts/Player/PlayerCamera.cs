@@ -14,6 +14,9 @@ public class PlayerCamera : MonoBehaviour
     [SerializeField, Tooltip("Reference to the player's objectives.")]
     private PlayerObjectives playerObjectives;
 
+    [SerializeField, Tooltip("Reference to the objectives flowchart.")]
+    private Flowchart objectivesFlowchart;
+
     [SerializeField, Tooltip("The camera's offset from the target.")]
     private Vector3 offset;
 
@@ -85,7 +88,13 @@ public class PlayerCamera : MonoBehaviour
                     {
                         // Do stuff.
                         Debug.Log("Found " + descriptor.objectName + "!");
-                        playerObjectives.objectiveComplete = true;
+
+                        var eventHandlers = UnityEngine.Object.FindObjectsOfType<ObjectiveCompleteEvent>();
+                        for (int i = 0; i < eventHandlers.Length; i++)
+                        {
+                            var eventHandler = eventHandlers[i];
+                            eventHandler.Complete(descriptor); // Call complete on all Fungus blocks using the Objective Complete event.
+                        }
                     }
                 }
             }
