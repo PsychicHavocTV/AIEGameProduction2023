@@ -24,7 +24,7 @@ RenderSettings:
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 4
+  m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
@@ -851,11 +851,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3378837107455296314, guid: a63a357ee7a20354583929b045743df6, type: 3}
   m_PrefabInstance: {fileID: 5359777777371425954}
   m_PrefabAsset: {fileID: 0}
---- !u!20 &1513047829 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 3378837107455296312, guid: a63a357ee7a20354583929b045743df6, type: 3}
-  m_PrefabInstance: {fileID: 5359777777371425954}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1796978431
 GameObject:
   m_ObjectHideFlags: 0
@@ -1045,7 +1040,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -24.195877
     y: 54.69072
-    width: 77.83505
+    width: 77
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -1070,11 +1065,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 137.41116, y: 265.0664}
+  scrollPos: {x: 379.772, y: 221.71611}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 400
-  zoom: 0.97
+  zoom: 1
   scrollViewRect:
     serializedVersion: 2
     x: -343
@@ -1169,9 +1164,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 396.97366
-    y: 51.659775
-    width: 135.56702
+    x: 392.84998
+    y: 60.938133
+    width: 133
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -1232,8 +1227,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 107.49989
-    y: -25.82479
+    x: 116.77826
+    y: -17.577368
     width: 240
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -1787,10 +1782,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2207540819458070322, guid: a63a357ee7a20354583929b045743df6, type: 3}
-      propertyPath: m_DefaultControlScheme
-      value: Gamepad
-      objectReference: {fileID: 0}
     - target: {fileID: 3378837107455296317, guid: a63a357ee7a20354583929b045743df6, type: 3}
       propertyPath: flowChart
       value: 
@@ -1854,14 +1845,6 @@ PrefabInstance:
     - target: {fileID: 5915142100003235905, guid: a63a357ee7a20354583929b045743df6, type: 3}
       propertyPath: useTargetCamera
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6177964869556697372, guid: a63a357ee7a20354583929b045743df6, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 1513047829}
-    - target: {fileID: 6177964869556697372, guid: a63a357ee7a20354583929b045743df6, type: 3}
-      propertyPath: m_DefaultControlScheme
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a63a357ee7a20354583929b045743df6, type: 3}

@@ -59,7 +59,63 @@ MonoBehaviour:
   m_ControlsChangedEvent:
     m_PersistentCalls:
       m_Calls: []
-  m_ActionEvents: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3667d046-9797-4643-9645-92da98bc201e
+    m_ActionName: Player/Move[/XInputControllerWindows/leftStick,/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f7e690f5-e23f-4aba-8500-b07457e3dec8
+    m_ActionName: Player/Look[/XInputControllerWindows/rightStick,/Mouse/delta,/Pen/delta]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 66f5837d-4c29-47a9-a40c-027f7eb04f8c
+    m_ActionName: Player/Photo[/XInputControllerWindows/rightTrigger,/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 38a3bb80-8e51-4a8a-b0e6-0e232f387142
+    m_ActionName: Player/Run[/Keyboard/leftShift,/XInputControllerWindows/leftStickPress]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 7c2ab80f-f17b-4361-852e-a501ad99d469
+    m_ActionName: UI/Navigate[/XInputControllerWindows/leftStick/up,/XInputControllerWindows/rightStick/up,/XInputControllerWindows/leftStick/down,/XInputControllerWindows/rightStick/down,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/rightStick/left,/XInputControllerWindows/leftStick/right,/XInputControllerWindows/rightStick/right,/XInputControllerWindows/dpad,/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e0a69bcb-5d6c-4864-8b4e-93595ff08b6e
+    m_ActionName: UI/Submit[/Keyboard/enter,/XInputControllerWindows/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d70928d0-5c28-483e-b589-5069be6da1bd
+    m_ActionName: UI/Cancel[/Keyboard/escape,/XInputControllerWindows/buttonEast]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ab139358-a6f8-4d73-9bdb-ed6d00005ba3
+    m_ActionName: UI/Point[/Mouse/position,/Pen/position]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 33fdcd74-2f84-43b1-9f61-bbda411ec6a9
+    m_ActionName: UI/Click[/Mouse/leftButton,/Pen/tip]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f834a0e9-b0e7-4a07-8453-7acf74e12c61
+    m_ActionName: UI/ScrollWheel[/Mouse/scroll]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b8e3feb4-a79a-4dec-ac60-ba2fe7162c3e
+    m_ActionName: UI/MiddleClick[/Mouse/middleButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ee8cbe16-9a5b-4211-b0f4-c49993b90e87
+    m_ActionName: UI/RightClick[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 874c3352-8d0b-4044-aaae-f98661d9b92e
+    m_ActionName: UI/TrackedDevicePosition
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: bb152cf0-63ab-408d-bd62-8c06db1be6e5
+    m_ActionName: UI/TrackedDeviceOrientation
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -526,6 +582,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1550509019541353727, guid: d9d03454ea58acb40bd4cfb0f877dddf, type: 3}
+      propertyPath: compute_shader
+      value: 
+      objectReference: {fileID: 7200000, guid: 6de432feb006f0d48a9eb38c7bb4b036, type: 3}
     - target: {fileID: 9015932540448210169, guid: d9d03454ea58acb40bd4cfb0f877dddf, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -582,6 +642,10 @@ PrefabInstance:
       propertyPath: playerObjectives
       value: 
       objectReference: {fileID: 5254775967042098985}
+    - target: {fileID: 9015932540448210171, guid: d9d03454ea58acb40bd4cfb0f877dddf, type: 3}
+      propertyPath: cameraSensitivity
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 9015932540448210172, guid: d9d03454ea58acb40bd4cfb0f877dddf, type: 3}
       propertyPath: m_Name
       value: Player Camera
@@ -594,7 +658,8 @@ PrefabInstance:
       propertyPath: m_CullingMask.m_Bits
       value: 2147483837
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5573712787810412788, guid: d9d03454ea58acb40bd4cfb0f877dddf, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d9d03454ea58acb40bd4cfb0f877dddf, type: 3}
 --- !u!20 &3378837107455296312 stripped
 Camera:

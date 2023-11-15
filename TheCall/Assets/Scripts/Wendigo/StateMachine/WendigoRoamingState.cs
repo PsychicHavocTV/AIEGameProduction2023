@@ -29,7 +29,6 @@ public class WendigoRoamingState : BaseState
         nma.ResetPath();
     }
 
-
     public override void UpdateState(WendigoStateManager wendigo)
     {
         if (GameManager.Instance.GameOver == false)
@@ -210,6 +209,16 @@ public class WendigoRoamingState : BaseState
         }
     }
 
+    // Function for appearing & waiting behind the player.
+    public void BehindPlayer()
+    {
+        nma.isStopped = true;
+        nma.ResetPath();
+
+
+
+    }
+
     public void MoveWendigo(WendigoStateManager wendigo, float x, float z)
     {
         if (GameManager.Instance.GameOver == false)
@@ -217,13 +226,13 @@ public class WendigoRoamingState : BaseState
             if (findingPlayer == false)
             {
                 destinationPosition = new Vector3(x, wendigo.transform.localPosition.y, z);//wendigo.playerRef.transform.position;
-                //var path = new NavMeshPath();
-                //nma.CalculatePath(destinationPosition, path);
+                var path = new NavMeshPath();
+                nma.CalculatePath(destinationPosition, path);
                 //if (path.status == NavMeshPathStatus.PathComplete)
                 //{
                 //    nma.SetPath(path);
                 //}
-                nma.SetDestination(destinationPosition);
+                    nma.SetDestination(destinationPosition);
             }
         }
     }
@@ -233,13 +242,13 @@ public class WendigoRoamingState : BaseState
         if (GameManager.Instance.GameOver == false)
         {
             nma.ResetPath();
-            //var path = new NavMeshPath();
+            var path = new NavMeshPath();
             destinationPosition = wendigo.playerRef.transform.position;
             //if (path.status == NavMeshPathStatus.PathComplete)
             //{
-            nma.SetDestination(destinationPosition);
             //    nma.SetPath(path);
             //}
+                nma.SetDestination(destinationPosition);
             //nma.SetDestination(destinationPosition);
         }
     }

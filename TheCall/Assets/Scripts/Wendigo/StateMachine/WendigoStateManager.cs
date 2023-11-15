@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting.ReorderableList;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Rendering.HighDefinition;
@@ -14,17 +13,17 @@ public class WendigoStateManager : MonoBehaviour
     NavMeshAgent nma;
     public GameObject playerRef;
     public PlayerController pController;
-    BaseState currentState;
-    WendigoRoamingState roamingState = new WendigoRoamingState();
-    WendigoChaseState chaseState = new WendigoChaseState();
     public bool timerFinished = false;
     public bool timerRunning = false;
     bool inView = false;
     public int layerMask = 1 << 3;
+    BaseState currentState;
+    WendigoRoamingState roamingState = new WendigoRoamingState();
+    WendigoChaseState chaseState = new WendigoChaseState();
+    WendigoJumpscareState jumpscareState = new WendigoJumpscareState();
 
     private void Start()
     {
-        layerMask = ~layerMask;
 
         // Starting state for the state machine.
         currentState = roamingState;
