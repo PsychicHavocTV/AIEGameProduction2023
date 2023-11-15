@@ -24,7 +24,7 @@ public class WendigoRoamingState : BaseState
     
     public override void EnterState(WendigoStateManager wendigo)
     {
-        nma.speed = 8;
+        nma.speed = 6.5f;
         nma.ResetPath();
         Debug.Log("Roaming State Entered..");
     }
@@ -39,7 +39,7 @@ public class WendigoRoamingState : BaseState
         }
         else
         {
-            nma.speed = 8;
+            nma.speed = 6.5f;
         }
 
         RaycastHit hit;
@@ -71,18 +71,8 @@ public class WendigoRoamingState : BaseState
                 wendigo.StartChasing();
             }
             Debug.Log("ALERTED!!");
-            int alertChance = 0;
-            alertChance = Random.Range(1, 10);
-
-            if (alertChance <= 3)
-            {
-                findingPlayer = true;
-                AlertWendigo(wendigo);
-            }
-            else
-            {
-                findingPlayer = false;
-            }
+            findingPlayer = true;
+            AlertWendigo(wendigo);
         }
 
         if (findingPlayer == true)
