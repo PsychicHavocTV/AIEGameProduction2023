@@ -8,6 +8,24 @@ public class ObjectsInView : MonoBehaviour
     public List<GameObject> objects = new List<GameObject>();
 
     /// <summary>
+    /// The final calculated value for how much area the object takes up on the screen. (0-1 range)
+    /// The value is computed within the custom pass and passed here.
+    /// </summary>
+    public float Area
+    {
+        get => m_area;
+        set => m_area = value;
+    }
+    private float m_area = 0.0f;
+
+    private void OnGUI()
+    {
+        // [DEBUG]
+        // Just draws text to say what percentage of area the object takes up on the screen.
+        GUI.Label(new Rect(10, 10, 300, 20), (m_area * 100.0f).ToString());
+    }
+
+    /// <summary>
     /// Add an object to the list and then sort.
     /// </summary>
     /// <param name="obj">Reference to the game object.</param>

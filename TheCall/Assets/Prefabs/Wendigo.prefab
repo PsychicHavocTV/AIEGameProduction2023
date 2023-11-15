@@ -325,6 +325,7 @@ GameObject:
   - component: {fileID: 6443310105166568185}
   - component: {fileID: 6443310105166568184}
   - component: {fileID: 6443310105166568186}
+  - component: {fileID: 6874005856793724109}
   - component: {fileID: 793770926}
   - component: {fileID: 793770927}
   m_Layer: 0
@@ -400,6 +401,19 @@ NavMeshAgent:
   m_BaseOffset: 2.11
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &6874005856793724109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6443310105166568167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c223602598586664289935d6a2cb596a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teleportLocations: []
 --- !u!65 &793770926
 BoxCollider:
   m_ObjectHideFlags: 0

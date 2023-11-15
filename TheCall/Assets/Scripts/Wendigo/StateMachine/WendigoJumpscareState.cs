@@ -15,6 +15,7 @@ public class WendigoJumpscareState : BaseState
 
     public override void UpdateState(WendigoStateManager wendigo)
     {
+        wendigo.TryTeleport(wendigo);
         BehindPlayerScare(wendigo);
     }
 
@@ -42,9 +43,8 @@ public class WendigoJumpscareState : BaseState
     {
         //if (wendigo.isBehindPlayer == false)
         //{
-            wendigo.isBehindPlayer = false;
-            // Actually teleport the Wendigo away. will disable wendigo for now.
-            wendigo.transform.position = new Vector3(100, 100, 100);
+        wendigo.isBehindPlayer = false;
+        wendigo.teleportHandler.TeleportToLocation(wendigo);
         //}    
     }
 }
