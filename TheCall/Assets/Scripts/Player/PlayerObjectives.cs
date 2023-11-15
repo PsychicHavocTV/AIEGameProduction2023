@@ -16,6 +16,7 @@ public class PlayerObjectives : MonoBehaviour
     public void SetObjective(KeyObjectDescriptor objective)
     {
         m_currentObjective = objective;
+        Debug.Log(objective.objectDescription);
     }
 
     public bool CheckObjectiveComplete()
