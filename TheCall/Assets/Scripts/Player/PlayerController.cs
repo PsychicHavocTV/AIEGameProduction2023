@@ -58,12 +58,12 @@ public class PlayerController : MonoBehaviour
 
         // Player movement.
         Vector3 move = Vector3.zero;
-        if (canMove)
+        if (canMove) // Move player only if player input is enabled.
         {
             move = m_input.x * playerCamera.right + m_input.y * playerCamera.forward; // Get movement direction relative to camera direction.
             move.y = 0;
         }
-        m_controller.Move(move.normalized * m_moveSpeed * Time.deltaTime); // Apply movement input.
+        m_controller.Move(move.normalized * m_moveSpeed * Time.deltaTime); // Apply player movement.
     }
 
     private void DoGravity()
@@ -96,7 +96,7 @@ public class PlayerController : MonoBehaviour
     }
 
     // WENDIGO TESTING ONLY
-    void TakePhoto()
+    private void TakePhoto()
     {
         StartCoroutine(CameraTakePhoto());
     }

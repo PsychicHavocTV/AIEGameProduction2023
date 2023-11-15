@@ -57,21 +57,33 @@ public class PlayerCamera : MonoBehaviour
 
     private void DoPhotoCheck()
     {
-        if (playerController == null)
+        if (playerController == null) // Don't continue if player doesn't even exist.
             return;
 
-        if (playerController.takingPhoto)
+        if (playerController.takingPhoto) // On player's input.
         {
-            GameObject lookingAt = GetComponent<ObjectsInView>().objects[0];
-            if (lookingAt != null)
+            GameObject lookingAt = null;
+            ObjectsInView viewObjs = GetComponent<ObjectsInView>(); // Get reference to objects in view script.
+
+            if (viewObjs != null && viewObjs.objects.Count > 0)
+                lookingAt = viewObjs.objects[0]; // Get first element from list (closest to camera)
+            else
+                return; // Don't continue if objects in view couldn't be found.
+
+            if (lookingAt != null) // If object exists.
             {
-                float area = GetComponent<AreaCompute>().Area;
+                float area = viewObjs.Area; // Get object's area on screen.
+
                 KeyObjectDescriptor descriptor = lookingAt.GetComponent<KeyObjectDescriptor>();
-                if (area >= descriptor.objectThreshold)
+                if (descriptor == null)
+                    return; // Don't continue if object doesn't have a descriptor.
+
+                if (area >= descriptor.objectThreshold) // If object's configured threshold is met.
                 {
                     // GOOD!
-                    if (playerObjectives.CurrentObjective == descriptor)
+                    if (playerObjectives.CurrentObjective == descriptor) // And is the current objective.
                     {
+                        // Do stuff.
                         Debug.Log("Found " + descriptor.objectName + "!");
                         playerObjectives.objectiveComplete = true;
                     }

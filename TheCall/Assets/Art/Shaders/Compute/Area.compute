@@ -4,7 +4,7 @@
 #pragma kernel CSInit
 #pragma kernel CSMain
 
-Texture2DArray<float4> image;
+TEXTURE2D_X(image);
 SamplerState _LinearClamp;
 RWStructuredBuffer<uint> compute_buffer;
 
@@ -17,6 +17,8 @@ void CSInit(uint3 id : SV_DispatchThreadID)
 [numthreads(8,8,1)]
 void CSMain (uint3 id : SV_DispatchThreadID)
 {
+    UNITY_XR_ASSIGN_VIEW_INDEX(id.z);
+
     float4 tex = image[COORD_TEXTURE2D_X(id.xy)];
     uint value = ceil(tex.r);
 
