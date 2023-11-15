@@ -645,7 +645,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 2048480005}
+  selectedFlowchart: {fileID: 3324242002223008492, guid: 2aa9ecc8b4adb6640a5cbcf7d0eb678b, type: 3}
 --- !u!4 &533723485
 Transform:
   m_ObjectHideFlags: 1
@@ -1388,346 +1388,106 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2012059576}
   m_CullTransparentMesh: 1
---- !u!1 &2048480001
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2048480006}
-  - component: {fileID: 2048480005}
-  - component: {fileID: 2048480004}
-  - component: {fileID: 2048480003}
-  - component: {fileID: 2048480002}
-  - component: {fileID: 2048480009}
-  - component: {fileID: 2048480007}
-  - component: {fileID: 2048480012}
-  - component: {fileID: 2048480011}
-  - component: {fileID: 2048480014}
-  - component: {fileID: 2048480013}
-  m_Layer: 0
-  m_Name: Flowchart
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2048480002
+--- !u!114 &2048480005 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 3324242002223008492, guid: 2aa9ecc8b4adb6640a5cbcf7d0eb678b, type: 3}
+  m_PrefabInstance: {fileID: 3324242004001872361}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2048480001}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 1
-  indentLevel: 0
-  description: Set the starting objective.
-  targetObject: {fileID: 5359777777371425955}
-  targetComponentAssemblyName: PlayerObjectives, Assembly-CSharp, Version=0.0.0.0,
-    Culture=neutral, PublicKeyToken=null
-  targetComponentFullname: UnityEngine.Component[]
-  targetComponentText: PlayerObjectives
-  targetMethod: SetObjective
-  targetMethodText: 'SetObjective (KeyObjectDescriptor): Void'
-  methodParameters:
-  - objValue:
-      typeAssemblyname: KeyObjectDescriptor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      typeFullname: KeyObjectDescriptor
-      intValue: 0
-      boolValue: 0
-      floatValue: 0
-      stringValue: 
-      colorValue: {r: 0, g: 0, b: 0, a: 0}
-      gameObjectValue: {fileID: 0}
-      materialValue: {fileID: 0}
-      objectValue: {fileID: 5272917439281579676}
-      spriteValue: {fileID: 0}
-      textureValue: {fileID: 0}
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-    variableKey: 
-  saveReturnValue: 0
-  returnValueVariableKey: 
-  returnValueType: System.Void
-  showInherited: 0
-  callMode: 0
---- !u!114 &2048480003
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2048480001}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2f6487d21a03404cb21b245f0242e79, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parentBlock: {fileID: 2048480004}
-  suppressBlockAutoSelect: 0
-  waitForFrames: 1
---- !u!114 &2048480004
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2048480001}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nodeRect:
-    serializedVersion: 2
-    x: -24.195877
-    y: 54.69072
-    width: 77.83505
-    height: 40
-  tint: {r: 1, g: 1, b: 1, a: 1}
-  useCustomTint: 0
-  itemId: 0
-  blockName: Start
-  description: 
-  eventHandler: {fileID: 2048480003}
-  commandList:
-  - {fileID: 2048480002}
-  suppressAllAutoSelections: 0
---- !u!114 &2048480005
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2048480001}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a334fe2ffb574b3583ff3b18b4792d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  version: 1
-  scrollPos: {x: 297.86877, y: 207.19124}
-  variablesScrollPos: {x: 0, y: 0}
-  variablesExpanded: 1
-  blockViewHeight: 400
-  zoom: 0.97
-  scrollViewRect:
-    serializedVersion: 2
-    x: -343
-    y: -340
-    width: 1114
-    height: 859
-  selectedBlocks:
-  - {fileID: 2048480009}
-  selectedCommands: []
-  variables: []
-  description: 
-  stepPause: 0
-  colorCommands: 1
-  hideComponents: 1
-  saveSelection: 1
-  localizationId: 
-  showLineNumbers: 0
-  hideCommands: []
-  luaEnvironment: {fileID: 0}
-  luaBindingName: flowchart
---- !u!4 &2048480006
-Transform:
+--- !u!1001 &3324242004001872361
+PrefabInstance:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2048480001}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2048480007
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2048480001}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 3
-  indentLevel: 0
-  description: Set the next objective.
-  targetObject: {fileID: 5359777777371425955}
-  targetComponentAssemblyName: PlayerObjectives, Assembly-CSharp, Version=0.0.0.0,
-    Culture=neutral, PublicKeyToken=null
-  targetComponentFullname: UnityEngine.Component[]
-  targetComponentText: PlayerObjectives
-  targetMethod: SetObjective
-  targetMethodText: 'SetObjective (KeyObjectDescriptor): Void'
-  methodParameters:
-  - objValue:
-      typeAssemblyname: KeyObjectDescriptor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      typeFullname: KeyObjectDescriptor
-      intValue: 0
-      boolValue: 0
-      floatValue: 0
-      stringValue: 
-      colorValue: {r: 0, g: 0, b: 0, a: 0}
-      gameObjectValue: {fileID: 0}
-      materialValue: {fileID: 0}
-      objectValue: {fileID: 1160203639}
-      spriteValue: {fileID: 0}
-      textureValue: {fileID: 0}
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-    variableKey: 
-  saveReturnValue: 0
-  returnValueVariableKey: 
-  returnValueType: System.Void
-  showInherited: 0
-  callMode: 0
---- !u!114 &2048480009
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2048480001}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nodeRect:
-    serializedVersion: 2
-    x: 84.60543
-    y: -30.902605
-    width: 240
-    height: 40
-  tint: {r: 1, g: 1, b: 1, a: 1}
-  useCustomTint: 0
-  itemId: 2
-  blockName: Check for objective complete and set next objective.
-  description: 
-  eventHandler: {fileID: 2048480013}
-  commandList:
-  - {fileID: 2048480007}
-  suppressAllAutoSelections: 0
---- !u!114 &2048480011
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2048480001}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 5
-  indentLevel: 0
-  description: Set the next objective.
-  targetObject: {fileID: 5359777777371425955}
-  targetComponentAssemblyName: PlayerObjectives, Assembly-CSharp, Version=0.0.0.0,
-    Culture=neutral, PublicKeyToken=null
-  targetComponentFullname: UnityEngine.Component[]
-  targetComponentText: PlayerObjectives
-  targetMethod: SetObjective
-  targetMethodText: 'SetObjective (KeyObjectDescriptor): Void'
-  methodParameters:
-  - objValue:
-      typeAssemblyname: KeyObjectDescriptor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      typeFullname: KeyObjectDescriptor
-      intValue: 0
-      boolValue: 0
-      floatValue: 0
-      stringValue: 
-      colorValue: {r: 0, g: 0, b: 0, a: 0}
-      gameObjectValue: {fileID: 0}
-      materialValue: {fileID: 0}
-      objectValue: {fileID: 1399327068}
-      spriteValue: {fileID: 0}
-      textureValue: {fileID: 0}
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-    variableKey: 
-  saveReturnValue: 0
-  returnValueVariableKey: 
-  returnValueType: System.Void
-  showInherited: 0
-  callMode: 0
---- !u!114 &2048480012
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2048480001}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nodeRect:
-    serializedVersion: 2
-    x: 339.50238
-    y: 54.252064
-    width: 240
-    height: 40
-  tint: {r: 1, g: 1, b: 1, a: 1}
-  useCustomTint: 0
-  itemId: 6
-  blockName: Check for objective complete and set next objective.1
-  description: 
-  eventHandler: {fileID: 2048480014}
-  commandList:
-  - {fileID: 2048480011}
-  suppressAllAutoSelections: 0
---- !u!114 &2048480013
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2048480001}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 915383e17b1dcdf4c98f109063af2635, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parentBlock: {fileID: 2048480009}
-  suppressBlockAutoSelect: 0
-  objectiveToCheck: {fileID: 1160203639}
---- !u!114 &2048480014
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2048480001}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 915383e17b1dcdf4c98f109063af2635, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parentBlock: {fileID: 2048480012}
-  suppressBlockAutoSelect: 0
-  objectiveToCheck: {fileID: 1399327068}
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3324242002223008482, guid: 2aa9ecc8b4adb6640a5cbcf7d0eb678b, type: 3}
+      propertyPath: targetObject
+      value: 
+      objectReference: {fileID: 5359777777371425955}
+    - target: {fileID: 3324242002223008482, guid: 2aa9ecc8b4adb6640a5cbcf7d0eb678b, type: 3}
+      propertyPath: methodParameters.Array.data[0].objValue.objectValue
+      value: 
+      objectReference: {fileID: 1399327068}
+    - target: {fileID: 3324242002223008484, guid: 2aa9ecc8b4adb6640a5cbcf7d0eb678b, type: 3}
+      propertyPath: objectiveToCheck
+      value: 
+      objectReference: {fileID: 5272917439281579676}
+    - target: {fileID: 3324242002223008487, guid: 2aa9ecc8b4adb6640a5cbcf7d0eb678b, type: 3}
+      propertyPath: objectiveToCheck
+      value: 
+      objectReference: {fileID: 1160203639}
+    - target: {fileID: 3324242002223008488, guid: 2aa9ecc8b4adb6640a5cbcf7d0eb678b, type: 3}
+      propertyPath: m_Name
+      value: Objectives Flowchart
+      objectReference: {fileID: 0}
+    - target: {fileID: 3324242002223008491, guid: 2aa9ecc8b4adb6640a5cbcf7d0eb678b, type: 3}
+      propertyPath: targetObject
+      value: 
+      objectReference: {fileID: 5359777777371425955}
+    - target: {fileID: 3324242002223008491, guid: 2aa9ecc8b4adb6640a5cbcf7d0eb678b, type: 3}
+      propertyPath: methodParameters.Array.data[0].objValue.objectValue
+      value: 
+      objectReference: {fileID: 5272917439281579676}
+    - target: {fileID: 3324242002223008494, guid: 2aa9ecc8b4adb6640a5cbcf7d0eb678b, type: 3}
+      propertyPath: targetObject
+      value: 
+      objectReference: {fileID: 5359777777371425955}
+    - target: {fileID: 3324242002223008494, guid: 2aa9ecc8b4adb6640a5cbcf7d0eb678b, type: 3}
+      propertyPath: methodParameters.Array.data[0].objValue.objectValue
+      value: 
+      objectReference: {fileID: 1160203639}
+    - target: {fileID: 3324242002223008495, guid: 2aa9ecc8b4adb6640a5cbcf7d0eb678b, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3324242002223008495, guid: 2aa9ecc8b4adb6640a5cbcf7d0eb678b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3324242002223008495, guid: 2aa9ecc8b4adb6640a5cbcf7d0eb678b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3324242002223008495, guid: 2aa9ecc8b4adb6640a5cbcf7d0eb678b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3324242002223008495, guid: 2aa9ecc8b4adb6640a5cbcf7d0eb678b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3324242002223008495, guid: 2aa9ecc8b4adb6640a5cbcf7d0eb678b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3324242002223008495, guid: 2aa9ecc8b4adb6640a5cbcf7d0eb678b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3324242002223008495, guid: 2aa9ecc8b4adb6640a5cbcf7d0eb678b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3324242002223008495, guid: 2aa9ecc8b4adb6640a5cbcf7d0eb678b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3324242002223008495, guid: 2aa9ecc8b4adb6640a5cbcf7d0eb678b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3324242002223008495, guid: 2aa9ecc8b4adb6640a5cbcf7d0eb678b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2aa9ecc8b4adb6640a5cbcf7d0eb678b, type: 3}
 --- !u!1001 &5272917439281579675
 PrefabInstance:
   m_ObjectHideFlags: 0

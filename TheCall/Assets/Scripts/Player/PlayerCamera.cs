@@ -14,9 +14,6 @@ public class PlayerCamera : MonoBehaviour
     [SerializeField, Tooltip("Reference to the player's objectives.")]
     private PlayerObjectives playerObjectives;
 
-    [SerializeField, Tooltip("Reference to the objectives flowchart.")]
-    private Flowchart objectivesFlowchart;
-
     [SerializeField, Tooltip("The camera's offset from the target.")]
     private Vector3 offset;
 

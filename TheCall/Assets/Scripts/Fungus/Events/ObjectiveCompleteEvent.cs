@@ -12,8 +12,11 @@ public class ObjectiveCompleteEvent : EventHandler
 
     public void Complete(KeyObjectDescriptor objective)
     {
-        Debug.Log(objective.name + " Completed!");
-        if (objective == objectiveToCheck)
+        Debug.Log(objective.objectName + " Completed!");
+
+        if (objectiveToCheck == null)
+            ExecuteBlock();
+        else if (objective.Equals(objectiveToCheck))
             ExecuteBlock();
     }
 
