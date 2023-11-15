@@ -62,6 +62,8 @@ public class ComputePass : CustomPass
         // Create the compute buffer and initialize the data.
         computeBuffer = new ComputeBuffer(1, sizeof(uint));
         data = new uint[1];
+
+        RenderPipelineManager.endCameraRendering += OnEndCameraRendering;
     }
 
     /// <summary>
@@ -102,13 +104,6 @@ public class ComputePass : CustomPass
         ctx.cmd.DispatchCompute(computeShader, m_handle_init, 64, 1, 1);
         ctx.cmd.DispatchCompute(computeShader, m_handle_main, m_bufferWidth / 8, m_bufferHeight / 8, 1);
 
-        // Obtain data from the compute shader.
-        computeBuffer.GetData(data);
-        uint result = data[0];
-
-        // Calculate the final area percentage.
-        viewObjectsScript.Area = (float)result / ((float)m_bufferWidth * (float)m_bufferHeight);
-
     }
 
     protected override void Cleanup()
@@ -124,5 +119,18 @@ public class ComputePass : CustomPass
         if (whiteMaterial != null)
             CoreUtils.Destroy(whiteMaterial); // Destroy white material.
         maskBuffer?.Release(); // Release mask buffer.
+
+        RenderPipelineManager.endCameraRendering -= OnEndCameraRendering;
+    }
+
+    private void OnEndCameraRendering(ScriptableRenderContext context, Camera camera)
+    {
+        // Obtain data from the compute shader.
+        computeBuffer.GetData(data); // Get data at end of frame to avoid waiting for GPU queue.
+        uint result = data[0];
+
+        // Calculate the final area percentage.
+        viewObjectsScript.Area = (float)result / ((float)m_bufferWidth * (float)m_bufferHeight);
+
     }
 }
