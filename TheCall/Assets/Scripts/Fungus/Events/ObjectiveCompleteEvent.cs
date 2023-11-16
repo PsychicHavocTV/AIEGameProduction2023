@@ -12,12 +12,13 @@ public class ObjectiveCompleteEvent : EventHandler
 
     public void Complete(KeyObjectDescriptor objective)
     {
+        if (objectiveToCheck == null)
+            return; // Don't continue if there's no objective criteria doesn't exist.
+
         Debug.Log(objective.objectName + " Completed!");
 
-        if (objectiveToCheck == null)
-            ExecuteBlock();
-        else if (objective.Equals(objectiveToCheck))
-            ExecuteBlock();
+        if (objective.Equals(objectiveToCheck)) // If objective is the same as the one to check.
+            ExecuteBlock(); // Execute Fungus block.
     }
 
 }

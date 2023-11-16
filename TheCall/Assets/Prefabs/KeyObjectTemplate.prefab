@@ -92,7 +92,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 050260f5bacb70d42a7af179b308647e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectName: A Sphere.
+  objectName: A Sphere
+  objectValue: 1
+  objectiveDescription: Find the sphere behind the wall.
+  objectiveThreshold: 3
 --- !u!114 &5272917438324980653
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,4 +1,3 @@
-using Fungus;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -78,10 +77,10 @@ public class PlayerCamera : MonoBehaviour
                 if (descriptor == null)
                     return; // Don't continue if object doesn't have a descriptor.
 
-                if (area >= descriptor.objectThreshold) // If object's configured threshold is met.
+                if (area >= (descriptor.objectiveThreshold / 100f)) // If object's configured threshold is met.
                 {
                     // GOOD!
-                    if (playerObjectives.CurrentObjective == descriptor) // And is the current objective.
+                    if (playerObjectives.CurrentObjectives.Contains(descriptor)) // And is a current objective.
                     {
                         // Do stuff.
                         Debug.Log("Found " + descriptor.objectName + "!");
@@ -92,6 +91,8 @@ public class PlayerCamera : MonoBehaviour
                             var eventHandler = eventHandlers[i];
                             eventHandler.Complete(descriptor); // Call complete on all Fungus blocks using the Objective Complete event.
                         }
+
+                        playerObjectives.RemoveObjective(descriptor); // Remove objective from current objectives list.
                     }
                 }
             }

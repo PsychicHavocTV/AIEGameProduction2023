@@ -22,7 +22,7 @@ public class ObjectsInView : MonoBehaviour
     {
         // [DEBUG]
         // Just draws text to say what percentage of area the object takes up on the screen.
-        GUI.Label(new Rect(10, 10, 300, 20), (m_area * 100.0f).ToString());
+        //GUI.Label(new Rect(10, 10, 300, 20), (m_area * 100.0f).ToString());
     }
 
     /// <summary>
