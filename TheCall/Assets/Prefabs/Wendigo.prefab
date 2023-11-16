@@ -369,11 +369,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nma: {fileID: 6443310105166568186}
   Wendigo: {fileID: 6443310105166568167}
+  teleportHandler: {fileID: 6874005856793724109}
   pController: {fileID: 0}
   playerRef: {fileID: 0}
   playerCamera: {fileID: 0}
   behindPlayerSpawn: {fileID: 0}
   RaycastOrigin: {fileID: 848137066}
+  teleportTimerRunning: 0
+  teleportTimerFinished: 0
   timerRunning: 0
   timerFinished: 0
   goBehindPlayer: 1
@@ -414,6 +417,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleportLocations: []
+  nma: {fileID: 0}
 --- !u!65 &793770926
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -425,8 +429,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.3338137, y: 1.5781076, z: 1.0499592}
-  m_Center: {x: 0.07652627, y: -1.0982012, z: 0.093762256}
+  m_Size: {x: 1.3446884, y: 1.5781076, z: 1.2481852}
+  m_Center: {x: 0.071088426, y: -1.0982012, z: 0.1928752}
 --- !u!54 &793770927
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -934,9 +938,17 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Wendigo
       objectReference: {fileID: 0}
+    - target: {fileID: 3693771017660920672, guid: 67ca9afde75144e4f8e767a7c7d6d85e, type: 3}
+      propertyPath: m_TagString
+      value: Wendigo
+      objectReference: {fileID: 0}
     - target: {fileID: 4215035645379033520, guid: 67ca9afde75144e4f8e767a7c7d6d85e, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.306
+      objectReference: {fileID: 0}
+    - target: {fileID: 6814422901791262321, guid: 67ca9afde75144e4f8e767a7c7d6d85e, type: 3}
+      propertyPath: m_TagString
+      value: Wendigo
       objectReference: {fileID: 0}
     - target: {fileID: 7568390542339178492, guid: 67ca9afde75144e4f8e767a7c7d6d85e, type: 3}
       propertyPath: m_LocalPosition.x

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class GameManager
 {
@@ -152,9 +153,12 @@ public class GameManager
         checkpointLoaded = false;
 
         CheckForSaveFile();
+        NavMeshAgent wendigonma = wendigoRef.GetComponent<NavMeshAgent>();
 
+        wendigonma.enabled = false;
         wendigoSaveLocation = new Vector3(wLoadX, wLoadY, wLoadZ);
         wendigo.transform.position = wendigoSaveLocation;
+        wendigonma.enabled = true;
 
         playerSaveLocation = new Vector3(pLoadX, pLoadY, pLoadZ);
         player.transform.position = playerSaveLocation;

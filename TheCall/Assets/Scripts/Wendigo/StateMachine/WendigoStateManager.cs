@@ -47,7 +47,7 @@ public class WendigoStateManager : MonoBehaviour
             pController = playerRef.GetComponent<PlayerController>(); // Set PlayerController Reference.
         }
 
-        currentState = jumpscareState; // Set the starting state for the Wendigo.
+        currentState = roamingState; // Set the starting state for the Wendigo.
         currentState.EnterState(this); // Begin running behaviour for the current state.
     }
 

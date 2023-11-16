@@ -11,6 +11,9 @@ public class PlayerController : MonoBehaviour
 
     public bool takingPhoto = false;
 
+    [SerializeField]
+    private GameObject flashlight;
+
     [SerializeField, Tooltip("Reference to the player's camera.")]
     private Transform playerCamera;
 
@@ -93,6 +96,18 @@ public class PlayerController : MonoBehaviour
     private void OnPhoto(InputValue value)
     {
         m_photoInput = value.Get<float>() >= 0.5f; // Is photo button pressed.
+    }
+
+    private void OnFlashlight(InputValue value)
+    {
+        if (flashlight.activeSelf == true)
+        {
+            flashlight.SetActive(false);
+        }
+        else if (flashlight.activeSelf == false)
+        {
+            flashlight.SetActive(true);
+        }
     }
 
     // WENDIGO TESTING ONLY
