@@ -779,11 +779,6 @@ MonoBehaviour:
   m_PointlightHDType: 0
   m_SpotLightShape: 0
   m_AreaLightShape: 0
---- !u!1 &298956531 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 298956531, guid: a63a357ee7a20354583929b045743df6, type: 3}
-  m_PrefabInstance: {fileID: 758776415}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &311482580 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6177964869556697368, guid: a63a357ee7a20354583929b045743df6, type: 3}
@@ -1156,50 +1151,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 298956532, guid: a63a357ee7a20354583929b045743df6, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.023
-      objectReference: {fileID: 0}
-    - target: {fileID: 298956532, guid: a63a357ee7a20354583929b045743df6, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -3.544
-      objectReference: {fileID: 0}
-    - target: {fileID: 483537972, guid: a63a357ee7a20354583929b045743df6, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.53255
-      objectReference: {fileID: 0}
-    - target: {fileID: 483537972, guid: a63a357ee7a20354583929b045743df6, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 3.5924335
-      objectReference: {fileID: 0}
-    - target: {fileID: 483537972, guid: a63a357ee7a20354583929b045743df6, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.813
-      objectReference: {fileID: 0}
-    - target: {fileID: 483537972, guid: a63a357ee7a20354583929b045743df6, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 2.35
-      objectReference: {fileID: 0}
-    - target: {fileID: 483537973, guid: a63a357ee7a20354583929b045743df6, type: 3}
-      propertyPath: m_Size.z
-      value: 0.052394886
-      objectReference: {fileID: 0}
-    - target: {fileID: 483537973, guid: a63a357ee7a20354583929b045743df6, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 483537973, guid: a63a357ee7a20354583929b045743df6, type: 3}
-      propertyPath: m_Center.z
-      value: -0.47380206
-      objectReference: {fileID: 0}
-    - target: {fileID: 483537973, guid: a63a357ee7a20354583929b045743df6, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 483537976, guid: a63a357ee7a20354583929b045743df6, type: 3}
-      propertyPath: wsm
-      value: 
-      objectReference: {fileID: 793770925}
     - target: {fileID: 328919029877250500, guid: a63a357ee7a20354583929b045743df6, type: 3}
       propertyPath: m_Name
       value: Player Wrapper
@@ -1255,17 +1206,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6443310105166568167, guid: 199fa694e9a0ab641a4a5c5eece73af1, type: 3}
   m_PrefabInstance: {fileID: 6443310105982808808}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &793770925 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6443310105166568184, guid: 199fa694e9a0ab641a4a5c5eece73af1, type: 3}
-  m_PrefabInstance: {fileID: 6443310105982808808}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 793770922}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4036aae0dc34484fbf2b7289eba4065, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &793770930 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6874005856793724109, guid: 199fa694e9a0ab641a4a5c5eece73af1, type: 3}
@@ -1277,6 +1217,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c223602598586664289935d6a2cb596a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &885846879 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 885846879, guid: a63a357ee7a20354583929b045743df6, type: 3}
+  m_PrefabInstance: {fileID: 758776415}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &901521032
 GameObject:
   m_ObjectHideFlags: 0
@@ -2729,7 +2674,7 @@ PrefabInstance:
     - target: {fileID: 6443310105166568184, guid: 199fa694e9a0ab641a4a5c5eece73af1, type: 3}
       propertyPath: behindPlayerSpawn
       value: 
-      objectReference: {fileID: 298956531}
+      objectReference: {fileID: 885846879}
     - target: {fileID: 6443310105166568185, guid: 199fa694e9a0ab641a4a5c5eece73af1, type: 3}
       propertyPath: m_RootOrder
       value: 6
