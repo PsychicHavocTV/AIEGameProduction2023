@@ -24,225 +24,232 @@ public class WendigoRoamingState : BaseState
     
     public override void EnterState(WendigoStateManager wendigo)
     {
+        Debug.Log("Roaming..");
         nma.speed = 6.5f;
         nma.ResetPath();
-        Debug.Log("Roaming State Entered..");
     }
-
 
     public override void UpdateState(WendigoStateManager wendigo)
     {
-        playerDistance = Vector3.Distance(wendigo.playerRef.transform.position, wendigo.transform.position);
-        if (playerDistance >= 85)
+        if (GameManager.Instance.GameOver == false)
         {
-            nma.speed = 20;
-        }
-        else
-        {
-            nma.speed = 6.5f;
-        }
-
-        RaycastHit hit;
-
-        if (playerDistance <= 50)
-        {
-            Vector3 rayDirection = wendigo.playerRef.transform.position - wendigo.transform.position;
-            if ((Vector3.Angle(rayDirection, wendigo.transform.forward)) < 25) //Physics.Raycast(wendigo.RaycastOrigin.transform.position, wendigo.RaycastOrigin.transform.TransformDirection(Vector3.forward), out hit, 70, wendigo.layerMask))
+            playerDistance = Vector3.Distance(wendigo.playerRef.transform.position, wendigo.transform.position);
+            if (playerDistance >= 85)
             {
-                if ((Vector3.Angle(rayDirection, wendigo.transform.forward)) < 25) // Is player within field of view
+                nma.speed = 20;
+            }
+            else
+            {
+                nma.speed = 6.5f;
+            }
+
+            RaycastHit hit;
+
+            if (playerDistance <= 50)
+            {
+                Vector3 rayDirection = wendigo.playerRef.transform.position - wendigo.transform.position;
+                if ((Vector3.Angle(rayDirection, wendigo.transform.forward)) < 25) //Physics.Raycast(wendigo.RaycastOrigin.transform.position, wendigo.RaycastOrigin.transform.TransformDirection(Vector3.forward), out hit, 70, wendigo.layerMask))
                 {
-                    if (Physics.Raycast(wendigo.transform.position, rayDirection, out hit, 40))
+                    if ((Vector3.Angle(rayDirection, wendigo.transform.forward)) < 25) // Is player within field of view
                     {
-                        if (hit.collider.gameObject.tag == "Player")
+                        if (Physics.Raycast(wendigo.transform.position, rayDirection, out hit, 40))
                         {
-                            //Debug.Log("player in front");
-                            wendigo.StartChasing();
+                            if (hit.collider.gameObject.tag == "Player")
+                            {
+                                //Debug.Log("player in front");
+                                wendigo.StartChasing();
+                            }
                         }
                     }
                 }
             }
-        }
 
 
-        if (wendigo.pController.takingPhoto == true)
-        {
-            if (playerDistance <= 15)
+            if (wendigo.pController.takingPhoto == true)
             {
-                wendigo.StartChasing();
-            }
-            Debug.Log("ALERTED!!");
-            int alertChance = 0;
-            alertChance = Random.Range(1, 10);
-
-            if (alertChance <= 3)
-            {
+                if (playerDistance <= 15)
+                {
+                    wendigo.StartChasing();
+                }
                 findingPlayer = true;
                 AlertWendigo(wendigo);
             }
-            else
-            {
-                findingPlayer = false;
-            }
-        }
 
-        if (findingPlayer == true)
-        {
-            if (nma.remainingDistance <= 1.2f)
+            if (findingPlayer == true)
             {
-                findingPlayer = false;
+                if (nma.remainingDistance <= 1.2f)
+                {
+                    findingPlayer = false;
+                }
             }
-        }
-        else if (findingPlayer == false)
-        {
-            if (moving == false)
+            else if (findingPlayer == false)
             {
-                directionChoice = Random.Range(0, 7);
-                moveAmount = Random.Range(15, 25);
-                moving = true;
-                oldX = wendigo.transform.localPosition.x;
-                oldZ = wendigo.transform.localPosition.z;
-                nma.ResetPath();
-                destinationSet = false;
-            }
+                if (moving == false)
+                {
+                    directionChoice = Random.Range(0, 7);
+                    moveAmount = Random.Range(15, 25);
+                    oldX = wendigo.transform.localPosition.x;
+                    oldZ = wendigo.transform.localPosition.z;
+                    nma.ResetPath();
+                    destinationSet = false;
+                    moving = true;
+                }
 
-            if (moving == true)
-            {
-                if (nma.hasPath == false)
+                if (moving == true)
                 {
-                    switch (directionChoice)
-                {
-                    // Forward
-                    case 0:
-                        {
-                            if (destinationSet == false)
+                    if (nma.hasPath == false)
+                    {
+                        switch (directionChoice)
+                    {
+                        // Forward
+                        case 0:
                             {
-                                DestinationX = (oldX + moveAmount);
-                                DestinationZ = oldZ;
-                                destinationSet = true;
+                                if (destinationSet == false)
+                                {
+                                    DestinationX = (oldX + moveAmount);
+                                    DestinationZ = oldZ;
+                                    destinationSet = true;
+                                }
+                                MoveWendigo(wendigo, DestinationX, DestinationZ);
+                                break;
                             }
-                            MoveWendigo(wendigo, DestinationX, DestinationZ);
-                            break;
-                        }
-                    // Backwards
-                    case 1:
-                        {
-                            if (destinationSet == false)
+                        // Backwards
+                        case 1:
                             {
-                                DestinationX = (oldX - moveAmount);
-                                DestinationZ = oldZ;
-                                destinationSet = true;
+                                if (destinationSet == false)
+                                {
+                                    DestinationX = (oldX - moveAmount);
+                                    DestinationZ = oldZ;
+                                    destinationSet = true;
+                                }
+                                MoveWendigo(wendigo, DestinationX, DestinationZ);
+                                break;
                             }
-                            MoveWendigo(wendigo, DestinationX, DestinationZ);
-                            break;
-                        }
-                    // Right
-                    case 2:
-                        {
-                            if (destinationSet == false)
+                        // Right
+                        case 2:
                             {
-                                DestinationX = oldX;
-                                DestinationZ = (oldZ + moveAmount);
-                                destinationSet = true;
+                                if (destinationSet == false)
+                                {
+                                    DestinationX = oldX;
+                                    DestinationZ = (oldZ + moveAmount);
+                                    destinationSet = true;
+                                }
+                                MoveWendigo(wendigo, DestinationX, DestinationZ);
+                                break;
                             }
-                            MoveWendigo(wendigo, DestinationX, DestinationZ);
-                            break;
-                        }
-                    // Left
-                    case 3:
-                        {
-                            if (destinationSet == false)
+                        // Left
+                        case 3:
                             {
-                                DestinationX = oldX;
-                                DestinationZ = (oldZ - moveAmount);
-                                destinationSet = true;
+                                if (destinationSet == false)
+                                {
+                                    DestinationX = oldX;
+                                    DestinationZ = (oldZ - moveAmount);
+                                    destinationSet = true;
+                                }
+                                MoveWendigo(wendigo, DestinationX, DestinationZ);
+                                break;
                             }
-                            MoveWendigo(wendigo, DestinationX, DestinationZ);
-                            break;
-                        }
-                    // Forward + Right
-                    case 4:
-                        {
-                            if (destinationSet == false)
+                        // Forward + Right
+                        case 4:
                             {
-                                DestinationX = (oldX + moveAmount);
-                                DestinationZ = (oldZ + moveAmount);
-                                destinationSet = true;
+                                if (destinationSet == false)
+                                {
+                                    DestinationX = (oldX + moveAmount);
+                                    DestinationZ = (oldZ + moveAmount);
+                                    destinationSet = true;
+                                }
+                                MoveWendigo(wendigo, DestinationX, DestinationZ);
+                                break;
                             }
-                            MoveWendigo(wendigo, DestinationX, DestinationZ);
-                            break;
-                        }
-                    // Forward + Left
-                    case 5:
-                        {
-                            if (destinationSet == false)
+                        // Forward + Left
+                        case 5:
                             {
-                                DestinationX = (oldX + moveAmount);
-                                DestinationZ = (oldZ - moveAmount);
-                                destinationSet = true;
+                                if (destinationSet == false)
+                                {
+                                    DestinationX = (oldX + moveAmount);
+                                    DestinationZ = (oldZ - moveAmount);
+                                    destinationSet = true;
+                                }
+                                MoveWendigo(wendigo, DestinationX, DestinationZ);
+                                break;
                             }
-                            MoveWendigo(wendigo, DestinationX, DestinationZ);
-                            break;
-                        }
-                    // Backwards + Right
-                    case 6:
-                        {
-                            if (destinationSet == false)
+                        // Backwards + Right
+                        case 6:
                             {
-                                DestinationX = (oldX - moveAmount);
-                                DestinationZ = (oldZ + moveAmount);
-                                destinationSet = true;
+                                if (destinationSet == false)
+                                {
+                                    DestinationX = (oldX - moveAmount);
+                                    DestinationZ = (oldZ + moveAmount);
+                                    destinationSet = true;
+                                }
+                                MoveWendigo(wendigo, DestinationX, DestinationZ);
+                                break;
                             }
-                            MoveWendigo(wendigo, DestinationX, DestinationZ);
-                            break;
-                        }
-                    // Backwards + Left
-                    case 7:
-                        {
-                            if (destinationSet == false)
+                        // Backwards + Left
+                        case 7:
                             {
-                                DestinationX = (oldX - moveAmount);
-                                DestinationZ = (oldZ - moveAmount);
-                                destinationSet = true;
+                                if (destinationSet == false)
+                                {
+                                    DestinationX = (oldX - moveAmount);
+                                    DestinationZ = (oldZ - moveAmount);
+                                    destinationSet = true;
+                                }
+                                MoveWendigo(wendigo, DestinationX, DestinationZ);
+                                break;
                             }
-                            MoveWendigo(wendigo, DestinationX, DestinationZ);
-                            break;
-                        }
-                }
-                }
-                if (nma.remainingDistance <= 1)
-                {
-                    //Debug.Log("COMPLETED PROCESS!!");
-                    moving = false;
+                    }
+                    }
+                    if (nma.remainingDistance <= 1)
+                    {
+                        //Debug.Log("COMPLETED PROCESS!!");
+                        moving = false;
+                    }
                 }
             }
         }
     }
 
+    // Function for appearing & waiting behind the player.
+    public void BehindPlayer()
+    {
+        nma.isStopped = true;
+        nma.ResetPath();
+
+
+
+    }
+
     public void MoveWendigo(WendigoStateManager wendigo, float x, float z)
     {
-        if (findingPlayer == false)
+        if (GameManager.Instance.GameOver == false)
         {
-            destinationPosition = new Vector3(x, wendigo.transform.localPosition.y, z);//wendigo.playerRef.transform.position;
-            var path = new NavMeshPath();
-            nma.CalculatePath(destinationPosition, path);
-            if (path.status == NavMeshPathStatus.PathComplete)
+            if (findingPlayer == false)
             {
-                nma.SetPath(path);
-                //nma.SetDestination(destinationPosition);
+                destinationPosition = new Vector3(x, wendigo.transform.localPosition.y, z);//wendigo.playerRef.transform.position;
+                var path = new NavMeshPath();
+                nma.CalculatePath(destinationPosition, path);
+                //if (path.status == NavMeshPathStatus.PathComplete)
+                //{
+                //    nma.SetPath(path);
+                //}
+                    nma.SetDestination(destinationPosition);
             }
         }
     }
 
     public void AlertWendigo(WendigoStateManager wendigo)
     {
-        nma.ResetPath();
-        //var path = new NavMeshPath();
-        destinationPosition = wendigo.playerRef.transform.position;
-        //if (path.status == NavMeshPathStatus.PathComplete)
-        //{
-        nma.SetDestination(destinationPosition);
-        //    nma.SetPath(path);
-        //}
-        //nma.SetDestination(destinationPosition);
+        if (GameManager.Instance.GameOver == false)
+        {
+            nma.ResetPath();
+            var path = new NavMeshPath();
+            destinationPosition = wendigo.playerRef.transform.position;
+            //if (path.status == NavMeshPathStatus.PathComplete)
+            //{
+            //    nma.SetPath(path);
+            //}
+                nma.SetDestination(destinationPosition);
+            //nma.SetDestination(destinationPosition);
+        }
     }
 }
