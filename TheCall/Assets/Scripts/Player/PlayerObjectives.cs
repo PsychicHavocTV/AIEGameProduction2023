@@ -21,6 +21,12 @@ public class PlayerObjectives : MonoBehaviour
     }
     private static List<KeyObjectDescriptor> m_currentObjectives = new List<KeyObjectDescriptor>(); // List of current objectives.
 
+    public List<KeyObjectDescriptor> CompletedObjectives
+    {
+        get { return m_completedObjectives; }
+    }
+    private static List<KeyObjectDescriptor> m_completedObjectives = new List<KeyObjectDescriptor>(); // List of completed objectives.
+
     /// <summary>
     /// Adds a specified objective to the current objectives list.
     /// </summary>
@@ -44,6 +50,9 @@ public class PlayerObjectives : MonoBehaviour
     /// <param name="objective">A reference to the objective.</param>
     public void RemoveObjective(KeyObjectDescriptor objective)
     {
+        if (m_currentObjectives.Count <= 0) // Don't try anything if there's nothing to even remove.
+            return;
+
         m_currentObjectives.Remove(objective); // Remove from list.
 
         // UI Stuff.
@@ -63,6 +72,16 @@ public class PlayerObjectives : MonoBehaviour
 
         if (m_currentObjectives.Count <= 0)
             objectivesPanel.SetActive(false); // Disable panel if no objectives.
+    }
+
+    /// <summary>
+    /// Adds the objective to the completed objectives list and then removes it from the current objectives list.
+    /// </summary>
+    /// <param name="objective">A reference to the objective.</param>
+    public void CompleteObjective(KeyObjectDescriptor objective)
+    {
+        m_completedObjectives.Add(objective);
+        RemoveObjective(objective);
     }
 
     /// <summary>

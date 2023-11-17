@@ -92,7 +92,7 @@ public class PlayerCamera : MonoBehaviour
                             eventHandler.Complete(descriptor); // Call complete on all Fungus blocks using the Objective Complete event.
                         }
 
-                        playerObjectives.RemoveObjective(descriptor); // Remove objective from current objectives list.
+                        playerObjectives.CompleteObjective(descriptor); // Complete the objective.
                     }
                 }
             }
