@@ -1,4 +1,3 @@
-using Fungus;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -57,23 +56,43 @@ public class PlayerCamera : MonoBehaviour
 
     private void DoPhotoCheck()
     {
-        if (playerController == null)
+        if (playerController == null) // Don't continue if player doesn't even exist.
             return;
 
-        if (playerController.takingPhoto)
+        if (playerController.takingPhoto) // On player's input.
         {
-            GameObject lookingAt = GetComponent<ObjectsInView>().objects[0];
-            if (lookingAt != null)
+            GameObject lookingAt = null;
+            ObjectsInView viewObjs = GetComponent<ObjectsInView>(); // Get reference to objects in view script.
+
+            if (viewObjs != null && viewObjs.objects.Count > 0)
+                lookingAt = viewObjs.objects[0]; // Get first element from list (closest to camera)
+            else
+                return; // Don't continue if objects in view couldn't be found.
+
+            if (lookingAt != null) // If object exists.
             {
-                float area = GetComponent<AreaCompute>().Area;
+                float area = viewObjs.Area; // Get object's area on screen.
+
                 KeyObjectDescriptor descriptor = lookingAt.GetComponent<KeyObjectDescriptor>();
-                if (area >= descriptor.objectThreshold)
+                if (descriptor == null)
+                    return; // Don't continue if object doesn't have a descriptor.
+
+                if (area >= (descriptor.objectiveThreshold / 100f)) // If object's configured threshold is met.
                 {
                     // GOOD!
-                    if (playerObjectives.CurrentObjective == descriptor)
+                    if (playerObjectives.CurrentObjectives.Contains(descriptor)) // And is a current objective.
                     {
+                        // Do stuff.
                         Debug.Log("Found " + descriptor.objectName + "!");
-                        playerObjectives.objectiveComplete = true;
+
+                        var eventHandlers = UnityEngine.Object.FindObjectsOfType<ObjectiveCompleteEvent>();
+                        for (int i = 0; i < eventHandlers.Length; i++)
+                        {
+                            var eventHandler = eventHandlers[i];
+                            eventHandler.Complete(descriptor); // Call complete on all Fungus blocks using the Objective Complete event.
+                        }
+
+                        playerObjectives.RemoveObjective(descriptor); // Remove objective from current objectives list.
                     }
                 }
             }

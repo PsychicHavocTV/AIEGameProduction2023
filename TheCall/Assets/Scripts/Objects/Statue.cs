@@ -22,7 +22,13 @@ public class Statue : MonoBehaviour
             GameManager.Instance.wendigo = wendigo;
             GameManager.Instance.player = playerParentRef;
             GameManager.Instance.UpdateCheckpoint(statueIndex);
-            GameManager.Instance.SaveCheckpointData();
+            GameManager.Instance.SaveCheckpointData(wendigo, playerParentRef);
+            PlayerController pController;
+            pController = playerParentRef.GetComponent<PlayerController>();
+            if (pController.enabled == false)
+            {
+                pController.enabled = true;
+            }
         }
     }
 
@@ -48,7 +54,7 @@ public class Statue : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.L))
         {
             playerCharacterController.enabled = false;
-            GameManager.Instance.LoadCheckpointData();
+            //GameManager.Instance.LoadCheckpointData();
             //GameManager.Instance.player.transform.position = new Vector3(GameManager.Instance.playerSaveLocation.x, GameManager.Instance.playerSaveLocation.y, GameManager.Instance.playerSaveLocation.z);
             playerCharacterController.enabled = true;
             //Debug.Log(GameManager.Instance.player.transform.position);
