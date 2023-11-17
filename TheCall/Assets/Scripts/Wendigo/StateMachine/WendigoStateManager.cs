@@ -47,7 +47,7 @@ public class WendigoStateManager : MonoBehaviour
             pController = playerRef.GetComponent<PlayerController>(); // Set PlayerController Reference.
         }
 
-        currentState = roamingState; // Set the starting state for the Wendigo.
+        currentState = jumpscareState; // Set the starting state for the Wendigo.
         currentState.EnterState(this); // Begin running behaviour for the current state.
     }
 
@@ -129,7 +129,7 @@ public class WendigoStateManager : MonoBehaviour
     {
         teleportTimerRunning = true;
         teleportTimerFinished = false;
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(5f);
         Debug.Log("Timer is finished");
         teleportTimerRunning = false;
         teleportTimerFinished = true;

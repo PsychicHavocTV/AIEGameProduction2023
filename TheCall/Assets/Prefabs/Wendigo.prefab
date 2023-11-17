@@ -328,6 +328,8 @@ GameObject:
   - component: {fileID: 6874005856793724109}
   - component: {fileID: 793770926}
   - component: {fileID: 793770927}
+  - component: {fileID: 504115921}
+  - component: {fileID: 504115922}
   m_Layer: 0
   m_Name: Wendigo
   m_TagString: Wendigo
@@ -416,8 +418,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c223602598586664289935d6a2cb596a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teleportLocations: []
-  nma: {fileID: 0}
+  teleportLocations:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  nma: {fileID: 6443310105166568186}
 --- !u!65 &793770926
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -447,6 +452,35 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &504115921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6443310105166568167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050260f5bacb70d42a7af179b308647e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectName: Wendigo
+  objectValue: 1
+  objectiveDescription: Your Mom
+  objectiveThreshold: 0
+--- !u!114 &504115922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6443310105166568167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e115db4413607f44910cde53e6dfcd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetCamera: {fileID: 0}
 --- !u!1 &6443310105637956582
 GameObject:
   m_ObjectHideFlags: 0
