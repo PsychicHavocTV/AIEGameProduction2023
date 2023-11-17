@@ -10,6 +10,8 @@ public class Statue : MonoBehaviour
     [SerializeField]
     private GameObject playerParentRef;
     [SerializeField]
+    private PlayerObjectives playerObjectivesRef;
+    [SerializeField]
     private GameObject wendigo;
     [SerializeField]
     private CharacterController playerCharacterController;
@@ -22,7 +24,7 @@ public class Statue : MonoBehaviour
             GameManager.Instance.wendigo = wendigo;
             GameManager.Instance.player = playerParentRef;
             GameManager.Instance.UpdateCheckpoint(statueIndex);
-            GameManager.Instance.SaveCheckpointData(wendigo, playerParentRef);
+            GameManager.Instance.SaveCheckpointData(wendigo, playerParentRef, playerObjectivesRef);
             PlayerController pController;
             pController = playerParentRef.GetComponent<PlayerController>();
             if (pController.enabled == false)
