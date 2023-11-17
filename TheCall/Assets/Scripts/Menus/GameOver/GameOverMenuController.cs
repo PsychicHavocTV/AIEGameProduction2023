@@ -107,6 +107,8 @@ public class GameOverMenuController : MonoBehaviour
         if (Cursor.lockState != CursorLockMode.None)
         {
             Cursor.lockState = CursorLockMode.None;
+            loadButton.image.color = loadButton.colors.normalColor;
+            mainMenuButton.image.color = mainMenuButton.colors.normalColor;
         }
     }
 }
