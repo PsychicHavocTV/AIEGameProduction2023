@@ -1,4 +1,3 @@
-using Fungus;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -30,20 +29,23 @@ public class PlayerCamera : MonoBehaviour
 
     private void Update()
     {
-        // Calculate rotation based on input.
-        m_rotation.x += m_input.x * cameraSensitivity * Time.deltaTime;
-        m_rotation.y -= m_input.y * cameraSensitivity * Time.deltaTime;
+        if (GameManager.Instance.GameOver == false)
+        {
+            // Calculate rotation based on input.
+            m_rotation.x += m_input.x * cameraSensitivity * Time.deltaTime;
+            m_rotation.y -= m_input.y * cameraSensitivity * Time.deltaTime;
 
-        // Wrap camera yaw between 0-360 degrees, (avoids floating point errors)
-        if (m_rotation.x >= 360.0f)
-            m_rotation.x -= 360.0f;
-        else if (m_rotation.x < 0.0f)
-            m_rotation.x += 360.0f;
+            // Wrap camera yaw between 0-360 degrees, (avoids floating point errors)
+            if (m_rotation.x >= 360.0f)
+                m_rotation.x -= 360.0f;
+            else if (m_rotation.x < 0.0f)
+                m_rotation.x += 360.0f;
 
-        // Clamp camera pitch within range, (Prevents camera flipping)
-        m_rotation.y = Mathf.Clamp(m_rotation.y, -89.0f, 89.0f);
+            // Clamp camera pitch within range, (Prevents camera flipping)
+            m_rotation.y = Mathf.Clamp(m_rotation.y, -89.0f, 89.0f);
 
-        DoPhotoCheck();
+            DoPhotoCheck();
+        }
     }
 
     private void LateUpdate() // Update camera after player movement.
@@ -57,23 +59,43 @@ public class PlayerCamera : MonoBehaviour
 
     private void DoPhotoCheck()
     {
-        if (playerController == null)
+        if (playerController == null) // Don't continue if player doesn't even exist.
             return;
 
-        if (playerController.takingPhoto)
+        if (playerController.takingPhoto) // On player's input.
         {
-            GameObject lookingAt = GetComponent<ObjectsInView>().objects[0];
-            if (lookingAt != null)
+            GameObject lookingAt = null;
+            ObjectsInView viewObjs = GetComponent<ObjectsInView>(); // Get reference to objects in view script.
+
+            if (viewObjs != null && viewObjs.objects.Count > 0)
+                lookingAt = viewObjs.objects[0]; // Get first element from list (closest to camera)
+            else
+                return; // Don't continue if objects in view couldn't be found.
+
+            if (lookingAt != null) // If object exists.
             {
-                float area = GetComponent<AreaCompute>().Area;
+                float area = viewObjs.Area; // Get object's area on screen.
+
                 KeyObjectDescriptor descriptor = lookingAt.GetComponent<KeyObjectDescriptor>();
-                if (area >= descriptor.objectThreshold)
+                if (descriptor == null)
+                    return; // Don't continue if object doesn't have a descriptor.
+
+                if (area >= (descriptor.objectiveThreshold / 100f)) // If object's configured threshold is met.
                 {
                     // GOOD!
-                    if (playerObjectives.CurrentObjective == descriptor)
+                    if (playerObjectives.CurrentObjectives.Contains(descriptor)) // And is a current objective.
                     {
+                        // Do stuff.
                         Debug.Log("Found " + descriptor.objectName + "!");
-                        playerObjectives.objectiveComplete = true;
+
+                        var eventHandlers = UnityEngine.Object.FindObjectsOfType<ObjectiveCompleteEvent>();
+                        for (int i = 0; i < eventHandlers.Length; i++)
+                        {
+                            var eventHandler = eventHandlers[i];
+                            eventHandler.Complete(descriptor); // Call complete on all Fungus blocks using the Objective Complete event.
+                        }
+
+                        playerObjectives.RemoveObjective(descriptor); // Remove objective from current objectives list.
                     }
                 }
             }

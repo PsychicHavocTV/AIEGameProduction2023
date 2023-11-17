@@ -11,6 +11,9 @@ public class PlayerController : MonoBehaviour
 
     public bool takingPhoto = false;
 
+    [SerializeField]
+    private GameObject flashlight;
+
     [SerializeField, Tooltip("Reference to the player's camera.")]
     private Transform playerCamera;
 
@@ -23,6 +26,7 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 m_input; // Moving input.
     private bool m_isRunning = false; // Run button input.
+    private bool m_photoInput = false; // Taking photo input.
 
     private Vector3 m_velocity = Vector3.zero; // Velocity (Gravity)
     private float m_moveSpeed = 0.0f; // Move speed.
@@ -40,8 +44,9 @@ public class PlayerController : MonoBehaviour
         // Rotate player body towards camera direction.
         transform.rotation = Quaternion.Euler(transform.localEulerAngles.x, playerCamera.localEulerAngles.y, transform.localEulerAngles.z);
 
-        if (Input.GetMouseButtonDown(0))
+        if (m_photoInput)
         {
+            m_photoInput = false;
             TakePhoto();
         }
     }
@@ -56,12 +61,12 @@ public class PlayerController : MonoBehaviour
 
         // Player movement.
         Vector3 move = Vector3.zero;
-        if (canMove)
+        if (canMove) // Move player only if player input is enabled.
         {
             move = m_input.x * playerCamera.right + m_input.y * playerCamera.forward; // Get movement direction relative to camera direction.
             move.y = 0;
         }
-        m_controller.Move(move.normalized * m_moveSpeed * Time.deltaTime); // Apply movement input.
+        m_controller.Move(move.normalized * m_moveSpeed * Time.deltaTime); // Apply player movement.
     }
 
     private void DoGravity()
@@ -88,8 +93,25 @@ public class PlayerController : MonoBehaviour
         m_isRunning = value.isPressed; // Is running button pressed.
     }
 
+    private void OnPhoto(InputValue value)
+    {
+        m_photoInput = value.Get<float>() >= 0.5f; // Is photo button pressed.
+    }
+
+    private void OnFlashlight(InputValue value)
+    {
+        if (flashlight.activeSelf == true)
+        {
+            flashlight.SetActive(false);
+        }
+        else if (flashlight.activeSelf == false)
+        {
+            flashlight.SetActive(true);
+        }
+    }
+
     // WENDIGO TESTING ONLY
-    void TakePhoto()
+    private void TakePhoto()
     {
         StartCoroutine(CameraTakePhoto());
     }
