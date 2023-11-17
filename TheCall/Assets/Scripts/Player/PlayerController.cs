@@ -1,61 +1,127 @@
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
+    [Tooltip("Enable/Disable player input.")]
     public bool canMove = true;
 
-    [SerializeField]
-    private Transform playerCamera;
-    [SerializeField]
-    private CharacterController controller;
+    public bool takingPhoto = false;
 
     [SerializeField]
+    private GameObject flashlight;
+
+    [SerializeField, Tooltip("Reference to the player's camera.")]
+    private Transform playerCamera;
+
+    [SerializeField, Tooltip("How fast the player can walk.")]
     private float walkSpeed = 8.0f;
-    [SerializeField]
+    [SerializeField, Tooltip("How fast the player can run.")]
     private float runSpeed = 16.0f;
 
-    private Vector2 m_input;
-    private bool m_isRunning = false;
+    private CharacterController m_controller; // Character Controller component.
 
-    private Vector3 m_velocity = Vector3.zero;
-    private float m_moveSpeed = 0.0f;
+    private Vector2 m_input; // Moving input.
+    private bool m_isRunning = false; // Run button input.
+    private bool m_photoInput = false; // Taking photo input.
 
-    void Update()
+    private Vector3 m_velocity = Vector3.zero; // Velocity (Gravity)
+    private float m_moveSpeed = 0.0f; // Move speed.
+
+    private void Start()
     {
+        m_controller = GetComponent<CharacterController>();
+    }
+
+    private void Update()
+    {
+        DoPlayerMovement();
+        DoGravity();
+
+        // Rotate player body towards camera direction.
+        transform.rotation = Quaternion.Euler(transform.localEulerAngles.x, playerCamera.localEulerAngles.y, transform.localEulerAngles.z);
+
+        if (m_photoInput)
+        {
+            m_photoInput = false;
+            TakePhoto();
+        }
+    }
+
+    private void DoPlayerMovement()
+    {
+        // Change move speed whether running or not.
         if (m_isRunning)
             m_moveSpeed = runSpeed;
         else
             m_moveSpeed = walkSpeed;
 
+        // Player movement.
         Vector3 move = Vector3.zero;
-        if (canMove)
+        if (canMove) // Move player only if player input is enabled.
         {
-            move = m_input.x * playerCamera.right + m_input.y * playerCamera.forward;
+            move = m_input.x * playerCamera.right + m_input.y * playerCamera.forward; // Get movement direction relative to camera direction.
             move.y = 0;
         }
-        controller.Move(move.normalized * m_moveSpeed * Time.deltaTime);
+        m_controller.Move(move.normalized * m_moveSpeed * Time.deltaTime); // Apply player movement.
+    }
 
-        if (controller.isGrounded)
+    private void DoGravity()
+    {
+        if (m_controller.isGrounded) // Is player touching ground.
         {
-            m_velocity.y = -1.0f;
+            m_velocity.y = -1.0f; // Push player out of ground.
         }
         else
         {
-            m_velocity.y += Physics.gravity.y * Time.deltaTime;
+            m_velocity.y += Physics.gravity.y * Time.deltaTime; // Gravity.
         }
-        controller.Move(m_velocity * Time.deltaTime);
-
-        transform.rotation = Quaternion.Euler(transform.localEulerAngles.x, playerCamera.localEulerAngles.y, transform.localEulerAngles.z);
+        m_controller.Move(m_velocity * Time.deltaTime); // Apply player velocity.
     }
 
-    void OnMove(InputValue value)
+    // Input System messages.
+    private void OnMove(InputValue value)
     {
-        m_input = value.Get<Vector2>();
+        m_input = value.Get<Vector2>(); // Get movement input.
     }
 
-    void OnRun(InputValue value)
+    private void OnRun(InputValue value)
     {
-        m_isRunning = value.isPressed;
+        m_isRunning = value.isPressed; // Is running button pressed.
+    }
+
+    private void OnPhoto(InputValue value)
+    {
+        m_photoInput = value.Get<float>() >= 0.5f; // Is photo button pressed.
+    }
+
+    private void OnFlashlight(InputValue value)
+    {
+        if (flashlight.activeSelf == true)
+        {
+            flashlight.SetActive(false);
+        }
+        else if (flashlight.activeSelf == false)
+        {
+            flashlight.SetActive(true);
+        }
+    }
+
+    // WENDIGO TESTING ONLY
+    private void TakePhoto()
+    {
+        StartCoroutine(CameraTakePhoto());
+    }
+
+    private IEnumerator CameraTakePhoto()
+    {
+        takingPhoto = true;
+        Debug.Log("Taking Photo!!");
+        yield return new WaitForNextFrameUnit();
+        takingPhoto = false;
+        StopCoroutine(CameraTakePhoto());
     }
 }
