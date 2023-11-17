@@ -29,20 +29,23 @@ public class PlayerCamera : MonoBehaviour
 
     private void Update()
     {
-        // Calculate rotation based on input.
-        m_rotation.x += m_input.x * cameraSensitivity * Time.deltaTime;
-        m_rotation.y -= m_input.y * cameraSensitivity * Time.deltaTime;
+        if (GameManager.Instance.GameOver == false && GameManager.Instance.GamePaused == false)
+        {
+            // Calculate rotation based on input.
+            m_rotation.x += m_input.x * cameraSensitivity * Time.deltaTime;
+            m_rotation.y -= m_input.y * cameraSensitivity * Time.deltaTime;
 
-        // Wrap camera yaw between 0-360 degrees, (avoids floating point errors)
-        if (m_rotation.x >= 360.0f)
-            m_rotation.x -= 360.0f;
-        else if (m_rotation.x < 0.0f)
-            m_rotation.x += 360.0f;
+            // Wrap camera yaw between 0-360 degrees, (avoids floating point errors)
+            if (m_rotation.x >= 360.0f)
+                m_rotation.x -= 360.0f;
+            else if (m_rotation.x < 0.0f)
+                m_rotation.x += 360.0f;
 
-        // Clamp camera pitch within range, (Prevents camera flipping)
-        m_rotation.y = Mathf.Clamp(m_rotation.y, -89.0f, 89.0f);
+            // Clamp camera pitch within range, (Prevents camera flipping)
+            m_rotation.y = Mathf.Clamp(m_rotation.y, -89.0f, 89.0f);
 
-        DoPhotoCheck();
+            DoPhotoCheck();
+        }
     }
 
     private void LateUpdate() // Update camera after player movement.

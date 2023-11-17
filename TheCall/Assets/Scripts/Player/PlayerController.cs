@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        //GameManager.Instance.GamePaused = true;
         m_controller = GetComponent<CharacterController>();
     }
 

@@ -31,7 +31,7 @@ public class WendigoRoamingState : BaseState
 
     public override void UpdateState(WendigoStateManager wendigo)
     {
-        if (GameManager.Instance.GameOver == false)
+        if (GameManager.Instance.GameOver == false && GameManager.Instance.GamePaused == false)
         {
             playerDistance = Vector3.Distance(wendigo.playerRef.transform.position, wendigo.transform.position);
             if (playerDistance >= 85)
