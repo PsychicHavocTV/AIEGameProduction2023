@@ -13,7 +13,7 @@ public class CheckForWendigo : MonoBehaviour
         if (wsm.isBehindPlayer == true && wsm.timerRunning == false)
         {
             RaycastHit hit;
-            if (Physics.Raycast(wsm.playerCamera.transform.position, wsm.playerCamera.transform.forward, out hit, Mathf.Infinity))
+            if (Physics.Raycast(wsm.playerRef.transform.position, wsm.playerCamera.transform.forward, out hit, Mathf.Infinity))
             {
                 Debug.Log(hit.transform.name);
                 if (hit.transform.tag == "Wendigo")

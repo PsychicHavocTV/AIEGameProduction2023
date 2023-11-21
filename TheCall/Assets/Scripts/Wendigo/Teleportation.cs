@@ -24,7 +24,7 @@ public class Teleportation : MonoBehaviour
     {
         nma.enabled = false;
         int locationChoice = 0;
-        locationChoice = Random.Range(0, teleportLocations.Length);
+        locationChoice = Random.Range(1, teleportLocations.Length);
         GameObject location = teleportLocations[locationChoice - 1];
         wendigo.transform.position = new Vector3(location.transform.position.x, location.transform.position.y, location.transform.position.z);
         

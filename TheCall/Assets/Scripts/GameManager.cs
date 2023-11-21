@@ -30,6 +30,7 @@ public class GameManager
     public bool gameSaved = false;
     public bool checkpointLoaded = false;
     public bool GameOver = false;
+    public bool GamePaused = false;
 
     public void DoGameOver(GameObject wendigoRef, GameObject playerRef)
     {
@@ -45,7 +46,7 @@ public class GameManager
         }
         if (checkpointIndex != 0)
         {
-            LoadCheckpointData(wendigoRef, playerRef);
+            //LoadCheckpointData(wendigoRef, playerRef);
         }
         else
         {
