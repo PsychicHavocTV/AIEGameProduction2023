@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 538703215168855303}
   - component: {fileID: 2171450431888953259}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Wendigo_FootPrint_Decal (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2124030707699211992}
   m_LocalRotation: {x: 0.68340206, y: -0.18155357, z: 0.18155353, w: 0.68340206}
-  m_LocalPosition: {x: 5.92, y: -0.6240001, z: -6.63}
+  m_LocalPosition: {x: 5.92, y: 0, z: -6.63}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -55,7 +55,7 @@ MonoBehaviour:
   m_DecalLayerMask: 1
   m_ScaleMode: 0
   m_Offset: {x: 0, y: 0, z: 0}
-  m_Size: {x: 1, y: 1, z: 10}
+  m_Size: {x: 1, y: 1, z: 3}
   m_FadeFactor: 1
   m_Version: 2
 --- !u!1 &3425873954713309904
@@ -68,7 +68,7 @@ GameObject:
   m_Component:
   - component: {fileID: 48784678865474983}
   - component: {fileID: 6345049420966447255}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Wendigo_FootPrint_Decal (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +113,7 @@ MonoBehaviour:
   m_DecalLayerMask: 1
   m_ScaleMode: 0
   m_Offset: {x: 0, y: 0, z: 0}
-  m_Size: {x: 1, y: 1, z: 10}
+  m_Size: {x: 1, y: 1, z: 3}
   m_FadeFactor: 1
   m_Version: 2
 --- !u!1 &3815936857247499465
@@ -125,7 +125,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1497994673446037372}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Wendi Steps
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,7 +140,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3815936857247499465}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 776.19, y: 5.375, z: 431.05}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -151,6 +151,7 @@ Transform:
   - {fileID: 4582352449425251257}
   - {fileID: 538703215168855303}
   - {fileID: 48784678865474983}
+  - {fileID: 5893872307558140114}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -164,7 +165,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4582352449425251257}
   - component: {fileID: 4582352449425251256}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Wendigo_FootPrint_Decal (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -209,7 +210,7 @@ MonoBehaviour:
   m_DecalLayerMask: 1
   m_ScaleMode: 0
   m_Offset: {x: 0, y: 0, z: 0}
-  m_Size: {x: 1, y: 1, z: 10}
+  m_Size: {x: 1, y: 1, z: 3}
   m_FadeFactor: 1
   m_Version: 2
 --- !u!1 &4582352449461885993
@@ -222,7 +223,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4582352449461885991}
   - component: {fileID: 4582352449461885990}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Wendigo_FootPrint_Decal (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -237,7 +238,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4582352449461885993}
   m_LocalRotation: {x: 0.68340206, y: -0.18155357, z: 0.18155353, w: 0.68340206}
-  m_LocalPosition: {x: 1.61, y: -0.6240001, z: -1.98}
+  m_LocalPosition: {x: 1.61, y: 0, z: -1.98}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -267,7 +268,7 @@ MonoBehaviour:
   m_DecalLayerMask: 1
   m_ScaleMode: 0
   m_Offset: {x: 0, y: 0, z: 0}
-  m_Size: {x: 1, y: 1, z: 10}
+  m_Size: {x: 1, y: 1, z: 3}
   m_FadeFactor: 1
   m_Version: 2
 --- !u!1 &4582352449512298568
@@ -280,7 +281,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4582352449512298566}
   - component: {fileID: 4582352449512298569}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Wendigo_FootPrint_Decal (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -325,7 +326,7 @@ MonoBehaviour:
   m_DecalLayerMask: 1
   m_ScaleMode: 0
   m_Offset: {x: 0, y: 0, z: 0}
-  m_Size: {x: 1, y: 1, z: 10}
+  m_Size: {x: 1, y: 1, z: 3}
   m_FadeFactor: 1
   m_Version: 2
 --- !u!1 &4582352449720441364
@@ -338,7 +339,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4582352449720441362}
   - component: {fileID: 4582352449720441365}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Wendigo_FootPrint_Decal (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -353,7 +354,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4582352449720441364}
   m_LocalRotation: {x: 0.68340206, y: -0.18155357, z: 0.18155353, w: 0.68340206}
-  m_LocalPosition: {x: 3.67, y: -0.467, z: -3.23}
+  m_LocalPosition: {x: 3.67, y: 0, z: -3.23}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -383,7 +384,7 @@ MonoBehaviour:
   m_DecalLayerMask: 1
   m_ScaleMode: 0
   m_Offset: {x: 0, y: 0, z: 0}
-  m_Size: {x: 1, y: 1, z: 10}
+  m_Size: {x: 1, y: 1, z: 3}
   m_FadeFactor: 1
   m_Version: 2
 --- !u!1 &4582352449803283272
@@ -396,7 +397,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4582352449803283270}
   - component: {fileID: 4582352449803283273}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Wendigo_FootPrint_Decal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -411,7 +412,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4582352449803283272}
   m_LocalRotation: {x: 0.68340206, y: -0.18155357, z: 0.18155353, w: 0.68340206}
-  m_LocalPosition: {x: 3.5800025, y: -0.6240001, z: -5.580017}
+  m_LocalPosition: {x: 3.5800025, y: 0, z: -5.580017}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -441,6 +442,91 @@ MonoBehaviour:
   m_DecalLayerMask: 1
   m_ScaleMode: 0
   m_Offset: {x: 0, y: 0, z: 0}
-  m_Size: {x: 1, y: 1, z: 10}
+  m_Size: {x: 1, y: 1, z: 3}
   m_FadeFactor: 1
   m_Version: 2
+--- !u!1 &8053832611920636894
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5893872307558140114}
+  - component: {fileID: 3692923047978195664}
+  - component: {fileID: 1784888645237553750}
+  - component: {fileID: 777626004392751901}
+  - component: {fileID: 5361711958936417505}
+  m_Layer: 31
+  m_Name: Wendigo Tracks 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5893872307558140114
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8053832611920636894}
+  m_LocalRotation: {x: -0, y: -0.30998376, z: -0, w: 0.9507418}
+  m_LocalPosition: {x: 2.34, y: 0.156, z: -1.77}
+  m_LocalScale: {x: 5, y: 1, z: 15}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1497994673446037372}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: -36.117, z: 0}
+--- !u!33 &3692923047978195664
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8053832611920636894}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &1784888645237553750
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8053832611920636894}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &777626004392751901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8053832611920636894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e115db4413607f44910cde53e6dfcd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetCamera: {fileID: 0}
+--- !u!114 &5361711958936417505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8053832611920636894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050260f5bacb70d42a7af179b308647e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectName: Wendi Steps 1
+  objectValue: 1
+  objectiveDescription: Look for Wendigo Tracks
+  objectiveThreshold: 0
