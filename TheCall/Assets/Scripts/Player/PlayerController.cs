@@ -12,6 +12,9 @@ public class PlayerController : MonoBehaviour
     public bool takingPhoto = false;
 
     [SerializeField]
+    private HideController hidingController;
+
+    [SerializeField]
     private GameObject flashlight;
 
     [SerializeField, Tooltip("Reference to the player's camera.")]
@@ -54,20 +57,23 @@ public class PlayerController : MonoBehaviour
 
     private void DoPlayerMovement()
     {
-        // Change move speed whether running or not.
-        if (m_isRunning)
-            m_moveSpeed = runSpeed;
-        else
-            m_moveSpeed = walkSpeed;
-
-        // Player movement.
-        Vector3 move = Vector3.zero;
-        if (canMove) // Move player only if player input is enabled.
+        if (hidingController.isHidden == false && hidingController.isHiding == false)
         {
-            move = m_input.x * playerCamera.right + m_input.y * playerCamera.forward; // Get movement direction relative to camera direction.
-            move.y = 0;
+            // Change move speed whether running or not.
+            if (m_isRunning)
+                m_moveSpeed = runSpeed;
+            else
+                m_moveSpeed = walkSpeed;
+
+            // Player movement.
+            Vector3 move = Vector3.zero;
+            if (canMove) // Move player only if player input is enabled.
+            {
+                move = m_input.x * playerCamera.right + m_input.y * playerCamera.forward; // Get movement direction relative to camera direction.
+                move.y = 0;
+            }
+            m_controller.Move(move.normalized * m_moveSpeed * Time.deltaTime); // Apply player movement.
         }
-        m_controller.Move(move.normalized * m_moveSpeed * Time.deltaTime); // Apply player movement.
     }
 
     private void DoGravity()
@@ -111,10 +117,35 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void OnInteract(InputValue value)
+    {
+        if (hidingController.canHide == true)
+        {
+            if (hidingController.isHiding == false && hidingController.isHidden == false)
+            {
+                hidingController.isHiding = true;
+                hidingController.hidingSpots[hidingController.currentSpotIndex].spotOccupied = true;
+                hidingController.isHiding = false;
+                hidingController.isHidden = true;
+                Debug.Log("Player is hiding.");
+            }
+            else if (hidingController.isHidden == true || hidingController.isHiding == true)
+            {
+                hidingController.isHidden = false;
+                hidingController.isHiding = false;
+                hidingController.hidingSpots[hidingController.currentSpotIndex].spotOccupied = false;
+                Debug.Log("Player is no longer hiding.");
+            }
+        }
+    }
+
     // WENDIGO TESTING ONLY
     private void TakePhoto()
     {
-        StartCoroutine(CameraTakePhoto());
+        if (hidingController.isHiding == false && hidingController.isHidden == false)
+        {
+            StartCoroutine(CameraTakePhoto());
+        }
     }
 
     private IEnumerator CameraTakePhoto()
