@@ -381,7 +381,7 @@ MonoBehaviour:
   teleportTimerFinished: 0
   timerRunning: 0
   timerFinished: 0
-  goBehindPlayer: 1
+  goBehindPlayer: 0
   isBehindPlayer: 0
   teleportAway: 0
 --- !u!195 &6443310105166568186
@@ -393,17 +393,17 @@ NavMeshAgent:
   m_GameObject: {fileID: 6443310105166568167}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.38
+  m_Radius: 0.68
   m_Speed: 5
   m_Acceleration: 8
   avoidancePriority: 75
-  m_AngularSpeed: 561.31
+  m_AngularSpeed: 403.13
   m_StoppingDistance: 2
   m_AutoTraverseOffMeshLink: 0
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 1.68
-  m_BaseOffset: 2.11
+  m_BaseOffset: 2.07
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &6874005856793724109
@@ -466,7 +466,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectName: Wendigo
   objectValue: 1
-  objectiveDescription: Your Mom
+  objectiveDescription: Wendigo
   objectiveThreshold: 0
 --- !u!114 &504115922
 MonoBehaviour:
@@ -1020,5 +1020,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 190.97847, y: 423.63275, z: 132.62082}
-  m_Center: {x: -2.7619197, y: -58.84459, z: 9.169986}
+  m_Size: {x: 190.97847, y: 408.52493, z: 132.62082}
+  m_Center: {x: -2.7619197, y: -51.290676, z: 9.169986}

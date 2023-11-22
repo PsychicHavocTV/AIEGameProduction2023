@@ -32,6 +32,7 @@ public class GameManager
     public bool gameSaved = false;
     public bool checkpointLoaded = false;
     public bool GameOver = false;
+    public bool GamePaused = false;
 
     public static Dictionary<String, Int32> guidInstanceMapping = new Dictionary<String, int>();
     public static Dictionary<String, GameObject> guidObjectMapping = new Dictionary<String, GameObject>();
@@ -50,7 +51,7 @@ public class GameManager
         }
         if (checkpointIndex != 0)
         {
-            LoadCheckpointData(wendigoRef, playerRef);
+            //LoadCheckpointData(wendigoRef, playerRef);
         }
         else
         {
