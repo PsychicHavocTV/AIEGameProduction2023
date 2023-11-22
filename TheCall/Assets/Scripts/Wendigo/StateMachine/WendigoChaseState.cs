@@ -8,6 +8,7 @@ public class WendigoChaseState : BaseState
 {
     public NavMeshAgent nma;
     float playerDistance;
+    Vector3 destinationPosition;
 
     public override void EnterState(WendigoStateManager wendigo)
     {
@@ -23,7 +24,14 @@ public class WendigoChaseState : BaseState
             playerDistance = Vector3.Distance(wendigo.playerRef.transform.position, wendigo.transform.position);
 
             nma.ResetPath();
-            nma.SetDestination(wendigo.playerRef.transform.position);
+            var path = new NavMeshPath();
+            destinationPosition = wendigo.playerRef.transform.position;
+            nma.CalculatePath(destinationPosition, path);
+            if (path.status == NavMeshPathStatus.PathComplete)
+            {
+                nma.SetPath(path);
+                nma.SetDestination(destinationPosition);
+            }
             Vector3 rayDirection = wendigo.playerRef.transform.position - wendigo.transform.position;
 
             // Check if the player is in front of the Wendigo & within its Field Of View.
