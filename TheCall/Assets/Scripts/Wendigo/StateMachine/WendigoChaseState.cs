@@ -44,6 +44,13 @@ public class WendigoChaseState : BaseState
                        if (hit.collider.gameObject.tag == "Player")
                        {
                            //Debug.Log("player in front");
+                           if (wendigo.hidingController.isHidden == true)
+                            {
+                                if (wendigo.timerRunning == false)
+                                {
+                                    wendigo.ControlTimer();
+                                }
+                            }
                            wendigo.StartChasing();
                        }
                        else

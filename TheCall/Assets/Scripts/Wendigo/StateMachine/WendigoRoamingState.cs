@@ -7,7 +7,6 @@ public class WendigoRoamingState : BaseState
 {
     int directionChoice = 0;
     public int moveAmount = 0;
-    int roamSpeed = 3;
     public bool moving = false;
     public GameObject Wendigo;
     float oldX = 0;
@@ -25,7 +24,7 @@ public class WendigoRoamingState : BaseState
     public override void EnterState(WendigoStateManager wendigo)
     {
         Debug.Log("Roaming..");
-        nma.speed = 6.5f;
+        nma.speed = wendigo.roamSpeed;
         nma.ResetPath();
     }
 
@@ -34,13 +33,13 @@ public class WendigoRoamingState : BaseState
         if (GameManager.Instance.GameOver == false && GameManager.Instance.GamePaused == false)
         {
             playerDistance = Vector3.Distance(wendigo.playerRef.transform.position, wendigo.transform.position);
-            if (playerDistance >= 85)
+            if (playerDistance >= 175)
             {
                 nma.speed = 20;
             }
             else
             {
-                nma.speed = 6.5f;
+                nma.speed = wendigo.roamSpeed;
             }
 
             RaycastHit hit;
@@ -87,7 +86,7 @@ public class WendigoRoamingState : BaseState
                 if (moving == false)
                 {
                     directionChoice = Random.Range(0, 7);
-                    moveAmount = Random.Range(15, 25);
+                    moveAmount = Random.Range(15, 55);
                     oldX = wendigo.transform.localPosition.x;
                     oldZ = wendigo.transform.localPosition.z;
                     nma.ResetPath();

@@ -78,15 +78,18 @@ public class PlayerController : MonoBehaviour
 
     private void DoGravity()
     {
-        if (m_controller.isGrounded) // Is player touching ground.
+        if (hidingController.isHidden == false && hidingController.isHiding == false && hidingController.exitingHiding == false)
         {
-            m_velocity.y = -1.0f; // Push player out of ground.
+            if (m_controller.isGrounded) // Is player touching ground.
+            {
+                m_velocity.y = -1.0f; // Push player out of ground.
+            }
+            else
+            {
+                m_velocity.y += Physics.gravity.y * Time.deltaTime; // Gravity.
+            }
+            m_controller.Move(m_velocity * Time.deltaTime); // Apply player velocity.
         }
-        else
-        {
-            m_velocity.y += Physics.gravity.y * Time.deltaTime; // Gravity.
-        }
-        m_controller.Move(m_velocity * Time.deltaTime); // Apply player velocity.
     }
 
     // Input System messages.
@@ -119,22 +122,27 @@ public class PlayerController : MonoBehaviour
 
     private void OnInteract(InputValue value)
     {
-        if (hidingController.canHide == true)
+        if (hidingController.isHidden == true || hidingController.isHiding == true)
         {
-            if (hidingController.isHiding == false && hidingController.isHidden == false)
+            hidingController.exitingHiding = true;
+            hidingController.ExitHidingSpot(hidingController.hidingSpots[hidingController.currentSpotIndex]);
+            hidingController.hidingSpots[hidingController.currentSpotIndex].spotOccupied = false;
+            hidingController.isHidden = false;
+            hidingController.isHiding = false;
+            hidingController.exitingHiding = false;
+            //hidingController.hidingSpots[hidingController.currentSpotIndex].hidingSpotIndex = 99;
+            Debug.Log("Player is no longer hiding.");
+        }
+        else if (hidingController.canHide == true)
+        {
+            if (hidingController.isHiding == false && hidingController.isHidden == false && hidingController.exitingHiding == false)
             {
                 hidingController.isHiding = true;
+                hidingController.EnterHidingSpot(hidingController.hidingSpots[hidingController.currentSpotIndex]);
                 hidingController.hidingSpots[hidingController.currentSpotIndex].spotOccupied = true;
                 hidingController.isHiding = false;
                 hidingController.isHidden = true;
                 Debug.Log("Player is hiding.");
-            }
-            else if (hidingController.isHidden == true || hidingController.isHiding == true)
-            {
-                hidingController.isHidden = false;
-                hidingController.isHiding = false;
-                hidingController.hidingSpots[hidingController.currentSpotIndex].spotOccupied = false;
-                Debug.Log("Player is no longer hiding.");
             }
         }
     }

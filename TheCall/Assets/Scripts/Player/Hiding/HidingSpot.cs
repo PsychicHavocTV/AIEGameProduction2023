@@ -6,6 +6,9 @@ using UnityEngine;
 public class HidingSpot : MonoBehaviour
 {
     public GameObject spot;
+    public GameObject hiddenTeleport;
+    public GameObject outsideTeleport;
+    public Collider spotCollider;
     public int hidingSpotIndex = 0;
     public bool spotOccupied = false;
 
@@ -32,11 +35,7 @@ public class HidingSpot : MonoBehaviour
         if (other.tag == "Player" || other.tag == "player")
         {
             Debug.Log("player no longer in range");
-            hidingController.currentSpotIndex = 99;
-            if (hidingController.isHidden == false && hidingController.isHiding == false)
-            {
-                hidingController.canHide = false;
-            }
+            hidingController.canHide = false;
         }
     }
 
