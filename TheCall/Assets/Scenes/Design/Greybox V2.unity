@@ -808,6 +808,90 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cabin_FNL
       objectReference: {fileID: 0}
+    - target: {fileID: 3582046343798453209, guid: 12b98e2b86f845a478f58cf3ae8cb080, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 121.304
+      objectReference: {fileID: 0}
+    - target: {fileID: 3582046343798453209, guid: 12b98e2b86f845a478f58cf3ae8cb080, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 159.11865
+      objectReference: {fileID: 0}
+    - target: {fileID: 3582046343798453209, guid: 12b98e2b86f845a478f58cf3ae8cb080, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 36.544003
+      objectReference: {fileID: 0}
+    - target: {fileID: 7638439726626928181, guid: 12b98e2b86f845a478f58cf3ae8cb080, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 96.9057
+      objectReference: {fileID: 0}
+    - target: {fileID: 7638439726626928181, guid: 12b98e2b86f845a478f58cf3ae8cb080, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 230.44408
+      objectReference: {fileID: 0}
+    - target: {fileID: 7638439726626928181, guid: 12b98e2b86f845a478f58cf3ae8cb080, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7638439726626928181, guid: 12b98e2b86f845a478f58cf3ae8cb080, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 47.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7638439726626928181, guid: 12b98e2b86f845a478f58cf3ae8cb080, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7638439726626928181, guid: 12b98e2b86f845a478f58cf3ae8cb080, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.98987675
+      objectReference: {fileID: 0}
+    - target: {fileID: 7638439726626928181, guid: 12b98e2b86f845a478f58cf3ae8cb080, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.14192973
+      objectReference: {fileID: 0}
+    - target: {fileID: 7638439726626928181, guid: 12b98e2b86f845a478f58cf3ae8cb080, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 16.319
+      objectReference: {fileID: 0}
+    - target: {fileID: 8906967291166207581, guid: 12b98e2b86f845a478f58cf3ae8cb080, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 257.40488
+      objectReference: {fileID: 0}
+    - target: {fileID: 8906967291166207581, guid: 12b98e2b86f845a478f58cf3ae8cb080, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 376.01135
+      objectReference: {fileID: 0}
+    - target: {fileID: 8906967291166207581, guid: 12b98e2b86f845a478f58cf3ae8cb080, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 65.934
+      objectReference: {fileID: 0}
+    - target: {fileID: 8906967291166207581, guid: 12b98e2b86f845a478f58cf3ae8cb080, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 138.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8906967291166207581, guid: 12b98e2b86f845a478f58cf3ae8cb080, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8906967291166207581, guid: 12b98e2b86f845a478f58cf3ae8cb080, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.8237238
+      objectReference: {fileID: 0}
+    - target: {fileID: 8906967291166207581, guid: 12b98e2b86f845a478f58cf3ae8cb080, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.00000032782552
+      objectReference: {fileID: 0}
+    - target: {fileID: 8906967291166207581, guid: 12b98e2b86f845a478f58cf3ae8cb080, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.00000020861623
+      objectReference: {fileID: 0}
+    - target: {fileID: 8906967291166207581, guid: 12b98e2b86f845a478f58cf3ae8cb080, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.5669913
+      objectReference: {fileID: 0}
+    - target: {fileID: 8906967291166207581, guid: 12b98e2b86f845a478f58cf3ae8cb080, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 69.081
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12b98e2b86f845a478f58cf3ae8cb080, type: 3}
 --- !u!4 &78223875 stripped
@@ -1780,6 +1864,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5f218d1cc3b8204cac958f70c529472, type: 3}
+--- !u!114 &163385135 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1620234301, guid: a5f218d1cc3b8204cac958f70c529472, type: 3}
+  m_PrefabInstance: {fileID: 163385134}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050260f5bacb70d42a7af179b308647e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &168476083
 GameObject:
   m_ObjectHideFlags: 0
@@ -1819,7 +1914,7 @@ Transform:
   - {fileID: 604313560}
   - {fileID: 1698848029}
   m_Father: {fileID: 1761276419}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &182842343
 GameObject:
@@ -3056,6 +3151,223 @@ BoxCollider:
   m_CorrespondingSourceObject: {fileID: 1515957115, guid: a63a357ee7a20354583929b045743df6, type: 3}
   m_PrefabInstance: {fileID: 276546146}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &291911467
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 291911468}
+  - component: {fileID: 291911470}
+  - component: {fileID: 291911469}
+  m_Layer: 0
+  m_Name: Point Light (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &291911468
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291911467}
+  m_LocalRotation: {x: -0, y: 0.884679, z: -0, w: 0.4662007}
+  m_LocalPosition: {x: 0.8, y: 47.2, z: -1.7}
+  m_LocalScale: {x: 27.777767, y: 27.777779, z: 27.777767}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 378269407}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &291911469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291911467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Intensity: 10.318439
+  m_EnableSpotReflector: 1
+  m_LuxAtDistance: 1
+  m_InnerSpotPercent: 0
+  m_SpotIESCutoffPercent: 100
+  m_LightDimmer: 1
+  m_VolumetricDimmer: 1
+  m_LightUnit: 4
+  m_FadeDistance: 10000
+  m_VolumetricFadeDistance: 10000
+  m_AffectDiffuse: 1
+  m_AffectSpecular: 1
+  m_NonLightmappedOnly: 0
+  m_ShapeWidth: 0.5
+  m_ShapeHeight: 0.5
+  m_AspectRatio: 1
+  m_ShapeRadius: 0.025
+  m_SoftnessScale: 1
+  m_UseCustomSpotLightShadowCone: 0
+  m_CustomSpotLightShadowCone: 30
+  m_MaxSmoothness: 0.99
+  m_ApplyRangeAttenuation: 1
+  m_DisplayAreaLightEmissiveMesh: 0
+  m_AreaLightCookie: {fileID: 0}
+  m_IESPoint: {fileID: 0}
+  m_IESSpot: {fileID: 0}
+  m_IncludeForRayTracing: 1
+  m_AreaLightShadowCone: 120
+  m_UseScreenSpaceShadows: 0
+  m_InteractsWithSky: 1
+  m_AngularDiameter: 0.5
+  m_FlareSize: 2
+  m_FlareTint: {r: 1, g: 1, b: 1, a: 1}
+  m_FlareFalloff: 4
+  m_SurfaceTexture: {fileID: 0}
+  m_SurfaceTint: {r: 1, g: 1, b: 1, a: 1}
+  m_Distance: 1.5e+11
+  m_UseRayTracedShadows: 0
+  m_NumRayTracingSamples: 4
+  m_FilterTracedShadow: 1
+  m_FilterSizeTraced: 16
+  m_SunLightConeAngle: 0.5
+  m_LightShadowRadius: 0.5
+  m_SemiTransparentShadow: 0
+  m_ColorShadow: 1
+  m_DistanceBasedFiltering: 0
+  m_EvsmExponent: 15
+  m_EvsmLightLeakBias: 0
+  m_EvsmVarianceBias: 0.00001
+  m_EvsmBlurPasses: 0
+  m_LightlayersMask: 1
+  m_LinkShadowLayers: 1
+  m_ShadowNearPlane: 0.1
+  m_BlockerSampleCount: 24
+  m_FilterSampleCount: 16
+  m_MinFilterSize: 0.1
+  m_KernelSize: 5
+  m_LightAngle: 1
+  m_MaxDepthBias: 0.001
+  m_ShadowResolution:
+    m_Override: 512
+    m_UseOverride: 1
+    m_Level: 0
+  m_ShadowDimmer: 1
+  m_VolumetricShadowDimmer: 1
+  m_ShadowFadeDistance: 10000
+  m_UseContactShadow:
+    m_Override: 0
+    m_UseOverride: 1
+    m_Level: 0
+  m_RayTracedContactShadow: 0
+  m_ShadowTint: {r: 0, g: 0, b: 0, a: 1}
+  m_PenumbraTint: 0
+  m_NormalBias: 0.75
+  m_SlopeBias: 0.5
+  m_ShadowUpdateMode: 0
+  m_AlwaysDrawDynamicShadows: 0
+  m_UpdateShadowOnLightMovement: 0
+  m_CachedShadowTranslationThreshold: 0.01
+  m_CachedShadowAngularThreshold: 0.5
+  m_BarnDoorAngle: 90
+  m_BarnDoorLength: 0.05
+  m_preserveCachedShadow: 0
+  m_OnDemandShadowRenderOnPlacement: 1
+  m_ShadowCascadeRatios:
+  - 0.05
+  - 0.2
+  - 0.3
+  m_ShadowCascadeBorders:
+  - 0.2
+  - 0.2
+  - 0.2
+  - 0.2
+  m_ShadowAlgorithm: 0
+  m_ShadowVariant: 0
+  m_ShadowPrecision: 0
+  useOldInspector: 0
+  useVolumetric: 1
+  featuresFoldout: 1
+  m_AreaLightEmissiveMeshShadowCastingMode: 0
+  m_AreaLightEmissiveMeshMotionVectorGenerationMode: 0
+  m_AreaLightEmissiveMeshLayer: -1
+  m_Version: 11
+  m_ObsoleteShadowResolutionTier: 1
+  m_ObsoleteUseShadowQualitySettings: 0
+  m_ObsoleteCustomShadowResolution: 512
+  m_ObsoleteContactShadows: 0
+  m_PointlightHDType: 0
+  m_SpotLightShape: 0
+  m_AreaLightShape: 0
+--- !u!108 &291911470
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291911467}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 2
+  m_Shape: 0
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Intensity: 159.61346
+  m_Range: 10
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 2
+  m_AreaSize: {x: 0.5, y: 0.5}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 1500
+  m_UseColorTemperature: 1
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!1001 &297378427
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3434,6 +3746,114 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8502245838278401775, guid: 18080688885590244a2fddb694c4f35a, type: 3}
   m_PrefabInstance: {fileID: 356624896}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &378269406
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1737012825}
+    m_Modifications:
+    - target: {fileID: 8313750886022016448, guid: 1cb60de5a58469d4ea15fcbba0b81be5, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8313750886022016448, guid: 1cb60de5a58469d4ea15fcbba0b81be5, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.012
+      objectReference: {fileID: 0}
+    - target: {fileID: 8313750886022016448, guid: 1cb60de5a58469d4ea15fcbba0b81be5, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.012
+      objectReference: {fileID: 0}
+    - target: {fileID: 8313750886022016448, guid: 1cb60de5a58469d4ea15fcbba0b81be5, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.012
+      objectReference: {fileID: 0}
+    - target: {fileID: 8313750886022016448, guid: 1cb60de5a58469d4ea15fcbba0b81be5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.898
+      objectReference: {fileID: 0}
+    - target: {fileID: 8313750886022016448, guid: 1cb60de5a58469d4ea15fcbba0b81be5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.348
+      objectReference: {fileID: 0}
+    - target: {fileID: 8313750886022016448, guid: 1cb60de5a58469d4ea15fcbba0b81be5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.063
+      objectReference: {fileID: 0}
+    - target: {fileID: 8313750886022016448, guid: 1cb60de5a58469d4ea15fcbba0b81be5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.4662007
+      objectReference: {fileID: 0}
+    - target: {fileID: 8313750886022016448, guid: 1cb60de5a58469d4ea15fcbba0b81be5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8313750886022016448, guid: 1cb60de5a58469d4ea15fcbba0b81be5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.884679
+      objectReference: {fileID: 0}
+    - target: {fileID: 8313750886022016448, guid: 1cb60de5a58469d4ea15fcbba0b81be5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8313750886022016448, guid: 1cb60de5a58469d4ea15fcbba0b81be5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8313750886022016448, guid: 1cb60de5a58469d4ea15fcbba0b81be5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8313750886022016448, guid: 1cb60de5a58469d4ea15fcbba0b81be5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8659209104723425146, guid: 1cb60de5a58469d4ea15fcbba0b81be5, type: 3}
+      propertyPath: m_Name
+      value: DreamCatcher_Corrupted_FNL
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1cb60de5a58469d4ea15fcbba0b81be5, type: 3}
+--- !u!4 &378269407 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8313750886022016448, guid: 1cb60de5a58469d4ea15fcbba0b81be5, type: 3}
+  m_PrefabInstance: {fileID: 378269406}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &378269408 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8659209104723425146, guid: 1cb60de5a58469d4ea15fcbba0b81be5, type: 3}
+  m_PrefabInstance: {fileID: 378269406}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &378269409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378269408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e115db4413607f44910cde53e6dfcd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetCamera: {fileID: 276546148}
+--- !u!114 &378269410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378269408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050260f5bacb70d42a7af179b308647e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectName: CorruptedDreamcatcher 1
+  objectValue: 0
+  objectiveDescription: Take a photo of a corrupted dreamcatcher.
+  objectiveThreshold: 1.2
 --- !u!1 &380751549
 GameObject:
   m_ObjectHideFlags: 0
@@ -4062,7 +4482,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &454837126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4401,6 +4821,10 @@ PrefabInstance:
     - target: {fileID: 6272478125163834387, guid: 079681edd6a159148a7dee95e64b9a14, type: 3}
       propertyPath: m_Name
       value: campfire_lit_BKT (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6272478125163834387, guid: 079681edd6a159148a7dee95e64b9a14, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6649425433923958441, guid: 079681edd6a159148a7dee95e64b9a14, type: 3}
       propertyPath: m_RootOrder
@@ -4929,7 +5353,7 @@ MonoBehaviour:
   objectName: DreamCatcher 6
   objectValue: 0
   objectiveDescription: 
-  objectiveThreshold: 1
+  objectiveThreshold: 0.08
 --- !u!114 &536551742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7145,7 +7569,7 @@ MonoBehaviour:
   objectName: DreamCatcher 5
   objectValue: 0
   objectiveDescription: 
-  objectiveThreshold: 1
+  objectiveThreshold: 0.1
 --- !u!114 &863759294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8446,6 +8870,7 @@ Transform:
   - {fileID: 1620234296}
   - {fileID: 1829286674}
   - {fileID: 2128941821}
+  - {fileID: 605478656}
   m_Father: {fileID: 1761276419}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8469,7 +8894,7 @@ MonoBehaviour:
   objectName: DreamCatcher 3
   objectValue: 0
   objectiveDescription: 
-  objectiveThreshold: 1
+  objectiveThreshold: 0.1
 --- !u!114 &992844666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8984,6 +9409,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8669552759347083867, guid: 207c6e67b1adc1c47a06ff0558f09b3a, type: 3}
   m_PrefabInstance: {fileID: 1076276818}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1082042878 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1620234301, guid: a5f218d1cc3b8204cac958f70c529472, type: 3}
+  m_PrefabInstance: {fileID: 1369763826}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050260f5bacb70d42a7af179b308647e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1091952586
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9939,6 +10375,10 @@ PrefabInstance:
     - target: {fileID: 6272478125163834387, guid: 079681edd6a159148a7dee95e64b9a14, type: 3}
       propertyPath: m_Name
       value: campfire_lit_BKT (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6272478125163834387, guid: 079681edd6a159148a7dee95e64b9a14, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6649425433923958441, guid: 079681edd6a159148a7dee95e64b9a14, type: 3}
       propertyPath: m_RootOrder
@@ -11003,7 +11443,7 @@ Transform:
   - {fileID: 1347889096}
   - {fileID: 938312370}
   m_Father: {fileID: 1761276419}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1309848982
 PrefabInstance:
@@ -11208,15 +11648,23 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1761276419}
+    m_TransformParent: {fileID: 975217260}
     m_Modifications:
     - target: {fileID: 1620234300, guid: a5f218d1cc3b8204cac958f70c529472, type: 3}
       propertyPath: targetCamera
       value: 
       objectReference: {fileID: 276546148}
+    - target: {fileID: 1620234301, guid: a5f218d1cc3b8204cac958f70c529472, type: 3}
+      propertyPath: objectName
+      value: Statue 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1620234301, guid: a5f218d1cc3b8204cac958f70c529472, type: 3}
+      propertyPath: objectiveDescription
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8238836281373212840, guid: a5f218d1cc3b8204cac958f70c529472, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8238836281373212840, guid: a5f218d1cc3b8204cac958f70c529472, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11260,7 +11708,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8727388246128564754, guid: a5f218d1cc3b8204cac958f70c529472, type: 3}
       propertyPath: m_Name
-      value: Wendigo_Statue_DONE
+      value: Wendigo_Statue_DONE (3)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5f218d1cc3b8204cac958f70c529472, type: 3}
@@ -11271,6 +11719,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 504115921, guid: 199fa694e9a0ab641a4a5c5eece73af1, type: 3}
+      propertyPath: objectiveThreshold
+      value: 0.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 504115921, guid: 199fa694e9a0ab641a4a5c5eece73af1, type: 3}
+      propertyPath: objectiveDescription
+      value: Take a photo of the wendigo itself.
+      objectReference: {fileID: 0}
     - target: {fileID: 504115922, guid: 199fa694e9a0ab641a4a5c5eece73af1, type: 3}
       propertyPath: targetCamera
       value: 
@@ -11374,6 +11830,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c4036aae0dc34484fbf2b7289eba4065, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1370652693 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 504115921, guid: 199fa694e9a0ab641a4a5c5eece73af1, type: 3}
+  m_PrefabInstance: {fileID: 1370652691}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050260f5bacb70d42a7af179b308647e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1381786149
@@ -21440,7 +21907,7 @@ MonoBehaviour:
   objectName: DreamCatcher 2
   objectValue: 0
   objectiveDescription: 
-  objectiveThreshold: 1
+  objectiveThreshold: 0.1
 --- !u!114 &1560506221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21742,6 +22209,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8238836281373212840, guid: a5f218d1cc3b8204cac958f70c529472, type: 3}
   m_PrefabInstance: {fileID: 1620234295}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1620234297 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1620234301, guid: a5f218d1cc3b8204cac958f70c529472, type: 3}
+  m_PrefabInstance: {fileID: 1620234295}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050260f5bacb70d42a7af179b308647e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1620646584
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21898,7 +22376,7 @@ MonoBehaviour:
   objectName: DreamCatcher 1
   objectValue: 0
   objectiveDescription: Take a photo of a dreamcatcher.
-  objectiveThreshold: 1
+  objectiveThreshold: 0.09
 --- !u!114 &1628335303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21922,6 +22400,10 @@ PrefabInstance:
     - target: {fileID: 6272478125163834387, guid: 079681edd6a159148a7dee95e64b9a14, type: 3}
       propertyPath: m_Name
       value: campfire_lit_BKT (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6272478125163834387, guid: 079681edd6a159148a7dee95e64b9a14, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6649425433923958441, guid: 079681edd6a159148a7dee95e64b9a14, type: 3}
       propertyPath: m_RootOrder
@@ -22401,7 +22883,7 @@ MonoBehaviour:
   objectName: DreamCatcher 4
   objectValue: 0
   objectiveDescription: 
-  objectiveThreshold: 1
+  objectiveThreshold: 0.1
 --- !u!114 &1687383184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22534,7 +23016,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &1696826792
 Light:
   m_ObjectHideFlags: 0
@@ -23908,7 +24390,6 @@ Transform:
   - {fileID: 354376870}
   - {fileID: 852505844}
   - {fileID: 219164158}
-  - {fileID: 605478656}
   - {fileID: 1300256438}
   - {fileID: 168476084}
   - {fileID: 1962492014}
@@ -25868,7 +26349,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3324242002223008480, guid: 2aa9ecc8b4adb6640a5cbcf7d0eb678b, type: 3}
       propertyPath: blockName
-      value: Check for objective complete and add next objective. (1)
+      value: Check for objective complete and add next objective. (Tracks 1)
       objectReference: {fileID: 0}
     - target: {fileID: 3324242002223008480, guid: 2aa9ecc8b4adb6640a5cbcf7d0eb678b, type: 3}
       propertyPath: nodeRect.x
@@ -25935,6 +26416,10 @@ PrefabInstance:
     - target: {fileID: 3324242002223008492, guid: 2aa9ecc8b4adb6640a5cbcf7d0eb678b, type: 3}
       propertyPath: selectedBlocks.Array.size
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3324242002223008492, guid: 2aa9ecc8b4adb6640a5cbcf7d0eb678b, type: 3}
+      propertyPath: selectedCommands.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3324242002223008493, guid: 2aa9ecc8b4adb6640a5cbcf7d0eb678b, type: 3}
       propertyPath: nodeRect.x
@@ -26072,14 +26557,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 547.91455
-    y: -89.80958
+    x: 548.9784
+    y: -88.74575
     width: 240
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
   itemId: 19
-  blockName: Check for objective complete and call for next objective. (1)
+  blockName: Check for objective complete and call for next objective. (Tent 1)
   description: 
   eventHandler: {fileID: 1950544722}
   commandList:
@@ -26466,7 +26951,7 @@ MonoBehaviour:
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
   itemId: 20
-  blockName: Check for objective complete and call for next objective. (4)
+  blockName: Check for objective complete and call for next objective. (Tent 4)
   description: 
   eventHandler: {fileID: 1950544738}
   commandList:
@@ -26508,7 +26993,7 @@ MonoBehaviour:
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
   itemId: 21
-  blockName: Check for objective complete and call for next objective. (3)
+  blockName: Check for objective complete and call for next objective. (Tent 3)
   description: 
   eventHandler: {fileID: 1950544740}
   commandList:
@@ -26550,7 +27035,7 @@ MonoBehaviour:
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
   itemId: 22
-  blockName: Check for objective complete and call for next objective. (2)
+  blockName: Check for objective complete and call for next objective. (Tent 2)
   description: 
   eventHandler: {fileID: 1950544742}
   commandList:
@@ -26891,7 +27376,7 @@ MonoBehaviour:
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
   itemId: 34
-  blockName: Check for objective complete and add next objective. (1) (Copy)
+  blockName: Check for objective complete and add next objective. (Tracks 2)
   description: 
   eventHandler: {fileID: 1950544758}
   commandList:
@@ -27358,8 +27843,8 @@ MonoBehaviour:
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
-  itemId: 21
-  blockName: Check for objective complete and call for next objective. (5)
+  itemId: 69
+  blockName: Check for objective complete and call for next objective. (Dream 5)
   description: 
   eventHandler: {fileID: 1950544770}
   commandList:
@@ -27421,8 +27906,8 @@ MonoBehaviour:
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
-  itemId: 20
-  blockName: Check for objective complete and call for next objective. (6)
+  itemId: 70
+  blockName: Check for objective complete and call for next objective. (Dream 6)
   description: 
   eventHandler: {fileID: 1950544773}
   commandList:
@@ -27484,8 +27969,8 @@ MonoBehaviour:
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
-  itemId: 22
-  blockName: Check for objective complete and call for next objective. (2) (Copy)
+  itemId: 71
+  blockName: Check for objective complete and call for next objective. (Dream 2)
   description: 
   eventHandler: {fileID: 1950544776}
   commandList:
@@ -27547,8 +28032,8 @@ MonoBehaviour:
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
-  itemId: 21
-  blockName: Check for objective complete and call for next objective. (3) (Copy)
+  itemId: 72
+  blockName: Check for objective complete and call for next objective. (Dream 3)
   description: 
   eventHandler: {fileID: 1950544779}
   commandList:
@@ -27610,8 +28095,8 @@ MonoBehaviour:
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
-  itemId: 20
-  blockName: Check for objective complete and call for next objective. (4) (Copy)
+  itemId: 73
+  blockName: Check for objective complete and call for next objective. (Dream 4)
   description: 
   eventHandler: {fileID: 1950544782}
   commandList:
@@ -27637,7 +28122,7 @@ MonoBehaviour:
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
-  itemId: 9
+  itemId: 74
   blockName: Removes previous objectives, adds next objective (3)
   description: 
   eventHandler: {fileID: 0}
@@ -27648,6 +28133,11 @@ MonoBehaviour:
   - {fileID: 1950544766}
   - {fileID: 1950544765}
   - {fileID: 1950544764}
+  - {fileID: 1950544827}
+  - {fileID: 1950544808}
+  - {fileID: 1950544807}
+  - {fileID: 1950544806}
+  - {fileID: 1950544826}
   suppressAllAutoSelections: 0
 --- !u!114 &1950544786
 MonoBehaviour:
@@ -27705,8 +28195,8 @@ MonoBehaviour:
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
-  itemId: 19
-  blockName: Check for objective complete and call for next objective. (1)1
+  itemId: 75
+  blockName: Check for objective complete and call for next objective. (Dream 1)
   description: 
   eventHandler: {fileID: 1950544786}
   commandList:
@@ -27892,6 +28382,958 @@ MonoBehaviour:
   returnValueType: System.Void
   showInherited: 0
   callMode: 0
+--- !u!114 &1950544793
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1950544721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 1700.5105
+    y: -87.68576
+    width: 240
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 97
+  blockName: Check for objective complete and call for next objective.  (Statue 1)
+  description: 
+  eventHandler: {fileID: 1950544799}
+  commandList:
+  - {fileID: 1950544794}
+  suppressAllAutoSelections: 0
+--- !u!114 &1950544794
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1950544721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 89
+  indentLevel: 0
+  targetFlowchart: {fileID: 0}
+  targetBlock: {fileID: 1950544795}
+  startLabel:
+    stringRef: {fileID: 0}
+    stringVal: 
+  startIndex: 0
+  callMode: 0
+--- !u!114 &1950544795
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1950544721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 1992.4646
+    y: -38.62302
+    width: 240
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 98
+  blockName: Removes previous objectives, adds next objective (4)
+  description: 
+  eventHandler: {fileID: 0}
+  commandList:
+  - {fileID: 1950544798}
+  - {fileID: 1950544797}
+  - {fileID: 1950544796}
+  - {fileID: 1950544822}
+  - {fileID: 1950544815}
+  suppressAllAutoSelections: 0
+--- !u!114 &1950544796
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1950544721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 88
+  indentLevel: 0
+  description: 
+  targetObject: {fileID: 1875959021}
+  targetComponentAssemblyName: PlayerObjectives, Assembly-CSharp, Version=0.0.0.0,
+    Culture=neutral, PublicKeyToken=null
+  targetComponentFullname: UnityEngine.Component[]
+  targetComponentText: PlayerObjectives
+  targetMethod: RemoveObjective
+  targetMethodText: 'RemoveObjective (KeyObjectDescriptor): Void'
+  methodParameters:
+  - objValue:
+      typeAssemblyname: KeyObjectDescriptor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      typeFullname: KeyObjectDescriptor
+      intValue: 0
+      boolValue: 0
+      floatValue: 0
+      stringValue: 
+      colorValue: {r: 0, g: 0, b: 0, a: 0}
+      gameObjectValue: {fileID: 0}
+      materialValue: {fileID: 0}
+      objectValue: {fileID: 163385135}
+      spriteValue: {fileID: 0}
+      textureValue: {fileID: 0}
+      vector2Value: {x: 0, y: 0}
+      vector3Value: {x: 0, y: 0, z: 0}
+    variableKey: 
+  saveReturnValue: 0
+  returnValueVariableKey: 
+  returnValueType: System.Void
+  showInherited: 0
+  callMode: 0
+--- !u!114 &1950544797
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1950544721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 87
+  indentLevel: 0
+  description: 
+  targetObject: {fileID: 1875959021}
+  targetComponentAssemblyName: PlayerObjectives, Assembly-CSharp, Version=0.0.0.0,
+    Culture=neutral, PublicKeyToken=null
+  targetComponentFullname: UnityEngine.Component[]
+  targetComponentText: PlayerObjectives
+  targetMethod: RemoveObjective
+  targetMethodText: 'RemoveObjective (KeyObjectDescriptor): Void'
+  methodParameters:
+  - objValue:
+      typeAssemblyname: KeyObjectDescriptor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      typeFullname: KeyObjectDescriptor
+      intValue: 0
+      boolValue: 0
+      floatValue: 0
+      stringValue: 
+      colorValue: {r: 0, g: 0, b: 0, a: 0}
+      gameObjectValue: {fileID: 0}
+      materialValue: {fileID: 0}
+      objectValue: {fileID: 1829286677}
+      spriteValue: {fileID: 0}
+      textureValue: {fileID: 0}
+      vector2Value: {x: 0, y: 0}
+      vector3Value: {x: 0, y: 0, z: 0}
+    variableKey: 
+  saveReturnValue: 0
+  returnValueVariableKey: 
+  returnValueType: System.Void
+  showInherited: 0
+  callMode: 0
+--- !u!114 &1950544798
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1950544721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 86
+  indentLevel: 0
+  description: 
+  targetObject: {fileID: 1875959021}
+  targetComponentAssemblyName: PlayerObjectives, Assembly-CSharp, Version=0.0.0.0,
+    Culture=neutral, PublicKeyToken=null
+  targetComponentFullname: UnityEngine.Component[]
+  targetComponentText: PlayerObjectives
+  targetMethod: RemoveObjective
+  targetMethodText: 'RemoveObjective (KeyObjectDescriptor): Void'
+  methodParameters:
+  - objValue:
+      typeAssemblyname: KeyObjectDescriptor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      typeFullname: KeyObjectDescriptor
+      intValue: 0
+      boolValue: 0
+      floatValue: 0
+      stringValue: 
+      colorValue: {r: 0, g: 0, b: 0, a: 0}
+      gameObjectValue: {fileID: 0}
+      materialValue: {fileID: 0}
+      objectValue: {fileID: 1620234297}
+      spriteValue: {fileID: 0}
+      textureValue: {fileID: 0}
+      vector2Value: {x: 0, y: 0}
+      vector3Value: {x: 0, y: 0, z: 0}
+    variableKey: 
+  saveReturnValue: 0
+  returnValueVariableKey: 
+  returnValueType: System.Void
+  showInherited: 0
+  callMode: 0
+--- !u!114 &1950544799
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1950544721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 915383e17b1dcdf4c98f109063af2635, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentBlock: {fileID: 1950544793}
+  suppressBlockAutoSelect: 0
+  objectiveToCheck: {fileID: 1620234297}
+--- !u!114 &1950544800
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1950544721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 91
+  indentLevel: 0
+  targetFlowchart: {fileID: 0}
+  targetBlock: {fileID: 1950544795}
+  startLabel:
+    stringRef: {fileID: 0}
+    stringVal: 
+  startIndex: 0
+  callMode: 0
+--- !u!114 &1950544801
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1950544721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 90
+  indentLevel: 0
+  targetFlowchart: {fileID: 0}
+  targetBlock: {fileID: 1950544795}
+  startLabel:
+    stringRef: {fileID: 0}
+    stringVal: 
+  startIndex: 0
+  callMode: 0
+--- !u!114 &1950544802
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1950544721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 915383e17b1dcdf4c98f109063af2635, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentBlock: {fileID: 1950544803}
+  suppressBlockAutoSelect: 0
+  objectiveToCheck: {fileID: 163385135}
+--- !u!114 &1950544803
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1950544721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 1702.3663
+    y: 19.53069
+    width: 240
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 99
+  blockName: Check for objective complete and call for next objective. (Statue 3)
+  description: 
+  eventHandler: {fileID: 1950544802}
+  commandList:
+  - {fileID: 1950544800}
+  suppressAllAutoSelections: 0
+--- !u!114 &1950544804
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1950544721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 915383e17b1dcdf4c98f109063af2635, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentBlock: {fileID: 1950544805}
+  suppressBlockAutoSelect: 0
+  objectiveToCheck: {fileID: 1829286677}
+--- !u!114 &1950544805
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1950544721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 1695.8738
+    y: -33.046635
+    width: 240
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 100
+  blockName: Check for objective complete and call for next objective. (Statue 2)
+  description: 
+  eventHandler: {fileID: 1950544804}
+  commandList:
+  - {fileID: 1950544801}
+  suppressAllAutoSelections: 0
+--- !u!114 &1950544806
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1950544721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 78
+  indentLevel: 0
+  description: 
+  targetObject: {fileID: 1875959021}
+  targetComponentAssemblyName: PlayerObjectives, Assembly-CSharp, Version=0.0.0.0,
+    Culture=neutral, PublicKeyToken=null
+  targetComponentFullname: UnityEngine.Component[]
+  targetComponentText: PlayerObjectives
+  targetMethod: AddObjective
+  targetMethodText: 'AddObjective (KeyObjectDescriptor): Void'
+  methodParameters:
+  - objValue:
+      typeAssemblyname: KeyObjectDescriptor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      typeFullname: KeyObjectDescriptor
+      intValue: 0
+      boolValue: 0
+      floatValue: 0
+      stringValue: 
+      colorValue: {r: 0, g: 0, b: 0, a: 0}
+      gameObjectValue: {fileID: 0}
+      materialValue: {fileID: 0}
+      objectValue: {fileID: 163385135}
+      spriteValue: {fileID: 0}
+      textureValue: {fileID: 0}
+      vector2Value: {x: 0, y: 0}
+      vector3Value: {x: 0, y: 0, z: 0}
+    variableKey: 
+  saveReturnValue: 0
+  returnValueVariableKey: 
+  returnValueType: System.Void
+  showInherited: 0
+  callMode: 0
+--- !u!114 &1950544807
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1950544721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 77
+  indentLevel: 0
+  description: 
+  targetObject: {fileID: 1875959021}
+  targetComponentAssemblyName: PlayerObjectives, Assembly-CSharp, Version=0.0.0.0,
+    Culture=neutral, PublicKeyToken=null
+  targetComponentFullname: UnityEngine.Component[]
+  targetComponentText: PlayerObjectives
+  targetMethod: AddObjective
+  targetMethodText: 'AddObjective (KeyObjectDescriptor): Void'
+  methodParameters:
+  - objValue:
+      typeAssemblyname: KeyObjectDescriptor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      typeFullname: KeyObjectDescriptor
+      intValue: 0
+      boolValue: 0
+      floatValue: 0
+      stringValue: 
+      colorValue: {r: 0, g: 0, b: 0, a: 0}
+      gameObjectValue: {fileID: 0}
+      materialValue: {fileID: 0}
+      objectValue: {fileID: 1829286677}
+      spriteValue: {fileID: 0}
+      textureValue: {fileID: 0}
+      vector2Value: {x: 0, y: 0}
+      vector3Value: {x: 0, y: 0, z: 0}
+    variableKey: 
+  saveReturnValue: 0
+  returnValueVariableKey: 
+  returnValueType: System.Void
+  showInherited: 0
+  callMode: 0
+--- !u!114 &1950544808
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1950544721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 76
+  indentLevel: 0
+  description: 
+  targetObject: {fileID: 1875959021}
+  targetComponentAssemblyName: PlayerObjectives, Assembly-CSharp, Version=0.0.0.0,
+    Culture=neutral, PublicKeyToken=null
+  targetComponentFullname: UnityEngine.Component[]
+  targetComponentText: PlayerObjectives
+  targetMethod: AddObjective
+  targetMethodText: 'AddObjective (KeyObjectDescriptor): Void'
+  methodParameters:
+  - objValue:
+      typeAssemblyname: KeyObjectDescriptor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      typeFullname: KeyObjectDescriptor
+      intValue: 0
+      boolValue: 0
+      floatValue: 0
+      stringValue: 
+      colorValue: {r: 0, g: 0, b: 0, a: 0}
+      gameObjectValue: {fileID: 0}
+      materialValue: {fileID: 0}
+      objectValue: {fileID: 1620234297}
+      spriteValue: {fileID: 0}
+      textureValue: {fileID: 0}
+      vector2Value: {x: 0, y: 0}
+      vector3Value: {x: 0, y: 0, z: 0}
+    variableKey: 
+  saveReturnValue: 0
+  returnValueVariableKey: 
+  returnValueType: System.Void
+  showInherited: 0
+  callMode: 0
+--- !u!114 &1950544809
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1950544721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 96
+  indentLevel: 0
+  storyText: Nice job mate, demo complete!
+  description: 
+  character: {fileID: 0}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
+--- !u!114 &1950544810
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1950544721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 915383e17b1dcdf4c98f109063af2635, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentBlock: {fileID: 1950544811}
+  suppressBlockAutoSelect: 0
+  objectiveToCheck: {fileID: 1370652693}
+--- !u!114 &1950544811
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1950544721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 2572.6187
+    y: -44.136574
+    width: 240
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 101
+  blockName: Check for objective complete and call for next objective. (Wendigo)
+  description: 
+  eventHandler: {fileID: 1950544810}
+  commandList:
+  - {fileID: 1950544809}
+  suppressAllAutoSelections: 0
+--- !u!114 &1950544812
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1950544721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 95
+  indentLevel: 0
+  description: 
+  targetObject: {fileID: 1875959021}
+  targetComponentAssemblyName: PlayerObjectives, Assembly-CSharp, Version=0.0.0.0,
+    Culture=neutral, PublicKeyToken=null
+  targetComponentFullname: UnityEngine.Component[]
+  targetComponentText: PlayerObjectives
+  targetMethod: AddObjective
+  targetMethodText: 'AddObjective (KeyObjectDescriptor): Void'
+  methodParameters:
+  - objValue:
+      typeAssemblyname: KeyObjectDescriptor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      typeFullname: KeyObjectDescriptor
+      intValue: 0
+      boolValue: 0
+      floatValue: 0
+      stringValue: 
+      colorValue: {r: 0, g: 0, b: 0, a: 0}
+      gameObjectValue: {fileID: 0}
+      materialValue: {fileID: 0}
+      objectValue: {fileID: 1370652693}
+      spriteValue: {fileID: 0}
+      textureValue: {fileID: 0}
+      vector2Value: {x: 0, y: 0}
+      vector3Value: {x: 0, y: 0, z: 0}
+    variableKey: 
+  saveReturnValue: 0
+  returnValueVariableKey: 
+  returnValueType: System.Void
+  showInherited: 0
+  callMode: 0
+--- !u!114 &1950544813
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1950544721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 915383e17b1dcdf4c98f109063af2635, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentBlock: {fileID: 1950544814}
+  suppressBlockAutoSelect: 0
+  objectiveToCheck: {fileID: 378269410}
+--- !u!114 &1950544814
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1950544721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 2285.9868
+    y: -43.10576
+    width: 240
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 102
+  blockName: Check for objective complete and call for next objective. (EvilDream)
+  description: 
+  eventHandler: {fileID: 1950544813}
+  commandList:
+  - {fileID: 1950544812}
+  suppressAllAutoSelections: 0
+--- !u!114 &1950544815
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1950544721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 92
+  indentLevel: 0
+  description: 
+  targetObject: {fileID: 1875959021}
+  targetComponentAssemblyName: PlayerObjectives, Assembly-CSharp, Version=0.0.0.0,
+    Culture=neutral, PublicKeyToken=null
+  targetComponentFullname: UnityEngine.Component[]
+  targetComponentText: PlayerObjectives
+  targetMethod: AddObjective
+  targetMethodText: 'AddObjective (KeyObjectDescriptor): Void'
+  methodParameters:
+  - objValue:
+      typeAssemblyname: KeyObjectDescriptor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      typeFullname: KeyObjectDescriptor
+      intValue: 0
+      boolValue: 0
+      floatValue: 0
+      stringValue: 
+      colorValue: {r: 0, g: 0, b: 0, a: 0}
+      gameObjectValue: {fileID: 0}
+      materialValue: {fileID: 0}
+      objectValue: {fileID: 378269410}
+      spriteValue: {fileID: 0}
+      textureValue: {fileID: 0}
+      vector2Value: {x: 0, y: 0}
+      vector3Value: {x: 0, y: 0, z: 0}
+    variableKey: 
+  saveReturnValue: 0
+  returnValueVariableKey: 
+  returnValueType: System.Void
+  showInherited: 0
+  callMode: 0
+--- !u!114 &1950544822
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1950544721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 106
+  indentLevel: 0
+  description: 
+  targetObject: {fileID: 1875959021}
+  targetComponentAssemblyName: PlayerObjectives, Assembly-CSharp, Version=0.0.0.0,
+    Culture=neutral, PublicKeyToken=null
+  targetComponentFullname: UnityEngine.Component[]
+  targetComponentText: PlayerObjectives
+  targetMethod: RemoveObjective
+  targetMethodText: 'RemoveObjective (KeyObjectDescriptor): Void'
+  methodParameters:
+  - objValue:
+      typeAssemblyname: KeyObjectDescriptor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      typeFullname: KeyObjectDescriptor
+      intValue: 0
+      boolValue: 0
+      floatValue: 0
+      stringValue: 
+      colorValue: {r: 0, g: 0, b: 0, a: 0}
+      gameObjectValue: {fileID: 0}
+      materialValue: {fileID: 0}
+      objectValue: {fileID: 1082042878}
+      spriteValue: {fileID: 0}
+      textureValue: {fileID: 0}
+      vector2Value: {x: 0, y: 0}
+      vector3Value: {x: 0, y: 0, z: 0}
+    variableKey: 
+  saveReturnValue: 0
+  returnValueVariableKey: 
+  returnValueType: System.Void
+  showInherited: 0
+  callMode: 0
+--- !u!114 &1950544823
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1950544721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 915383e17b1dcdf4c98f109063af2635, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentBlock: {fileID: 1950544825}
+  suppressBlockAutoSelect: 0
+  objectiveToCheck: {fileID: 1082042878}
+--- !u!114 &1950544824
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1950544721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 105
+  indentLevel: 0
+  targetFlowchart: {fileID: 0}
+  targetBlock: {fileID: 1950544795}
+  startLabel:
+    stringRef: {fileID: 0}
+    stringVal: 
+  startIndex: 0
+  callMode: 0
+--- !u!114 &1950544825
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1950544721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 1705.1718
+    y: 78.47976
+    width: 240
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 107
+  blockName: Check for objective complete and call for next objective. (Statue 4)
+  description: 
+  eventHandler: {fileID: 1950544823}
+  commandList:
+  - {fileID: 1950544824}
+  suppressAllAutoSelections: 0
+--- !u!114 &1950544826
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1950544721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 103
+  indentLevel: 0
+  description: 
+  targetObject: {fileID: 1875959021}
+  targetComponentAssemblyName: PlayerObjectives, Assembly-CSharp, Version=0.0.0.0,
+    Culture=neutral, PublicKeyToken=null
+  targetComponentFullname: UnityEngine.Component[]
+  targetComponentText: PlayerObjectives
+  targetMethod: AddObjective
+  targetMethodText: 'AddObjective (KeyObjectDescriptor): Void'
+  methodParameters:
+  - objValue:
+      typeAssemblyname: KeyObjectDescriptor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      typeFullname: KeyObjectDescriptor
+      intValue: 0
+      boolValue: 0
+      floatValue: 0
+      stringValue: 
+      colorValue: {r: 0, g: 0, b: 0, a: 0}
+      gameObjectValue: {fileID: 0}
+      materialValue: {fileID: 0}
+      objectValue: {fileID: 1082042878}
+      spriteValue: {fileID: 0}
+      textureValue: {fileID: 0}
+      vector2Value: {x: 0, y: 0}
+      vector3Value: {x: 0, y: 0, z: 0}
+    variableKey: 
+  saveReturnValue: 0
+  returnValueVariableKey: 
+  returnValueType: System.Void
+  showInherited: 0
+  callMode: 0
+--- !u!114 &1950544827
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1950544721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 110
+  indentLevel: 0
+  description: 
+  targetObject: {fileID: 1875959021}
+  targetComponentAssemblyName: PlayerObjectives, Assembly-CSharp, Version=0.0.0.0,
+    Culture=neutral, PublicKeyToken=null
+  targetComponentFullname: UnityEngine.Component[]
+  targetComponentText: PlayerObjectives
+  targetMethod: RemoveObjective
+  targetMethodText: 'RemoveObjective (KeyObjectDescriptor): Void'
+  methodParameters:
+  - objValue:
+      typeAssemblyname: KeyObjectDescriptor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      typeFullname: KeyObjectDescriptor
+      intValue: 0
+      boolValue: 0
+      floatValue: 0
+      stringValue: 
+      colorValue: {r: 0, g: 0, b: 0, a: 0}
+      gameObjectValue: {fileID: 0}
+      materialValue: {fileID: 0}
+      objectValue: {fileID: 2119585353}
+      spriteValue: {fileID: 0}
+      textureValue: {fileID: 0}
+      vector2Value: {x: 0, y: 0}
+      vector3Value: {x: 0, y: 0, z: 0}
+    variableKey: 
+  saveReturnValue: 0
+  returnValueVariableKey: 
+  returnValueType: System.Void
+  showInherited: 0
+  callMode: 0
+--- !u!114 &1950544828
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1950544721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 915383e17b1dcdf4c98f109063af2635, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentBlock: {fileID: 1950544830}
+  suppressBlockAutoSelect: 0
+  objectiveToCheck: {fileID: 2119585353}
+--- !u!114 &1950544829
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1950544721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 109
+  indentLevel: 0
+  targetFlowchart: {fileID: 1950544720}
+  targetBlock: {fileID: 1950544785}
+  startLabel:
+    stringRef: {fileID: 0}
+    stringVal: 
+  startIndex: 0
+  callMode: 0
+--- !u!114 &1950544830
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1950544721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 1148.1755
+    y: 249.60265
+    width: 240
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 111
+  blockName: Check for objective complete and call for next objective. (Dream 7)
+  description: 
+  eventHandler: {fileID: 1950544828}
+  commandList:
+  - {fileID: 1950544829}
+  suppressAllAutoSelections: 0
 --- !u!1001 &1959283290
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27996,7 +29438,7 @@ Transform:
   - {fileID: 1560183282}
   - {fileID: 924348878}
   m_Father: {fileID: 1761276419}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1962992367
 PrefabInstance:
@@ -29452,6 +30894,40 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44c7ab35cd9e7ef43a58098dd95b46d6, type: 3}
+--- !u!1 &2119585350 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1372358215874070239, guid: 12b98e2b86f845a478f58cf3ae8cb080, type: 3}
+  m_PrefabInstance: {fileID: 78223874}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2119585352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2119585350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e115db4413607f44910cde53e6dfcd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetCamera: {fileID: 276546148}
+--- !u!114 &2119585353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2119585350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050260f5bacb70d42a7af179b308647e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectName: DreamCatcher 7
+  objectValue: 0
+  objectiveDescription: 
+  objectiveThreshold: 0.05
 --- !u!1 &2124053573
 GameObject:
   m_ObjectHideFlags: 0
