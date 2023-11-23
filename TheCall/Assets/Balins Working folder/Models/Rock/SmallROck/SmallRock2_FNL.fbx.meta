@@ -1,9 +1,14 @@
 fileFormatVersion: 2
-guid: 5af033ab2d2935144a45e2a383c2f3ca
+guid: 34630d252a1230e409e45c806cde25b6
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SmallRock2_MAT
+    second: {fileID: 2100000, guid: 1806cce21bf553f47b5670d5532e9a38, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
