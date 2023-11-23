@@ -122,6 +122,15 @@ public class PlayerController : MonoBehaviour
 
     private void OnInteract(InputValue value)
     {
+        // Statues
+        if (GameManager.Instance.atStatue == true)
+        {
+            GameManager.Instance.interactWithStatue = true;
+            Debug.Log("Game Saved.");
+        }
+
+
+        // Hiding
         if (hidingController.isHidden == true || hidingController.isHiding == true)
         {
             hidingController.exitingHiding = true;

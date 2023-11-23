@@ -21,6 +21,8 @@ public class GameOverMenuController : MonoBehaviour
     Button cancelQuitButton;
     [SerializeField]
     GameObject confirmationWindow;
+    [SerializeField]
+    GameObject loadButtonObject;
 
     public GameObject gameOverCanvas;
     public bool confirmationWindowShowing = false;
@@ -30,9 +32,20 @@ public class GameOverMenuController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         Debug.Log(menuInput.currentControlScheme);
         if (GameManager.Instance.GameOver == true)
         {
+            if (GameManager.Instance.noCheckpoint == true)
+            {
+                loadButtonObject.SetActive(false);
+                loadButton.enabled = false;
+            }
+            else if (GameManager.Instance.noCheckpoint == true)
+            {
+                loadButtonObject.SetActive(true);
+                loadButton.enabled = true;
+            }
             if (gameOverShowing == false)
             {
                 if (playerInput.enabled == true)
@@ -81,11 +94,18 @@ public class GameOverMenuController : MonoBehaviour
         }
         if (confirmationWindowShowing == false)
         {
-            if (currentIndex > 0)
+            if (GameManager.Instance.noCheckpoint == false)
             {
-                exitButton.image.color = exitButton.colors.normalColor;
-                loadButton.image.color = loadButton.colors.highlightedColor;
-                currentIndex--;
+                if (currentIndex > 0)
+                {
+                    exitButton.image.color = exitButton.colors.normalColor;
+                    loadButton.image.color = loadButton.colors.highlightedColor;
+                    currentIndex--;
+                }
+            }
+            else
+            {
+                    exitButton.image.color = exitButton.colors.highlightedColor;
             }
         }
         
@@ -99,11 +119,18 @@ public class GameOverMenuController : MonoBehaviour
         }
         if (confirmationWindowShowing == false)
         {
-            if (currentIndex < 1)
+            if (GameManager.Instance.noCheckpoint == false)
             {
-                loadButton.image.color = loadButton.colors.normalColor;
-                exitButton.image.color = exitButton.colors.highlightedColor;
-                currentIndex++;
+                if (currentIndex < 1)
+                {
+                    loadButton.image.color = loadButton.colors.normalColor;
+                    exitButton.image.color = exitButton.colors.highlightedColor;
+                    currentIndex++;
+                }
+            }
+            else
+            {
+                    exitButton.image.color = exitButton.colors.highlightedColor;
             }
         }
         
@@ -147,8 +174,22 @@ public class GameOverMenuController : MonoBehaviour
             {
                 case 0:
                     {
-                        loadButton.image.color = loadButton.colors.pressedColor;
-                        Debug.Log("Load most recent checkpoint.");
+                        if (GameManager.Instance.noCheckpoint == false)
+                        {
+                            loadButton.image.color = loadButton.colors.pressedColor;
+                            Debug.Log("Load most recent checkpoint.");
+                        }
+                        else
+                        {
+                            exitButton.image.color = exitButton.colors.pressedColor;
+                            Debug.Log("Open Confirmation Window.");
+                            confirmationWindowShowing = true;
+                            if (confirmationWindow.activeSelf == false)
+                            {
+                                confirmationWindow.SetActive(true);
+                                currentIndex = 0;
+                            }
+                        }
                         break;
                     }
                 case 1:
@@ -199,7 +240,10 @@ public class GameOverMenuController : MonoBehaviour
         if (Cursor.lockState != CursorLockMode.None)
         {
             Cursor.lockState = CursorLockMode.None;
-            loadButton.image.color = loadButton.colors.normalColor;
+            if (GameManager.Instance.noCheckpoint == false)
+            {
+                loadButton.image.color = loadButton.colors.normalColor;
+            }
             exitButton.image.color = exitButton.colors.normalColor;
         }
     }

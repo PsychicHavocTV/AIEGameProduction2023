@@ -239,6 +239,10 @@ PrefabInstance:
       propertyPath: spotCollider
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8100718732160429918, guid: 21317842ea530a842b83726e2a148009, type: 3}
+      propertyPath: hidingSpotIndex
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8100718732160429919, guid: 21317842ea530a842b83726e2a148009, type: 3}
       propertyPath: m_Size.x
       value: 0.6565119
@@ -340,6 +344,10 @@ PrefabInstance:
     - target: {fileID: 8100718732160429918, guid: 21317842ea530a842b83726e2a148009, type: 3}
       propertyPath: spotCollider
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8100718732160429918, guid: 21317842ea530a842b83726e2a148009, type: 3}
+      propertyPath: hidingSpotIndex
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21317842ea530a842b83726e2a148009, type: 3}

@@ -97,17 +97,17 @@ LODGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7552858969123218294}
   serializedVersion: 2
-  m_LocalReferencePoint: {x: 0.33152246, y: 9.470568, z: 0.2676649}
-  m_Size: 18.988045
+  m_LocalReferencePoint: {x: 0.33152246, y: 7.501158, z: 0.2676649}
+  m_Size: 15.036326
   m_FadeMode: 2
   m_AnimateCrossFading: 1
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.73246074
+  - screenRelativeHeight: 0.45131552
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 8345690483520553635}
-  - screenRelativeHeight: 0.09343624
+  - screenRelativeHeight: 0.099730276
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 1467295551437173581}
@@ -119,6 +119,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7177319005181852108}
     m_Modifications:
+    - target: {fileID: 5272091066368797154, guid: e2c0d2b5bf73d184f8d8984963d079d1, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.49643353
+      objectReference: {fileID: 0}
     - target: {fileID: 5920763000511498295, guid: e2c0d2b5bf73d184f8d8984963d079d1, type: 3}
       propertyPath: m_Name
       value: Conifer_LowPoly_GEO
