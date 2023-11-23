@@ -173,6 +173,7 @@ MonoBehaviour:
   objectValue: 0
   objectiveDescription: Find the right cube.
   objectiveThreshold: 0
+  guid: 8c6d9511-771b-4826-af11-c0cc88ef9eb4
 --- !u!65 &9251082
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -650,11 +651,6 @@ MonoBehaviour:
   m_PointlightHDType: 0
   m_SpotLightShape: 0
   m_AreaLightShape: 0
---- !u!1 &391236850 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8092095230680754650, guid: a63a357ee7a20354583929b045743df6, type: 3}
-  m_PrefabInstance: {fileID: 5359777777371425954}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &533723483
 GameObject:
   m_ObjectHideFlags: 1
@@ -715,6 +711,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wendigo
       objectReference: {fileID: 0}
+    - target: {fileID: 6443310105166568167, guid: 199fa694e9a0ab641a4a5c5eece73af1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6443310105166568184, guid: 199fa694e9a0ab641a4a5c5eece73af1, type: 3}
       propertyPath: playerRef
       value: 
@@ -727,6 +727,10 @@ PrefabInstance:
       propertyPath: playerCamera
       value: 
       objectReference: {fileID: 1513047821}
+    - target: {fileID: 6443310105166568184, guid: 199fa694e9a0ab641a4a5c5eece73af1, type: 3}
+      propertyPath: behindPlayerSpawn
+      value: 
+      objectReference: {fileID: 1116913339}
     - target: {fileID: 6443310105166568185, guid: 199fa694e9a0ab641a4a5c5eece73af1, type: 3}
       propertyPath: m_RootOrder
       value: 12
@@ -794,6 +798,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6443310105166568167, guid: 199fa694e9a0ab641a4a5c5eece73af1, type: 3}
   m_PrefabInstance: {fileID: 691930891}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &729850725 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8026191237770213730, guid: a63a357ee7a20354583929b045743df6, type: 3}
+  m_PrefabInstance: {fileID: 5359777777371425954}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &758795002 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3324242002223008488, guid: 2aa9ecc8b4adb6640a5cbcf7d0eb678b, type: 3}
@@ -860,6 +869,7 @@ MonoBehaviour:
   objectValue: 0
   objectiveDescription: Find the left cube.
   objectiveThreshold: 0
+  guid: 14c14a19-01be-4a56-8cdf-6625f63ac20c
 --- !u!65 &915791191
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -938,9 +948,9 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &959835533 stripped
+--- !u!1 &1116913339 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 8092095231450663077, guid: a63a357ee7a20354583929b045743df6, type: 3}
+  m_CorrespondingSourceObject: {fileID: 5382259646328350238, guid: a63a357ee7a20354583929b045743df6, type: 3}
   m_PrefabInstance: {fileID: 5359777777371425954}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1160203637
@@ -993,6 +1003,7 @@ MonoBehaviour:
   objectValue: 0
   objectiveDescription: Find the worst sphere.
   objectiveThreshold: 0
+  guid: cad08b68-d331-42eb-9024-996c457386ff
 --- !u!135 &1160203640
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1199,6 +1210,7 @@ MonoBehaviour:
   objectValue: 0
   objectiveDescription: Find the big sphere.
   objectiveThreshold: 0
+  guid: 7f56aca1-aff4-4c91-b5af-d87cdbbe4200
 --- !u!1 &1420995217
 GameObject:
   m_ObjectHideFlags: 0
@@ -1304,6 +1316,11 @@ GameObject:
 --- !u!20 &1513047829 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 3378837107455296312, guid: a63a357ee7a20354583929b045743df6, type: 3}
+  m_PrefabInstance: {fileID: 5359777777371425954}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1758593006 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8026191237134506013, guid: a63a357ee7a20354583929b045743df6, type: 3}
   m_PrefabInstance: {fileID: 5359777777371425954}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1796978431
@@ -1658,11 +1675,11 @@ PrefabInstance:
     - target: {fileID: 5254775967042098985, guid: a63a357ee7a20354583929b045743df6, type: 3}
       propertyPath: objectivesUI
       value: 
-      objectReference: {fileID: 391236850}
+      objectReference: {fileID: 1758593006}
     - target: {fileID: 5254775967042098985, guid: a63a357ee7a20354583929b045743df6, type: 3}
       propertyPath: objectivesPanel
       value: 
-      objectReference: {fileID: 959835533}
+      objectReference: {fileID: 729850725}
     - target: {fileID: 5359777778076032076, guid: a63a357ee7a20354583929b045743df6, type: 3}
       propertyPath: m_RootOrder
       value: 3
