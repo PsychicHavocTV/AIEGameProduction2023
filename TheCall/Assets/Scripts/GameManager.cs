@@ -28,8 +28,12 @@ public class GameManager
     private float pLoadY = 0;
     private float pLoadZ = 0;
     public bool gameSaved = false;
+    public bool noCheckpoint = false;
+    public bool interactWithStatue = false;
     public bool checkpointLoaded = false;
     public bool GameOver = false;
+    public bool GamePaused = false;
+    public bool atStatue = false;
 
     public void DoGameOver(GameObject wendigoRef, GameObject playerRef)
     {
@@ -45,10 +49,12 @@ public class GameManager
         }
         if (checkpointIndex != 0)
         {
-            LoadCheckpointData(wendigoRef, playerRef);
+            noCheckpoint = false;
+            //LoadCheckpointData(wendigoRef, playerRef);
         }
         else
         {
+            noCheckpoint = true;
             Debug.Log("No Checkpoint Detected... Returning To Main Menu...");
         }
     }
