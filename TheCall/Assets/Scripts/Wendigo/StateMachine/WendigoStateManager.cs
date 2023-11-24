@@ -151,7 +151,7 @@ public class WendigoStateManager : MonoBehaviour
             timerFinished = true; // Set 'timerFinished' to true.
             timerRunning = false; // Set 'timerRunning' to false.
             //Vector3 rayDirection = playerRef.transform.position - transform.position;
-            if (inView == false) // If the player is not within the Wendigo's view
+            if (inView == false || hidingController.isHidden == true) // If the player is not within the Wendigo's view
             {
                 StartRoaming(); // Start ROAMING.
             }

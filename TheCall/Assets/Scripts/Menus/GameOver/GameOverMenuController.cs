@@ -25,6 +25,8 @@ public class GameOverMenuController : MonoBehaviour
     GameObject loadButtonObject;
 
     public GameObject gameOverCanvas;
+    public GameObject player;
+    public GameObject wendigo;
     public bool confirmationWindowShowing = false;
     bool gameOverShowing = false;
     int currentIndex = 0;
@@ -60,6 +62,25 @@ public class GameOverMenuController : MonoBehaviour
                 GameOverMenu();
             }
         }
+        else
+        {
+            if (gameOverShowing == true)
+            {
+                gameOverShowing = false;
+                if (menuInput.enabled == true)
+                {
+                    menuInput.enabled = false;
+                }
+                if (playerInput.enabled == false)
+                {
+                    playerInput.enabled = true;
+                }
+                if (gameOverCanvas.activeSelf == true)
+                {
+                    gameOverCanvas.SetActive(false);
+                }
+            }
+        }
 
         if (GameManager.Instance.GamePaused == true)
         {
@@ -72,6 +93,16 @@ public class GameOverMenuController : MonoBehaviour
                 Cursor.lockState = CursorLockMode.None;
             }
         }
+    }
+
+    public void LoadData()
+    {
+        if (Cursor.lockState != CursorLockMode.Locked)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+        GameManager.Instance.GameOver = false;
+        GameManager.Instance.LoadCheckpointData(wendigo, player);
     }
 
     void GameOverMenu()
@@ -162,6 +193,28 @@ public class GameOverMenuController : MonoBehaviour
         }
     }
 
+    public void OpenConfirmWindow()
+    {
+        Debug.Log("Open Confirmation Window.");
+        confirmationWindowShowing = true;
+        if (confirmationWindow.activeSelf == false)
+        {
+            confirmationWindow.SetActive(true);
+            currentIndex = 0;
+        }
+    }
+
+    public void CloseConfirmWindow()
+    {
+        Debug.Log("Close Confirmation Window.");
+        confirmationWindowShowing = false;
+        if (confirmationWindow.activeSelf == true)
+        {
+            confirmationWindow.SetActive(false);
+            currentIndex = 1;
+        }
+    }
+
     private void OnConfirm(InputValue value)
     {
         if (Cursor.lockState != CursorLockMode.Locked)
@@ -195,13 +248,7 @@ public class GameOverMenuController : MonoBehaviour
                 case 1:
                     {
                         exitButton.image.color = exitButton.colors.pressedColor;
-                        Debug.Log("Open Confirmation Window.");
-                        confirmationWindowShowing = true;
-                        if(confirmationWindow.activeSelf == false)
-                        {
-                            confirmationWindow.SetActive(true);
-                            currentIndex = 0;
-                        }
+                        OpenConfirmWindow();
                         break;
                     }
             }

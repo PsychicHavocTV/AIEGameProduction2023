@@ -51,6 +51,7 @@ public class Statue : MonoBehaviour
         {
             pController.enabled = true;
         }
+        GameManager.Instance.showSaveText = true;
     }
 
 
