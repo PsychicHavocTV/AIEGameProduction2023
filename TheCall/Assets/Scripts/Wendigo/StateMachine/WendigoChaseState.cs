@@ -34,6 +34,14 @@ public class WendigoChaseState : BaseState
             }
             Vector3 rayDirection = wendigo.playerRef.transform.position - wendigo.transform.position;
 
+            if (wendigo.hidingController.isHidden == true)
+            {
+                if (wendigo.timerRunning == false)
+                {
+                    wendigo.ControlTimer();
+                }
+            }
+
             // Check if the player is in front of the Wendigo & within its Field Of View.
             if ((Vector3.Angle(rayDirection, wendigo.transform.forward)) < 25) 
             {
@@ -44,13 +52,10 @@ public class WendigoChaseState : BaseState
                        if (hit.collider.gameObject.tag == "Player")
                        {
                            //Debug.Log("player in front");
-                           if (wendigo.hidingController.isHidden == true)
-                            {
-                                if (wendigo.timerRunning == false)
-                                {
-                                    wendigo.ControlTimer();
-                                }
-                            }
+                           if (wendigo.timerRunning == false)
+                           {
+                               wendigo.ControlTimer();
+                           }
                            wendigo.StartChasing();
                        }
                        else
