@@ -19,15 +19,9 @@ public class Statue : MonoBehaviour
         if (other.tag == "Player")
         {
             Debug.Log("Player Can Now Interact.");
-            GameManager.Instance.wendigo = wendigo;
-            GameManager.Instance.player = playerParentRef;
-            GameManager.Instance.UpdateCheckpoint(statueIndex);
-            GameManager.Instance.SaveCheckpointData(wendigo, playerParentRef);
-            PlayerController pController;
-            pController = playerParentRef.GetComponent<PlayerController>();
-            if (pController.enabled == false)
+            if (GameManager.Instance.atStatue == false)
             {
-                pController.enabled = true;
+                GameManager.Instance.atStatue = true;
             }
         }
     }
@@ -37,7 +31,27 @@ public class Statue : MonoBehaviour
         if (other.tag == "Player")
         {
             Debug.Log("Player Can No Longer Interact");
+            if (GameManager.Instance.atStatue == true)
+            {
+                GameManager.Instance.atStatue = false;
+            }
         }
+    }
+
+    public void SaveCheckpoint()
+    {
+        Debug.Log("***SAVING GAME DATA***");
+        GameManager.Instance.wendigo = wendigo;
+        GameManager.Instance.player = playerParentRef;
+        GameManager.Instance.UpdateCheckpoint(statueIndex);
+        GameManager.Instance.SaveCheckpointData(wendigo, playerParentRef);
+        PlayerController pController;
+        pController = playerParentRef.GetComponent<PlayerController>();
+        if (pController.enabled == false)
+        {
+            pController.enabled = true;
+        }
+        GameManager.Instance.showSaveText = true;
     }
 
 
@@ -48,16 +62,12 @@ public class Statue : MonoBehaviour
     {
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.L))
+        if (GameManager.Instance.interactWithStatue == true)
         {
-            playerCharacterController.enabled = false;
-            //GameManager.Instance.LoadCheckpointData();
-            //GameManager.Instance.player.transform.position = new Vector3(GameManager.Instance.playerSaveLocation.x, GameManager.Instance.playerSaveLocation.y, GameManager.Instance.playerSaveLocation.z);
-            playerCharacterController.enabled = true;
-            //Debug.Log(GameManager.Instance.player.transform.position);
+            SaveCheckpoint();
+            GameManager.Instance.interactWithStatue = false;
         }
     }
 }
