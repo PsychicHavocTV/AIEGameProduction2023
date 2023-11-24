@@ -29,7 +29,7 @@ public class PlayerCamera : MonoBehaviour
 
     private void Update()
     {
-        if (GameManager.Instance.GameOver == false)
+        if (GameManager.Instance.GameOver == false && GameManager.Instance.GamePaused == false)
         {
             // Calculate rotation based on input.
             m_rotation.x += m_input.x * cameraSensitivity * Time.deltaTime;

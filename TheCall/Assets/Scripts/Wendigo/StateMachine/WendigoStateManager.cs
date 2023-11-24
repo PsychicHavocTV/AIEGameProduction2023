@@ -19,6 +19,7 @@ public class WendigoStateManager : MonoBehaviour
     bool inView = false; // If the target is within view.
 
     // Public Variables & References
+    public HideController hidingController;
     public Teleportation teleportHandler; // Reference to the 'Teleportation' script.
     public PlayerController pController; // Reference to the PlayerController script.
     public GameObject playerRef; // Reference to the player.
@@ -32,6 +33,7 @@ public class WendigoStateManager : MonoBehaviour
     public bool goBehindPlayer = true; // If the Wendigo can move behind the player.
     public bool isBehindPlayer = false; // If the Wendigo is currently behind the player.
     public bool teleportAway = false; // If the Wendigo is ready to teleport away.
+    public float roamSpeed = 4.5f;
 
     private void Start()
     {
@@ -45,6 +47,7 @@ public class WendigoStateManager : MonoBehaviour
 
             roamingState.Wendigo = Wendigo; // Set local Wendigo reference in the ROAMING state.
             pController = playerRef.GetComponent<PlayerController>(); // Set PlayerController Reference.
+            hidingController = playerRef.GetComponent<HideController>();
         }
 
         currentState = roamingState; // Set the starting state for the Wendigo.
@@ -53,7 +56,7 @@ public class WendigoStateManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (GameManager.Instance.GameOver == false)
+        if (GameManager.Instance.GameOver == false && GameManager.Instance.GamePaused == false)
         {
             currentState.UpdateState(this); // Update behaviour for the current state each frame.
         }
@@ -148,7 +151,7 @@ public class WendigoStateManager : MonoBehaviour
             timerFinished = true; // Set 'timerFinished' to true.
             timerRunning = false; // Set 'timerRunning' to false.
             //Vector3 rayDirection = playerRef.transform.position - transform.position;
-            if (inView == false) // If the player is not within the Wendigo's view
+            if (inView == false || hidingController.isHidden == true) // If the player is not within the Wendigo's view
             {
                 StartRoaming(); // Start ROAMING.
             }
@@ -191,22 +194,25 @@ public class WendigoStateManager : MonoBehaviour
         {
             if (currentState == roamingState || currentState == chaseState) // If the Wendigo is currently ROAMING or CHASING
             {
-                if (other.tag == "Player") // If the triggering object is the player
+                if (hidingController.isHiding == false && hidingController.isHidden == false)
                 {
-                    currentState = roamingState; // Update currentState to roamingState.
-                    currentState.EnterState(this); // Start behaviour for the current state.
-                    pController.enabled = false; // Disable the PlayerController.
-                    GameManager.Instance.DoGameOver(Wendigo, playerRef); // Run GameOver behavour from the GameManager.
-                }
-
-                if (currentState == roamingState) // If the Wendigo is currently ROAMING
-                {
-                    if (other.tag != "Player" && other.tag != "Ground") // If the triggering object is not the player or the ground
+                    if (other.tag == "Player") // If the triggering object is the player
                     {
-                        if (roamingState.moving == true) // Uf the 'moving' bool in the ROAMING state is currently true
+                        currentState = roamingState; // Update currentState to roamingState.
+                        currentState.EnterState(this); // Start behaviour for the current state.
+                        pController.enabled = false; // Disable the PlayerController.
+                        GameManager.Instance.DoGameOver(Wendigo, playerRef); // Run GameOver behavour from the GameManager.
+                    }
+
+                    if (currentState == roamingState) // If the Wendigo is currently ROAMING
+                    {
+                        if (other.tag != "Player" && other.tag != "Ground") // If the triggering object is not the player or the ground
                         {
-                            roamingState.moving = false; // Set the 'moving' bool in the ROAMING state to false.
-                            roamingState.moveAmount = 0; // Set the 'moveAmount' int in the ROAMING state to 0.
+                            if (roamingState.moving == true) // Uf the 'moving' bool in the ROAMING state is currently true
+                            {
+                                roamingState.moving = false; // Set the 'moving' bool in the ROAMING state to false.
+                                roamingState.moveAmount = 0; // Set the 'moveAmount' int in the ROAMING state to 0.
+                            }
                         }
                     }
                 }

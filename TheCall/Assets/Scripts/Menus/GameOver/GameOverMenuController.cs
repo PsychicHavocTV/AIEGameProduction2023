@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using System.Security;
 
 public class GameOverMenuController : MonoBehaviour
 {
@@ -13,18 +14,40 @@ public class GameOverMenuController : MonoBehaviour
     [SerializeField]
     Button loadButton;
     [SerializeField]
-    Button mainMenuButton;
+    Button exitButton;
+    [SerializeField]
+    Button confirmQuitButton;
+    [SerializeField]
+    Button cancelQuitButton;
+    [SerializeField]
+    GameObject confirmationWindow;
+    [SerializeField]
+    GameObject loadButtonObject;
 
     public GameObject gameOverCanvas;
+    public GameObject player;
+    public GameObject wendigo;
+    public bool confirmationWindowShowing = false;
     bool gameOverShowing = false;
     int currentIndex = 0;
 
     // Update is called once per frame
     void Update()
     {
+
         Debug.Log(menuInput.currentControlScheme);
         if (GameManager.Instance.GameOver == true)
         {
+            if (GameManager.Instance.noCheckpoint == true)
+            {
+                loadButtonObject.SetActive(false);
+                loadButton.enabled = false;
+            }
+            else if (GameManager.Instance.noCheckpoint == true)
+            {
+                loadButtonObject.SetActive(true);
+                loadButton.enabled = true;
+            }
             if (gameOverShowing == false)
             {
                 if (playerInput.enabled == true)
@@ -39,6 +62,47 @@ public class GameOverMenuController : MonoBehaviour
                 GameOverMenu();
             }
         }
+        else
+        {
+            if (gameOverShowing == true)
+            {
+                gameOverShowing = false;
+                if (menuInput.enabled == true)
+                {
+                    menuInput.enabled = false;
+                }
+                if (playerInput.enabled == false)
+                {
+                    playerInput.enabled = true;
+                }
+                if (gameOverCanvas.activeSelf == true)
+                {
+                    gameOverCanvas.SetActive(false);
+                }
+            }
+        }
+
+        if (GameManager.Instance.GamePaused == true)
+        {
+            if (playerInput.enabled == true)
+            {
+                playerInput.enabled = false;
+            }
+            if (Cursor.lockState == CursorLockMode.Locked)
+            {
+                Cursor.lockState = CursorLockMode.None;
+            }
+        }
+    }
+
+    public void LoadData()
+    {
+        if (Cursor.lockState != CursorLockMode.Locked)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+        GameManager.Instance.GameOver = false;
+        GameManager.Instance.LoadCheckpointData(wendigo, player);
     }
 
     void GameOverMenu()
@@ -59,12 +123,23 @@ public class GameOverMenuController : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.Locked;
         }
-        if (currentIndex > 0)
+        if (confirmationWindowShowing == false)
         {
-            currentIndex--;
-            mainMenuButton.image.color = mainMenuButton.colors.normalColor;
-            loadButton.image.color = loadButton.colors.highlightedColor;
+            if (GameManager.Instance.noCheckpoint == false)
+            {
+                if (currentIndex > 0)
+                {
+                    exitButton.image.color = exitButton.colors.normalColor;
+                    loadButton.image.color = loadButton.colors.highlightedColor;
+                    currentIndex--;
+                }
+            }
+            else
+            {
+                    exitButton.image.color = exitButton.colors.highlightedColor;
+            }
         }
+        
     }
 
     private void OnNavigateDOWN(InputValue value)
@@ -73,11 +148,70 @@ public class GameOverMenuController : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.Locked;
         }
-        if (currentIndex < 1)
+        if (confirmationWindowShowing == false)
         {
-            loadButton.image.color = loadButton.colors.normalColor;
-            mainMenuButton.image.color = mainMenuButton.colors.highlightedColor;
-            currentIndex++;
+            if (GameManager.Instance.noCheckpoint == false)
+            {
+                if (currentIndex < 1)
+                {
+                    loadButton.image.color = loadButton.colors.normalColor;
+                    exitButton.image.color = exitButton.colors.highlightedColor;
+                    currentIndex++;
+                }
+            }
+            else
+            {
+                    exitButton.image.color = exitButton.colors.highlightedColor;
+            }
+        }
+        
+    }
+
+    private void OnNavigateLeft(InputValue value)
+    {
+        if (confirmationWindowShowing == true)
+        {
+            if (currentIndex > 0)
+            {
+                cancelQuitButton.image.color = cancelQuitButton.colors.normalColor;
+                confirmQuitButton.image.color = confirmQuitButton.colors.highlightedColor;
+                currentIndex--;
+            }
+        }
+    }
+
+    private void OnNavigateRight(InputValue value)
+    {
+        if (confirmationWindowShowing == true)
+        {
+            if (currentIndex < 1)
+            {
+                confirmQuitButton.image.color = confirmQuitButton.colors.normalColor;
+                cancelQuitButton.image.color = cancelQuitButton.colors.highlightedColor;
+                currentIndex++;
+            }
+        }
+    }
+
+    public void OpenConfirmWindow()
+    {
+        Debug.Log("Open Confirmation Window.");
+        confirmationWindowShowing = true;
+        if (confirmationWindow.activeSelf == false)
+        {
+            confirmationWindow.SetActive(true);
+            currentIndex = 0;
+        }
+    }
+
+    public void CloseConfirmWindow()
+    {
+        Debug.Log("Close Confirmation Window.");
+        confirmationWindowShowing = false;
+        if (confirmationWindow.activeSelf == true)
+        {
+            confirmationWindow.SetActive(false);
+            currentIndex = 1;
         }
     }
 
@@ -87,18 +221,64 @@ public class GameOverMenuController : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.Locked;
         }
-        switch (currentIndex)
+        if (confirmationWindowShowing == false)
         {
-            case 0:
+            switch (currentIndex)
+            {
+                case 0:
+                    {
+                        if (GameManager.Instance.noCheckpoint == false)
+                        {
+                            loadButton.image.color = loadButton.colors.pressedColor;
+                            Debug.Log("Load most recent checkpoint.");
+                        }
+                        else
+                        {
+                            exitButton.image.color = exitButton.colors.pressedColor;
+                            Debug.Log("Open Confirmation Window.");
+                            confirmationWindowShowing = true;
+                            if (confirmationWindow.activeSelf == false)
+                            {
+                                confirmationWindow.SetActive(true);
+                                currentIndex = 0;
+                            }
+                        }
+                        break;
+                    }
+                case 1:
+                    {
+                        exitButton.image.color = exitButton.colors.pressedColor;
+                        OpenConfirmWindow();
+                        break;
+                    }
+            }
+        }
+        else if (confirmationWindowShowing == true)
+        {
+            if (currentIndex == 0)
+            {
+                confirmQuitButton.image.color = confirmQuitButton.colors.pressedColor;
+                QuitGame();
+            }
+            else if (currentIndex == 1)
+            {
+                if (confirmationWindow.activeSelf == true)
                 {
-                    Debug.Log("Load most recent checkpoint.");
-                    break;
+                    currentIndex = 1;
+                    confirmationWindow.SetActive(false);
+                    confirmationWindowShowing = false;
                 }
-            case 1:
-                {
-                    Debug.Log("Return to main menu.");
-                    break;
-                }
+            }
+        }
+    }
+
+    private void OnBack(InputValue value)
+    {
+        if (confirmationWindowShowing == true)
+        {
+            currentIndex = 1;
+            confirmationWindow.SetActive(false);
+            confirmationWindowShowing = false;
         }
     }
 
@@ -107,6 +287,16 @@ public class GameOverMenuController : MonoBehaviour
         if (Cursor.lockState != CursorLockMode.None)
         {
             Cursor.lockState = CursorLockMode.None;
+            if (GameManager.Instance.noCheckpoint == false)
+            {
+                loadButton.image.color = loadButton.colors.normalColor;
+            }
+            exitButton.image.color = exitButton.colors.normalColor;
         }
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }
