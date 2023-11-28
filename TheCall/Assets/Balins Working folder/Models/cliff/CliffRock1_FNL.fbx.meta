@@ -1,9 +1,14 @@
 fileFormatVersion: 2
-guid: 62a329fc1cff87e4784c41624f44455b
+guid: 8025645190526384b991dade362ccccc
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CliffRock1_MAT
+    second: {fileID: 2100000, guid: 8c637bf91dda54549bd5f47b98fef9dc, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

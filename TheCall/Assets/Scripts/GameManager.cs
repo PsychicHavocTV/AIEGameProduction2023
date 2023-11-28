@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class GameManager
 {
@@ -27,7 +28,38 @@ public class GameManager
     private float pLoadY = 0;
     private float pLoadZ = 0;
     public bool gameSaved = false;
+    public bool noCheckpoint = false;
+    public bool interactWithStatue = false;
     public bool checkpointLoaded = false;
+    public bool GameOver = false;
+    public bool GamePaused = false;
+    public bool atStatue = false;
+    public bool atHidingSpot = false;
+    public bool showSaveText = false;
+
+    public void DoGameOver(GameObject wendigoRef, GameObject playerRef)
+    {
+        wendigo = wendigoRef;
+        player = playerRef;
+        if (GameOver == false)
+        {
+            GameOver = true;
+        }
+        if (checkpointIndex == 0)
+        {
+            CheckForSaveFile();
+        }
+        if (checkpointIndex != 0)
+        {
+            noCheckpoint = false;
+            //LoadCheckpointData(wendigoRef, playerRef);
+        }
+        else
+        {
+            noCheckpoint = true;
+            Debug.Log("No Checkpoint Detected... Returning To Main Menu...");
+        }
+    }
 
     public void CheckForSaveFile()
     {
@@ -104,9 +136,11 @@ public class GameManager
         }
     }
 
-    public void SaveCheckpointData()
+    public void SaveCheckpointData(GameObject wendigoRef, GameObject playerRef)
     {
         //CheckForSaveFile();
+        wendigo = wendigoRef;
+        player = playerRef;
         gameSaved = false;
         string path = Application.persistentDataPath + "/SaveData.txt";
         StreamWriter w = new StreamWriter(path);
@@ -121,17 +155,24 @@ public class GameManager
         gameSaved = true;
     }
 
-    public void LoadCheckpointData()
+    public void LoadCheckpointData(GameObject wendigoRef, GameObject playerRef)
     {
+        GameOver = false;
         checkpointLoaded = false;
 
         CheckForSaveFile();
+        NavMeshAgent wendigonma = wendigoRef.GetComponent<NavMeshAgent>();
+        PlayerController pCont = playerRef.GetComponent<PlayerController>();
 
+        pCont.enabled = false;
+        wendigonma.enabled = false;
         wendigoSaveLocation = new Vector3(wLoadX, wLoadY, wLoadZ);
         wendigo.transform.position = wendigoSaveLocation;
+        wendigonma.enabled = true;
 
         playerSaveLocation = new Vector3(pLoadX, pLoadY, pLoadZ);
         player.transform.position = playerSaveLocation;
+        pCont.enabled = true;
 
         checkpointLoaded = true;
     }

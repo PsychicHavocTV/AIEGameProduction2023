@@ -48,14 +48,14 @@ MonoBehaviour:
   fadeRadius: 0
   priority: 0
   customPasses:
-  - rid: 7077622522267566080
+  - rid: 7077622658914582528
   injectionPoint: 5
   m_TargetCamera: {fileID: 9015932540448210174}
-  useTargetCamera: 0
+  useTargetCamera: 1
   references:
     version: 2
     RefIds:
-    - rid: 7077622522267566080
+    - rid: 7077622658914582528
       type: {class: ComputePass, ns: , asm: Assembly-CSharp}
       data:
         m_Name: Compute Pass
@@ -65,9 +65,12 @@ MonoBehaviour:
         clearFlags: 0
         passFoldout: 0
         m_Version: 0
-        objLayer:
+        objectLayer:
           serializedVersion: 2
           m_Bits: 2147483648
+        computeShader: {fileID: 7200000, guid: 9271ba1ffe8a4a246814e0838f558204, type: 3}
+        data: c0240100
+        viewObjectsScript: {fileID: 5840075211637764737}
         whiteShader: {fileID: 4800000, guid: 9949072b19438044a8699347e026c845, type: 3}
 --- !u!1 &9015932540448210172
 GameObject:
@@ -81,10 +84,8 @@ GameObject:
   - component: {fileID: 9015932540448210174}
   - component: {fileID: 9015932540448210175}
   - component: {fileID: 9015932540448210168}
-  - component: {fileID: 5573712787810412788}
   - component: {fileID: 9015932540448210171}
   - component: {fileID: 5840075211637764737}
-  - component: {fileID: 1550509019541353727}
   m_Layer: 0
   m_Name: Player Camera
   m_TagString: MainCamera
@@ -284,36 +285,6 @@ MonoBehaviour:
       enableFptlForForwardOpaque: 0
       enableBigTilePrepass: 0
       isFptlEnabled: 0
---- !u!114 &5573712787810412788
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9015932540448210172}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: d1a8aa16ab12c594985e0021774ec19a, type: 3}
-  m_NotificationBehavior: 0
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents: []
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Player
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
 --- !u!114 &9015932540448210171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -327,8 +298,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  playerController: {fileID: 0}
+  playerObjectives: {fileID: 0}
   offset: {x: 0, y: 0.5, z: 0}
-  cameraSensitivity: 4
+  cameraSensitivity: 6
 --- !u!114 &5840075211637764737
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -342,17 +315,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objects: []
---- !u!114 &1550509019541353727
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9015932540448210172}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1cac7cdecc258c2438813ec957a73ffc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  compute_shader: {fileID: 7200000, guid: face025390191b14d96ae9d2f14b1487, type: 3}
-  data: 
