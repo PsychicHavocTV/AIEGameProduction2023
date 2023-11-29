@@ -24,6 +24,7 @@ public class WendigoRoamingState : BaseState
     public override void EnterState(WendigoStateManager wendigo)
     {
         Debug.Log("Roaming..");
+        GameManager.Instance.wendigoRoaming = true;
         nma.speed = wendigo.roamSpeed;
         nma.ResetPath();
     }
@@ -44,14 +45,14 @@ public class WendigoRoamingState : BaseState
 
             RaycastHit hit;
 
-            if (playerDistance <= 50)
+            if (playerDistance <= 80)
             {
                 Vector3 rayDirection = wendigo.playerRef.transform.position - wendigo.transform.position;
                 if ((Vector3.Angle(rayDirection, wendigo.transform.forward)) < 25) //Physics.Raycast(wendigo.RaycastOrigin.transform.position, wendigo.RaycastOrigin.transform.TransformDirection(Vector3.forward), out hit, 70, wendigo.layerMask))
                 {
                     if ((Vector3.Angle(rayDirection, wendigo.transform.forward)) < 25) // Is player within field of view
                     {
-                        if (Physics.Raycast(wendigo.transform.position, rayDirection, out hit, 40))
+                        if (Physics.Raycast(wendigo.transform.position, rayDirection, out hit, 65))
                         {
                             if (hit.collider.gameObject.tag == "Player")
                             {

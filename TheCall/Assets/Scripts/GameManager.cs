@@ -21,12 +21,14 @@ public class GameManager
     public Checkpoints currentCheckpoint;
     public GameObject player;
     public GameObject wendigo;
+    public GameObject[] wendigoCreatures;
     private float wLoadX = 0;
     private float wLoadY = 0;
     private float wLoadZ = 0;
     private float pLoadX = 0;
     private float pLoadY = 0;
     private float pLoadZ = 0;
+    public int currentWendigo = 0;
     public bool gameSaved = false;
     public bool noCheckpoint = false;
     public bool interactWithStatue = false;
@@ -34,6 +36,12 @@ public class GameManager
     public bool GameOver = false;
     public bool GamePaused = false;
     public bool atStatue = false;
+    public bool atHidingSpot = false;
+    public bool showSaveText = false;
+    public bool wendigoChasing = false;
+    public bool wendigoRoaming = false;
+    public bool finishedChasing = false;
+    public bool outOfPlayerView = true;
 
     public void DoGameOver(GameObject wendigoRef, GameObject playerRef)
     {
@@ -160,7 +168,9 @@ public class GameManager
 
         CheckForSaveFile();
         NavMeshAgent wendigonma = wendigoRef.GetComponent<NavMeshAgent>();
+        PlayerController pCont = playerRef.GetComponent<PlayerController>();
 
+        pCont.enabled = false;
         wendigonma.enabled = false;
         wendigoSaveLocation = new Vector3(wLoadX, wLoadY, wLoadZ);
         wendigo.transform.position = wendigoSaveLocation;
@@ -168,6 +178,7 @@ public class GameManager
 
         playerSaveLocation = new Vector3(pLoadX, pLoadY, pLoadZ);
         player.transform.position = playerSaveLocation;
+        pCont.enabled = true;
 
         checkpointLoaded = true;
     }

@@ -28,6 +28,7 @@ public class HidingSpot : MonoBehaviour
             Debug.Log("player in range");
             hidingController.currentSpotIndex = hidingSpotIndex;
             hidingController.canHide = true;
+            GameManager.Instance.atHidingSpot = true;
         }
     }
     private void OnTriggerExit(Collider other)
@@ -36,6 +37,7 @@ public class HidingSpot : MonoBehaviour
         {
             Debug.Log("player no longer in range");
             hidingController.canHide = false;
+            GameManager.Instance.atHidingSpot = false;
         }
     }
 

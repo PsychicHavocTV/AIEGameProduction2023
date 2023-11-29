@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3353105753338554995}
   - component: {fileID: 1812492689642300886}
   - component: {fileID: 4522655497032028444}
+  - component: {fileID: 6841931405973141603}
   m_Layer: 0
   m_Name: LargeRock1_FNL
   m_TagString: Untagged
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &6841931405973141603
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2721105763280908489}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -8495165531942191361, guid: 63b1b275e1c01774b855f416efcf5363, type: 3}

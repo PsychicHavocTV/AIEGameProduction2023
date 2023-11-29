@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6067806714534114921}
   - component: {fileID: 8345690483520553635}
   - component: {fileID: 8963723717318549671}
+  - component: {fileID: 3651144185741505071}
   m_Layer: 0
   m_Name: Conifer_High_Production_NoSnow_GEO
   m_TagString: Untagged
@@ -112,6 +113,20 @@ LODGroup:
     renderers:
     - renderer: {fileID: 1467295551437173581}
   m_Enabled: 1
+--- !u!136 &3651144185741505071
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7552858969123218294}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1
+  m_Height: 5
+  m_Direction: 1
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1001 &6734811514408032943
 PrefabInstance:
   m_ObjectHideFlags: 0

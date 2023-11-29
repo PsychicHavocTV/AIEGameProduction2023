@@ -12,8 +12,9 @@ public class WendigoChaseState : BaseState
 
     public override void EnterState(WendigoStateManager wendigo)
     {
+        GameManager.Instance.wendigoChasing = true;
         Debug.Log("Chasing...");
-        nma.speed = 9.5f;
+        nma.speed = 13.5f;
     }
 
     public override void UpdateState(WendigoStateManager wendigo)
@@ -32,26 +33,45 @@ public class WendigoChaseState : BaseState
                 nma.SetPath(path);
                 nma.SetDestination(destinationPosition);
             }
+            //else if (path.status == NavMeshPathStatus.PathInvalid)
+            //{
+            //  nma.SetDestination(destinationPosition);
+            //}
             Vector3 rayDirection = wendigo.playerRef.transform.position - wendigo.transform.position;
 
-            // Check if the player is in front of the Wendigo & within its Field Of View.
-            if ((Vector3.Angle(rayDirection, wendigo.transform.forward)) < 25) 
+            if (wendigo.hidingController.isHidden == true)
             {
-                if ((Vector3.Angle(rayDirection, wendigo.transform.forward)) < 25) // Is player within field of view
+                if (wendigo.timerRunning == false)
                 {
-                   if (Physics.Raycast(wendigo.transform.position, rayDirection, out hit, 30))
-                   {
-                       if (hit.collider.gameObject.tag == "Player")
+                    wendigo.ControlTimer();
+                }
+            }
+
+            if (wendigo.hidingController.isHidden == false)
+            {
+                // Check if the player is in front of the Wendigo & within its Field Of View.
+                if ((Vector3.Angle(rayDirection, wendigo.transform.forward)) < 45) 
+                {
+                    if ((Vector3.Angle(rayDirection, wendigo.transform.forward)) < 45) // Is player within field of view
+                    {
+                       if (Physics.Raycast(wendigo.transform.position, rayDirection, out hit, 90))
                        {
-                           //Debug.Log("player in front");
-                           if (wendigo.hidingController.isHidden == true)
-                            {
-                                if (wendigo.timerRunning == false)
-                                {
-                                    wendigo.ControlTimer();
-                                }
-                            }
-                           wendigo.StartChasing();
+                           if (hit.collider.gameObject.tag == "Player")
+                           {
+                                //Debug.Log("player in front");
+                               //if (wendigo.timerRunning == false)
+                               //{
+                               //    wendigo.ControlTimer();
+                               //}
+                               wendigo.StartChasing();
+                           }
+                           else
+                           {
+                               if (wendigo.timerRunning == false)
+                               {
+                                   wendigo.ControlTimer();
+                               }
+                           }
                        }
                        else
                        {
@@ -60,14 +80,7 @@ public class WendigoChaseState : BaseState
                                wendigo.ControlTimer();
                            }
                        }
-                   }
-                   else
-                   {
-                       if (wendigo.timerRunning == false)
-                       {
-                           wendigo.ControlTimer();
-                       }
-                   }
+                    }
                 }
             }
         }
