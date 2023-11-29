@@ -685,7 +685,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 2048480005}
+  selectedFlowchart: {fileID: 3324242002223008492, guid: 2aa9ecc8b4adb6640a5cbcf7d0eb678b, type: 3}
 --- !u!4 &533723485
 Transform:
   m_ObjectHideFlags: 1
@@ -2025,6 +2025,26 @@ PrefabInstance:
       propertyPath: m_CullingMask.m_Bits
       value: 2147483711
       objectReference: {fileID: 0}
+    - target: {fileID: 8026191236275551287, guid: a63a357ee7a20354583929b045743df6, type: 3}
+      propertyPath: m_fontSize
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8026191236275551287, guid: a63a357ee7a20354583929b045743df6, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 930320ad2966c24459fa7785cd081e1c, type: 2}
+    - target: {fileID: 8026191236275551287, guid: a63a357ee7a20354583929b045743df6, type: 3}
+      propertyPath: m_fontStyle
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 8026191236275551287, guid: a63a357ee7a20354583929b045743df6, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8026191236275551287, guid: a63a357ee7a20354583929b045743df6, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -4712189950065101913, guid: 930320ad2966c24459fa7785cd081e1c, type: 2}
     - target: {fileID: 8092095230680754650, guid: a63a357ee7a20354583929b045743df6, type: 3}
       propertyPath: m_IsActive
       value: 1
