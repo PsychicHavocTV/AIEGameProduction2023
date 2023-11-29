@@ -34,8 +34,6 @@ public class GameOverMenuController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        Debug.Log(menuInput.currentControlScheme);
         if (GameManager.Instance.GameOver == true)
         {
             if (GameManager.Instance.noCheckpoint == true)

@@ -78,6 +78,10 @@ public class WendigoStateManager : MonoBehaviour
     {
         if (GameManager.Instance.GameOver == false)
         {
+            if (GameManager.Instance.wendigoChasing == true)
+            {
+                GameManager.Instance.wendigoChasing = false;
+            }
             currentState = roamingState; // Update currentState to roamingState.
             currentState.EnterState(this); // Start behaviour for the current state.
         }
@@ -148,6 +152,7 @@ public class WendigoStateManager : MonoBehaviour
             timerRunning = true; // Set 'timerRunning' to true.
             timerFinished = false; // Set 'timerFinished' to false.
             yield return new WaitForSeconds(5f); // Wait for five(5) seconds.
+            CheckView();
             timerFinished = true; // Set 'timerFinished' to true.
             timerRunning = false; // Set 'timerRunning' to false.
             //Vector3 rayDirection = playerRef.transform.position - transform.position;
@@ -166,11 +171,11 @@ public class WendigoStateManager : MonoBehaviour
             RaycastHit hit;
 
             Vector3 rayDirection = playerRef.transform.position - transform.position; // Calculate the direction the player is in.
-            if ((Vector3.Angle(rayDirection, transform.forward)) < 25)
+            if ((Vector3.Angle(rayDirection, transform.forward)) < 45)
             {
-                if ((Vector3.Angle(rayDirection, transform.forward)) < 25) // Is player within field of view
+                if ((Vector3.Angle(rayDirection, transform.forward)) < 45) // Is player within field of view
                 {
-                    if (Physics.Raycast(transform.position, rayDirection, out hit, 30)) // If the player is close enough to the wendigo
+                    if (Physics.Raycast(transform.position, rayDirection, out hit, 90)) // If the player is close enough to the wendigo
                     {
                         if (hit.collider.gameObject.tag == "Player")
                         {
@@ -184,6 +189,7 @@ public class WendigoStateManager : MonoBehaviour
 
                 }
             }
+            return;
         }
     }
 

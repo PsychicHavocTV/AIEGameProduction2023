@@ -21,12 +21,14 @@ public class GameManager
     public Checkpoints currentCheckpoint;
     public GameObject player;
     public GameObject wendigo;
+    public GameObject[] wendigoCreatures;
     private float wLoadX = 0;
     private float wLoadY = 0;
     private float wLoadZ = 0;
     private float pLoadX = 0;
     private float pLoadY = 0;
     private float pLoadZ = 0;
+    public int currentWendigo = 0;
     public bool gameSaved = false;
     public bool noCheckpoint = false;
     public bool interactWithStatue = false;
@@ -36,6 +38,7 @@ public class GameManager
     public bool atStatue = false;
     public bool atHidingSpot = false;
     public bool showSaveText = false;
+    public bool wendigoChasing = false;
 
     public void DoGameOver(GameObject wendigoRef, GameObject playerRef)
     {
