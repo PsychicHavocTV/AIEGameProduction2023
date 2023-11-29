@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     private HideController hidingController;
 
     [SerializeField]
-    private GameObject flashlight;
+    private GameObject cameraFlash;
 
     [SerializeField, Tooltip("Reference to the player's camera.")]
     private Transform playerCamera;
@@ -57,8 +57,6 @@ public class PlayerController : MonoBehaviour
 
     private void DoPlayerMovement()
     {
-        if (hidingController.isHidden == false && hidingController.isHiding == false)
-        {
             // Change move speed whether running or not.
             if (m_isRunning)
                 m_moveSpeed = runSpeed;
@@ -73,13 +71,10 @@ public class PlayerController : MonoBehaviour
                 move.y = 0;
             }
             m_controller.Move(move.normalized * m_moveSpeed * Time.deltaTime); // Apply player movement.
-        }
     }
 
     private void DoGravity()
     {
-        if (hidingController.isHidden == false && hidingController.isHiding == false && hidingController.exitingHiding == false)
-        {
             if (m_controller.isGrounded) // Is player touching ground.
             {
                 m_velocity.y = -1.0f; // Push player out of ground.
@@ -89,7 +84,6 @@ public class PlayerController : MonoBehaviour
                 m_velocity.y += Physics.gravity.y * Time.deltaTime; // Gravity.
             }
             m_controller.Move(m_velocity * Time.deltaTime); // Apply player velocity.
-        }
     }
 
     // Input System messages.
@@ -106,18 +100,6 @@ public class PlayerController : MonoBehaviour
     private void OnPhoto(InputValue value)
     {
         m_photoInput = value.Get<float>() >= 0.5f; // Is photo button pressed.
-    }
-
-    private void OnFlashlight(InputValue value)
-    {
-        if (flashlight.activeSelf == true)
-        {
-            flashlight.SetActive(false);
-        }
-        else if (flashlight.activeSelf == false)
-        {
-            flashlight.SetActive(true);
-        }
     }
 
     private void OnInteract(InputValue value)
@@ -159,16 +141,14 @@ public class PlayerController : MonoBehaviour
     // WENDIGO TESTING ONLY
     private void TakePhoto()
     {
-        if (hidingController.isHiding == false && hidingController.isHidden == false)
-        {
             StartCoroutine(CameraTakePhoto());
-        }
     }
 
     private IEnumerator CameraTakePhoto()
     {
         takingPhoto = true;
         Debug.Log("Taking Photo!!");
+        cameraFlash.GetComponent<Animator>().SetTrigger("Flash");
         yield return new WaitForNextFrameUnit();
         takingPhoto = false;
         StopCoroutine(CameraTakePhoto());
