@@ -17,7 +17,7 @@ public class ObjectiveCompleteEvent : EventHandler
 
         Debug.Log(objective.objectName + " Completed!");
 
-        if (objective.Equals(objectiveToCheck)) // If objective is the same as the one to check.
+        if (objective.objectiveDescription == objectiveToCheck.objectiveDescription) // If objective is the same as the one to check.
             ExecuteBlock(); // Execute Fungus block.
     }
 

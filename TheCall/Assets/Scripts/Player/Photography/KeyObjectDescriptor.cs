@@ -29,25 +29,25 @@ public class KeyObjectDescriptor : MonoBehaviour
     {
         if (String.IsNullOrEmpty(guid)) // Create unique ID.
         {
-            guid = Guid.NewGuid().ToString();
-            GameManager.RegisterInstanceGUID(this.guid, this.GetInstanceID());
-            GameManager.RegisterObjectGUID(this.guid, this.gameObject);
+            //guid = Guid.NewGuid().ToString();
+            //GameManager.RegisterInstanceGUID(this.guid, this.GetInstanceID());
+            //GameManager.RegisterObjectGUID(this.guid, this.gameObject);
         }
     }
 
     private void OnDestroy()
     {
-        GameManager.DeregisterGUID(this.guid); // Avoid null referencing.
+        //GameManager.DeregisterGUID(this.guid); // Avoid null referencing.
     }
 
     private void Update()
     {
-        if (this.GetInstanceID() != GameManager.GetInstanceID(this.guid)) // Create unique ID.
-        {
-            guid = Guid.NewGuid().ToString();
-            GameManager.RegisterInstanceGUID(this.guid, this.GetInstanceID());
-            GameManager.RegisterObjectGUID(this.guid, this.gameObject);
-        }
+        //if (this.GetInstanceID() != GameManager.GetInstanceID(this.guid)) // Create unique ID.
+        //{
+            //guid = Guid.NewGuid().ToString();
+            //GameManager.RegisterInstanceGUID(this.guid, this.GetInstanceID());
+            //GameManager.RegisterObjectGUID(this.guid, this.gameObject);
+        //}
     }
 #endif
 
