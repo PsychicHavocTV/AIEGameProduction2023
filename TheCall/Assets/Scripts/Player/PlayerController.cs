@@ -25,6 +25,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField, Tooltip("How fast the player can run.")]
     private float runSpeed = 16.0f;
 
+    [SerializeField, Tooltip("How long till the player can take another photo. (In seconds)")]
+    private float cameraFlashCooldown = 2.0f;
+
     private CharacterController m_controller; // Character Controller component.
 
     private Vector2 m_input; // Moving input.
@@ -33,6 +36,8 @@ public class PlayerController : MonoBehaviour
 
     private Vector3 m_velocity = Vector3.zero; // Velocity (Gravity)
     private float m_moveSpeed = 0.0f; // Move speed.
+
+    private float m_cooldown = 0.0f; // The cooldown clock to stop players from spamming photos.
 
     private void Start()
     {
@@ -48,10 +53,23 @@ public class PlayerController : MonoBehaviour
         // Rotate player body towards camera direction.
         transform.rotation = Quaternion.Euler(transform.localEulerAngles.x, playerCamera.localEulerAngles.y, transform.localEulerAngles.z);
 
+        // Take photo.
         if (m_photoInput)
         {
             m_photoInput = false;
-            TakePhoto();
+            if (m_cooldown <= 0.0f)
+            {
+                TakePhoto();
+                m_cooldown = cameraFlashCooldown;
+            }
+        }
+        if (m_cooldown > 0.0f) // Do cooldown.
+        {
+            m_cooldown -= Time.deltaTime;
+        }
+        else if (m_cooldown <= 0.0f) // Clamp cooldown.
+        {
+            m_cooldown = 0.0f;
         }
     }
 
