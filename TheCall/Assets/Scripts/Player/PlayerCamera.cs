@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(Camera))]
 public class PlayerCamera : MonoBehaviour
 {
     [SerializeField, Tooltip("Reference to target, usually the player.")]
@@ -19,12 +18,15 @@ public class PlayerCamera : MonoBehaviour
     [SerializeField, Tooltip("How fast the camera moves.")]
     private float cameraSensitivity = 1.0f;
 
+    private Animator m_cameraAnimator;
+
     private Vector2 m_input; // Contains player input for camera look.
     private Vector2 m_rotation; // Camera's rotation.
 
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked; // Lock cursor into window.
+        m_cameraAnimator = GetComponentInChildren<Animator>();
     }
 
     private void Update()
@@ -46,6 +48,8 @@ public class PlayerCamera : MonoBehaviour
 
             DoPhotoCheck();
         }
+
+        m_cameraAnimator.SetFloat("Speed", playerController.CurrentMovingSpeed);
     }
 
     private void LateUpdate() // Update camera after player movement.

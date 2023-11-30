@@ -28,6 +28,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField, Tooltip("How long till the player can take another photo. (In seconds)")]
     private float cameraFlashCooldown = 2.0f;
 
+    public float CurrentMovingSpeed
+    {
+        get => m_currentMovingSpeed;
+    }
+    private float m_currentMovingSpeed = 0.0f;
+
     private CharacterController m_controller; // Character Controller component.
 
     private Vector2 m_input; // Moving input.
@@ -75,33 +81,34 @@ public class PlayerController : MonoBehaviour
 
     private void DoPlayerMovement()
     {
-            // Change move speed whether running or not.
-            if (m_isRunning)
-                m_moveSpeed = runSpeed;
-            else
-                m_moveSpeed = walkSpeed;
+        // Change move speed whether running or not.
+        if (m_isRunning)
+            m_moveSpeed = runSpeed;
+        else
+            m_moveSpeed = walkSpeed;
 
-            // Player movement.
-            Vector3 move = Vector3.zero;
-            if (canMove) // Move player only if player input is enabled.
-            {
-                move = m_input.x * playerCamera.right + m_input.y * playerCamera.forward; // Get movement direction relative to camera direction.
-                move.y = 0;
-            }
-            m_controller.Move(move.normalized * m_moveSpeed * Time.deltaTime); // Apply player movement.
+        // Player movement.
+        Vector3 move = Vector3.zero;
+        if (canMove) // Move player only if player input is enabled.
+        {
+            move = m_input.x * playerCamera.right + m_input.y * playerCamera.forward; // Get movement direction relative to camera direction.
+            move.y = 0;
+        }
+        m_currentMovingSpeed = (move.normalized * m_moveSpeed).magnitude;
+        m_controller.Move(move.normalized * m_moveSpeed * Time.deltaTime); // Apply player movement.
     }
 
     private void DoGravity()
     {
-            if (m_controller.isGrounded) // Is player touching ground.
-            {
-                m_velocity.y = -1.0f; // Push player out of ground.
-            }
-            else
-            {
-                m_velocity.y += Physics.gravity.y * Time.deltaTime; // Gravity.
-            }
-            m_controller.Move(m_velocity * Time.deltaTime); // Apply player velocity.
+        if (m_controller.isGrounded) // Is player touching ground.
+        {
+            m_velocity.y = -1.0f; // Push player out of ground.
+        }
+        else
+        {
+            m_velocity.y += Physics.gravity.y * Time.deltaTime; // Gravity.
+        }
+        m_controller.Move(m_velocity * Time.deltaTime); // Apply player velocity.
     }
 
     // Input System messages.
@@ -128,7 +135,6 @@ public class PlayerController : MonoBehaviour
             GameManager.Instance.interactWithStatue = true;
             Debug.Log("Game Saved.");
         }
-
 
         // Hiding
         if (hidingController.isHidden == true || hidingController.isHiding == true)
@@ -159,7 +165,7 @@ public class PlayerController : MonoBehaviour
     // WENDIGO TESTING ONLY
     private void TakePhoto()
     {
-            StartCoroutine(CameraTakePhoto());
+        StartCoroutine(CameraTakePhoto());
     }
 
     private IEnumerator CameraTakePhoto()
