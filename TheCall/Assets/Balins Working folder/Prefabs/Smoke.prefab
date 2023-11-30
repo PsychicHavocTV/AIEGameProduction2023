@@ -116,8 +116,8 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 10
-      minScalar: 7
+      scalar: 50
+      minScalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -662,7 +662,7 @@ ParticleSystem:
     serializedVersion: 6
     enabled: 1
     type: 4
-    angle: 21
+    angle: 10
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
@@ -1307,9 +1307,9 @@ ParticleSystem:
         serializedVersion: 2
         key0: {r: 0.20754719, g: 0.20754719, b: 0.20754719, a: 0}
         key1: {r: 0.14150941, g: 0.10060639, b: 0.08076716, a: 0.9705882}
-        key2: {r: 0.23584908, g: 0.23584908, b: 0.23584908, a: 0}
+        key2: {r: 0.23584908, g: 0.23584908, b: 0.23584908, a: 1}
         key3: {r: 0.31132078, g: 0.31132078, b: 0.31132078, a: 0}
-        key4: {r: 1, g: 1, b: 1, a: 0}
+        key4: {r: 0.14117648, g: 0.101960786, b: 0.08235294, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
         key6: {r: 0, g: 0, b: 0, a: 0}
         key7: {r: 0, g: 0, b: 0, a: 0}
