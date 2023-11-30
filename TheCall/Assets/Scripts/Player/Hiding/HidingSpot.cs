@@ -14,6 +14,20 @@ public class HidingSpot : MonoBehaviour
 
     private HideController hidingController;
     private GameObject playerWrapperRef;
+
+    public AudioListener playerEars;
+    public AudioSource hidingSpeaker;
+    public AudioClip hidingInteractSound;
+
+    bool soundPlayed = false;
+
+    public void PlayInteractSound()
+    {
+            hidingSpeaker.clip = hidingInteractSound;
+            hidingSpeaker.Play();
+        return;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,6 +58,23 @@ public class HidingSpot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (hidingController.isHiding == true || hidingController.exitingHiding || hidingController.isHidden == true)
+        {
+            if (soundPlayed == false)
+            {
+                soundPlayed = true;
+                PlayInteractSound();
+            }
+        }
+        else if (hidingController.isHiding == false)
+        {
+            if (soundPlayed == true)
+            {
+                soundPlayed = false;
+            }
+            if (hidingSpeaker.isPlaying == false)
+            {
+            }
+        }
     }
 }
