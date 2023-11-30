@@ -34,6 +34,7 @@ public class GameOverMenuController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        wendigo = GameManager.Instance.activeWendigo;
         if (GameManager.Instance.GameOver == true)
         {
             if (GameManager.Instance.noCheckpoint == true)

@@ -21,23 +21,6 @@ public class WendigoChaseState : BaseState
     {
         if (GameManager.Instance.GameOver == false)
         {
-            RaycastHit hit;
-            playerDistance = Vector3.Distance(wendigo.playerRef.transform.position, wendigo.transform.position);
-
-            nma.ResetPath();
-            var path = new NavMeshPath();
-            destinationPosition = wendigo.playerRef.transform.position;
-            nma.CalculatePath(destinationPosition, path);
-            if (path.status == NavMeshPathStatus.PathComplete)
-            {
-                nma.SetPath(path);
-                nma.SetDestination(destinationPosition);
-            }
-            //else if (path.status == NavMeshPathStatus.PathInvalid)
-            //{
-            //  nma.SetDestination(destinationPosition);
-            //}
-            Vector3 rayDirection = wendigo.playerRef.transform.position - wendigo.transform.position;
 
             if (wendigo.hidingController.isHidden == true)
             {
@@ -49,6 +32,9 @@ public class WendigoChaseState : BaseState
 
             if (wendigo.hidingController.isHidden == false)
             {
+                RaycastHit hit;
+                playerDistance = Vector3.Distance(wendigo.playerRef.transform.position, wendigo.transform.position);
+                Vector3 rayDirection = wendigo.playerRef.transform.position - wendigo.transform.position;
                 // Check if the player is in front of the Wendigo & within its Field Of View.
                 if ((Vector3.Angle(rayDirection, wendigo.transform.forward)) < 45) 
                 {
@@ -81,8 +67,36 @@ public class WendigoChaseState : BaseState
                            }
                        }
                     }
+                    else
+                    {
+                        if (wendigo.timerRunning == false)
+                        {
+                            wendigo.ControlTimer();
+                        }
+                    }
+                }
+                else
+                {
+                    if (wendigo.timerRunning == false)
+                    {
+                        wendigo.ControlTimer();
+                    }
                 }
             }
+
+            nma.ResetPath();
+            var path = new NavMeshPath();
+            destinationPosition = wendigo.playerRef.transform.position;
+            nma.CalculatePath(destinationPosition, path);
+            if (path.status == NavMeshPathStatus.PathComplete)
+            {
+                nma.SetPath(path);
+                nma.SetDestination(destinationPosition);
+            }
+            //else if (path.status == NavMeshPathStatus.PathInvalid)
+            //{
+            //  nma.SetDestination(destinationPosition);
+            //}
         }
     }
 }

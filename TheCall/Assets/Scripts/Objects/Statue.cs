@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Statue : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class Statue : MonoBehaviour
     private GameObject playerParentRef;
     [SerializeField]
     private GameObject wendigo;
+    [SerializeField]
+    private GameObject[] wendigoCreatures;
     [SerializeField]
     private CharacterController playerCharacterController;
 
@@ -41,10 +44,14 @@ public class Statue : MonoBehaviour
     public void SaveCheckpoint()
     {
         Debug.Log("***SAVING GAME DATA***");
-        GameManager.Instance.wendigo = wendigo;
+        for (int i = 0; i <= wendigoCreatures.Length - 1; i++)
+        {
+            GameManager.Instance.wendigoCreatures[i] = wendigoCreatures[i];
+        }
+        GameManager.Instance.wendigo = GameManager.Instance.activeWendigo;
         GameManager.Instance.player = playerParentRef;
         GameManager.Instance.UpdateCheckpoint(statueIndex);
-        GameManager.Instance.SaveCheckpointData(wendigo, playerParentRef);
+        GameManager.Instance.SaveCheckpointData(GameManager.Instance.activeWendigo, playerParentRef);
         PlayerController pController;
         pController = playerParentRef.GetComponent<PlayerController>();
         if (pController.enabled == false)
@@ -60,6 +67,11 @@ public class Statue : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameManager.Instance.wendigoCreatures = new GameObject[4];
+        GameManager.Instance.wendigoNMAs = new NavMeshAgent[4];
+        GameManager.Instance.wendigoLoadedX = new float[4];
+        GameManager.Instance.wendigoLoadedY = new float[4];
+        GameManager.Instance.wendigoLoadedZ = new float[4];
     }
 
     void Update()

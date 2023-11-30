@@ -159,15 +159,28 @@ public class WendigoStateManager : MonoBehaviour
         {
             timerRunning = true; // Set 'timerRunning' to true.
             timerFinished = false; // Set 'timerFinished' to false.
-            yield return new WaitForSecondsRealtime(5f); // Wait for five(5) seconds.
+            if (hidingController.isHidden == true) // If the player is not within the Wendigo's view
+            {
+                timerFinished = true; // Set 'timerFinished' to true.
+                timerRunning = false; // Set 'timerRunning' to false.
+                StartRoaming(); // Start ROAMING.
+                StopCoroutine(ChaseTimer());
+            }
+            GameManager.Instance.finishedChasing = true;
+            yield return new WaitForSecondsRealtime(3f); // Wait for three(3) seconds.
             CheckView();
             timerFinished = true; // Set 'timerFinished' to true.
             timerRunning = false; // Set 'timerRunning' to false.
             //Vector3 rayDirection = playerRef.transform.position - transform.position;
-            if (inView == false || hidingController.isHidden == true) // If the player is not within the Wendigo's view
+            if (inView == false)
             {
                 GameManager.Instance.finishedChasing = true;
-                StartRoaming(); // Start ROAMING.
+                StartRoaming();
+            }
+            if (inView == true && hidingController.isHidden == false)
+            {
+                GameManager.Instance.finishedChasing = false;
+                StartChasing();
             }
             StopCoroutine(ChaseTimer());
         }
