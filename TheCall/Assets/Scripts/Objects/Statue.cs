@@ -16,11 +16,16 @@ public class Statue : MonoBehaviour
     private GameObject[] wendigoCreatures;
     [SerializeField]
     private CharacterController playerCharacterController;
+    [SerializeField]
+    private StatueInteract sI;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
+            PlayerController pc = playerParentRef.GetComponent<PlayerController>();
+            pc.statueInteraction = sI;
+            pc.statueInteraction.statueInteractSound = sI.statueInteractSound;
             Debug.Log("Player Can Now Interact.");
             if (GameManager.Instance.atStatue == false)
             {
@@ -48,10 +53,9 @@ public class Statue : MonoBehaviour
         {
             GameManager.Instance.wendigoCreatures[i] = wendigoCreatures[i];
         }
-        GameManager.Instance.wendigo = GameManager.Instance.activeWendigo;
         GameManager.Instance.player = playerParentRef;
         GameManager.Instance.UpdateCheckpoint(statueIndex);
-        GameManager.Instance.SaveCheckpointData(GameManager.Instance.activeWendigo, playerParentRef);
+        GameManager.Instance.SaveCheckpointData(wendigo, playerParentRef);
         PlayerController pController;
         pController = playerParentRef.GetComponent<PlayerController>();
         if (pController.enabled == false)
@@ -67,19 +71,19 @@ public class Statue : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameManager.Instance.wendigoCreatures = new GameObject[4];
-        GameManager.Instance.wendigoNMAs = new NavMeshAgent[4];
-        GameManager.Instance.wendigoLoadedX = new float[4];
-        GameManager.Instance.wendigoLoadedY = new float[4];
-        GameManager.Instance.wendigoLoadedZ = new float[4];
+        
     }
 
     void Update()
     {
+        if (wendigo != GameManager.Instance.activeWendigo && GameManager.Instance.activeWendigo != null)
+        {
+            wendigo = GameManager.Instance.activeWendigo;
+        }
         if (GameManager.Instance.interactWithStatue == true)
         {
-            SaveCheckpoint();
             GameManager.Instance.interactWithStatue = false;
+            SaveCheckpoint();
         }
     }
 }

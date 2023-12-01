@@ -37,6 +37,7 @@ public class WendigoStateManager : MonoBehaviour
 
     private void Start()
     {
+        nma.enabled = true;
         // Setup
         {
             // Set NavMeshAgent references

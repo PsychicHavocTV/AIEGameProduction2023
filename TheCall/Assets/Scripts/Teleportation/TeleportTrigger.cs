@@ -19,6 +19,7 @@ public class TeleportTrigger : MonoBehaviour
     public bool hasDuo = false;
     public int triggerIndex;
     public int previousIndex;
+    private bool changedFromDefault = false;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -44,6 +45,10 @@ public class TeleportTrigger : MonoBehaviour
                 {
                     duoTrigger.triggered = true;
                 }
+            }
+            if (changedFromDefault == false)
+            {
+                changedFromDefault = true;
             }
 
             //triggered = !triggered;
@@ -139,8 +144,20 @@ public class TeleportTrigger : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Set the default objects in the nav mesh agents and state machine controller arrays.
+        GameManager.Instance.GameOver = false;
+        GameManager.Instance.GamePaused = false;
+        GameManager.Instance.wendigoCreatures = new GameObject[4];
+        GameManager.Instance.wendigoNMAs = new NavMeshAgent[4];
+        GameManager.Instance.wendigoLoadedX = new float[4];
+        GameManager.Instance.wendigoLoadedY = new float[4];
+        GameManager.Instance.wendigoLoadedZ = new float[4];
+        GameManager.Instance.activeWendigo = activeWendigo;
+        GameManager.Instance.wendigo = activeWendigo;
         activeWendigo = wendigos[0];
+        for (int i = 0; i <= wendigos.Length - 1; i++)
+        {
+            GameManager.Instance.wendigoCreatures[i] = wendigos[i];
+        }
         for (int i = 0; i <= wendigos.Length - 1; i++)
         {
             wendigoNMAs[i] = wendigos[i].GetComponent<NavMeshAgent>();
@@ -153,16 +170,16 @@ public class TeleportTrigger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.Instance.finishedChasing == true && teleportWendigo.hasTeleported == false)
+        if (GameManager.Instance.activeWendigo != activeWendigo)
+        {
+            GameManager.Instance.activeWendigo = activeWendigo;
+        }
+        if (GameManager.Instance.finishedChasing == true && teleportWendigo.hasTeleported == false && changedFromDefault == true)
         {
             //if (GameManager.Instance.outOfPlayerView == true)
             //{
                 ActivateWendigo();
             //}
-        }
-        if (GameManager.Instance.activeWendigo != activeWendigo)
-        {
-            GameManager.Instance.activeWendigo = activeWendigo;
         }
     }
 }

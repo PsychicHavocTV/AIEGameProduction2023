@@ -253,7 +253,7 @@ public class GameManager
         gameSaved = false;
         string path = Application.persistentDataPath + "/SaveData.txt";
         StreamWriter w = new StreamWriter(path);
-        for (int i = 0; i <= wendigoCreatures.Length - 1; i++)
+        for (int i = 0; i < wendigoCreatures.Length; i++)
         {
             if (wendigoCreatures[i].activeSelf == true)
             {

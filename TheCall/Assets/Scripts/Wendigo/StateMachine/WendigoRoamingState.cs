@@ -45,7 +45,7 @@ public class WendigoRoamingState : BaseState
 
             RaycastHit hit;
 
-            if (playerDistance <= 80)
+            if (playerDistance <= 70)
             {
                 Vector3 rayDirection = wendigo.playerRef.transform.position - wendigo.transform.position;
                 if ((Vector3.Angle(rayDirection, wendigo.transform.forward)) < 25) //Physics.Raycast(wendigo.RaycastOrigin.transform.position, wendigo.RaycastOrigin.transform.TransformDirection(Vector3.forward), out hit, 70, wendigo.layerMask))
@@ -65,24 +65,24 @@ public class WendigoRoamingState : BaseState
             }
 
 
-            if (wendigo.pController.takingPhoto == true)
-            {
-                if (playerDistance <= 15)
-                {
-                    wendigo.StartChasing();
-                }
-                findingPlayer = true;
-                AlertWendigo(wendigo);
-            }
+            //if (wendigo.pController.takingPhoto == true)
+            //{
+            //    if (playerDistance <= 15)
+            //    {
+            //        wendigo.StartChasing();
+            //    }
+            //    findingPlayer = true;
+            //    AlertWendigo(wendigo);
+            //}
 
-            if (findingPlayer == true)
-            {
-                if (nma.remainingDistance <= 1.2f)
-                {
-                    findingPlayer = false;
-                }
-            }
-            else if (findingPlayer == false)
+            //if (findingPlayer == true)
+            //{
+            //    if (nma.remainingDistance <= 1.2f)
+            //    {
+            //        findingPlayer = false;
+            //    }
+            //}
+            else if (findingPlayer == false || findingPlayer == true)
             {
                 if (moving == false)
                 {
@@ -227,8 +227,8 @@ public class WendigoRoamingState : BaseState
                 nma.CalculatePath(destinationPosition, path);
                 if (path.status == NavMeshPathStatus.PathComplete)
                 {
-                    nma.SetDestination(destinationPosition);    
                     nma.SetPath(path);
+                    nma.SetDestination(destinationPosition);    
                 }
             }
         }
