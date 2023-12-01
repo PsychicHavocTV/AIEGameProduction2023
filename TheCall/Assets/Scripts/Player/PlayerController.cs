@@ -53,7 +53,8 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        DoPlayerMovement();
+        if (canMove == true)
+            DoPlayerMovement();
         DoGravity();
 
         // Rotate player body towards camera direction.
@@ -129,6 +130,17 @@ public class PlayerController : MonoBehaviour
 
     private void OnInteract(InputValue value)
     {
+        // Interactables
+        var interactables = UnityEngine.Object.FindObjectsOfType<Interaction>();
+        for (int i = 0; i < interactables.Length; i++)
+        {
+            var interactable = interactables[i];
+            if (interactable.Interactable == true)
+                interactable.Interacted = true;
+            else
+                interactable.Interacted = false;
+        }
+
         // Statues
         if (GameManager.Instance.atStatue == true)
         {
