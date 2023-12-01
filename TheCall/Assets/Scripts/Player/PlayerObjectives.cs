@@ -51,10 +51,9 @@ public class PlayerObjectives : MonoBehaviour
         {
             var newObjective = Instantiate(objectivePrefab, objectivesPanel.transform); // Add new objective to UI.
             newObjective.GetComponentInChildren<TextMeshProUGUI>().text = objective.objectiveDescription; // Set text.
+                                                                                                          // Add to list.
+            m_currentObjectives.Add(objective);
         }
-
-        // Add to list.
-        m_currentObjectives.Add(objective);
     }
 
     /// <summary>
@@ -65,6 +64,9 @@ public class PlayerObjectives : MonoBehaviour
     {
         if (m_currentObjectives.Count <= 0) // Don't try anything if there's nothing to even remove.
             return;
+
+        // Remove from list.
+        m_currentObjectives.Remove(objective);
 
         // UI Stuff.
         var objectives = objectivesPanel.GetComponentsInChildren<TextMeshProUGUI>();
@@ -83,9 +85,6 @@ public class PlayerObjectives : MonoBehaviour
 
         if (m_currentObjectives.Count <= 0)
             objectivesPanel.SetActive(false); // Disable panel if no objectives.
-
-        // Remove from list.
-        m_currentObjectives.Remove(objective);
     }
 
     /// <summary>
@@ -94,8 +93,8 @@ public class PlayerObjectives : MonoBehaviour
     /// <param name="objective">A reference to the objective.</param>
     public void CompleteObjective(KeyObjectDescriptor objective)
     {
-        m_completedObjectives.Add(objective);
         RemoveObjective(objective);
+        m_completedObjectives.Add(objective);
     }
 
     /// <summary>

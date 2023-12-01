@@ -89,26 +89,27 @@ public class PlayerCamera : MonoBehaviour
                 if (area >= (descriptor.objectiveThreshold / 100f)) // If object's configured threshold is met.
                 {
                     // GOOD!
-                    if (playerObjectives.CurrentObjectives.Contains(descriptor)) // And is a current objective.
-                    {
+                    //if (playerObjectives.CurrentObjectives.Contains(descriptor)) // And is a current objective.
+                    //{
                         // Do stuff.
                         Debug.Log("Found " + descriptor.objectName + "!");
 
-                        var eventHandlers = UnityEngine.Object.FindObjectsOfType<ObjectiveCompleteEvent>();
-                        for (int i = 0; i < eventHandlers.Length; i++)
+                        for (int i = 0; i < playerObjectives.CurrentObjectives.Count; i++) // Complete each objective that is the same.
                         {
-                            var eventHandler = eventHandlers[i];
-                            eventHandler.Complete(descriptor); // Call complete on all Fungus blocks using the Objective Complete event.
-                        }
-
-                        foreach (var obj in playerObjectives.CurrentObjectives) // Complete each objective that is the same.
-                        {
+                            var obj = playerObjectives.CurrentObjectives[i];
+                            Debug.Log("Loop: " + obj.objectiveDescription);
                             if (obj.objectiveDescription == descriptor.objectiveDescription)
                             {
-                                playerObjectives.CompleteObjective(descriptor); // Complete the objective.
+                                playerObjectives.CompleteObjective(obj); // Complete the objective.
                             }
                         }
-                    }
+
+                        var eventHandlers = UnityEngine.Object.FindObjectsOfType<ObjectiveCompleteEvent>();
+                        foreach (var eventHandler in eventHandlers)
+                        {
+                            eventHandler.Complete(descriptor); // Call complete on all Fungus blocks using the Objective Complete event.
+                        }
+                    //}
                 }
             }
         }
