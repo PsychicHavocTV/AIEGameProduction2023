@@ -70,6 +70,8 @@ public class PlayerCamera : MonoBehaviour
         {
             GameObject lookingAt = null;
             ObjectsInView viewObjs = GetComponent<ObjectsInView>(); // Get reference to objects in view script.
+            if (viewObjs == null) // Couldn't find on object.
+                viewObjs = GetComponentInChildren<ObjectsInView>(); // Find in children instead.
 
             if (viewObjs != null && viewObjs.objects.Count > 0)
                 lookingAt = viewObjs.objects[0]; // Get first element from list (closest to camera)

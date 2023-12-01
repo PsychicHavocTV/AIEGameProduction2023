@@ -46,7 +46,9 @@ public class Interaction : MonoBehaviour
 
     private void Update()
     {
-        Camera cam = m_targetCamera.GetComponentInChildren<Camera>();
+        Camera cam = m_targetCamera.GetComponent<Camera>();
+        if (cam == null)
+            cam = m_targetCamera.GetComponentInChildren<Camera>();
 
         // If in camera view.
         bool distanceToCamera = Vector3.Distance(cam.transform.position, transform.position) <= m_interactionDistance;
