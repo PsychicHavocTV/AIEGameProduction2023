@@ -100,15 +100,15 @@ LODGroup:
   serializedVersion: 2
   m_LocalReferencePoint: {x: 0.33152246, y: 7.501158, z: 0.2676649}
   m_Size: 15.036326
-  m_FadeMode: 2
+  m_FadeMode: 1
   m_AnimateCrossFading: 1
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.4497086
+  - screenRelativeHeight: 0.29903314
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 8345690483520553635}
-  - screenRelativeHeight: 0.099730276
+  - screenRelativeHeight: 0.048244104
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 6712467917250154041}
@@ -194,7 +194,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: LowPolyTreeLOD
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7843159305853545191, guid: ce03f39cd01402c4bacb2c5bf052a193, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 4873940051811868923, guid: ce03f39cd01402c4bacb2c5bf052a193, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ce03f39cd01402c4bacb2c5bf052a193, type: 3}
 --- !u!4 &5578929545626072406 stripped
 Transform:
