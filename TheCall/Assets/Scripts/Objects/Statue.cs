@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Statue : MonoBehaviour
 {
+    public StatueInteract interaction;
     public bool canInteract = true;
     [SerializeField]
     private int statueIndex = 0;
@@ -14,10 +15,13 @@ public class Statue : MonoBehaviour
     [SerializeField]
     private CharacterController playerCharacterController;
 
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
+            PlayerController pc = playerParentRef.GetComponent<PlayerController>();
+            pc.statueInteractions = interaction;
             Debug.Log("Player Can Now Interact.");
             if (GameManager.Instance.atStatue == false)
             {
@@ -30,6 +34,8 @@ public class Statue : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            PlayerController pc = playerParentRef.GetComponent<PlayerController>();
+            pc.statueInteractions = null;
             Debug.Log("Player Can No Longer Interact");
             if (GameManager.Instance.atStatue == true)
             {

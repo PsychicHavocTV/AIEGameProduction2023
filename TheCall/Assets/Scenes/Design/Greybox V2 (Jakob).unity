@@ -517,6 +517,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1815370804}
     - target: {fileID: 8861045660716310334, guid: 85805db249c4f6344bb3972debc86a0f, type: 3}
+      propertyPath: interaction
+      value: 
+      objectReference: {fileID: 2128941829}
+    - target: {fileID: 8861045660716310334, guid: 85805db249c4f6344bb3972debc86a0f, type: 3}
       propertyPath: playerParentRef
       value: 
       objectReference: {fileID: 276546149}
@@ -665,9 +669,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 112512290}
     m_Modifications:
+    - target: {fileID: 5270287469095960956, guid: acdd1cf5985103f45a338558b850a220, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c6105ee7537605d4e953da286c7ce373, type: 2}
     - target: {fileID: 5918625976321302697, guid: acdd1cf5985103f45a338558b850a220, type: 3}
       propertyPath: m_Name
       value: tent_open_FNL (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5918625976321302697, guid: acdd1cf5985103f45a338558b850a220, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5918625976321302697, guid: acdd1cf5985103f45a338558b850a220, type: 3}
       propertyPath: m_NavMeshLayer
@@ -2462,6 +2474,10 @@ PrefabInstance:
       value: Wendigo_Statue_DONE (2)
       objectReference: {fileID: 0}
     - target: {fileID: 8727388246128564754, guid: a5f218d1cc3b8204cac958f70c529472, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8727388246128564754, guid: a5f218d1cc3b8204cac958f70c529472, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -3291,6 +3307,10 @@ PrefabInstance:
       value: Wendigo_Statue_DONE (1)
       objectReference: {fileID: 0}
     - target: {fileID: 8727388246128564754, guid: a5f218d1cc3b8204cac958f70c529472, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8727388246128564754, guid: a5f218d1cc3b8204cac958f70c529472, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -3852,7 +3872,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 328919029877250503, guid: a63a357ee7a20354583929b045743df6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 172
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 328919029877250503, guid: a63a357ee7a20354583929b045743df6, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3860,7 +3880,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 328919029877250503, guid: a63a357ee7a20354583929b045743df6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 198
+      value: 160
       objectReference: {fileID: 0}
     - target: {fileID: 328919029877250503, guid: a63a357ee7a20354583929b045743df6, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4582,6 +4602,10 @@ PrefabInstance:
       propertyPath: wendigo
       value: 
       objectReference: {fileID: 1815370804}
+    - target: {fileID: 1914626916942233536, guid: f470d0cd243301a4fbbd74b5cc9713f1, type: 3}
+      propertyPath: interaction
+      value: 
+      objectReference: {fileID: 1977098267}
     - target: {fileID: 1914626916942233536, guid: f470d0cd243301a4fbbd74b5cc9713f1, type: 3}
       propertyPath: playerParentRef
       value: 
@@ -5411,6 +5435,10 @@ PrefabInstance:
       propertyPath: wendigo
       value: 
       objectReference: {fileID: 1815370804}
+    - target: {fileID: 3152428548268231704, guid: fdb9bf551080b8f4f80f16cce7d1f6f5, type: 3}
+      propertyPath: interaction
+      value: 
+      objectReference: {fileID: 1829286679}
     - target: {fileID: 3152428548268231704, guid: fdb9bf551080b8f4f80f16cce7d1f6f5, type: 3}
       propertyPath: playerParentRef
       value: 
@@ -7137,6 +7165,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 5778479844381501108, guid: a284bf8b17b0baf469444e394eb3370e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c6105ee7537605d4e953da286c7ce373, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a284bf8b17b0baf469444e394eb3370e, type: 3}
 --- !u!4 &538420358 stripped
@@ -9802,9 +9834,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 112512290}
     m_Modifications:
+    - target: {fileID: 5270287469095960956, guid: acdd1cf5985103f45a338558b850a220, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c6105ee7537605d4e953da286c7ce373, type: 2}
     - target: {fileID: 5918625976321302697, guid: acdd1cf5985103f45a338558b850a220, type: 3}
       propertyPath: m_Name
       value: tent_open_FNL (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5918625976321302697, guid: acdd1cf5985103f45a338558b850a220, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5918625976321302697, guid: acdd1cf5985103f45a338558b850a220, type: 3}
       propertyPath: m_NavMeshLayer
@@ -11901,6 +11941,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 6288065302876889899, guid: 13ccf10ffdcddc64bb18865829b2ddfd, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c6105ee7537605d4e953da286c7ce373, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13ccf10ffdcddc64bb18865829b2ddfd, type: 3}
 --- !u!4 &999399726 stripped
@@ -12886,6 +12930,17 @@ AudioSource:
   m_CorrespondingSourceObject: {fileID: 5684586334368150992, guid: a5f218d1cc3b8204cac958f70c529472, type: 3}
   m_PrefabInstance: {fileID: 1369763826}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1082042880 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4154644587709175966, guid: a5f218d1cc3b8204cac958f70c529472, type: 3}
+  m_PrefabInstance: {fileID: 1369763826}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d20b0794bc59c404c84d74c60c8547b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1091952586
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15878,6 +15933,10 @@ PrefabInstance:
       value: Wendigo_Statue_DONE (3)
       objectReference: {fileID: 0}
     - target: {fileID: 8727388246128564754, guid: a5f218d1cc3b8204cac958f70c529472, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8727388246128564754, guid: a5f218d1cc3b8204cac958f70c529472, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -16008,7 +16067,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6443310105166568186, guid: 199fa694e9a0ab641a4a5c5eece73af1, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 199fa694e9a0ab641a4a5c5eece73af1, type: 3}
@@ -26234,6 +26293,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 6288065302876889899, guid: 13ccf10ffdcddc64bb18865829b2ddfd, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c6105ee7537605d4e953da286c7ce373, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13ccf10ffdcddc64bb18865829b2ddfd, type: 3}
 --- !u!4 &1523610910 stripped
@@ -27393,6 +27456,14 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 5684586334368150992, guid: a5f218d1cc3b8204cac958f70c529472, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: d73c36a3a7d8c7e419514a1193cace93, type: 3}
+    - target: {fileID: 5684586334368150992, guid: a5f218d1cc3b8204cac958f70c529472, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: 86f084f5d2b90be458b60124980c713b, type: 2}
     - target: {fileID: 8238836281373212840, guid: a5f218d1cc3b8204cac958f70c529472, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -30674,6 +30745,17 @@ AudioSource:
   m_CorrespondingSourceObject: {fileID: 5684586334368150992, guid: a5f218d1cc3b8204cac958f70c529472, type: 3}
   m_PrefabInstance: {fileID: 194445719}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1829286679 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4154644587709175966, guid: a5f218d1cc3b8204cac958f70c529472, type: 3}
+  m_PrefabInstance: {fileID: 194445719}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d20b0794bc59c404c84d74c60c8547b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1829338137
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31551,6 +31633,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1815370804}
     - target: {fileID: 8861045660716310334, guid: 85805db249c4f6344bb3972debc86a0f, type: 3}
+      propertyPath: interaction
+      value: 
+      objectReference: {fileID: 1082042880}
+    - target: {fileID: 8861045660716310334, guid: 85805db249c4f6344bb3972debc86a0f, type: 3}
       propertyPath: playerParentRef
       value: 
       objectReference: {fileID: 276546149}
@@ -31958,6 +32044,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 5778479844381501108, guid: a284bf8b17b0baf469444e394eb3370e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c6105ee7537605d4e953da286c7ce373, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a284bf8b17b0baf469444e394eb3370e, type: 3}
 --- !u!4 &1910344343 stripped
@@ -35932,6 +36022,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2290960893847667651, guid: 44c7ab35cd9e7ef43a58098dd95b46d6, type: 3}
   m_PrefabInstance: {fileID: 1962992367}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1977098267 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4154644587709175966, guid: a5f218d1cc3b8204cac958f70c529472, type: 3}
+  m_PrefabInstance: {fileID: 1620234295}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d20b0794bc59c404c84d74c60c8547b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1990261293
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35939,6 +36040,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 112512290}
     m_Modifications:
+    - target: {fileID: 5270287469095960956, guid: acdd1cf5985103f45a338558b850a220, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c6105ee7537605d4e953da286c7ce373, type: 2}
     - target: {fileID: 5918625976321302697, guid: acdd1cf5985103f45a338558b850a220, type: 3}
       propertyPath: m_Name
       value: tent_open_FNL (2)
@@ -36506,6 +36611,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 6288065302876889899, guid: 13ccf10ffdcddc64bb18865829b2ddfd, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c6105ee7537605d4e953da286c7ce373, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13ccf10ffdcddc64bb18865829b2ddfd, type: 3}
 --- !u!4 &2007715869 stripped
@@ -37663,6 +37772,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 6288065302876889899, guid: 13ccf10ffdcddc64bb18865829b2ddfd, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c6105ee7537605d4e953da286c7ce373, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13ccf10ffdcddc64bb18865829b2ddfd, type: 3}
 --- !u!4 &2090535522 stripped
@@ -37857,6 +37970,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 5778479844381501108, guid: a284bf8b17b0baf469444e394eb3370e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c6105ee7537605d4e953da286c7ce373, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a284bf8b17b0baf469444e394eb3370e, type: 3}
 --- !u!4 &2104405275 stripped
@@ -38281,6 +38398,17 @@ MonoBehaviour:
   playerEars: {fileID: 276546154}
   statueSpeaker: {fileID: 1620234298}
   statueInteractSound: {fileID: 8300000, guid: d4e428bb911af9e43a9844af7985a057, type: 3}
+--- !u!114 &2128941829 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4154644587709175966, guid: a5f218d1cc3b8204cac958f70c529472, type: 3}
+  m_PrefabInstance: {fileID: 163385134}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1671070116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d20b0794bc59c404c84d74c60c8547b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2129787921
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39028,6 +39156,7 @@ MonoBehaviour:
   spot: {fileID: 7428437907657376227}
   hiddenTeleport: {fileID: 7428437907000031664}
   outsideTeleport: {fileID: 7428437906791119348}
+  player: {fileID: 0}
   spotCollider: {fileID: 1990261295}
   hidingSpotIndex: 0
   spotOccupied: 0
@@ -39247,6 +39376,7 @@ MonoBehaviour:
   spot: {fileID: 7428437907657376227}
   hiddenTeleport: {fileID: 7428437907000031664}
   outsideTeleport: {fileID: 7428437906791119348}
+  player: {fileID: 0}
   spotCollider: {fileID: 1990261295}
   hidingSpotIndex: 0
   spotOccupied: 0
@@ -39367,6 +39497,7 @@ MonoBehaviour:
   spot: {fileID: 7428437907657376227}
   hiddenTeleport: {fileID: 7428437907000031664}
   outsideTeleport: {fileID: 7428437906791119348}
+  player: {fileID: 276546149}
   spotCollider: {fileID: 1990261295}
   hidingSpotIndex: 0
   spotOccupied: 0

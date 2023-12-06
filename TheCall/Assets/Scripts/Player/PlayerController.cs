@@ -11,6 +11,9 @@ public class PlayerController : MonoBehaviour
 
     public bool takingPhoto = false;
 
+    public StatueInteract statueInteractions;
+    public HidingSpot hsInteraction;
+
     [SerializeField]
     private HideController hidingController;
 
@@ -126,6 +129,7 @@ public class PlayerController : MonoBehaviour
         if (GameManager.Instance.atStatue == true)
         {
             GameManager.Instance.interactWithStatue = true;
+            statueInteractions.PlayInteractSound();
             Debug.Log("Game Saved.");
         }
 
@@ -133,6 +137,7 @@ public class PlayerController : MonoBehaviour
         // Hiding
         if (hidingController.isHidden == true || hidingController.isHiding == true)
         {
+            hsInteraction.PlayInteractSound();
             hidingController.exitingHiding = true;
             hidingController.ExitHidingSpot(hidingController.hidingSpots[hidingController.currentSpotIndex]);
             hidingController.hidingSpots[hidingController.currentSpotIndex].spotOccupied = false;
@@ -146,6 +151,7 @@ public class PlayerController : MonoBehaviour
         {
             if (hidingController.isHiding == false && hidingController.isHidden == false && hidingController.exitingHiding == false)
             {
+                hsInteraction.PlayInteractSound();
                 hidingController.isHiding = true;
                 hidingController.EnterHidingSpot(hidingController.hidingSpots[hidingController.currentSpotIndex]);
                 hidingController.hidingSpots[hidingController.currentSpotIndex].spotOccupied = true;

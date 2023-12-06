@@ -8,6 +8,7 @@ public class HidingSpot : MonoBehaviour
     public GameObject spot;
     public GameObject hiddenTeleport;
     public GameObject outsideTeleport;
+    public GameObject player;
     public Collider spotCollider;
     public int hidingSpotIndex = 0;
     public bool spotOccupied = false;
@@ -23,8 +24,11 @@ public class HidingSpot : MonoBehaviour
 
     public void PlayInteractSound()
     {
+        if (hidingSpeaker.isPlaying == false)
+        {
             hidingSpeaker.clip = hidingInteractSound;
             hidingSpeaker.Play();
+        }
         return;
     }
 
@@ -39,6 +43,8 @@ public class HidingSpot : MonoBehaviour
     {
         if (other.tag == "Player" || other.tag == "player")
         {
+            PlayerController pc = player.GetComponent<PlayerController>();
+            pc.hsInteraction = this;
             Debug.Log("player in range");
             hidingController.currentSpotIndex = hidingSpotIndex;
             hidingController.canHide = true;
@@ -58,23 +64,23 @@ public class HidingSpot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (hidingController.isHiding == true || hidingController.exitingHiding || hidingController.isHidden == true)
-        {
-            if (soundPlayed == false)
-            {
-                soundPlayed = true;
-                PlayInteractSound();
-            }
-        }
-        else if (hidingController.isHiding == false)
-        {
-            if (soundPlayed == true)
-            {
-                soundPlayed = false;
-            }
-            if (hidingSpeaker.isPlaying == false)
-            {
-            }
-        }
+        //if (hidingController.isHiding == true || hidingController.exitingHiding || hidingController.isHidden == true)
+        //{
+        //    if (soundPlayed == false)
+        //    {
+        //        soundPlayed = true;
+        //        PlayInteractSound();
+        //    }
+        //}
+        //else if (hidingController.isHiding == false)
+        //{
+        //    if (soundPlayed == true)
+        //    {
+        //        soundPlayed = false;
+        //    }
+        //    if (hidingSpeaker.isPlaying == false)
+        //    {
+        //    }
+        //}
     }
 }
