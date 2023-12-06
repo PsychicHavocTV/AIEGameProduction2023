@@ -359,8 +359,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.7924528, g: 0.035794362, b: 0, a: 1}
-  m_Intensity: 2.3279047
-  m_Range: 5.65
+  m_Intensity: 2.387324
+  m_Range: 6
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -421,7 +421,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Intensity: 29.253315
+  m_Intensity: 30
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
@@ -547,6 +547,7 @@ GameObject:
   - component: {fileID: 793770927}
   - component: {fileID: 504115921}
   - component: {fileID: 504115922}
+  - component: {fileID: 2201555664219905361}
   m_Layer: 0
   m_Name: Wendigo
   m_TagString: Wendigo
@@ -689,7 +690,7 @@ MonoBehaviour:
   objectValue: 1
   objectiveDescription: 
   objectiveThreshold: 0
-  guid: 
+  objectiveIcon: {fileID: 0}
 --- !u!114 &504115922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -703,6 +704,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetCamera: {fileID: 0}
+--- !u!114 &2201555664219905361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6443310105166568167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98bbc2c1e63e98543830eec78d976795, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializedGuid: 
 --- !u!1 &6443310105637956582
 GameObject:
   m_ObjectHideFlags: 0
@@ -1160,8 +1174,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.7924528, g: 0.035794362, b: 0, a: 1}
-  m_Intensity: 2.3279047
-  m_Range: 5.65
+  m_Intensity: 2.387324
+  m_Range: 6
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -1222,7 +1236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Intensity: 29.253315
+  m_Intensity: 30
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0

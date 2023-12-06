@@ -41,13 +41,13 @@ public class HideController : MonoBehaviour
     {
         Debug.Log("EXITING HIDING SPOT");
         spot.spotCollider.enabled = false;
-        playerController.enabled = false;
-        exitingHiding = true;
-        playerBody.transform.position = new Vector3(0, 0, 0);
         if (playerCollider.enabled == false)
         {
             playerCollider.enabled = true;
         }
+        playerController.enabled = false;
+        exitingHiding = true;
+        playerBody.transform.position = new Vector3(0, 0, 0);
         playerController.enabled = true;
         spot.spotCollider.enabled = true;
     }

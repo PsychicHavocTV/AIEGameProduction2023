@@ -20,13 +20,25 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private GameObject cameraFlash;
 
-    [SerializeField, Tooltip("Reference to the player's camera.")]
-    private Transform playerCamera;
+    [Tooltip("Reference to the player's camera.")]
+    public Transform playerCamera;
+
+    [Tooltip("Reference to the player's objectives.")]
+    public PlayerObjectives playerObjectives;
 
     [SerializeField, Tooltip("How fast the player can walk.")]
     private float walkSpeed = 8.0f;
     [SerializeField, Tooltip("How fast the player can run.")]
     private float runSpeed = 16.0f;
+
+    [SerializeField, Tooltip("How long till the player can take another photo. (In seconds)")]
+    private float cameraFlashCooldown = 2.0f;
+
+    public float CurrentMovingSpeed
+    {
+        get => m_currentMovingSpeed;
+    }
+    private float m_currentMovingSpeed = 0.0f;
 
     private CharacterController m_controller; // Character Controller component.
 
@@ -37,6 +49,8 @@ public class PlayerController : MonoBehaviour
     private Vector3 m_velocity = Vector3.zero; // Velocity (Gravity)
     private float m_moveSpeed = 0.0f; // Move speed.
 
+    private float m_cooldown = 0.0f; // The cooldown clock to stop players from spamming photos.
+
     private void Start()
     {
         //GameManager.Instance.GamePaused = true;
@@ -45,54 +59,63 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        DoPlayerMovement();
+        if (canMove == true)
+            DoPlayerMovement();
         DoGravity();
 
         // Rotate player body towards camera direction.
         transform.rotation = Quaternion.Euler(transform.localEulerAngles.x, playerCamera.localEulerAngles.y, transform.localEulerAngles.z);
 
+        // Take photo.
         if (m_photoInput)
         {
             m_photoInput = false;
-            TakePhoto();
+            if (m_cooldown <= 0.0f)
+            {
+                TakePhoto();
+                m_cooldown = cameraFlashCooldown;
+            }
+        }
+        if (m_cooldown > 0.0f) // Do cooldown.
+        {
+            m_cooldown -= Time.deltaTime;
+        }
+        else if (m_cooldown <= 0.0f) // Clamp cooldown.
+        {
+            m_cooldown = 0.0f;
         }
     }
 
     private void DoPlayerMovement()
     {
-        if (hidingController.isHidden == false && hidingController.isHiding == false)
-        {
-            // Change move speed whether running or not.
-            if (m_isRunning)
-                m_moveSpeed = runSpeed;
-            else
-                m_moveSpeed = walkSpeed;
+        // Change move speed whether running or not.
+        if (m_isRunning)
+            m_moveSpeed = runSpeed;
+        else
+            m_moveSpeed = walkSpeed;
 
-            // Player movement.
-            Vector3 move = Vector3.zero;
-            if (canMove) // Move player only if player input is enabled.
-            {
-                move = m_input.x * playerCamera.right + m_input.y * playerCamera.forward; // Get movement direction relative to camera direction.
-                move.y = 0;
-            }
-            m_controller.Move(move.normalized * m_moveSpeed * Time.deltaTime); // Apply player movement.
+        // Player movement.
+        Vector3 move = Vector3.zero;
+        if (canMove) // Move player only if player input is enabled.
+        {
+            move = m_input.x * playerCamera.right + m_input.y * playerCamera.forward; // Get movement direction relative to camera direction.
+            move.y = 0;
         }
+        m_currentMovingSpeed = (move.normalized * m_moveSpeed).magnitude;
+        m_controller.Move(move.normalized * m_moveSpeed * Time.deltaTime); // Apply player movement.
     }
 
     private void DoGravity()
     {
-        if (hidingController.isHidden == false && hidingController.isHiding == false && hidingController.exitingHiding == false)
+        if (m_controller.isGrounded) // Is player touching ground.
         {
-            if (m_controller.isGrounded) // Is player touching ground.
-            {
-                m_velocity.y = -1.0f; // Push player out of ground.
-            }
-            else
-            {
-                m_velocity.y += Physics.gravity.y * Time.deltaTime; // Gravity.
-            }
-            m_controller.Move(m_velocity * Time.deltaTime); // Apply player velocity.
+            m_velocity.y = -1.0f; // Push player out of ground.
         }
+        else
+        {
+            m_velocity.y += Physics.gravity.y * Time.deltaTime; // Gravity.
+        }
+        m_controller.Move(m_velocity * Time.deltaTime); // Apply player velocity.
     }
 
     // Input System messages.
@@ -111,8 +134,27 @@ public class PlayerController : MonoBehaviour
         m_photoInput = value.Get<float>() >= 0.5f; // Is photo button pressed.
     }
 
+    private void OnPause(InputValue value)
+    {
+        if (GameManager.Instance.GamePaused == false)
+        {
+            GameManager.Instance.GamePaused = true;
+        }
+    }
+
     private void OnInteract(InputValue value)
     {
+        // Interactables
+        var interactables = UnityEngine.Object.FindObjectsOfType<Interaction>();
+        for (int i = 0; i < interactables.Length; i++)
+        {
+            var interactable = interactables[i];
+            if (interactable.Interactable == true)
+                interactable.Interacted = true;
+            else
+                interactable.Interacted = false;
+        }
+
         // Statues
         if (GameManager.Instance.atStatue == true)
         {
@@ -120,7 +162,6 @@ public class PlayerController : MonoBehaviour
             statueInteraction.PlayInteractSound();
             Debug.Log("Game Saved.");
         }
-
 
         // Hiding
         if (hidingController.isHidden == true || hidingController.isHiding == true)

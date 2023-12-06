@@ -12,7 +12,9 @@ public class ObjectDetector : MonoBehaviour
 
     private void Start()
     {
-        m_thisCollider = GetComponentInChildren<Collider>(); // Get reference to the collider.
+        m_thisCollider = GetComponent<Collider>(); // Get reference to the collider.
+        if (m_thisCollider == null)
+            m_thisCollider = GetComponentInChildren<Collider>();
 
         m_camObjects = targetCamera.GetComponentInChildren<ObjectsInView>(); // Get reference to camera's ObjectsInView script.
     }
@@ -39,6 +41,8 @@ public class ObjectDetector : MonoBehaviour
             return;
 
         Camera cam = targetCamera.GetComponent<Camera>();
+        if (cam == null)
+            cam = targetCamera.GetComponentInChildren<Camera>();
 
         // If in camera view add to List, otherwise remove from list.
         var bounds = m_thisCollider.bounds;

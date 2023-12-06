@@ -19,9 +19,26 @@ public class WendigoChaseState : BaseState
 
     public override void UpdateState(WendigoStateManager wendigo)
     {
-        if (GameManager.Instance.GameOver == false)
+        if (GameManager.Instance.GamePaused == true)
         {
-
+            nma.acceleration = 0;
+            nma.speed = 0;
+            nma.enabled = false;
+        }
+        else if (GameManager.Instance.GameOver == false)
+        {
+            if (nma.enabled == false)
+            {
+                nma.enabled = true;
+            }
+            if (nma.acceleration == 0)
+            {
+                nma.acceleration = 15;
+            }
+            if (nma.speed != 13.5f)
+            {
+                nma.speed = 13.5f;
+            }
             if (wendigo.hidingController.isHidden == true)
             {
                 if (wendigo.timerRunning == false)

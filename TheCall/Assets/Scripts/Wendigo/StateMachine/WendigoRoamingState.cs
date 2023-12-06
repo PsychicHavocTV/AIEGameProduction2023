@@ -31,8 +31,33 @@ public class WendigoRoamingState : BaseState
 
     public override void UpdateState(WendigoStateManager wendigo)
     {
-        if (GameManager.Instance.GameOver == false && GameManager.Instance.GamePaused == false)
+        if (GameManager.Instance.GamePaused == true)
         {
+            nma.acceleration = 0;
+            nma.speed = 0;
+            nma.enabled = false;
+        }
+        else if (GameManager.Instance.GameOver == false)
+        {
+            if (nma.enabled == false)
+            {
+                nma.enabled = true;
+                directionChoice = Random.Range(0, 7);
+                moveAmount = Random.Range(15, 55);
+                oldX = wendigo.transform.localPosition.x;
+                oldZ = wendigo.transform.localPosition.z;
+                nma.ResetPath();
+                destinationSet = false;
+                moving = true;
+            }
+            if (nma.acceleration == 0)
+            {
+                nma.acceleration = 15;
+            }
+            if (nma.speed == 0)
+            {
+                nma.speed = wendigo.roamSpeed;
+            }
             playerDistance = Vector3.Distance(wendigo.playerRef.transform.position, wendigo.transform.position);
             if (playerDistance >= 175)
             {

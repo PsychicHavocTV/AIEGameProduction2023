@@ -170,16 +170,19 @@ public class TeleportTrigger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.Instance.activeWendigo != activeWendigo)
+        if (GameManager.Instance.GamePaused == false)
         {
-            GameManager.Instance.activeWendigo = activeWendigo;
-        }
-        if (GameManager.Instance.finishedChasing == true && teleportWendigo.hasTeleported == false && changedFromDefault == true)
-        {
-            //if (GameManager.Instance.outOfPlayerView == true)
-            //{
-                ActivateWendigo();
-            //}
+            if (GameManager.Instance.activeWendigo != activeWendigo)
+            {
+                GameManager.Instance.activeWendigo = activeWendigo;
+            }
+            if (GameManager.Instance.finishedChasing == true && teleportWendigo.hasTeleported == false && changedFromDefault == true)
+            {
+                //if (GameManager.Instance.outOfPlayerView == true)
+                //{
+                    ActivateWendigo();
+                //}
+            }
         }
     }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerObjectives : MonoBehaviour
 {
@@ -50,11 +51,19 @@ public class PlayerObjectives : MonoBehaviour
         if (objectiveExists == false) // Don't display a separate objective if it's the same as an existing objective.
         {
             var newObjective = Instantiate(objectivePrefab, objectivesPanel.transform); // Add new objective to UI.
-            newObjective.GetComponentInChildren<TextMeshProUGUI>().text = objective.objectiveDescription; // Set text.
-        }
+            var objectiveElements = newObjective.GetComponentInChildren<HorizontalLayoutGroup>();
+            var objText = objectiveElements.GetComponentInChildren<TextMeshProUGUI>();
+            objText.text = objective.objectiveDescription; // Set text.
 
-        // Add to list.
-        m_currentObjectives.Add(objective);
+            var objIcon = objText.GetComponentInChildren<Image>();
+            if (objective.objectiveIcon != null)
+                objIcon.sprite = objective.objectiveIcon; // Set icon.
+            else
+                objIcon.gameObject.SetActive(false); // Disable if no icon.
+
+            // Add to list.
+            m_currentObjectives.Add(objective);
+        }
     }
 
     /// <summary>
@@ -66,26 +75,61 @@ public class PlayerObjectives : MonoBehaviour
         if (m_currentObjectives.Count <= 0) // Don't try anything if there's nothing to even remove.
             return;
 
+        // Remove from list.
+        m_currentObjectives.Remove(objective);
+
         // UI Stuff.
-        var objectives = objectivesPanel.GetComponentsInChildren<TextMeshProUGUI>();
+        var objectives = objectivesPanel.GetComponentsInChildren<Image>();
         foreach (var o in objectives) // Iterate through each objective in UI.
         {
-            if (o.text == objective.objectiveDescription) // If it matches.
+            var objectiveElements = o.GetComponentInChildren<HorizontalLayoutGroup>();
+            if (objectiveElements == null)
+                continue; // Probably not an objective.
+
+            var t = objectiveElements.GetComponentInChildren<TextMeshProUGUI>();
+            if (t.text == objective.objectiveDescription) // If it matches.
             {
-                Transform p = o.transform.parent;
+                Transform p = objectiveElements.transform.parent;
                 // Animate it, and remove it from the UI.
                 Vector3 newPos = new Vector3(-512f, p.position.y);
                 iTween.MoveTo(p.gameObject, iTween.Hash("position", newPos, "islocal", false, "time", 1.0f, 
                     "oncompletetarget", gameObject, "oncomplete", "DestroyObjectOnComplete", 
-                    "oncompleteparams", iTween.Hash("object", o.gameObject, "parent", p.gameObject)));
+                    "oncompleteparams", iTween.Hash("object", objectiveElements.gameObject, "parent", p.gameObject)));
             }
         }
 
-        if (m_currentObjectives.Count <= 0)
-            objectivesPanel.SetActive(false); // Disable panel if no objectives.
+        //if (m_currentObjectives.Count <= 0)
+            //objectivesPanel.SetActive(false); // Disable panel if no objectives.
+    }
 
-        // Remove from list.
-        m_currentObjectives.Remove(objective);
+    /// <summary>
+    /// Just removes all the objectives from screen and clears out the lists.
+    /// </summary>
+    public void ClearObjectives()
+    {
+        // UI stuff
+        foreach (var objective in m_currentObjectives)
+        {
+            var objectives = objectivesPanel.GetComponentsInChildren<Image>();
+            foreach (var o in objectives) // Iterate through each objective in UI.
+            {
+                var objectiveElements = o.GetComponentInChildren<HorizontalLayoutGroup>();
+                if (objectiveElements == null)
+                    continue; // Probably not an objective.
+
+                var t = objectiveElements.GetComponentInChildren<TextMeshProUGUI>();
+                if (t.text == objective.objectiveDescription) // If it matches.
+                {
+                    Transform p = objectiveElements.transform.parent;
+                    Destroy(objectiveElements.gameObject);
+                    Destroy(p.gameObject);
+                }
+            }
+        }
+
+        m_randomObjectivePool.Clear();
+        m_completedObjectives.Clear();
+        m_currentObjectives.Clear();
     }
 
     /// <summary>
@@ -94,8 +138,8 @@ public class PlayerObjectives : MonoBehaviour
     /// <param name="objective">A reference to the objective.</param>
     public void CompleteObjective(KeyObjectDescriptor objective)
     {
-        m_completedObjectives.Add(objective);
         RemoveObjective(objective);
+        m_completedObjectives.Add(objective);
     }
 
     /// <summary>

@@ -57,7 +57,7 @@ public class WendigoStateManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (GameManager.Instance.GameOver == false && GameManager.Instance.GamePaused == false)
+        if (GameManager.Instance.GameOver == false)
         {
             CheckPLAYERView();
             currentState.UpdateState(this); // Update behaviour for the current state each frame.
@@ -99,7 +99,7 @@ public class WendigoStateManager : MonoBehaviour
 
     public void ControlTimer() // Function to control the activation of the 'ChaseTimer' Coroutine.
     {
-        if (GameManager.Instance.GameOver == false)
+        if (GameManager.Instance.GameOver == false && GameManager.Instance.GamePaused == false)
         {
             if (timerRunning == false) // If the ChaseTimer is not currently running
             {
@@ -156,7 +156,7 @@ public class WendigoStateManager : MonoBehaviour
 
     public IEnumerator ChaseTimer() // Timer to check whether the player has gotten far enough away from the Wendigo CHASING them for it to go back to ROAMING.
     {
-        if (GameManager.Instance.GameOver == false)
+        if (GameManager.Instance.GameOver == false && GameManager.Instance.GamePaused == false)
         {
             timerRunning = true; // Set 'timerRunning' to true.
             timerFinished = false; // Set 'timerFinished' to false.
@@ -189,7 +189,7 @@ public class WendigoStateManager : MonoBehaviour
 
     public void CheckView() // Function to check if the player is currently within the Wendigo's view.
     {
-        if (GameManager.Instance.GameOver == false)
+        if (GameManager.Instance.GameOver == false && GameManager.Instance.GamePaused == false)
         {
             RaycastHit hit;
 
@@ -225,7 +225,7 @@ public class WendigoStateManager : MonoBehaviour
 
     public void CheckPLAYERView()
     {
-        if (GameManager.Instance.GameOver == false)
+        if (GameManager.Instance.GameOver == false && GameManager.Instance.GamePaused == false)
         {
             RaycastHit hit;
 
@@ -255,7 +255,7 @@ public class WendigoStateManager : MonoBehaviour
     // Game Over Checking.
     private void OnTriggerEnter(Collider other)
     {
-        if (GameManager.Instance.GameOver == false)
+        if (GameManager.Instance.GameOver == false && GameManager.Instance.GamePaused == false)
         {
             if (currentState == roamingState || currentState == chaseState) // If the Wendigo is currently ROAMING or CHASING
             {
