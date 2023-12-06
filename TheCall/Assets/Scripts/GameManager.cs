@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -49,6 +50,9 @@ public class GameManager
     public bool finishedChasing = false;
     public bool outOfPlayerView = true;
 
+    private List<string> loadedCurrentObjectives = new List<string>();
+    private List<string> loadedCompletedObjectives = new List<string>();
+
     public void DoGameOver(GameObject wendigoRef, GameObject playerRef)
     {
         wendigo = wendigoRef;
@@ -93,113 +97,113 @@ public class GameManager
                     switch (i)
                     {
                         // Line 1: (1)Wendigo X Position.                         
-                        case 0:                                                   
-                            {                                                     
-                                string lineContents = sr.ReadLine();              
-                                float.TryParse(lineContents, out wLoadX);         
+                        case 0:
+                            {
+                                string lineContents = sr.ReadLine();
+                                float.TryParse(lineContents, out wLoadX);
                                 Debug.Log("Loaded Wendigo X Position: " + wLoadX);
-                                wendigoLoadedX[0] = wLoadX;                       
-                                break;                                            
-                            }                                                     
+                                wendigoLoadedX[0] = wLoadX;
+                                break;
+                            }
                         // Line 2: (1)Wendigo Y Position.                         
-                        case 1:                                                   
-                            {                                                     
-                                string lineContents = sr.ReadLine();              
-                                float.TryParse(lineContents, out wLoadY);         
+                        case 1:
+                            {
+                                string lineContents = sr.ReadLine();
+                                float.TryParse(lineContents, out wLoadY);
                                 Debug.Log("Loaded Wendigo Y Position: " + wLoadY);
-                                wendigoLoadedY[0] = wLoadY;                       
-                                break;                                            
-                            }                                                     
+                                wendigoLoadedY[0] = wLoadY;
+                                break;
+                            }
                         // Line 3: (1)Wendigo Z Position.                         
-                        case 2:                                                   
-                            {                                                     
-                                string lineContents = sr.ReadLine();              
-                                float.TryParse(lineContents, out wLoadZ);         
+                        case 2:
+                            {
+                                string lineContents = sr.ReadLine();
+                                float.TryParse(lineContents, out wLoadZ);
                                 Debug.Log("Loaded Wendigo Z Position: " + wLoadZ);
-                                wendigoLoadedZ[0] = wLoadZ;                       
-                                break;                                            
-                            }                                                     
+                                wendigoLoadedZ[0] = wLoadZ;
+                                break;
+                            }
                         // Line 4: (2)Wendigo X Position.                         
-                        case 3:                                                   
-                            {                                                     
-                                string lineContents = sr.ReadLine();              
-                                float.TryParse(lineContents, out wLoadX);         
+                        case 3:
+                            {
+                                string lineContents = sr.ReadLine();
+                                float.TryParse(lineContents, out wLoadX);
                                 Debug.Log("Loaded Wendigo X Position: " + wLoadX);
-                                wendigoLoadedX[1] = wLoadX;                       
-                                break;                                            
-                            }                                                     
+                                wendigoLoadedX[1] = wLoadX;
+                                break;
+                            }
                         // Line 5: (2)Wendigo Y Position.                         
-                        case 4:                                                   
-                            {                                                     
-                                string lineContents = sr.ReadLine();              
-                                float.TryParse(lineContents, out wLoadY);         
+                        case 4:
+                            {
+                                string lineContents = sr.ReadLine();
+                                float.TryParse(lineContents, out wLoadY);
                                 Debug.Log("Loaded Wendigo Y Position: " + wLoadY);
-                                wendigoLoadedY[1] = wLoadY;                       
-                                break;                                            
-                            }                                                     
+                                wendigoLoadedY[1] = wLoadY;
+                                break;
+                            }
                         // Line 6: (2)Wendigo Z Position.                         
-                        case 5:                                                   
-                            {                                                     
-                                string lineContents = sr.ReadLine();              
-                                float.TryParse(lineContents, out wLoadZ);         
+                        case 5:
+                            {
+                                string lineContents = sr.ReadLine();
+                                float.TryParse(lineContents, out wLoadZ);
                                 Debug.Log("Loaded Wendigo Z Position: " + wLoadZ);
-                                wendigoLoadedZ[1] = wLoadZ;                       
-                                break;                                            
-                            }                                                     
+                                wendigoLoadedZ[1] = wLoadZ;
+                                break;
+                            }
                         // Line 7: (3)Wendigo X Position.                         
-                        case 6:                                                   
-                            {                                                     
-                                string lineContents = sr.ReadLine();              
-                                float.TryParse(lineContents, out wLoadX);         
+                        case 6:
+                            {
+                                string lineContents = sr.ReadLine();
+                                float.TryParse(lineContents, out wLoadX);
                                 Debug.Log("Loaded Wendigo X Position: " + wLoadX);
-                                wendigoLoadedX[2] = wLoadX;                       
-                                break;                                            
-                            }                                                     
+                                wendigoLoadedX[2] = wLoadX;
+                                break;
+                            }
                         // Line 8: (3)Wendigo Y Position.                         
-                        case 7:                                                   
-                            {                                                     
-                                string lineContents = sr.ReadLine();              
-                                float.TryParse(lineContents, out wLoadY);         
+                        case 7:
+                            {
+                                string lineContents = sr.ReadLine();
+                                float.TryParse(lineContents, out wLoadY);
                                 Debug.Log("Loaded Wendigo Y Position: " + wLoadY);
-                                wendigoLoadedY[2] = wLoadY;                       
-                                break;                                            
-                            }                                                     
+                                wendigoLoadedY[2] = wLoadY;
+                                break;
+                            }
                         // Line 9: (3)Wendigo Z Position.                         
-                        case 8:                                                   
-                            {                                                     
-                                string lineContents = sr.ReadLine();              
-                                float.TryParse(lineContents, out wLoadZ);         
+                        case 8:
+                            {
+                                string lineContents = sr.ReadLine();
+                                float.TryParse(lineContents, out wLoadZ);
                                 Debug.Log("Loaded Wendigo Z Position: " + wLoadZ);
-                                wendigoLoadedZ[2] = wLoadZ;                       
-                                break;                                            
-                            }                                                     
+                                wendigoLoadedZ[2] = wLoadZ;
+                                break;
+                            }
                         // Line 10: (4)Wendigo X Position.                        
-                        case 9:                                                   
-                            {                                                     
-                                string lineContents = sr.ReadLine();              
-                                float.TryParse(lineContents, out wLoadX);         
+                        case 9:
+                            {
+                                string lineContents = sr.ReadLine();
+                                float.TryParse(lineContents, out wLoadX);
                                 Debug.Log("Loaded Wendigo X Position: " + wLoadX);
-                                wendigoLoadedX[3] = wLoadX;                       
-                                break;                                            
-                            }                                                     
+                                wendigoLoadedX[3] = wLoadX;
+                                break;
+                            }
                         // Line 11: (4)Wendigo Y Position.                        
-                        case 10:                                                  
-                            {                                                     
-                                string lineContents = sr.ReadLine();              
-                                float.TryParse(lineContents, out wLoadY);         
+                        case 10:
+                            {
+                                string lineContents = sr.ReadLine();
+                                float.TryParse(lineContents, out wLoadY);
                                 Debug.Log("Loaded Wendigo Y Position: " + wLoadY);
-                                wendigoLoadedY[3] = wLoadY;                       
-                                break;                                            
-                            }                                                     
+                                wendigoLoadedY[3] = wLoadY;
+                                break;
+                            }
                         // Line 12: (4)Wendigo Z Position.                        
-                        case 11:                                                  
-                            {                                                     
-                                string lineContents = sr.ReadLine();              
-                                float.TryParse(lineContents, out wLoadZ);         
+                        case 11:
+                            {
+                                string lineContents = sr.ReadLine();
+                                float.TryParse(lineContents, out wLoadZ);
                                 Debug.Log("Loaded Wendigo Z Position: " + wLoadZ);
-                                wendigoLoadedZ[3] = wLoadZ;                       
-                                break;                                            
-                            }                                                     
+                                wendigoLoadedZ[3] = wLoadZ;
+                                break;
+                            }
                         // Line 13: Player X Position.
                         case 12:
                             {
@@ -243,6 +247,48 @@ public class GameManager
                 }
             }
         }
+
+        path = Application.persistentDataPath + "/ObjectiveSaveData.txt";
+        Debug.Log(path);
+        if (File.Exists(path) || File.Exists(Application.persistentDataPath + "/filesObjectiveSaveData.txt"))
+        {
+            using (StreamReader sr = new StreamReader(path))
+            {
+                string line;
+                loadedCurrentObjectives.Clear();
+                loadedCompletedObjectives.Clear();
+                bool loadCurrent = false;
+                bool loadCompleted = false;
+                while ((line = sr.ReadLine()) != null)
+                {
+                    if (line == "[Current]")
+                    {
+                        loadCurrent = true;
+                        loadCompleted = false;
+                        continue;
+                    }
+                    else if (line == "[Completed]")
+                    {
+                        loadCurrent = false;
+                        loadCompleted = true;
+                        continue;
+                    }
+
+                    if (loadCurrent)
+                    {
+                        Debug.Log("Loaded Current: " + line);
+                        loadedCurrentObjectives.Add(line);
+                        continue;
+                    }
+                    else if (loadCompleted)
+                    {
+                        Debug.Log("Loaded Completed: " + line);
+                        loadedCompletedObjectives.Add(line);
+                        continue;
+                    }
+                }
+            }
+        }
     }
 
     public void SaveCheckpointData(GameObject wendigoRef, GameObject playerRef)
@@ -278,6 +324,25 @@ public class GameManager
         w.WriteLine(checkpointIndex);
         w.WriteLine(activeWendigoIndex);
         w.Close();
+
+        path = Application.persistentDataPath + "/ObjectiveSaveData.txt";
+        w = new StreamWriter(path);
+
+        var playerController = playerRef.GetComponent<PlayerController>();
+        w.WriteLine("[Current]");
+        foreach (var obj in playerController.playerObjectives.CurrentObjectives)
+        {
+            var guid = obj.GetComponent<GuidComponent>().GetGuid();
+            w.WriteLine(guid.ToString());
+        }
+        w.WriteLine("[Completed]");
+        foreach (var obj in playerController.playerObjectives.CompletedObjectives)
+        {
+            var guid = obj.GetComponent<GuidComponent>().GetGuid();
+            w.WriteLine(guid.ToString());
+        }
+        w.Close();
+
         gameSaved = true;
     }
 
@@ -293,7 +358,6 @@ public class GameManager
         }
         NavMeshAgent wendigonma = wendigoRef.GetComponent<NavMeshAgent>();
         PlayerController pCont = playerRef.GetComponent<PlayerController>();
-
 
         pCont.enabled = false;
         for (int i = 0; i < wendigoCreatures.Length; i++)
@@ -317,6 +381,26 @@ public class GameManager
         playerSaveLocation = new Vector3(pLoadX, pLoadY, pLoadZ);
         player.transform.position = playerSaveLocation;
         pCont.enabled = true;
+
+        pCont.playerObjectives.ClearObjectives();
+        foreach (string guid in loadedCurrentObjectives) // Load active objectives.
+        {
+            GameObject guidref = GuidManager.ResolveGuid(System.Guid.Parse(guid));
+            var keyObj = guidref.GetComponent<KeyObjectDescriptor>();
+            if (keyObj == null)
+                continue;
+            //Debug.Log(keyObj.objectiveDescription);
+            pCont.playerObjectives.AddObjective(keyObj);
+        }
+        foreach (string guid in loadedCompletedObjectives) // Load completed.
+        {
+            GameObject guidref = GuidManager.ResolveGuid(System.Guid.Parse(guid));
+            var keyObj = guidref.GetComponent<KeyObjectDescriptor>();
+            if (keyObj == null)
+                continue;
+            //Debug.Log(keyObj.objectiveDescription);
+            pCont.playerObjectives.CompletedObjectives.Add(keyObj);
+        }
 
         checkpointLoaded = true;
     }

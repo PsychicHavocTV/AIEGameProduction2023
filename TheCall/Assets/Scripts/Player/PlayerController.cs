@@ -11,14 +11,20 @@ public class PlayerController : MonoBehaviour
 
     public bool takingPhoto = false;
 
+    public StatueInteract statueInteraction;
+    public HidingSpot hsInteract;
+
     [SerializeField]
     private HideController hidingController;
 
     [SerializeField]
     private GameObject cameraFlash;
 
-    [SerializeField, Tooltip("Reference to the player's camera.")]
-    private Transform playerCamera;
+    [Tooltip("Reference to the player's camera.")]
+    public Transform playerCamera;
+
+    [Tooltip("Reference to the player's objectives.")]
+    public PlayerObjectives playerObjectives;
 
     [SerializeField, Tooltip("How fast the player can walk.")]
     private float walkSpeed = 8.0f;
@@ -145,6 +151,7 @@ public class PlayerController : MonoBehaviour
         if (GameManager.Instance.atStatue == true)
         {
             GameManager.Instance.interactWithStatue = true;
+            statueInteraction.PlayInteractSound();
             Debug.Log("Game Saved.");
         }
 
@@ -157,6 +164,7 @@ public class PlayerController : MonoBehaviour
             hidingController.isHidden = false;
             hidingController.isHiding = false;
             hidingController.exitingHiding = false;
+            hsInteract.PlayInteractSound();
             //hidingController.hidingSpots[hidingController.currentSpotIndex].hidingSpotIndex = 99;
             Debug.Log("Player is no longer hiding.");
         }
@@ -169,6 +177,7 @@ public class PlayerController : MonoBehaviour
                 hidingController.hidingSpots[hidingController.currentSpotIndex].spotOccupied = true;
                 hidingController.isHiding = false;
                 hidingController.isHidden = true;
+                hsInteract.PlayInteractSound();
                 Debug.Log("Player is hiding.");
             }
         }

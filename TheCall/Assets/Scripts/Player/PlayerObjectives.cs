@@ -98,8 +98,38 @@ public class PlayerObjectives : MonoBehaviour
             }
         }
 
-        if (m_currentObjectives.Count <= 0)
-            objectivesPanel.SetActive(false); // Disable panel if no objectives.
+        //if (m_currentObjectives.Count <= 0)
+            //objectivesPanel.SetActive(false); // Disable panel if no objectives.
+    }
+
+    /// <summary>
+    /// Just removes all the objectives from screen and clears out the lists.
+    /// </summary>
+    public void ClearObjectives()
+    {
+        // UI stuff
+        foreach (var objective in m_currentObjectives)
+        {
+            var objectives = objectivesPanel.GetComponentsInChildren<Image>();
+            foreach (var o in objectives) // Iterate through each objective in UI.
+            {
+                var objectiveElements = o.GetComponentInChildren<HorizontalLayoutGroup>();
+                if (objectiveElements == null)
+                    continue; // Probably not an objective.
+
+                var t = objectiveElements.GetComponentInChildren<TextMeshProUGUI>();
+                if (t.text == objective.objectiveDescription) // If it matches.
+                {
+                    Transform p = objectiveElements.transform.parent;
+                    Destroy(objectiveElements.gameObject);
+                    Destroy(p.gameObject);
+                }
+            }
+        }
+
+        m_randomObjectivePool.Clear();
+        m_completedObjectives.Clear();
+        m_currentObjectives.Clear();
     }
 
     /// <summary>
