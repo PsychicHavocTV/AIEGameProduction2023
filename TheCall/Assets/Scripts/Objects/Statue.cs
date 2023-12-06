@@ -66,8 +66,8 @@ public class Statue : MonoBehaviour
     {
         if (GameManager.Instance.interactWithStatue == true)
         {
-            SaveCheckpoint();
             GameManager.Instance.interactWithStatue = false;
+            SaveCheckpoint();
         }
     }
 }

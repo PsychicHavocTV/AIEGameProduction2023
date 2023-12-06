@@ -56,16 +56,18 @@ public class InteractableUIController : MonoBehaviour
 
     public IEnumerator ShowGameSaveText()
     {
+        if (gameSavedText.alpha != 255 && gameSavedText.enabled == false)
+        {
+            gameSavedText.alpha = 255;
+        }
         gameSavedText.enabled = true;
         gameSavedText.alpha = 255;
         yield return new WaitForSeconds(0.5f);
         gameSavedText.CrossFadeAlpha(0, 1.5f, false);
-        if (gameSavedText.alpha == 0)
-        {
-            gameSavedText.enabled = false;
-            gameSavedText.alpha = 255;
-            yield return new WaitForEndOfFrame();
-            StopCoroutine(ShowGameSaveText());
-        }
+        yield return new WaitForSeconds(1.5f);
+        gameSavedText.alpha = 255;
+        gameSavedText.enabled = false;
+        GameManager.Instance.showSaveText = false;
+        StopCoroutine(ShowGameSaveText());
     }
 }
