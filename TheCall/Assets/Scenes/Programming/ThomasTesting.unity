@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 5.9059677, g: 3.7756786, b: 2.780304, a: 1}
+  m_IndirectSpecularColor: {r: 5.9018745, g: 3.77281, b: 2.7786446, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -173,6 +173,7 @@ MonoBehaviour:
   objectValue: 0
   objectiveDescription: Find the right cube.
   objectiveThreshold: 0
+  objectiveIcon: {fileID: 0}
   guid: 8c6d9511-771b-4826-af11-c0cc88ef9eb4
 --- !u!65 &9251082
 BoxCollider:
@@ -934,6 +935,7 @@ MonoBehaviour:
   objectValue: 0
   objectiveDescription: Find the left cube.
   objectiveThreshold: 0
+  objectiveIcon: {fileID: 0}
   guid: 14c14a19-01be-4a56-8cdf-6625f63ac20c
 --- !u!65 &915791191
 BoxCollider:
@@ -1140,6 +1142,7 @@ MonoBehaviour:
   objectValue: 0
   objectiveDescription: Find the worst sphere.
   objectiveThreshold: 0
+  objectiveIcon: {fileID: 0}
   guid: cad08b68-d331-42eb-9024-996c457386ff
 --- !u!135 &1160203640
 SphereCollider:
@@ -1396,6 +1399,7 @@ MonoBehaviour:
   objectValue: 0
   objectiveDescription: Find the big sphere.
   objectiveThreshold: 0
+  objectiveIcon: {fileID: 0}
   guid: 7f56aca1-aff4-4c91-b5af-d87cdbbe4200
 --- !u!1 &1420995217
 GameObject:

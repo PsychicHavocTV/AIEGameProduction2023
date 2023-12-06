@@ -70,7 +70,8 @@ public class Interaction : MonoBehaviour
             // Adjust position by world position.
             Vector3 rootPos = transform.position + m_offset;
             Vector3 uiPos = cam.WorldToScreenPoint(rootPos);
-            m_uiInstance.transform.position = new Vector3(uiPos.x, uiPos.y, 0.0f);
+            Vector3 newPos = new Vector3(uiPos.x, uiPos.y, 0.0f);
+            m_uiInstance.transform.position = Vector3.Lerp(m_uiInstance.transform.position, newPos, Time.deltaTime * 64.0f);
 
             // Adjust size to distance.
             Vector2 uiSize = new Vector2(m_interactionObjectSize.x * uiPos.z, m_interactionObjectSize.y * uiPos.z);

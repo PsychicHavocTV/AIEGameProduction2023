@@ -8,7 +8,7 @@ public class Note : MonoBehaviour
     private PlayerController m_playerController;
 
     [Header("UI References")]
-    [SerializeField, Tooltip("A reference to the image to display as the note.")]
+    [SerializeField, Tooltip("A reference to the sprite to display as the note.")]
     private Sprite m_noteImage;
 
     [SerializeField, Tooltip("A reference to the notes parent within the player's UI.")]

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerObjectives : MonoBehaviour
 {
@@ -50,8 +51,17 @@ public class PlayerObjectives : MonoBehaviour
         if (objectiveExists == false) // Don't display a separate objective if it's the same as an existing objective.
         {
             var newObjective = Instantiate(objectivePrefab, objectivesPanel.transform); // Add new objective to UI.
-            newObjective.GetComponentInChildren<TextMeshProUGUI>().text = objective.objectiveDescription; // Set text.
-                                                                                                          // Add to list.
+            var objectiveElements = newObjective.GetComponentInChildren<HorizontalLayoutGroup>();
+            var objText = objectiveElements.GetComponentInChildren<TextMeshProUGUI>();
+            objText.text = objective.objectiveDescription; // Set text.
+
+            var objIcon = objText.GetComponentInChildren<Image>();
+            if (objective.objectiveIcon != null)
+                objIcon.sprite = objective.objectiveIcon; // Set icon.
+            else
+                objIcon.gameObject.SetActive(false); // Disable if no icon.
+
+            // Add to list.
             m_currentObjectives.Add(objective);
         }
     }
@@ -69,17 +79,22 @@ public class PlayerObjectives : MonoBehaviour
         m_currentObjectives.Remove(objective);
 
         // UI Stuff.
-        var objectives = objectivesPanel.GetComponentsInChildren<TextMeshProUGUI>();
+        var objectives = objectivesPanel.GetComponentsInChildren<Image>();
         foreach (var o in objectives) // Iterate through each objective in UI.
         {
-            if (o.text == objective.objectiveDescription) // If it matches.
+            var objectiveElements = o.GetComponentInChildren<HorizontalLayoutGroup>();
+            if (objectiveElements == null)
+                continue; // Probably not an objective.
+
+            var t = objectiveElements.GetComponentInChildren<TextMeshProUGUI>();
+            if (t.text == objective.objectiveDescription) // If it matches.
             {
-                Transform p = o.transform.parent;
+                Transform p = objectiveElements.transform.parent;
                 // Animate it, and remove it from the UI.
                 Vector3 newPos = new Vector3(-512f, p.position.y);
                 iTween.MoveTo(p.gameObject, iTween.Hash("position", newPos, "islocal", false, "time", 1.0f, 
                     "oncompletetarget", gameObject, "oncomplete", "DestroyObjectOnComplete", 
-                    "oncompleteparams", iTween.Hash("object", o.gameObject, "parent", p.gameObject)));
+                    "oncompleteparams", iTween.Hash("object", objectiveElements.gameObject, "parent", p.gameObject)));
             }
         }
 

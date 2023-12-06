@@ -19,6 +19,9 @@ public class KeyObjectDescriptor : MonoBehaviour
     [Tooltip("The threshold for how much of the object needs to be taken up on the screen for it to be recognized.")]
     public float objectiveThreshold;
 
+    [Tooltip("A reference to the sprite to display as the icon for the objective.")]
+    public Sprite objectiveIcon;
+
     [HideInInspector]
     public string guid; // The object's unique ID.
 
