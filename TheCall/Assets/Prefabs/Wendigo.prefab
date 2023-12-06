@@ -614,12 +614,12 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.68
   m_Speed: 5
-  m_Acceleration: 8
+  m_Acceleration: 15
   avoidancePriority: 75
   m_AngularSpeed: 403.13
-  m_StoppingDistance: 2
+  m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 0
-  m_AutoBraking: 1
+  m_AutoBraking: 0
   m_AutoRepath: 1
   m_Height: 1.68
   m_BaseOffset: 2.07
@@ -642,6 +642,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   nma: {fileID: 6443310105166568186}
+  locationChoice: 0
+  hasTeleported: 0
 --- !u!65 &793770926
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -685,8 +687,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectName: Wendigo
   objectValue: 1
-  objectiveDescription: Wendigo
+  objectiveDescription: 
   objectiveThreshold: 0
+  guid: 
 --- !u!114 &504115922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -694,7 +697,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6443310105166568167}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0e115db4413607f44910cde53e6dfcd9, type: 3}
   m_Name: 

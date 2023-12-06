@@ -50,24 +50,21 @@ public class InteractableUIController : MonoBehaviour
         {
             GameManager.Instance.showSaveText = false;
             StopCoroutine(ShowGameSaveText());
-            StartCoroutine(ShowGameSaveText());
+            if (gameSavedText.enabled == false)
+            {
+                StartCoroutine(ShowGameSaveText());
+                GameManager.Instance.showSaveText = false;
+            }
         }
     }
 
     public IEnumerator ShowGameSaveText()
     {
-        if (gameSavedText.alpha != 255 && gameSavedText.enabled == false)
-        {
-            gameSavedText.alpha = 255;
-        }
+        GameManager.Instance.showSaveText = false;
         gameSavedText.enabled = true;
         gameSavedText.alpha = 255;
-        yield return new WaitForSeconds(0.5f);
-        gameSavedText.CrossFadeAlpha(0, 1.5f, false);
         yield return new WaitForSeconds(1.5f);
-        gameSavedText.alpha = 255;
         gameSavedText.enabled = false;
-        GameManager.Instance.showSaveText = false;
         StopCoroutine(ShowGameSaveText());
     }
 }
