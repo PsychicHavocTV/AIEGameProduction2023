@@ -1725,7 +1725,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6093254961723714220, guid: a63a357ee7a20354583929b045743df6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 52
       objectReference: {fileID: 0}
     - target: {fileID: 6093254961723714220, guid: a63a357ee7a20354583929b045743df6, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1733,7 +1733,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6093254961723714220, guid: a63a357ee7a20354583929b045743df6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a63a357ee7a20354583929b045743df6, type: 3}
@@ -4364,6 +4364,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 793770931}
     - target: {fileID: 5387796486339890373, guid: 402ba2afb18fabc46a422ed2b991622e, type: 3}
+      propertyPath: teleportLocation1
+      value: 
+      objectReference: {fileID: 2020678070}
+    - target: {fileID: 5387796486339890373, guid: 402ba2afb18fabc46a422ed2b991622e, type: 3}
+      propertyPath: teleportLocation2
+      value: 
+      objectReference: {fileID: 387242706}
+    - target: {fileID: 5387796486339890373, guid: 402ba2afb18fabc46a422ed2b991622e, type: 3}
       propertyPath: wendigos.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -4437,7 +4445,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5387796486339890375, guid: 402ba2afb18fabc46a422ed2b991622e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -49.77
+      value: 35.94
       objectReference: {fileID: 0}
     - target: {fileID: 5387796486339890375, guid: 402ba2afb18fabc46a422ed2b991622e, type: 3}
       propertyPath: m_LocalPosition.y

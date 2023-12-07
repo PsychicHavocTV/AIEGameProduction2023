@@ -99,7 +99,7 @@ public class WendigoStateManager : MonoBehaviour
 
     public void ControlTimer() // Function to control the activation of the 'ChaseTimer' Coroutine.
     {
-        if (GameManager.Instance.GameOver == false && GameManager.Instance.GamePaused == false)
+        if (GameManager.Instance.GameOver == false)
         {
             if (timerRunning == false) // If the ChaseTimer is not currently running
             {
@@ -167,7 +167,6 @@ public class WendigoStateManager : MonoBehaviour
                 StartRoaming(); // Start ROAMING.
                 StopCoroutine(ChaseTimer());
             }
-            GameManager.Instance.finishedChasing = true;
             yield return new WaitForSecondsRealtime(3f); // Wait for three(3) seconds.
             CheckView();
             timerFinished = true; // Set 'timerFinished' to true.
