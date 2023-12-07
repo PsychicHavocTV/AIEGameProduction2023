@@ -12,13 +12,12 @@ public class StatueInteract : MonoBehaviour
 
     public void PlayInteractSound()
     {
-        Debug.Log("PlayInteractSound function called.");
         if (statueSpeaker.isPlaying == false)
         {
-            Debug.Log("Statue interact sound playing.");
             statueSpeaker.clip = statueInteractSound;
             statueSpeaker.Play();
         }
+        return;
     }
 
     // Update is called once per frame
@@ -26,17 +25,20 @@ public class StatueInteract : MonoBehaviour
     {
         //if (GameManager.Instance.interactWithStatue == true)
         //{
-        //    //if (soundPlayed == false)
-        //    //{
+        //    if (soundPlayed == false)
+        //    {
         //        soundPlayed = true;
         //        PlayInteractSound();
-        //    //}
+        //    }
         //}
         //else if (GameManager.Instance.interactWithStatue == false)
         //{
         //    if (soundPlayed == true)
         //    {
         //        soundPlayed = false;
+        //    }
+        //    if (statueSpeaker.isPlaying == false)
+        //    {
         //    }
         //}
     }

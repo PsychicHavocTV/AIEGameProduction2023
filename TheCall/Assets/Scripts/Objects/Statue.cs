@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Statue : MonoBehaviour
 {
-    public StatueInteract interaction;
     public bool canInteract = true;
     [SerializeField]
     private int statueIndex = 0;
@@ -13,15 +13,19 @@ public class Statue : MonoBehaviour
     [SerializeField]
     private GameObject wendigo;
     [SerializeField]
+    private GameObject[] wendigoCreatures;
+    [SerializeField]
     private CharacterController playerCharacterController;
-
+    [SerializeField]
+    private StatueInteract sI;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
             PlayerController pc = playerParentRef.GetComponent<PlayerController>();
-            pc.statueInteractions = interaction;
+            pc.statueInteraction = sI;
+            pc.statueInteraction.statueInteractSound = sI.statueInteractSound;
             Debug.Log("Player Can Now Interact.");
             if (GameManager.Instance.atStatue == false)
             {
@@ -34,8 +38,6 @@ public class Statue : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            PlayerController pc = playerParentRef.GetComponent<PlayerController>();
-            pc.statueInteractions = null;
             Debug.Log("Player Can No Longer Interact");
             if (GameManager.Instance.atStatue == true)
             {
@@ -47,7 +49,10 @@ public class Statue : MonoBehaviour
     public void SaveCheckpoint()
     {
         Debug.Log("***SAVING GAME DATA***");
-        GameManager.Instance.wendigo = wendigo;
+        for (int i = 0; i <= wendigoCreatures.Length - 1; i++)
+        {
+            GameManager.Instance.wendigoCreatures[i] = wendigoCreatures[i];
+        }
         GameManager.Instance.player = playerParentRef;
         GameManager.Instance.UpdateCheckpoint(statueIndex);
         GameManager.Instance.SaveCheckpointData(wendigo, playerParentRef);
@@ -66,10 +71,15 @@ public class Statue : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameManager.Instance.player = playerParentRef;
     }
 
     void Update()
     {
+        if (wendigo != GameManager.Instance.activeWendigo && GameManager.Instance.activeWendigo != null)
+        {
+            wendigo = GameManager.Instance.activeWendigo;
+        }
         if (GameManager.Instance.interactWithStatue == true)
         {
             GameManager.Instance.interactWithStatue = false;

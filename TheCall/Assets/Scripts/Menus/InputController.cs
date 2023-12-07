@@ -40,44 +40,49 @@ public class InputController : MonoBehaviour
             }
         }
 
-        if (GameManager.Instance.GamePaused == true)
-        {
-            gameOverHandler.enabled = false;
-        }
-        else if (GameManager.Instance.GameOver == true)
-        {
-            gameOverHandler.enabled = false;
-        }
+        //if (GameManager.Instance.GamePaused == true)
+        //{
+        //    gameOverHandler.enabled = false;
+        //    pauseHandler.enabled = true;
+        //}
+        //else if (GameManager.Instance.GameOver == true)
+        //{
+        //    pauseHandler.enabled = false;
+        //    gameOverHandler.enabled = true;
+        //}
     }
 
 
     private void OnNavigateUP(InputValue value)
     {
-        //pauseHandler.resetColor = false;
-        if (Cursor.lockState != CursorLockMode.Locked)
+        if (GameManager.Instance.GamePaused == true)
         {
-            Cursor.lockState = CursorLockMode.Locked;
-        }
-        if (pauseHandler.confirmationWindowShowing == false)
-        {
-            if (pauseHandler.currentIndex > 0)
+            //pauseHandler.resetColor = false;
+            if (Cursor.lockState != CursorLockMode.Locked)
             {
-                switch(pauseHandler.currentIndex)
+                Cursor.lockState = CursorLockMode.Locked;
+            }
+            if (pauseHandler.confirmationWindowShowing == false)
+            {
+                if (pauseHandler.currentIndex > 0)
                 {
-                    case 2:
-                        {
-                            pauseHandler.quitButton.image.color = pauseHandler.quitButton.colors.normalColor;
-                            pauseHandler.loadCheckpointButton.image.color = pauseHandler.loadCheckpointButton.colors.highlightedColor;
-                            pauseHandler.currentIndex--;
-                            break;
-                        }
-                    case 1:
-                        {
-                            pauseHandler.loadCheckpointButton.image.color = pauseHandler.loadCheckpointButton.colors.normalColor;
-                            pauseHandler.resumeButton.image.color = pauseHandler.resumeButton.colors.normalColor;
-                            pauseHandler.currentIndex--;
-                            break;
-                        }
+                    switch(pauseHandler.currentIndex)
+                    {
+                        case 2:
+                            {
+                                pauseHandler.quitButton.image.color = pauseHandler.quitButton.colors.normalColor;
+                                pauseHandler.loadCheckpointButton.image.color = pauseHandler.loadCheckpointButton.colors.highlightedColor;
+                                pauseHandler.currentIndex--;
+                                break;
+                            }
+                        case 1:
+                            {
+                                pauseHandler.loadCheckpointButton.image.color = pauseHandler.loadCheckpointButton.colors.normalColor;
+                                pauseHandler.resumeButton.image.color = pauseHandler.resumeButton.colors.normalColor;
+                                pauseHandler.currentIndex--;
+                                break;
+                            }
+                    }
                 }
             }
         }
@@ -122,24 +127,27 @@ public class InputController : MonoBehaviour
     private void OnConfirm(InputValue value)
     {
         //pauseHandler.resetColor = false;
-        if (Cursor.lockState != CursorLockMode.Locked)
+        if (GameManager.Instance.GamePaused == true)
         {
-            Cursor.lockState = CursorLockMode.Locked;
-        }
-        if (pauseHandler.confirmationWindowShowing == false)
-        {
-            switch (pauseHandler.currentIndex)
+            if (Cursor.lockState != CursorLockMode.Locked)
             {
-                case 0:
-                    {
-                        pauseHandler.ResumeGame();
-                        break;
-                    }
-                case 1:
-                    {
-                        pauseHandler.LoadData();
-                        break;
-                    }
+                Cursor.lockState = CursorLockMode.Locked;
+            }
+            if (pauseHandler.confirmationWindowShowing == false)
+            {
+                switch (pauseHandler.currentIndex)
+                {
+                    case 0:
+                        {
+                            pauseHandler.ResumeGame();
+                            break;
+                        }
+                    case 1:
+                        {
+                            pauseHandler.LoadData();
+                            break;
+                        }
+                }
             }
         }
         //else if (pauseHandler.confirmationWindowShowing == true)
@@ -169,9 +177,12 @@ public class InputController : MonoBehaviour
 
     private void OnBack(InputValue value)
     {
-        if (pauseHandler.confirmationWindowShowing == false)
+        if (GameManager.Instance.GamePaused == true)
         {
-            pauseHandler.ResumeGame();
+            if (pauseHandler.confirmationWindowShowing == false)
+            {
+                pauseHandler.ResumeGame();
+            }
         }
         //else if (pauseHandler.confirmationWindowShowing == true)
         //{
@@ -183,17 +194,20 @@ public class InputController : MonoBehaviour
 
     private void OnNavigateMouse(InputValue value)
     {
-        if (Cursor.lockState != CursorLockMode.None)
+        if (GameManager.Instance.GamePaused == true)
         {
-            Cursor.lockState = CursorLockMode.None;
-        }
-        pauseHandler.resumeButton.image.color = pauseHandler.resumeButton.colors.normalColor;
-        pauseHandler.loadCheckpointButton.image.color = pauseHandler.loadCheckpointButton.colors.normalColor;
-        pauseHandler.quitButton.image.color = pauseHandler.quitButton.colors.normalColor;
+            if (Cursor.lockState != CursorLockMode.None)
+            {
+                Cursor.lockState = CursorLockMode.None;
+            }
+            pauseHandler.resumeButton.image.color = pauseHandler.resumeButton.colors.normalColor;
+            pauseHandler.loadCheckpointButton.image.color = pauseHandler.loadCheckpointButton.colors.normalColor;
+            pauseHandler.quitButton.image.color = pauseHandler.quitButton.colors.normalColor;
 
-        if (pauseHandler.confirmationWindow.activeSelf == true)
-        {
-            //pauseHandler.confirmationButtons[1].image.color = pauseHandler.confirmationButtons[1].colors.normalColor;
+            if (pauseHandler.confirmationWindow.activeSelf == true)
+            {
+                //pauseHandler.confirmationButtons[1].image.color = pauseHandler.confirmationButtons[1].colors.normalColor;
+            }
         }
     }
 

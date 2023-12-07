@@ -25,27 +25,29 @@ public class HideController : MonoBehaviour
 
     public void EnterHidingSpot(HidingSpot spot)
     {
+        Debug.Log("ENTERING HIDING SPOT");
+        hidingPosition.transform.position = playerBody.transform.position;
+        playerBody.transform.position = new Vector3(spot.hiddenTeleport.transform.position.x, spot.hiddenTeleport.transform.position.y, spot.hiddenTeleport.transform.position.z);
         if (exitingHiding == false && canHide == true)
         {
             if (playerCollider.enabled == true)
             {
                 playerCollider.enabled = false;
             }
-            hidingPosition.transform.position = playerBody.transform.position;
-            playerBody.transform.position = new Vector3(spot.hiddenTeleport.transform.position.x, spot.hiddenTeleport.transform.position.y, spot.hiddenTeleport.transform.position.z);
         }
     }
 
     public void ExitHidingSpot(HidingSpot spot)
     {
+        Debug.Log("EXITING HIDING SPOT");
         spot.spotCollider.enabled = false;
+        if (playerCollider.enabled == false)
+        {
+            playerCollider.enabled = true;
+        }
         playerController.enabled = false;
         exitingHiding = true;
         playerBody.transform.position = new Vector3(0, 0, 0);
-        if (playerCollider.enabled == false)
-        //{
-        //    playerCollider.enabled = true;
-        //}
         playerController.enabled = true;
         spot.spotCollider.enabled = true;
     }
