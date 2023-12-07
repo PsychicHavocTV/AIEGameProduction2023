@@ -8,6 +8,8 @@ using UnityEngine.AI;
 public class TeleportTrigger : MonoBehaviour
 {
     public Teleportation teleportWendigo;
+    public GameObject teleportLocation1;
+    public GameObject teleportLocation2;
     public TeleportTrigger duoTrigger;
     public TeleportTrigger[] teleportTriggers;
     public GameObject activeWendigo;
@@ -52,15 +54,29 @@ public class TeleportTrigger : MonoBehaviour
             }
 
             //triggered = !triggered;
-            if (GameManager.Instance.wendigoChasing == false)
-            {
-                ActivateWendigo();
-                Debug.Log("Wendigo Ready To Teleport.");
-            }
-            else if (GameManager.Instance.wendigoChasing == true && teleportWendigo.hasTeleported == true)
-            {
-                teleportWendigo.hasTeleported = false;
-            }
+            //if (GameManager.Instance.wendigoChasing == false)
+            //{
+            //    ActivateWendigo();
+            //    Debug.Log("Wendigo Ready To Teleport.");
+            //}
+            //else if (GameManager.Instance.wendigoChasing == true && teleportWendigo.hasTeleported == true)
+            //{
+            //    teleportWendigo.hasTeleported = false;
+            //}
+        }
+    }
+
+    public void TeleportWendigo()
+    {
+        WendigoStateManager activeController = activeWendigo.GetComponent<WendigoStateManager>();
+        if (triggered == true)
+        {
+            Vector3 tpLocation = new Vector3(teleportLocation1.transform.position.x, teleportLocation1.transform.position.y, teleportLocation1.transform.position.z);
+            teleportWendigo.TeleportToNext(activeController, tpLocation);
+        }
+        else if (triggered == false)
+        {
+
         }
     }
 
@@ -69,32 +85,32 @@ public class TeleportTrigger : MonoBehaviour
         
         //if (GameManager.Instance.wendigoChasing == false)
         //{
-            teleportWendigo.TeleportToLocation(activeWendigo.GetComponent<WendigoStateManager>());
-            for (int i = 0; i <= wendigos.Length - 1; i++)
-            {
-                wendigos[i].SetActive(false);
-            }
-
-            if (triggered == false || duoTrigger.triggered == false)
-            {
-                wendigos[previousIndex].SetActive(true);
-                activeWendigo = wendigos[previousIndex];
-                GameManager.Instance.currentWendigo = previousIndex;
-            }
-            else if (triggered == true)
-            {
-                wendigos[triggerIndex].SetActive(true);
-                activeWendigo = wendigos[triggerIndex];
-                GameManager.Instance.currentWendigo = triggerIndex;
-            }
-
-            for (int i = 0; i <= teleportTriggers.Length - 1; i++)
-            {
-                if (teleportTriggers[i].activeWendigo != activeWendigo)
-                {
-                    teleportTriggers[i].activeWendigo = activeWendigo;
-                }
-            }
+            //teleportWendigo.TeleportToLocation(activeWendigo.GetComponent<WendigoStateManager>());
+            //for (int i = 0; i <= wendigos.Length - 1; i++)
+            //{
+            //    wendigos[i].SetActive(false);
+            //}
+            //
+            //if (triggered == false || duoTrigger.triggered == false)
+            //{
+            //    wendigos[previousIndex].SetActive(true);
+            //    activeWendigo = wendigos[previousIndex];
+            //    GameManager.Instance.currentWendigo = previousIndex;
+            //}
+            //else if (triggered == true)
+            //{
+            //    wendigos[triggerIndex].SetActive(true);
+            //    activeWendigo = wendigos[triggerIndex];
+            //    GameManager.Instance.currentWendigo = triggerIndex;
+            //}
+            //
+            //for (int i = 0; i <= teleportTriggers.Length - 1; i++)
+            //{
+            //    if (teleportTriggers[i].activeWendigo != activeWendigo)
+            //    {
+            //        teleportTriggers[i].activeWendigo = activeWendigo;
+            //    }
+            //}
 
             //switch(GameManager.Instance.currentWendigo)
             //{

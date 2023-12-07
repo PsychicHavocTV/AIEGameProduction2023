@@ -9,7 +9,7 @@ public class HidingSpot : MonoBehaviour
     public GameObject spot;
     public GameObject hiddenTeleport;
     public GameObject outsideTeleport;
-    public Collider playerCollider;
+    public CharacterController playerCollider;
     public Collider spotCollider;
     public AudioClip hidingInteractSound;
     public AudioSource hidingSpeaker;
@@ -38,10 +38,6 @@ public class HidingSpot : MonoBehaviour
     {
         if (other.tag == "Player" || other.tag == "player")
         {
-            if (playerCollider.enabled == false)
-            {
-                playerCollider.enabled = true;
-            }
             PlayerController pc = player.GetComponent<PlayerController>();
             pc.hsInteract = this;
             Debug.Log("player in range");

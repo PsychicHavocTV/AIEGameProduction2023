@@ -60,7 +60,10 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         if (canMove == true)
+        {
+            Debug.Log("CAN MOVE");
             DoPlayerMovement();
+        }
         DoGravity();
 
         // Rotate player body towards camera direction.
@@ -88,6 +91,11 @@ public class PlayerController : MonoBehaviour
 
     private void DoPlayerMovement()
     {
+        if (hidingController.isHidden == true || hidingController.isHiding == true)
+        {
+            m_currentMovingSpeed = 0;
+            return;
+        }
         // Change move speed whether running or not.
         if (m_isRunning)
             m_moveSpeed = runSpeed;
@@ -107,15 +115,22 @@ public class PlayerController : MonoBehaviour
 
     private void DoGravity()
     {
-        if (m_controller.isGrounded) // Is player touching ground.
+        if (hidingController.isHidden == false && hidingController.isHiding == false)
         {
-            m_velocity.y = -1.0f; // Push player out of ground.
+            if (m_controller.isGrounded) // Is player touching ground.
+            {
+                m_velocity.y = -1.0f; // Push player out of ground.
+            }
+            else
+            {
+                m_velocity.y += Physics.gravity.y * Time.deltaTime; // Gravity.
+            }
+            m_controller.Move(m_velocity * Time.deltaTime); // Apply player velocity.
         }
         else
         {
-            m_velocity.y += Physics.gravity.y * Time.deltaTime; // Gravity.
+            return;
         }
-        m_controller.Move(m_velocity * Time.deltaTime); // Apply player velocity.
     }
 
     // Input System messages.

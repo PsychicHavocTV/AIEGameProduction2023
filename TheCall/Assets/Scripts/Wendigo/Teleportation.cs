@@ -10,6 +10,14 @@ public class Teleportation : MonoBehaviour
     public int locationChoice = 0;
     public bool hasTeleported = false;
 
+    public void TeleportToNext(WendigoStateManager wendigo, Vector3 position)
+    {
+        nma.enabled = false;
+        wendigo.transform.position = new Vector3(position.x, position.y, position.z);
+        nma.enabled = true;
+        hasTeleported = true;
+    }
+
     public void TeleportToLocation(WendigoStateManager wendigo)
     {
         if (teleportLocations.Length > 0)
