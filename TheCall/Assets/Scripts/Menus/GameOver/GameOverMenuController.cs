@@ -28,13 +28,12 @@ public class GameOverMenuController : MonoBehaviour
     public GameObject player;
     public GameObject wendigo;
     public bool confirmationWindowShowing = false;
-    public bool gameOverShowing = false;
+    bool gameOverShowing = false;
     int currentIndex = 0;
 
     // Update is called once per frame
     void Update()
     {
-        wendigo = GameManager.Instance.activeWendigo;
         if (GameManager.Instance.GameOver == true)
         {
             if (GameManager.Instance.noCheckpoint == true)
@@ -49,6 +48,14 @@ public class GameOverMenuController : MonoBehaviour
             }
             if (gameOverShowing == false)
             {
+                if (playerInput.enabled == true)
+                {
+                    playerInput.enabled = false;
+                }
+                if (menuInput.enabled == false)
+                {
+                    menuInput.enabled = true;
+                }
                 gameOverShowing = true;
                 GameOverMenu();
             }
@@ -58,7 +65,14 @@ public class GameOverMenuController : MonoBehaviour
             if (gameOverShowing == true)
             {
                 gameOverShowing = false;
-                
+                if (menuInput.enabled == true)
+                {
+                    menuInput.enabled = false;
+                }
+                if (playerInput.enabled == false)
+                {
+                    playerInput.enabled = true;
+                }
                 if (gameOverCanvas.activeSelf == true)
                 {
                     gameOverCanvas.SetActive(false);
@@ -66,12 +80,12 @@ public class GameOverMenuController : MonoBehaviour
             }
         }
 
-        if (GameManager.Instance.GameOver == true)
+        if (GameManager.Instance.GamePaused == true)
         {
-            //if (playerInput.enabled == true)
-            //{
-            //    playerInput.enabled = false;
-            //}
+            if (playerInput.enabled == true)
+            {
+                playerInput.enabled = false;
+            }
             if (Cursor.lockState == CursorLockMode.Locked)
             {
                 Cursor.lockState = CursorLockMode.None;

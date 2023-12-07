@@ -37,7 +37,6 @@ public class WendigoStateManager : MonoBehaviour
 
     private void Start()
     {
-        nma.enabled = true;
         // Setup
         {
             // Set NavMeshAgent references
@@ -57,9 +56,8 @@ public class WendigoStateManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (GameManager.Instance.GameOver == false)
+        if (GameManager.Instance.GameOver == false && GameManager.Instance.GamePaused == false)
         {
-            CheckPLAYERView();
             currentState.UpdateState(this); // Update behaviour for the current state each frame.
         }
         else
@@ -71,13 +69,6 @@ public class WendigoStateManager : MonoBehaviour
     {
         if (GameManager.Instance.GameOver == false)
         {
-            if (teleportHandler.hasTeleported == true)
-            {
-                teleportHandler.hasTeleported = false;
-            }
-            GameManager.Instance.finishedChasing = false;
-            GameManager.Instance.wendigoRoaming = false;
-            GameManager.Instance.wendigoChasing = true;
             currentState = chaseState; // Update currentState to chaseState.
             currentState.EnterState(this); // Start behaviour for the current state.
         }
@@ -99,7 +90,7 @@ public class WendigoStateManager : MonoBehaviour
 
     public void ControlTimer() // Function to control the activation of the 'ChaseTimer' Coroutine.
     {
-        if (GameManager.Instance.GameOver == false && GameManager.Instance.GamePaused == false)
+        if (GameManager.Instance.GameOver == false)
         {
             if (timerRunning == false) // If the ChaseTimer is not currently running
             {
@@ -156,32 +147,18 @@ public class WendigoStateManager : MonoBehaviour
 
     public IEnumerator ChaseTimer() // Timer to check whether the player has gotten far enough away from the Wendigo CHASING them for it to go back to ROAMING.
     {
-        if (GameManager.Instance.GameOver == false && GameManager.Instance.GamePaused == false)
+        if (GameManager.Instance.GameOver == false)
         {
             timerRunning = true; // Set 'timerRunning' to true.
             timerFinished = false; // Set 'timerFinished' to false.
-            if (hidingController.isHidden == true) // If the player is not within the Wendigo's view
-            {
-                timerFinished = true; // Set 'timerFinished' to true.
-                timerRunning = false; // Set 'timerRunning' to false.
-                StartRoaming(); // Start ROAMING.
-                StopCoroutine(ChaseTimer());
-            }
-            GameManager.Instance.finishedChasing = true;
-            yield return new WaitForSecondsRealtime(3f); // Wait for three(3) seconds.
+            yield return new WaitForSeconds(5f); // Wait for five(5) seconds.
             CheckView();
             timerFinished = true; // Set 'timerFinished' to true.
             timerRunning = false; // Set 'timerRunning' to false.
             //Vector3 rayDirection = playerRef.transform.position - transform.position;
-            if (inView == false)
+            if (inView == false || hidingController.isHidden == true) // If the player is not within the Wendigo's view
             {
-                GameManager.Instance.finishedChasing = true;
-                StartRoaming();
-            }
-            if (inView == true && hidingController.isHidden == false)
-            {
-                GameManager.Instance.finishedChasing = false;
-                StartChasing();
+                StartRoaming(); // Start ROAMING.
             }
             StopCoroutine(ChaseTimer());
         }
@@ -189,7 +166,7 @@ public class WendigoStateManager : MonoBehaviour
 
     public void CheckView() // Function to check if the player is currently within the Wendigo's view.
     {
-        if (GameManager.Instance.GameOver == false && GameManager.Instance.GamePaused == false)
+        if (GameManager.Instance.GameOver == false)
         {
             RaycastHit hit;
 
@@ -209,42 +186,6 @@ public class WendigoStateManager : MonoBehaviour
                     {
                         inView = false; // Set 'inView' to false.
                     }
-                }
-                else // Otherwise
-                {
-                    inView = false; // Set 'inView' to false.
-                }
-            }
-            else // Otherwise
-            {
-                inView = false; // Set 'inView' to false.
-            }
-            return;
-        }
-    }
-
-    public void CheckPLAYERView()
-    {
-        if (GameManager.Instance.GameOver == false && GameManager.Instance.GamePaused == false)
-        {
-            RaycastHit hit;
-
-            Vector3 rayDirection = transform.position - playerRef.transform.position; // Calculate the direction the player is in.
-            if ((Vector3.Angle(rayDirection, playerCamera.transform.forward)) < 20)
-            {
-                if ((Vector3.Angle(rayDirection, playerCamera.transform.forward)) < 20) // Is player within field of view
-                {
-                    if (Physics.Raycast(playerRef.transform.position, rayDirection, out hit, 30)) // If the player is close enough to the wendigo
-                    {
-                        if (hit.collider.gameObject.tag == "Wendigo" || hit.collider.gameObject.tag == "wendigo")
-                        {
-                            GameManager.Instance.outOfPlayerView = false;
-                        }
-                    }
-                    else // Otherwise
-                    {
-                        GameManager.Instance.outOfPlayerView = true;
-                    }
 
                 }
             }
@@ -255,7 +196,7 @@ public class WendigoStateManager : MonoBehaviour
     // Game Over Checking.
     private void OnTriggerEnter(Collider other)
     {
-        if (GameManager.Instance.GameOver == false && GameManager.Instance.GamePaused == false)
+        if (GameManager.Instance.GameOver == false)
         {
             if (currentState == roamingState || currentState == chaseState) // If the Wendigo is currently ROAMING or CHASING
             {

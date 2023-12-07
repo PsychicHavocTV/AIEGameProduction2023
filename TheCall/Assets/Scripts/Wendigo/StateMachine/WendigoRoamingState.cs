@@ -24,40 +24,14 @@ public class WendigoRoamingState : BaseState
     public override void EnterState(WendigoStateManager wendigo)
     {
         Debug.Log("Roaming..");
-        GameManager.Instance.wendigoRoaming = true;
         nma.speed = wendigo.roamSpeed;
         nma.ResetPath();
     }
 
     public override void UpdateState(WendigoStateManager wendigo)
     {
-        if (GameManager.Instance.GamePaused == true)
+        if (GameManager.Instance.GameOver == false && GameManager.Instance.GamePaused == false)
         {
-            nma.acceleration = 0;
-            nma.speed = 0;
-            nma.enabled = false;
-        }
-        else if (GameManager.Instance.GameOver == false)
-        {
-            if (nma.enabled == false)
-            {
-                nma.enabled = true;
-                directionChoice = Random.Range(0, 7);
-                moveAmount = Random.Range(15, 55);
-                oldX = wendigo.transform.localPosition.x;
-                oldZ = wendigo.transform.localPosition.z;
-                nma.ResetPath();
-                destinationSet = false;
-                moving = true;
-            }
-            if (nma.acceleration == 0)
-            {
-                nma.acceleration = 15;
-            }
-            if (nma.speed == 0)
-            {
-                nma.speed = wendigo.roamSpeed;
-            }
             playerDistance = Vector3.Distance(wendigo.playerRef.transform.position, wendigo.transform.position);
             if (playerDistance >= 175)
             {
@@ -70,7 +44,7 @@ public class WendigoRoamingState : BaseState
 
             RaycastHit hit;
 
-            if (playerDistance <= 70)
+            if (playerDistance <= 80)
             {
                 Vector3 rayDirection = wendigo.playerRef.transform.position - wendigo.transform.position;
                 if ((Vector3.Angle(rayDirection, wendigo.transform.forward)) < 25) //Physics.Raycast(wendigo.RaycastOrigin.transform.position, wendigo.RaycastOrigin.transform.TransformDirection(Vector3.forward), out hit, 70, wendigo.layerMask))
@@ -90,24 +64,24 @@ public class WendigoRoamingState : BaseState
             }
 
 
-            //if (wendigo.pController.takingPhoto == true)
-            //{
-            //    if (playerDistance <= 15)
-            //    {
-            //        wendigo.StartChasing();
-            //    }
-            //    findingPlayer = true;
-            //    AlertWendigo(wendigo);
-            //}
+            if (wendigo.pController.takingPhoto == true)
+            {
+                if (playerDistance <= 15)
+                {
+                    wendigo.StartChasing();
+                }
+                findingPlayer = true;
+                AlertWendigo(wendigo);
+            }
 
-            //if (findingPlayer == true)
-            //{
-            //    if (nma.remainingDistance <= 1.2f)
-            //    {
-            //        findingPlayer = false;
-            //    }
-            //}
-            else if (findingPlayer == false || findingPlayer == true)
+            if (findingPlayer == true)
+            {
+                if (nma.remainingDistance <= 1.2f)
+                {
+                    findingPlayer = false;
+                }
+            }
+            else if (findingPlayer == false)
             {
                 if (moving == false)
                 {
@@ -252,8 +226,8 @@ public class WendigoRoamingState : BaseState
                 nma.CalculatePath(destinationPosition, path);
                 if (path.status == NavMeshPathStatus.PathComplete)
                 {
-                    nma.SetPath(path);
                     nma.SetDestination(destinationPosition);    
+                    nma.SetPath(path);
                 }
             }
         }
