@@ -10,6 +10,10 @@ public class CheckForWendigo : MonoBehaviour
 
     private void Update()
     {
+        if (wsm != GameManager.Instance.activeWendigo.GetComponent<WendigoStateManager>())
+        {
+            wsm = GameManager.Instance.activeWendigo.GetComponent<WendigoStateManager>();
+        }
         if (wsm.isBehindPlayer == true && wsm.timerRunning == false)
         {
             RaycastHit hit;
