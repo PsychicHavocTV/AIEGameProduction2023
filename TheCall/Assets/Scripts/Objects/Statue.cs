@@ -49,7 +49,6 @@ public class Statue : MonoBehaviour
     public void SaveCheckpoint()
     {
         Debug.Log("***SAVING GAME DATA***");
-        GameManager.Instance.activeWendigo = wendigo;
         for (int i = 0; i <= wendigoCreatures.Length - 1; i++)
         {
             GameManager.Instance.wendigoCreatures[i] = wendigoCreatures[i];
@@ -77,10 +76,10 @@ public class Statue : MonoBehaviour
 
     void Update()
     {
-        //if (wendigo != GameManager.Instance.activeWendigo && GameManager.Instance.activeWendigo != null)
-        //{
-        //    wendigo = GameManager.Instance.activeWendigo;
-        //}
+        if (wendigo != GameManager.Instance.activeWendigo && GameManager.Instance.activeWendigo != null)
+        {
+            wendigo = GameManager.Instance.activeWendigo;
+        }
         if (GameManager.Instance.interactWithStatue == true)
         {
             GameManager.Instance.interactWithStatue = false;

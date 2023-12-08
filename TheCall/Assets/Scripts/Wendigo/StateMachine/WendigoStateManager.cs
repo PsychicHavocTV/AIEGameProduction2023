@@ -167,7 +167,6 @@ public class WendigoStateManager : MonoBehaviour
                 StartRoaming(); // Start ROAMING.
                 StopCoroutine(ChaseTimer());
             }
-            GameManager.Instance.finishedChasing = true;
             yield return new WaitForSecondsRealtime(3f); // Wait for three(3) seconds.
             CheckView();
             timerFinished = true; // Set 'timerFinished' to true.
