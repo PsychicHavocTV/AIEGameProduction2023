@@ -13,7 +13,7 @@ public class Teleportation : MonoBehaviour
     public void TeleportToNext(WendigoStateManager wendigo, Vector3 position)
     {
         nma.enabled = false;
-        wendigo.transform.position = new Vector3(position.x, position.y, position.z);
+        wendigo.transform.position = position;
         nma.enabled = true;
         hasTeleported = true;
     }

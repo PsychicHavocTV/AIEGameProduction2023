@@ -28,21 +28,7 @@ public class TeleportTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "player" || other.tag == "Player")
-        {
-            if (isRunning == false)
-            {
-                StartCoroutine(WendigoChasingCheck());
-            }
-            if (triggered == false)
-            {
-                triggered = true;
-            }
-            else if (triggered == true)
-            {
-                triggered = false;
-            }
-        }
+        
     }
 
     public IEnumerator WendigoChasingCheck()
@@ -64,7 +50,21 @@ public class TeleportTrigger : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        
+        if (other.tag == "player" || other.tag == "Player")
+        {
+            if (isRunning == false)
+            {
+                StartCoroutine(WendigoChasingCheck());
+            }
+            if (triggered == false)
+            {
+                triggered = true;
+            }
+            else if (triggered == true)
+            {
+                triggered = false;
+            }
+        }
     }
 
     public void TeleportWendigo()
@@ -198,10 +198,10 @@ public class TeleportTrigger : MonoBehaviour
             }
             if (GameManager.Instance.finishedChasing == true && teleportWendigo.hasTeleported == false && readyToTP == true)
             {
-                //if (GameManager.Instance.outOfPlayerView == true)
-                //{
-                TeleportWendigo();
-                //}
+                if (GameManager.Instance.outOfPlayerView == true)
+                {
+                    TeleportWendigo();
+                }
             }
         }
     }
