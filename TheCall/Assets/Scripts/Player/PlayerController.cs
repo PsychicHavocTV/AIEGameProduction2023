@@ -61,7 +61,6 @@ public class PlayerController : MonoBehaviour
     {
         if (canMove == true)
         {
-            Debug.Log("CAN MOVE");
             DoPlayerMovement();
         }
         DoGravity();

@@ -49,7 +49,7 @@ public class GameManager
     public bool wendigoRoaming = false;
     public bool finishedChasing = false;
     public bool outOfPlayerView = true;
-
+    public ParticleSystem dustParticle;
     private List<string> loadedCurrentObjectives = new List<string>();
     private List<string> loadedCompletedObjectives = new List<string>();
 

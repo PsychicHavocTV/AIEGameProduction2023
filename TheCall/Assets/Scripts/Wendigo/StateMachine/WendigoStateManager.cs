@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Rendering.HighDefinition;
 using UnityEngine.UIElements;
+using UnityEngine.Animations;
 
 public class WendigoStateManager : MonoBehaviour
 {
@@ -34,6 +35,14 @@ public class WendigoStateManager : MonoBehaviour
     public bool isBehindPlayer = false; // If the Wendigo is currently behind the player.
     public bool teleportAway = false; // If the Wendigo is ready to teleport away.
     public float roamSpeed = 4.5f;
+
+    // Animation Parameters & Controllers
+    public Animator stateAnimator;
+    public string idleParam = "NULL";
+    public string walkingParam = "NULL";
+    public string killParam = "NULL";
+    public string howlParam = "NULL";
+
 
     private void Start()
     {
