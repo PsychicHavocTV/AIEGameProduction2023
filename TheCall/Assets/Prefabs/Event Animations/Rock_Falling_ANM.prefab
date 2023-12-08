@@ -225,6 +225,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1480111382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2025788203106236717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e71b7abb6c815ea4988d70e4c84884ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eC: {fileID: 0}
+  particles: {fileID: 8189049309635612968}
 --- !u!1001 &6275551482693824915
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -510,3 +524,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d1f7af4f5a6864439f3a2bd9611e3fb, type: 3}
+--- !u!198 &8189049309635612968 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 2788401239360610491, guid: 9d1f7af4f5a6864439f3a2bd9611e3fb, type: 3}
+  m_PrefabInstance: {fileID: 6275551482693824915}
+  m_PrefabAsset: {fileID: 0}
