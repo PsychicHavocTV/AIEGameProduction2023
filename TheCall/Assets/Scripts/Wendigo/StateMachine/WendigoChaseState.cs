@@ -14,7 +14,7 @@ public class WendigoChaseState : BaseState
     {
         GameManager.Instance.wendigoChasing = true;
         Debug.Log("Chasing...");
-        nma.speed = 13.5f;
+        nma.speed = 18.5f;
     }
 
     public override void UpdateState(WendigoStateManager wendigo)
@@ -35,9 +35,9 @@ public class WendigoChaseState : BaseState
             {
                 nma.acceleration = 15;
             }
-            if (nma.speed != 13.5f)
+            if (nma.speed != 18.5f)
             {
-                nma.speed = 13.5f;
+                nma.speed = 18.5f;
             }
             if (wendigo.hidingController.isHidden == true)
             {
