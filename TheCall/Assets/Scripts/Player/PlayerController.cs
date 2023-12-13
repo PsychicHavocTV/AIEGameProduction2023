@@ -135,6 +135,7 @@ public class PlayerController : MonoBehaviour
         for (int i = 0; i < interactables.Length; i++)
         {
             var interactable = interactables[i];
+            interactable.Input = true;
             if (interactable.Interactable == true)
                 interactable.Interacted = true;
             else

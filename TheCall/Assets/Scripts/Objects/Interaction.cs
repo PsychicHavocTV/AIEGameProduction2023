@@ -36,6 +36,13 @@ public class Interaction : MonoBehaviour
     }
     private bool m_interacted = false; // Whether it has been interacted with or not.
 
+    public bool Input
+    {
+        get => m_input;
+        set => m_input = value;
+    }
+    private bool m_input = false; // Whether the interaction button has been pressed.
+
     private Vector2 m_interactionObjectSize; // The original size of the prefab.
     private GameObject m_uiInstance = null; // The instance of the prefab.
 
@@ -49,6 +56,9 @@ public class Interaction : MonoBehaviour
         Camera cam = m_targetCamera.GetComponent<Camera>();
         if (cam == null)
             cam = m_targetCamera.GetComponentInChildren<Camera>();
+
+        if (m_input)
+            Debug.Log("AAAAAAAAA");
 
         // If in camera view.
         bool distanceToCamera = Vector3.Distance(cam.transform.position, transform.position) <= m_interactionDistance;
@@ -83,8 +93,11 @@ public class Interaction : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (m_interacted)
-            m_interacted = false; // Set this to fault at the end of frame to make sure any functions using it have been handled.
+        // Set this to false at the end of frame to make sure any functions using it have been handled.
+        if (m_input == true)
+            m_input = false;
+        if (m_interacted == true)
+            m_interacted = false;
     }
 
     /// <summary>

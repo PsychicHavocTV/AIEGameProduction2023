@@ -39,27 +39,27 @@ public class Statue : MonoBehaviour
         if (m_interaction.Interactable)
         {
             Debug.Log("Player Can Now Interact.");
-
-            if (m_interaction.Interacted)
-            {
-                SaveCheckpoint();
-                sI.PlayInteractSound();
-
-                if (GameManager.Instance.showSaveText == true)
-                {
-                    GameManager.Instance.showSaveText = false;
-                    StopCoroutine(ShowGameSaveText());
-                    if (m_gameSavedText.enabled == false)
-                    {
-                        StartCoroutine(ShowGameSaveText());
-                        GameManager.Instance.showSaveText = false;
-                    }
-                }
-            }
         }
         else
         {
             Debug.Log("Player Can No Longer Interact");
+        }
+
+        if (m_interaction.Interacted)
+        {
+            SaveCheckpoint();
+            sI.PlayInteractSound();
+
+            if (GameManager.Instance.showSaveText == true)
+            {
+                GameManager.Instance.showSaveText = false;
+                StopCoroutine(ShowGameSaveText());
+                if (m_gameSavedText.enabled == false)
+                {
+                    StartCoroutine(ShowGameSaveText());
+                    GameManager.Instance.showSaveText = false;
+                }
+            }
         }
     }
 
