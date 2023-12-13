@@ -30,7 +30,7 @@ public class Note : MonoBehaviour
 
     private void Update()
     {
-        if (m_interaction.Interacted) // Toggle if interacted with.
+        if (m_interaction.Interacted == true) // Toggle if interacted with.
         {
             NoteToggle();
         }
