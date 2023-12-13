@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     [Tooltip("Enable/Disable player input.")]
     public bool canMove = true;
 
+    public bool crowbar = true;
+
     public bool takingPhoto = false;
 
     [SerializeField]
@@ -27,6 +29,8 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField, Tooltip("How long till the player can take another photo. (In seconds)")]
     private float cameraFlashCooldown = 2.0f;
+
+    public GameObject m_crowbarItemUI;
 
     public float CurrentMovingSpeed
     {
@@ -53,6 +57,17 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if (crowbar == true)
+        {
+            if (m_crowbarItemUI.activeInHierarchy == false)
+                m_crowbarItemUI.SetActive(true);
+        }
+        else
+        {
+            if (m_crowbarItemUI.activeInHierarchy == true)
+                m_crowbarItemUI.SetActive(false);
+        }
+
         if (canMove == true)
             DoPlayerMovement();
         DoGravity();
@@ -95,8 +110,8 @@ public class PlayerController : MonoBehaviour
             move = m_input.x * playerCamera.right + m_input.y * playerCamera.forward; // Get movement direction relative to camera direction.
             move.y = 0;
         }
-        m_currentMovingSpeed = (move.normalized * m_moveSpeed).magnitude;
         m_controller.Move(move.normalized * m_moveSpeed * Time.deltaTime); // Apply player movement.
+        m_currentMovingSpeed = m_controller.velocity.normalized.magnitude;
     }
 
     private void DoGravity()
@@ -125,6 +140,12 @@ public class PlayerController : MonoBehaviour
 
     private void OnPhoto(InputValue value)
     {
+        if (crowbar)
+        {
+            m_crowbarItemUI.GetComponent<Animator>().SetTrigger("Attack");
+            return;
+        }
+
         m_photoInput = value.Get<float>() >= 0.5f; // Is photo button pressed.
     }
 
