@@ -5,6 +5,7 @@ using UnityEngine.AI;
 using UnityEngine.Rendering.HighDefinition;
 using UnityEngine.UIElements;
 using UnityEngine.Animations;
+using System.Runtime.InteropServices.WindowsRuntime;
 
 public class WendigoStateManager : MonoBehaviour
 {
@@ -40,6 +41,7 @@ public class WendigoStateManager : MonoBehaviour
     public Animator stateAnimator;
     public string idleParam = "NULL";
     public string walkingParam = "NULL";
+    public string chaseParam = "NULL";
     public string killParam = "NULL";
     public string howlParam = "NULL";
 
@@ -88,6 +90,7 @@ public class WendigoStateManager : MonoBehaviour
             GameManager.Instance.wendigoRoaming = false;
             GameManager.Instance.wendigoChasing = true;
             currentState = chaseState; // Update currentState to chaseState.
+            
             currentState.EnterState(this); // Start behaviour for the current state.
         }
     }
@@ -96,11 +99,14 @@ public class WendigoStateManager : MonoBehaviour
     {
         if (GameManager.Instance.GameOver == false)
         {
+            GameManager.Instance.finishedChasing = true;
             if (GameManager.Instance.wendigoChasing == true)
             {
                 GameManager.Instance.wendigoChasing = false;
             }
             currentState = roamingState; // Update currentState to roamingState.
+            stateAnimator.ResetTrigger(chaseParam);
+            stateAnimator.SetTrigger(walkingParam);
             currentState.EnterState(this); // Start behaviour for the current state.
         }
     }
@@ -178,19 +184,18 @@ public class WendigoStateManager : MonoBehaviour
             }
             yield return new WaitForSecondsRealtime(3f); // Wait for three(3) seconds.
             CheckView();
-            timerFinished = true; // Set 'timerFinished' to true.
-            timerRunning = false; // Set 'timerRunning' to false.
             //Vector3 rayDirection = playerRef.transform.position - transform.position;
             if (inView == false)
             {
-                GameManager.Instance.finishedChasing = true;
                 StartRoaming();
+                //StopCoroutine(ChaseTimer());
             }
             if (inView == true && hidingController.isHidden == false)
             {
                 GameManager.Instance.finishedChasing = false;
-                StartChasing();
             }
+            timerFinished = true; // Set 'timerFinished' to true.
+            timerRunning = false; // Set 'timerRunning' to false.
             StopCoroutine(ChaseTimer());
         }
     }
@@ -211,6 +216,12 @@ public class WendigoStateManager : MonoBehaviour
                         if (hit.collider.gameObject.tag == "Player")
                         {
                             inView = true; // Set 'inView' to true.
+                            return;
+                        }
+                        else
+                        {
+                            inView = false;
+                            return;
                         }
                     }
                     else // Otherwise
