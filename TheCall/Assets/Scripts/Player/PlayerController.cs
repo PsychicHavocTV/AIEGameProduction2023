@@ -11,12 +11,6 @@ public class PlayerController : MonoBehaviour
 
     public bool takingPhoto = false;
 
-    public StatueInteract statueInteraction;
-    public HidingSpot hsInteract;
-
-    [SerializeField]
-    private HideController hidingController;
-
     [SerializeField]
     private GameObject cameraFlash;
 
@@ -62,8 +56,8 @@ public class PlayerController : MonoBehaviour
         if (canMove == true)
         {
             DoPlayerMovement();
+            DoGravity();
         }
-        DoGravity();
 
         // Rotate player body towards camera direction.
         transform.rotation = Quaternion.Euler(transform.localEulerAngles.x, playerCamera.localEulerAngles.y, transform.localEulerAngles.z);
@@ -90,11 +84,6 @@ public class PlayerController : MonoBehaviour
 
     private void DoPlayerMovement()
     {
-        if (hidingController.isHidden == true || hidingController.isHiding == true)
-        {
-            m_currentMovingSpeed = 0;
-            return;
-        }
         // Change move speed whether running or not.
         if (m_isRunning)
             m_moveSpeed = runSpeed;
@@ -114,22 +103,15 @@ public class PlayerController : MonoBehaviour
 
     private void DoGravity()
     {
-        if (hidingController.isHidden == false && hidingController.isHiding == false)
+        if (m_controller.isGrounded) // Is player touching ground.
         {
-            if (m_controller.isGrounded) // Is player touching ground.
-            {
-                m_velocity.y = -1.0f; // Push player out of ground.
-            }
-            else
-            {
-                m_velocity.y += Physics.gravity.y * Time.deltaTime; // Gravity.
-            }
-            m_controller.Move(m_velocity * Time.deltaTime); // Apply player velocity.
+            m_velocity.y = -1.0f; // Push player out of ground.
         }
         else
         {
-            return;
+            m_velocity.y += Physics.gravity.y * Time.deltaTime; // Gravity.
         }
+        m_controller.Move(m_velocity * Time.deltaTime); // Apply player velocity.
     }
 
     // Input System messages.
@@ -148,14 +130,6 @@ public class PlayerController : MonoBehaviour
         m_photoInput = value.Get<float>() >= 0.5f; // Is photo button pressed.
     }
 
-    private void OnPause(InputValue value)
-    {
-        if (GameManager.Instance.GamePaused == false)
-        {
-            GameManager.Instance.GamePaused = true;
-        }
-    }
-
     private void OnInteract(InputValue value)
     {
         // Interactables
@@ -163,45 +137,11 @@ public class PlayerController : MonoBehaviour
         for (int i = 0; i < interactables.Length; i++)
         {
             var interactable = interactables[i];
+            interactable.Input = true;
             if (interactable.Interactable == true)
                 interactable.Interacted = true;
             else
                 interactable.Interacted = false;
-        }
-
-        // Statues
-        if (GameManager.Instance.atStatue == true)
-        {
-            GameManager.Instance.interactWithStatue = true;
-            statueInteraction.PlayInteractSound();
-            Debug.Log("Game Saved.");
-        }
-
-        // Hiding
-        if (hidingController.isHidden == true || hidingController.isHiding == true)
-        {
-            hidingController.exitingHiding = true;
-            hidingController.ExitHidingSpot(hidingController.hidingSpots[hidingController.currentSpotIndex]);
-            hidingController.hidingSpots[hidingController.currentSpotIndex].spotOccupied = false;
-            hidingController.isHidden = false;
-            hidingController.isHiding = false;
-            hidingController.exitingHiding = false;
-            hsInteract.PlayInteractSound();
-            //hidingController.hidingSpots[hidingController.currentSpotIndex].hidingSpotIndex = 99;
-            Debug.Log("Player is no longer hiding.");
-        }
-        else if (hidingController.canHide == true)
-        {
-            if (hidingController.isHiding == false && hidingController.isHidden == false && hidingController.exitingHiding == false)
-            {
-                hidingController.isHiding = true;
-                hidingController.EnterHidingSpot(hidingController.hidingSpots[hidingController.currentSpotIndex]);
-                hidingController.hidingSpots[hidingController.currentSpotIndex].spotOccupied = true;
-                hidingController.isHiding = false;
-                hidingController.isHidden = true;
-                hsInteract.PlayInteractSound();
-                Debug.Log("Player is hiding.");
-            }
         }
     }
 

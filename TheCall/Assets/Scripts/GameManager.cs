@@ -38,18 +38,15 @@ public class GameManager
     public int activeWendigoIndex;
     public bool gameSaved = false;
     public bool noCheckpoint = false;
-    public bool interactWithStatue = false;
     public bool checkpointLoaded = false;
     public bool GameOver = false;
     public bool GamePaused = false;
-    public bool atStatue = false;
-    public bool atHidingSpot = false;
     public bool showSaveText = false;
     public bool wendigoChasing = false;
     public bool wendigoRoaming = false;
     public bool finishedChasing = false;
     public bool outOfPlayerView = true;
-    public ParticleSystem dustParticle;
+
     private List<string> loadedCurrentObjectives = new List<string>();
     private List<string> loadedCompletedObjectives = new List<string>();
 
@@ -359,7 +356,6 @@ public class GameManager
         NavMeshAgent wendigonma = wendigoRef.GetComponent<NavMeshAgent>();
         PlayerController pCont = playerRef.GetComponent<PlayerController>();
 
-        Debug.Log(activeWendigo.name);
         pCont.enabled = false;
         for (int i = 0; i < wendigoCreatures.Length; i++)
         {
@@ -378,8 +374,6 @@ public class GameManager
         }
 
         activeWendigo = wendigoCreatures[activeWendigoIndex];
-
-        Debug.Log(activeWendigo.name);
 
         playerSaveLocation = new Vector3(pLoadX, pLoadY, pLoadZ);
         player.transform.position = playerSaveLocation;

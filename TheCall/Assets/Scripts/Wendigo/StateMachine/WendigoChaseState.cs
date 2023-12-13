@@ -66,11 +66,6 @@ public class WendigoChaseState : BaseState
                        {
                            if (hit.collider.gameObject.tag == "Player")
                            {
-                                //Debug.Log("player in front");
-                               //if (wendigo.timerRunning == false)
-                               //{
-                               //    wendigo.ControlTimer();
-                               //}
                                wendigo.StartChasing();
                            }
                            else
@@ -110,11 +105,8 @@ public class WendigoChaseState : BaseState
             var path = new NavMeshPath();
             destinationPosition = wendigo.playerRef.transform.position;
             nma.CalculatePath(destinationPosition, path);
-            if (path.status == NavMeshPathStatus.PathComplete)
-            {
-                nma.SetPath(path);
-                nma.SetDestination(destinationPosition);
-            }
+            nma.SetDestination(destinationPosition);
+            nma.SetPath(path);
             //else if (path.status == NavMeshPathStatus.PathInvalid)
             //{
             //  nma.SetDestination(destinationPosition);

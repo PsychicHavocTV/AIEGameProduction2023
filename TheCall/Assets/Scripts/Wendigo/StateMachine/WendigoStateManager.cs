@@ -207,9 +207,9 @@ public class WendigoStateManager : MonoBehaviour
             RaycastHit hit;
 
             Vector3 rayDirection = playerRef.transform.position - transform.position; // Calculate the direction the player is in.
-            if ((Vector3.Angle(rayDirection, transform.forward)) < 45)
+            if ((Vector3.Angle(rayDirection, transform.forward)) < 50)
             {
-                if ((Vector3.Angle(rayDirection, transform.forward)) < 45) // Is player within field of view
+                if ((Vector3.Angle(rayDirection, transform.forward)) < 50) // Is player within field of view
                 {
                     if (Physics.Raycast(transform.position, rayDirection, out hit, 90)) // If the player is close enough to the wendigo
                     {
@@ -224,19 +224,7 @@ public class WendigoStateManager : MonoBehaviour
                             return;
                         }
                     }
-                    else // Otherwise
-                    {
-                        inView = false; // Set 'inView' to false.
-                    }
                 }
-                else // Otherwise
-                {
-                    inView = false; // Set 'inView' to false.
-                }
-            }
-            else // Otherwise
-            {
-                inView = false; // Set 'inView' to false.
             }
             return;
         }
