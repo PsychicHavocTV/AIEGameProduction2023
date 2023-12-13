@@ -43,6 +43,9 @@ public class TeleportTrigger : MonoBehaviour
         }
         else if (GameManager.Instance.wendigoChasing == true)
         {
+            if (GameManager.Instance.outOfPlayerView == true)
+            if (readyToTP == true)
+                readyToTP = false;
             Debug.Log("Wendigo is chasing. Waiting to check again.");
         }
         yield return new WaitForSeconds(0.01f);
@@ -82,6 +85,7 @@ public class TeleportTrigger : MonoBehaviour
             teleportWendigo.TeleportToNext(activeController, tpLocation);
         }
         readyToTP = false;
+        return;
     }
 
     public void ActivateWendigo()
@@ -198,10 +202,7 @@ public class TeleportTrigger : MonoBehaviour
             }
             if (GameManager.Instance.finishedChasing == true && teleportWendigo.hasTeleported == false && readyToTP == true)
             {
-                if (GameManager.Instance.outOfPlayerView == true)
-                {
-                    TeleportWendigo();
-                }
+                
             }
         }
     }

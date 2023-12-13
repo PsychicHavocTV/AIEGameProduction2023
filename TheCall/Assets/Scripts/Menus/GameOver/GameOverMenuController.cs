@@ -43,7 +43,7 @@ public class GameOverMenuController : MonoBehaviour
                 loadButtonObject.SetActive(false);
                 loadButton.enabled = false;
             }
-            else if (GameManager.Instance.noCheckpoint == true)
+            else if (GameManager.Instance.noCheckpoint == false)
             {
                 loadButtonObject.SetActive(true);
                 loadButton.enabled = true;
