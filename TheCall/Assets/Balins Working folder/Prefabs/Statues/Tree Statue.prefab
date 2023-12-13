@@ -443,12 +443,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7730252525864752001}
-  - component: {fileID: 6694746129565948964}
-  - component: {fileID: 8866588672336849134}
-  - component: {fileID: 7293485143262287832}
   - component: {fileID: 1806337372316959509}
   - component: {fileID: 1806337372316959508}
   - component: {fileID: 7659530874506616907}
+  - component: {fileID: 1669159090780572612}
   m_Layer: 0
   m_Name: Tree Statue
   m_TagString: Untagged
@@ -473,70 +471,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -151.535, z: 0}
---- !u!33 &6694746129565948964
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6921064076416928059}
-  m_Mesh: {fileID: 0}
---- !u!23 &8866588672336849134
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6921064076416928059}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 257
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a9466ba667aeda84690283d7a177effc, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &7293485143262287832
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6921064076416928059}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.25
-  m_Height: 0.5
-  m_Direction: 1
-  m_Center: {x: 0.0000059120357, y: 0.19714521, z: 0.05382635}
 --- !u!114 &1806337372316959509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -566,7 +500,7 @@ MonoBehaviour:
   objectValue: 1
   objectiveDescription: 
   objectiveThreshold: 1
-  guid: 
+  objectiveIcon: {fileID: 0}
 --- !u!82 &7659530874506616907
 AudioSource:
   m_ObjectHideFlags: 0
@@ -663,6 +597,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1669159090780572612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6921064076416928059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98bbc2c1e63e98543830eec78d976795, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializedGuid: 
 --- !u!1001 &1806337373484903934
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -670,6 +617,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7730252525864752001}
     m_Modifications:
+    - target: {fileID: 4141494028652342775, guid: 85805db249c4f6344bb3972debc86a0f, type: 3}
+      propertyPath: m_offset.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4141494028652342775, guid: 85805db249c4f6344bb3972debc86a0f, type: 3}
+      propertyPath: m_triggerCollider
+      value: 
+      objectReference: {fileID: 9128510013759180847}
+    - target: {fileID: 4141494028652342775, guid: 85805db249c4f6344bb3972debc86a0f, type: 3}
+      propertyPath: m_interactionPrefab
+      value: 
+      objectReference: {fileID: 7761079877006414377, guid: 9ed6f8354a806cc4b8cd2d7a023eecfb, type: 3}
     - target: {fileID: 4253183524748340204, guid: 85805db249c4f6344bb3972debc86a0f, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -756,7 +715,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4253183524748340207, guid: 85805db249c4f6344bb3972debc86a0f, type: 3}
       propertyPath: m_Name
-      value: StatueTriggers
+      value: Colliders
       objectReference: {fileID: 0}
     - target: {fileID: 4253183524748340207, guid: 85805db249c4f6344bb3972debc86a0f, type: 3}
       propertyPath: m_NavMeshLayer
@@ -802,7 +761,9 @@ PrefabInstance:
       propertyPath: playerCharacterController
       value: 
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4253183524748340204, guid: 85805db249c4f6344bb3972debc86a0f, type: 3}
+    - {fileID: 4253183524748340195, guid: 85805db249c4f6344bb3972debc86a0f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 85805db249c4f6344bb3972debc86a0f, type: 3}
 --- !u!4 &2456486706329634320 stripped
 Transform:
@@ -829,6 +790,11 @@ MonoBehaviour:
   playerEars: {fileID: 0}
   statueSpeaker: {fileID: 7659530874506616907}
   statueInteractSound: {fileID: 8300000, guid: d4e428bb911af9e43a9844af7985a057, type: 3}
+--- !u!65 &9128510013759180847 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 7475866784422313425, guid: 85805db249c4f6344bb3972debc86a0f, type: 3}
+  m_PrefabInstance: {fileID: 1806337373484903934}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7737680533518374212
 PrefabInstance:
   m_ObjectHideFlags: 0

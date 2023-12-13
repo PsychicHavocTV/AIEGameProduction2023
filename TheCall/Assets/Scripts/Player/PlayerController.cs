@@ -11,12 +11,6 @@ public class PlayerController : MonoBehaviour
 
     public bool takingPhoto = false;
 
-    public StatueInteract statueInteraction;
-    public HidingSpot hsInteract;
-
-    [SerializeField]
-    private HideController hidingController;
-
     [SerializeField]
     private GameObject cameraFlash;
 
@@ -145,41 +139,6 @@ public class PlayerController : MonoBehaviour
                 interactable.Interacted = true;
             else
                 interactable.Interacted = false;
-        }
-
-        // Statues
-        if (GameManager.Instance.atStatue == true)
-        {
-            GameManager.Instance.interactWithStatue = true;
-            statueInteraction.PlayInteractSound();
-            Debug.Log("Game Saved.");
-        }
-
-        // Hiding
-        if (hidingController.isHidden == true || hidingController.isHiding == true)
-        {
-            hidingController.exitingHiding = true;
-            hidingController.ExitHidingSpot(hidingController.hidingSpots[hidingController.currentSpotIndex]);
-            hidingController.hidingSpots[hidingController.currentSpotIndex].spotOccupied = false;
-            hidingController.isHidden = false;
-            hidingController.isHiding = false;
-            hidingController.exitingHiding = false;
-            hsInteract.PlayInteractSound();
-            //hidingController.hidingSpots[hidingController.currentSpotIndex].hidingSpotIndex = 99;
-            Debug.Log("Player is no longer hiding.");
-        }
-        else if (hidingController.canHide == true)
-        {
-            if (hidingController.isHiding == false && hidingController.isHidden == false && hidingController.exitingHiding == false)
-            {
-                hidingController.isHiding = true;
-                hidingController.EnterHidingSpot(hidingController.hidingSpots[hidingController.currentSpotIndex]);
-                hidingController.hidingSpots[hidingController.currentSpotIndex].spotOccupied = true;
-                hidingController.isHiding = false;
-                hidingController.isHidden = true;
-                hsInteract.PlayInteractSound();
-                Debug.Log("Player is hiding.");
-            }
         }
     }
 

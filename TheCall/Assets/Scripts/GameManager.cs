@@ -38,12 +38,9 @@ public class GameManager
     public int activeWendigoIndex;
     public bool gameSaved = false;
     public bool noCheckpoint = false;
-    public bool interactWithStatue = false;
     public bool checkpointLoaded = false;
     public bool GameOver = false;
     public bool GamePaused = false;
-    public bool atStatue = false;
-    public bool atHidingSpot = false;
     public bool showSaveText = false;
     public bool wendigoChasing = false;
     public bool wendigoRoaming = false;

@@ -8,7 +8,6 @@ public class HideController : MonoBehaviour
     public PlayerController playerController;
     public Collider playerCollider;
     public HidingSpot[] hidingSpots;
-    public Transform hidingPosition;
     
     public int currentSpotIndex = 99;
     
@@ -17,16 +16,12 @@ public class HideController : MonoBehaviour
     public bool isHidden = false;
     public bool exitingHiding = false;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    private Vector3 m_prevPosition = Vector3.zero;
 
     public void EnterHidingSpot(HidingSpot spot)
     {
         Debug.Log("ENTERING HIDING SPOT");
-        hidingPosition.transform.position = playerBody.transform.position;
+        m_prevPosition = playerBody.transform.position;
         playerBody.transform.position = new Vector3(spot.hiddenTeleport.transform.position.x, spot.hiddenTeleport.transform.position.y, spot.hiddenTeleport.transform.position.z);
         if (exitingHiding == false && canHide == true)
         {
@@ -43,7 +38,7 @@ public class HideController : MonoBehaviour
         spot.spotCollider.enabled = false;
         playerController.enabled = false;
         exitingHiding = true;
-        playerBody.transform.position = new Vector3(0, 0, 0);
+        playerBody.transform.position = m_prevPosition;
         if (playerCollider.enabled == false)
         {
             playerCollider.enabled = true;
