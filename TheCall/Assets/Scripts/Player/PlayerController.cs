@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     [Tooltip("Enable/Disable player input.")]
     public bool canMove = true;
 
-    public bool crowbar = true;
+    public bool crowbar = false;
 
     public bool takingPhoto = false;
 
@@ -57,15 +57,18 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (crowbar == true)
+        if (m_crowbarItemUI != null)
         {
-            if (m_crowbarItemUI.activeInHierarchy == false)
-                m_crowbarItemUI.SetActive(true);
-        }
-        else
-        {
-            if (m_crowbarItemUI.activeInHierarchy == true)
-                m_crowbarItemUI.SetActive(false);
+            if (crowbar == true)
+            {
+                if (m_crowbarItemUI.activeInHierarchy == false)
+                    m_crowbarItemUI.SetActive(true);
+            }
+            else
+            {
+                if (m_crowbarItemUI.activeInHierarchy == true)
+                    m_crowbarItemUI.SetActive(false);
+            }
         }
 
         if (canMove == true)
@@ -140,13 +143,13 @@ public class PlayerController : MonoBehaviour
 
     private void OnPhoto(InputValue value)
     {
-        if (crowbar)
-        {
-            m_crowbarItemUI.GetComponent<Animator>().SetTrigger("Attack");
-            return;
-        }
-
         m_photoInput = value.Get<float>() >= 0.5f; // Is photo button pressed.
+    }
+
+    private void OnAttack(InputValue value)
+    {
+        if (crowbar && m_crowbarItemUI != null)
+            m_crowbarItemUI.GetComponent<Animator>().SetTrigger("Attack");
     }
 
     private void OnInteract(InputValue value)
