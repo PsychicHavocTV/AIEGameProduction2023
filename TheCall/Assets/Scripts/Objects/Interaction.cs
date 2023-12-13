@@ -7,6 +7,9 @@ public class Interaction : MonoBehaviour
     [SerializeField, Tooltip("Reference to the target camera. usually the player's camera.")]
     private GameObject m_targetCamera;
 
+    [SerializeField, Tooltip("A reference to the trigger collider.")]
+    private Collider m_triggerCollider;
+
     [SerializeField, Tooltip("The distance the player has to be to be able to interact with the object.")]
     private float m_interactionDistance = 4.0f;
 
@@ -33,14 +36,18 @@ public class Interaction : MonoBehaviour
     }
     private bool m_interacted = false; // Whether it has been interacted with or not.
 
-    private Collider m_thisCollider; // Reference to the object's collider.
+    public bool Input
+    {
+        get => m_input;
+        set => m_input = value;
+    }
+    private bool m_input = false; // Whether the interaction button has been pressed.
 
     private Vector2 m_interactionObjectSize; // The original size of the prefab.
     private GameObject m_uiInstance = null; // The instance of the prefab.
 
     private void Start()
     {
-        m_thisCollider = transform.GetComponentInChildren<Collider>(); // Get reference to the collider.
         m_interactionObjectSize = m_interactionPrefab.transform.localScale;
     }
 
@@ -49,6 +56,9 @@ public class Interaction : MonoBehaviour
         Camera cam = m_targetCamera.GetComponent<Camera>();
         if (cam == null)
             cam = m_targetCamera.GetComponentInChildren<Camera>();
+
+        if (m_input)
+            Debug.Log("AAAAAAAAA");
 
         // If in camera view.
         bool distanceToCamera = Vector3.Distance(cam.transform.position, transform.position) <= m_interactionDistance;
@@ -83,8 +93,11 @@ public class Interaction : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (m_interacted)
-            m_interacted = false; // Set this to fault at the end of frame to make sure any functions using it have been handled.
+        // Set this to false at the end of frame to make sure any functions using it have been handled.
+        if (m_input == true)
+            m_input = false;
+        if (m_interacted == true)
+            m_interacted = false;
     }
 
     /// <summary>
@@ -94,7 +107,7 @@ public class Interaction : MonoBehaviour
     /// <returns></returns>
     private bool CheckInView(Camera cam)
     {
-        var bounds = m_thisCollider.bounds;
+        var bounds = m_triggerCollider.bounds;
 
         Vector3 pointOnScreen = cam.WorldToScreenPoint(bounds.center);
         if (pointOnScreen.z < 0) // Is behind the camera.
