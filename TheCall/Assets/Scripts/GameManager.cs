@@ -9,7 +9,7 @@ public class GameManager
 {
     private static GameManager instance;
 
-    public int checkpointIndex = 0;
+    public int checkpointIndex = 99;
     public enum Checkpoints
     {
         NOCHECKPOINT,
@@ -58,11 +58,8 @@ public class GameManager
         {
             GameOver = true;
         }
-        if (checkpointIndex == 0)
-        {
-            CheckForSaveFile();
-        }
-        if (checkpointIndex != 0)
+        CheckForSaveFile();
+        if (checkpointIndex <= 5)
         {
             noCheckpoint = false;
             //LoadCheckpointData(wendigoRef, playerRef);

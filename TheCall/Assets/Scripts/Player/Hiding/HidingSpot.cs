@@ -42,7 +42,21 @@ public class HidingSpot : MonoBehaviour
             hidingController.canHide = false;
         }
 
-        if (m_interaction.Input && hidingController.canHide == false)
+        if (m_interaction.Interacted && hidingController.canHide == true)
+        {
+            if (hidingController.isHiding == false && hidingController.isHidden == false && hidingController.exitingHiding == false)
+            {
+                PlayInteractSound();
+                hidingController.isHiding = true;
+                hidingController.EnterHidingSpot(hidingController.hidingSpots[hidingController.currentSpotIndex]);
+                hidingController.hidingSpots[hidingController.currentSpotIndex].spotOccupied = true;
+                hidingController.isHiding = false;
+                hidingController.isHidden = true;
+                Debug.Log("Player is hiding.");
+                return;
+            }
+        }  
+        if (m_interaction.Interacted && hidingController.canHide == false)
         {
             if (hidingController.isHidden == true || hidingController.isHiding == true)
             {
@@ -55,21 +69,9 @@ public class HidingSpot : MonoBehaviour
                 hidingController.exitingHiding = false;
                 //hidingController.hidingSpots[hidingController.currentSpotIndex].hidingSpotIndex = 99;
                 Debug.Log("Player is no longer hiding.");
+                return;
             }
         }
-        if (m_interaction.Interacted && hidingController.canHide == true)
-        {
-            if (hidingController.isHiding == false && hidingController.isHidden == false && hidingController.exitingHiding == false)
-            {
-                PlayInteractSound();
-                hidingController.isHiding = true;
-                hidingController.EnterHidingSpot(hidingController.hidingSpots[hidingController.currentSpotIndex]);
-                hidingController.hidingSpots[hidingController.currentSpotIndex].spotOccupied = true;
-                hidingController.isHiding = false;
-                hidingController.isHidden = true;
-                Debug.Log("Player is hiding.");
-            }
-        }  
     }
 
     public void PlayInteractSound()

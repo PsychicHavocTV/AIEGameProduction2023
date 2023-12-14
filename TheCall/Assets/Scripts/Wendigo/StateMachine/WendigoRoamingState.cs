@@ -26,13 +26,41 @@ public class WendigoRoamingState : BaseState
         Debug.Log("Roaming..");
         GameManager.Instance.wendigoRoaming = true;
         nma.speed = wendigo.roamSpeed;
+        nma.acceleration = nma.speed;
+        wendigo.stateAnimator.ResetTrigger(wendigo.chaseParam);
+        wendigo.stateAnimator.SetTrigger(wendigo.walkingParam);
         nma.ResetPath();
     }
 
     public override void UpdateState(WendigoStateManager wendigo)
     {
-        if (GameManager.Instance.GameOver == false && GameManager.Instance.GamePaused == false)
+        if (GameManager.Instance.GamePaused == true)
         {
+            nma.acceleration = 0;
+            nma.speed = 0;
+            nma.enabled = false;
+        }
+        else if (GameManager.Instance.GameOver == false)
+        {
+            if (nma.enabled == false)
+            {
+                nma.enabled = true;
+                directionChoice = Random.Range(0, 7);
+                moveAmount = Random.Range(15, 55);
+                oldX = wendigo.transform.localPosition.x;
+                oldZ = wendigo.transform.localPosition.z;
+                nma.ResetPath();
+                destinationSet = false;
+                moving = true;
+            }
+            if (nma.acceleration == 0)
+            {
+                nma.acceleration = wendigo.roamSpeed;
+            }
+            if (nma.speed == 0)
+            {
+                nma.speed = wendigo.roamSpeed;
+            }
             playerDistance = Vector3.Distance(wendigo.playerRef.transform.position, wendigo.transform.position);
             if (playerDistance >= 175)
             {
@@ -48,11 +76,11 @@ public class WendigoRoamingState : BaseState
             if (playerDistance <= 70)
             {
                 Vector3 rayDirection = wendigo.playerRef.transform.position - wendigo.transform.position;
-                if ((Vector3.Angle(rayDirection, wendigo.transform.forward)) < 25) //Physics.Raycast(wendigo.RaycastOrigin.transform.position, wendigo.RaycastOrigin.transform.TransformDirection(Vector3.forward), out hit, 70, wendigo.layerMask))
+                if ((Vector3.Angle(rayDirection, wendigo.transform.forward)) < 65) //Physics.Raycast(wendigo.RaycastOrigin.transform.position, wendigo.RaycastOrigin.transform.TransformDirection(Vector3.forward), out hit, 70, wendigo.layerMask))
                 {
-                    if ((Vector3.Angle(rayDirection, wendigo.transform.forward)) < 25) // Is player within field of view
+                    if ((Vector3.Angle(rayDirection, wendigo.transform.forward)) < 65) // Is player within field of view
                     {
-                        if (Physics.Raycast(wendigo.transform.position, rayDirection, out hit, 65))
+                        if (Physics.Raycast(wendigo.transform.position, rayDirection, out hit, 130))
                         {
                             if (hit.collider.gameObject.tag == "Player")
                             {
@@ -64,148 +92,128 @@ public class WendigoRoamingState : BaseState
                 }
             }
 
-
-            //if (wendigo.pController.takingPhoto == true)
-            //{
-            //    if (playerDistance <= 15)
-            //    {
-            //        wendigo.StartChasing();
-            //    }
-            //    findingPlayer = true;
-            //    AlertWendigo(wendigo);
-            //}
-
-            //if (findingPlayer == true)
-            //{
-            //    if (nma.remainingDistance <= 1.2f)
-            //    {
-            //        findingPlayer = false;
-            //    }
-            //}
-            else if (findingPlayer == false || findingPlayer == true)
+            if (moving == false)
             {
-                if (moving == false)
-                {
-                    directionChoice = Random.Range(0, 7);
-                    moveAmount = Random.Range(15, 55);
-                    oldX = wendigo.transform.localPosition.x;
-                    oldZ = wendigo.transform.localPosition.z;
-                    nma.ResetPath();
-                    destinationSet = false;
-                    moving = true;
-                }
+                directionChoice = Random.Range(0, 7);
+                moveAmount = Random.Range(15, 55);
+                oldX = wendigo.transform.localPosition.x;
+                oldZ = wendigo.transform.localPosition.z;
+                nma.ResetPath();
+                destinationSet = false;
+                moving = true;
+            }
 
-                if (moving == true)
+            if (moving == true)
+            {
+                if (nma.hasPath == false)
                 {
-                    if (nma.hasPath == false)
-                    {
-                        switch (directionChoice)
-                    {
-                        // Forward
-                        case 0:
+                    switch (directionChoice)
+                {
+                    // Forward
+                    case 0:
+                        {
+                            if (destinationSet == false)
                             {
-                                if (destinationSet == false)
-                                {
-                                    DestinationX = (oldX + moveAmount);
-                                    DestinationZ = oldZ;
-                                    destinationSet = true;
-                                }
-                                MoveWendigo(wendigo, DestinationX, DestinationZ);
-                                break;
+                                DestinationX = (oldX + moveAmount);
+                                DestinationZ = oldZ;
+                                destinationSet = true;
                             }
-                        // Backwards
-                        case 1:
+                            MoveWendigo(wendigo, DestinationX, DestinationZ);
+                            break;
+                        }
+                    // Backwards
+                    case 1:
+                        {
+                            if (destinationSet == false)
                             {
-                                if (destinationSet == false)
-                                {
-                                    DestinationX = (oldX - moveAmount);
-                                    DestinationZ = oldZ;
-                                    destinationSet = true;
-                                }
-                                MoveWendigo(wendigo, DestinationX, DestinationZ);
-                                break;
+                                DestinationX = (oldX - moveAmount);
+                                DestinationZ = oldZ;
+                                destinationSet = true;
                             }
-                        // Right
-                        case 2:
+                            MoveWendigo(wendigo, DestinationX, DestinationZ);
+                            break;
+                        }
+                    // Right
+                    case 2:
+                        {
+                            if (destinationSet == false)
                             {
-                                if (destinationSet == false)
-                                {
-                                    DestinationX = oldX;
-                                    DestinationZ = (oldZ + moveAmount);
-                                    destinationSet = true;
-                                }
-                                MoveWendigo(wendigo, DestinationX, DestinationZ);
-                                break;
+                                DestinationX = oldX;
+                                DestinationZ = (oldZ + moveAmount);
+                                destinationSet = true;
                             }
-                        // Left
-                        case 3:
+                            MoveWendigo(wendigo, DestinationX, DestinationZ);
+                            break;
+                        }
+                    // Left
+                    case 3:
+                        {
+                            if (destinationSet == false)
                             {
-                                if (destinationSet == false)
-                                {
-                                    DestinationX = oldX;
-                                    DestinationZ = (oldZ - moveAmount);
-                                    destinationSet = true;
-                                }
-                                MoveWendigo(wendigo, DestinationX, DestinationZ);
-                                break;
+                                DestinationX = oldX;
+                                DestinationZ = (oldZ - moveAmount);
+                                destinationSet = true;
                             }
-                        // Forward + Right
-                        case 4:
+                            MoveWendigo(wendigo, DestinationX, DestinationZ);
+                            break;
+                        }
+                    // Forward + Right
+                    case 4:
+                        {
+                            if (destinationSet == false)
                             {
-                                if (destinationSet == false)
-                                {
-                                    DestinationX = (oldX + moveAmount);
-                                    DestinationZ = (oldZ + moveAmount);
-                                    destinationSet = true;
-                                }
-                                MoveWendigo(wendigo, DestinationX, DestinationZ);
-                                break;
+                                DestinationX = (oldX + moveAmount);
+                                DestinationZ = (oldZ + moveAmount);
+                                destinationSet = true;
                             }
-                        // Forward + Left
-                        case 5:
+                            MoveWendigo(wendigo, DestinationX, DestinationZ);
+                            break;
+                        }
+                    // Forward + Left
+                    case 5:
+                        {
+                            if (destinationSet == false)
                             {
-                                if (destinationSet == false)
-                                {
-                                    DestinationX = (oldX + moveAmount);
-                                    DestinationZ = (oldZ - moveAmount);
-                                    destinationSet = true;
-                                }
-                                MoveWendigo(wendigo, DestinationX, DestinationZ);
-                                break;
+                                DestinationX = (oldX + moveAmount);
+                                DestinationZ = (oldZ - moveAmount);
+                                destinationSet = true;
                             }
-                        // Backwards + Right
-                        case 6:
+                            MoveWendigo(wendigo, DestinationX, DestinationZ);
+                            break;
+                        }
+                    // Backwards + Right
+                    case 6:
+                        {
+                            if (destinationSet == false)
                             {
-                                if (destinationSet == false)
-                                {
-                                    DestinationX = (oldX - moveAmount);
-                                    DestinationZ = (oldZ + moveAmount);
-                                    destinationSet = true;
-                                }
-                                MoveWendigo(wendigo, DestinationX, DestinationZ);
-                                break;
+                                DestinationX = (oldX - moveAmount);
+                                DestinationZ = (oldZ + moveAmount);
+                                destinationSet = true;
                             }
-                        // Backwards + Left
-                        case 7:
+                            MoveWendigo(wendigo, DestinationX, DestinationZ);
+                            break;
+                        }
+                    // Backwards + Left
+                    case 7:
+                        {
+                            if (destinationSet == false)
                             {
-                                if (destinationSet == false)
-                                {
-                                    DestinationX = (oldX - moveAmount);
-                                    DestinationZ = (oldZ - moveAmount);
-                                    destinationSet = true;
-                                }
-                                MoveWendigo(wendigo, DestinationX, DestinationZ);
-                                break;
+                                DestinationX = (oldX - moveAmount);
+                                DestinationZ = (oldZ - moveAmount);
+                                destinationSet = true;
                             }
-                    }
-                    }
-                    if (nma.remainingDistance <= 1)
-                    {
-                        //Debug.Log("COMPLETED PROCESS!!");
-                        moving = false;
-                    }
+                            MoveWendigo(wendigo, DestinationX, DestinationZ);
+                            break;
+                        }
+                }
+                }
+                if (nma.remainingDistance <= 1)
+                {
+                    //Debug.Log("COMPLETED PROCESS!!");
+                    moving = false;
                 }
             }
+            
         }
     }
 

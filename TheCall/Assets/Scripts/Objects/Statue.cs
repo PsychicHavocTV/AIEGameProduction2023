@@ -42,7 +42,7 @@ public class Statue : MonoBehaviour
         }
         else
         {
-            Debug.Log("Player Can No Longer Interact");
+            Debug.Log(this.transform.gameObject.name + " Player Can No Longer Interact");
         }
 
         if (m_interaction.Interacted)

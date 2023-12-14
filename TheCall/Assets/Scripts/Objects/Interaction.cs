@@ -23,13 +23,9 @@ public class Interaction : MonoBehaviour
     [SerializeField, Tooltip("The offset from the object the interaction object UI will appear at.")]
     private Vector3 m_offset = Vector3.zero;
 
-    [HideInInspector]
-    public GameObject m_uiInstance = null; // The instance of the prefab.
-
     public bool Interactable
     {
         get => m_interactable;
-        set => m_interactable = value;
     }
     private bool m_interactable = false; // Whether it can be interacted with.
 
@@ -48,6 +44,7 @@ public class Interaction : MonoBehaviour
     private bool m_input = false; // Whether the interaction button has been pressed.
 
     private Vector2 m_interactionObjectSize; // The original size of the prefab.
+    private GameObject m_uiInstance = null; // The instance of the prefab.
 
     private void Start()
     {

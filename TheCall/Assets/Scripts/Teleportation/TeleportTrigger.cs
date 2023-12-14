@@ -4,10 +4,13 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Analytics;
 
 public class TeleportTrigger : MonoBehaviour
 {
     public Teleportation teleportWendigo;
+    public GameObject teleportLocation1;
+    public GameObject teleportLocation2;
     public TeleportTrigger duoTrigger;
     public TeleportTrigger[] teleportTriggers;
     public GameObject activeWendigo;
@@ -20,48 +23,69 @@ public class TeleportTrigger : MonoBehaviour
     public int triggerIndex;
     public int previousIndex;
     private bool changedFromDefault = false;
+    private bool readyToTP = true;
+    private bool isRunning = false;
 
     private void OnTriggerEnter(Collider other)
     {
         
     }
 
+    public IEnumerator WendigoChasingCheck()
+    {
+        isRunning = true;
+        if (GameManager.Instance.wendigoChasing == false)
+        {
+            Debug.Log("Wendigo isn't chasing. Teleporting Wendigo.");
+            TeleportWendigo();
+            isRunning = false;
+            StopCoroutine(WendigoChasingCheck());
+        }
+        else if (GameManager.Instance.wendigoChasing == true)
+        {
+            if (GameManager.Instance.outOfPlayerView == true)
+            if (readyToTP == true)
+                readyToTP = false;
+            Debug.Log("Wendigo is chasing. Waiting to check again.");
+        }
+        yield return new WaitForSeconds(0.01f);
+    }
+
     private void OnTriggerExit(Collider other)
     {
         if (other.tag == "player" || other.tag == "Player")
         {
-            if (triggered == true)
+            if (isRunning == false)
             {
-                triggered = false;
-                if (hasDuo == true)
-                {
-                    duoTrigger.triggered = false;
-                }
+                StartCoroutine(WendigoChasingCheck());
             }
-            else if (triggered == false)
+            if (triggered == false)
             {
                 triggered = true;
-                if (hasDuo == true)
-                {
-                    duoTrigger.triggered = true;
-                }
             }
-            if (changedFromDefault == false)
+            else if (triggered == true)
             {
-                changedFromDefault = true;
-            }
-
-            //triggered = !triggered;
-            if (GameManager.Instance.wendigoChasing == false)
-            {
-                ActivateWendigo();
-                Debug.Log("Wendigo Ready To Teleport.");
-            }
-            else if (GameManager.Instance.wendigoChasing == true && teleportWendigo.hasTeleported == true)
-            {
-                teleportWendigo.hasTeleported = false;
+                triggered = false;
             }
         }
+    }
+
+    public void TeleportWendigo()
+    {
+        readyToTP = true;
+        WendigoStateManager activeController = activeWendigo.GetComponent<WendigoStateManager>();
+        if (triggered == true)
+        {
+            Vector3 tpLocation = new Vector3(teleportLocation2.transform.position.x, teleportLocation2.transform.position.y, teleportLocation2.transform.position.z);
+            teleportWendigo.TeleportToNext(activeController, tpLocation);
+        }
+        else if (triggered == false)
+        {
+            Vector3 tpLocation = new Vector3(teleportLocation1.transform.position.x, teleportLocation1.transform.position.y, teleportLocation1.transform.position.z);
+            teleportWendigo.TeleportToNext(activeController, tpLocation);
+        }
+        readyToTP = false;
+        return;
     }
 
     public void ActivateWendigo()
@@ -69,32 +93,32 @@ public class TeleportTrigger : MonoBehaviour
         
         //if (GameManager.Instance.wendigoChasing == false)
         //{
-            teleportWendigo.TeleportToLocation(activeWendigo.GetComponent<WendigoStateManager>());
-            for (int i = 0; i <= wendigos.Length - 1; i++)
-            {
-                wendigos[i].SetActive(false);
-            }
-
-            if (triggered == false || duoTrigger.triggered == false)
-            {
-                wendigos[previousIndex].SetActive(true);
-                activeWendigo = wendigos[previousIndex];
-                GameManager.Instance.currentWendigo = previousIndex;
-            }
-            else if (triggered == true)
-            {
-                wendigos[triggerIndex].SetActive(true);
-                activeWendigo = wendigos[triggerIndex];
-                GameManager.Instance.currentWendigo = triggerIndex;
-            }
-
-            for (int i = 0; i <= teleportTriggers.Length - 1; i++)
-            {
-                if (teleportTriggers[i].activeWendigo != activeWendigo)
-                {
-                    teleportTriggers[i].activeWendigo = activeWendigo;
-                }
-            }
+            //teleportWendigo.TeleportToLocation(activeWendigo.GetComponent<WendigoStateManager>());
+            //for (int i = 0; i <= wendigos.Length - 1; i++)
+            //{
+            //    wendigos[i].SetActive(false);
+            //}
+            //
+            //if (triggered == false || duoTrigger.triggered == false)
+            //{
+            //    wendigos[previousIndex].SetActive(true);
+            //    activeWendigo = wendigos[previousIndex];
+            //    GameManager.Instance.currentWendigo = previousIndex;
+            //}
+            //else if (triggered == true)
+            //{
+            //    wendigos[triggerIndex].SetActive(true);
+            //    activeWendigo = wendigos[triggerIndex];
+            //    GameManager.Instance.currentWendigo = triggerIndex;
+            //}
+            //
+            //for (int i = 0; i <= teleportTriggers.Length - 1; i++)
+            //{
+            //    if (teleportTriggers[i].activeWendigo != activeWendigo)
+            //    {
+            //        teleportTriggers[i].activeWendigo = activeWendigo;
+            //    }
+            //}
 
             //switch(GameManager.Instance.currentWendigo)
             //{
@@ -176,12 +200,9 @@ public class TeleportTrigger : MonoBehaviour
             {
                 GameManager.Instance.activeWendigo = activeWendigo;
             }
-            if (GameManager.Instance.finishedChasing == true && teleportWendigo.hasTeleported == false && changedFromDefault == true)
+            if (GameManager.Instance.finishedChasing == true && teleportWendigo.hasTeleported == false && readyToTP == true)
             {
-                //if (GameManager.Instance.outOfPlayerView == true)
-                //{
-                    ActivateWendigo();
-                //}
+                
             }
         }
     }

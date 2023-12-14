@@ -9,8 +9,6 @@ public class PlayerController : MonoBehaviour
     [Tooltip("Enable/Disable player input.")]
     public bool canMove = true;
 
-    public bool crowbar = false;
-
     public bool takingPhoto = false;
 
     [SerializeField]
@@ -30,7 +28,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField, Tooltip("How long till the player can take another photo. (In seconds)")]
     private float cameraFlashCooldown = 2.0f;
 
-    public GameObject m_crowbarItemUI;
+    //public float CurrentMovingSpeed
+    //{
+    //    get => m_currentMovingSpeed;
+    //}
+    //private float m_currentMovingSpeed = 0.0f;
 
     private float m_animMovingSpeed = 0.0f;
 
@@ -53,24 +55,12 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (m_crowbarItemUI != null)
-        {
-            if (crowbar == true)
-            {
-                if (m_crowbarItemUI.activeInHierarchy == false)
-                    m_crowbarItemUI.SetActive(true);
-            }
-            else
-            {
-                if (m_crowbarItemUI.activeInHierarchy == true)
-                    m_crowbarItemUI.SetActive(false);
-            }
-        }
-
         if (canMove == true)
+        {
             DoPlayerMovement();
-        CalculateAnimatorParameters();
-        DoGravity();
+            CalculateAnimatorParameters();
+            DoGravity();
+        }
 
         // Rotate player body towards camera direction.
         transform.rotation = Quaternion.Euler(transform.localEulerAngles.x, playerCamera.localEulerAngles.y, transform.localEulerAngles.z);
@@ -113,6 +103,19 @@ public class PlayerController : MonoBehaviour
         m_controller.Move(move.normalized * m_moveSpeed * Time.deltaTime); // Apply player movement.
     }
 
+    private void DoGravity()
+    {
+        if (m_controller.isGrounded) // Is player touching ground.
+        {
+            m_velocity.y = -1.0f; // Push player out of ground.
+        }
+        else
+        {
+            m_velocity.y += Physics.gravity.y * Time.deltaTime; // Gravity.
+        }
+        m_controller.Move(m_velocity * Time.deltaTime); // Apply player velocity.
+    }
+
     const float bobTransitionSpeed = 8.0f;
     float maxAnimSpeed = 1.0f;
     private void CalculateAnimatorParameters()
@@ -139,22 +142,11 @@ public class PlayerController : MonoBehaviour
         }
 
         if (m_animMovingSpeed <= 0.0f)
+        {
             maxAnimSpeed = 1.0f;
+        }
 
         playerCamera.GetComponent<Animator>().SetFloat("BobBlend", m_animMovingSpeed);
-    }
-
-    private void DoGravity()
-    {
-        if (m_controller.isGrounded) // Is player touching ground.
-        {
-            m_velocity.y = -1.0f; // Push player out of ground.
-        }
-        else
-        {
-            m_velocity.y += Physics.gravity.y * Time.deltaTime; // Gravity.
-        }
-        m_controller.Move(m_velocity * Time.deltaTime); // Apply player velocity.
     }
 
     // Input System messages.
@@ -173,12 +165,6 @@ public class PlayerController : MonoBehaviour
         m_photoInput = value.Get<float>() >= 0.5f; // Is photo button pressed.
     }
 
-    private void OnAttack(InputValue value)
-    {
-        if (crowbar && m_crowbarItemUI != null)
-            m_crowbarItemUI.GetComponent<Animator>().SetTrigger("Attack");
-    }
-
     private void OnInteract(InputValue value)
     {
         // Interactables
@@ -191,6 +177,14 @@ public class PlayerController : MonoBehaviour
                 interactable.Interacted = true;
             else
                 interactable.Interacted = false;
+        }
+    }
+
+    private void OnPause(InputValue value)
+    {
+        if (GameManager.Instance.GamePaused == false)
+        {
+            GameManager.Instance.GamePaused = true;
         }
     }
 

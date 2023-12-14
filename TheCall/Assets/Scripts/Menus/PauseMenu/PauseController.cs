@@ -58,6 +58,11 @@ public class PauseController : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.Locked;
         }
+
+        resumeButton.image.color = resumeButton.colors.normalColor;
+        loadCheckpointButton.image.color = loadCheckpointButton.colors.normalColor;
+        quitButton.image.color = quitButton.colors.normalColor;
+
         if (pauseCanvas.activeSelf == true)
         {
             pauseCanvas.SetActive(false);
@@ -72,8 +77,17 @@ public class PauseController : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.Locked;
         }
-        GameManager.Instance.GamePaused = false;
+
+        resumeButton.image.color = resumeButton.colors.normalColor;
+        loadCheckpointButton.image.color = loadCheckpointButton.colors.normalColor;
+        quitButton.image.color = quitButton.colors.normalColor;
+
         GameManager.Instance.LoadCheckpointData(wendigoRef, playerRef);
+        if (pauseCanvas.activeSelf == true)
+        {
+            pauseCanvas.SetActive(false);
+        }
+        GameManager.Instance.GamePaused = false;
     }
 
     void PauseMenu()
@@ -87,6 +101,9 @@ public class PauseController : MonoBehaviour
         {
             pauseCanvas.SetActive(true);
         }
+        resumeButton.image.color = resumeButton.colors.normalColor;
+        loadCheckpointButton.image.color = loadCheckpointButton.colors.normalColor;
+        quitButton.image.color = quitButton.colors.normalColor;
     }
 
     public void OpenConfirmWindow()
