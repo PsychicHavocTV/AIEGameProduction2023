@@ -590,6 +590,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nma: {fileID: 6443310105166568186}
   Wendigo: {fileID: 6443310105166568167}
+  delayTime: 0
   hidingController: {fileID: 0}
   teleportHandler: {fileID: 6874005856793724109}
   pController: {fileID: 0}
@@ -597,6 +598,8 @@ MonoBehaviour:
   playerCamera: {fileID: 0}
   behindPlayerSpawn: {fileID: 0}
   RaycastOrigin: {fileID: 848137066}
+  isRunning: 0
+  isWalking: 0
   teleportTimerRunning: 0
   teleportTimerFinished: 0
   timerRunning: 0
@@ -660,8 +663,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.1939129, y: 1.5781076, z: 1.1558936}
-  m_Center: {x: 0.029655136, y: -1.0982012, z: 0.11933735}
+  m_Size: {x: 1.8806543, y: 1.5781076, z: 2.5912158}
+  m_Center: {x: -0.0038728807, y: -0.74, z: 0.07703403}
 --- !u!54 &793770927
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -674,10 +677,10 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 126
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!114 &504115921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1446,7 +1449,7 @@ BoxCollider:
   m_GameObject: {fileID: 6662489158709417323}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 201.12733, y: 360.88165, z: 178.40784}
   m_Center: {x: 0.00024414062, y: 0, z: -0.00024414062}
@@ -1545,10 +1548,10 @@ BoxCollider:
   m_GameObject: {fileID: 6172840482703020593}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 1.6800394, y: 3.672848, z: 1.2490182}
-  m_Center: {x: 0.12333717, y: 1.3364191, z: 0.052798018}
+  m_Size: {x: 1.6800394, y: 3.672848, z: 1.2193365}
+  m_Center: {x: 0.12333718, y: 1.3364191, z: 0.037957106}
 --- !u!95 &1109037190
 Animator:
   serializedVersion: 4
@@ -1569,6 +1572,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8926237299430180833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6172840482703020593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b080fe27e35789e46bc3b73a252065f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wendigoSpeaker: {fileID: 0}
+  walkSound: {fileID: 8300000, guid: d3bf1cb7785e2664fadcb2dfaa6afbc6, type: 3}
+  runSound: {fileID: 0}
 --- !u!4 &6836892057518885003 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4521202f523af74489ca30e8674da83d, type: 3}
