@@ -32,11 +32,7 @@ public class PlayerController : MonoBehaviour
 
     public GameObject m_crowbarItemUI;
 
-    public float CurrentMovingSpeed
-    {
-        get => m_currentMovingSpeed;
-    }
-    private float m_currentMovingSpeed = 0.0f;
+    private float m_animMovingSpeed = 0.0f;
 
     private CharacterController m_controller; // Character Controller component.
 
@@ -73,6 +69,7 @@ public class PlayerController : MonoBehaviour
 
         if (canMove == true)
             DoPlayerMovement();
+        CalculateAnimatorParameters();
         DoGravity();
 
         // Rotate player body towards camera direction.
@@ -114,7 +111,37 @@ public class PlayerController : MonoBehaviour
             move.y = 0;
         }
         m_controller.Move(move.normalized * m_moveSpeed * Time.deltaTime); // Apply player movement.
-        m_currentMovingSpeed = m_controller.velocity.normalized.magnitude;
+    }
+
+    const float bobTransitionSpeed = 8.0f;
+    float maxAnimSpeed = 1.0f;
+    private void CalculateAnimatorParameters()
+    {
+        float currentSpeed = m_controller.velocity.normalized.magnitude;
+        if (currentSpeed > 0.0f)
+        {
+            if (m_isRunning)
+            {
+                maxAnimSpeed = 2.0f;
+            }
+            else
+            {
+                maxAnimSpeed = 1.0f;
+            }
+
+            m_animMovingSpeed += Time.deltaTime * bobTransitionSpeed;
+            m_animMovingSpeed = Mathf.Clamp(m_animMovingSpeed, 0.0f, maxAnimSpeed);
+        }
+        else if (currentSpeed < 1f)
+        {
+            m_animMovingSpeed -= Time.deltaTime * bobTransitionSpeed;
+            m_animMovingSpeed = Mathf.Clamp(m_animMovingSpeed, 0.0f, maxAnimSpeed);
+        }
+
+        if (m_animMovingSpeed <= 0.0f)
+            maxAnimSpeed = 1.0f;
+
+        playerCamera.GetComponent<Animator>().SetFloat("BobBlend", m_animMovingSpeed);
     }
 
     private void DoGravity()

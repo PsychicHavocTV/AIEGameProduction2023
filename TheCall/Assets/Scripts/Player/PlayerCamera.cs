@@ -48,8 +48,6 @@ public class PlayerCamera : MonoBehaviour
 
             DoPhotoCheck();
         }
-
-        m_cameraAnimator.SetFloat("Speed", playerController.CurrentMovingSpeed);
     }
 
     private void LateUpdate() // Update camera after player movement.
