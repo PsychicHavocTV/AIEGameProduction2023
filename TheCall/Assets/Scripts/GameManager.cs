@@ -58,10 +58,7 @@ public class GameManager
         {
             GameOver = true;
         }
-        if (checkpointIndex == 0)
-        {
-            CheckForSaveFile();
-        }
+        CheckForSaveFile();
         if (checkpointIndex <= 5)
         {
             noCheckpoint = false;

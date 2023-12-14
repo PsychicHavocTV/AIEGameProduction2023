@@ -738,15 +738,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2788401239360610490, guid: 9d1f7af4f5a6864439f3a2bd9611e3fb, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.3400755
+      value: 0.00517576
       objectReference: {fileID: 0}
     - target: {fileID: 2788401239360610490, guid: 9d1f7af4f5a6864439f3a2bd9611e3fb, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.20104484
+      value: 0.003059791
       objectReference: {fileID: 0}
     - target: {fileID: 2788401239360610490, guid: 9d1f7af4f5a6864439f3a2bd9611e3fb, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.7221469
+      value: 0.010990676
       objectReference: {fileID: 0}
     - target: {fileID: 2788401239360610490, guid: 9d1f7af4f5a6864439f3a2bd9611e3fb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -754,7 +754,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2788401239360610490, guid: 9d1f7af4f5a6864439f3a2bd9611e3fb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.0393
+      value: 0.0082928855
       objectReference: {fileID: 0}
     - target: {fileID: 2788401239360610490, guid: 9d1f7af4f5a6864439f3a2bd9611e3fb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -866,7 +866,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2788401239360610491, guid: 9d1f7af4f5a6864439f3a2bd9611e3fb, type: 3}
       propertyPath: InitialModule.startSize.scalar
-      value: 50
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2788401239360610491, guid: 9d1f7af4f5a6864439f3a2bd9611e3fb, type: 3}
       propertyPath: InitialModule.startSpeed.scalar
@@ -906,7 +906,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2788401239360610491, guid: 9d1f7af4f5a6864439f3a2bd9611e3fb, type: 3}
       propertyPath: InitialModule.gravityModifier.scalar
-      value: 0
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 2788401239360610491, guid: 9d1f7af4f5a6864439f3a2bd9611e3fb, type: 3}
       propertyPath: InitialModule.startSpeed.minMaxState

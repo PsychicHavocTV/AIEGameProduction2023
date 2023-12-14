@@ -30,7 +30,19 @@ public class GameOverMenuController : MonoBehaviour
     public Statue statue;
     public bool confirmationWindowShowing = false;
     public bool gameOverShowing = false;
-    int currentIndex = 0;
+    public int currentIndex = 0;
+
+    public Button GetLoadButton(Button button)
+    {
+        button = loadButton;
+        return button;
+    }
+
+    public GameObject GetConfirmWindow(GameObject confirmWindow)
+    {
+        confirmWindow = confirmationWindow;
+        return confirmWindow;
+    }
 
     // Update is called once per frame
     void Update()
@@ -104,12 +116,12 @@ public class GameOverMenuController : MonoBehaviour
 
     private void OnNavigateUP(InputValue value)
     {
+        if(Cursor.lockState != CursorLockMode.Locked)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
         if (GameManager.Instance.GameOver == true)
         {
-            if(Cursor.lockState != CursorLockMode.Locked)
-            {
-                Cursor.lockState = CursorLockMode.Locked;
-            }
             if (confirmationWindowShowing == false)
             {
                 if (GameManager.Instance.noCheckpoint == false)
@@ -132,12 +144,12 @@ public class GameOverMenuController : MonoBehaviour
 
     private void OnNavigateDOWN(InputValue value)
     {
+        if (Cursor.lockState != CursorLockMode.Locked)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
         if (GameManager.Instance.GameOver == true)
         {
-            if (Cursor.lockState != CursorLockMode.Locked)
-            {
-                Cursor.lockState = CursorLockMode.Locked;
-            }
             if (confirmationWindowShowing == false)
             {
                 if (GameManager.Instance.noCheckpoint == false)
@@ -215,12 +227,12 @@ public class GameOverMenuController : MonoBehaviour
 
     private void OnConfirm(InputValue value)
     {
+        if (Cursor.lockState != CursorLockMode.Locked)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
         if (GameManager.Instance.GameOver == true)
         {
-            if (Cursor.lockState != CursorLockMode.Locked)
-            {
-                Cursor.lockState = CursorLockMode.Locked;
-            }
             if (confirmationWindowShowing == false)
             {
                 switch (currentIndex)
@@ -266,6 +278,7 @@ public class GameOverMenuController : MonoBehaviour
                     {
                         currentIndex = 1;
                         confirmationWindow.SetActive(false);
+
                         confirmationWindowShowing = false;
                     }
                 }
@@ -288,17 +301,17 @@ public class GameOverMenuController : MonoBehaviour
 
     private void OnNavigateMouse(InputValue value)
     {
+        if (Cursor.lockState != CursorLockMode.None)
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
         if (GameManager.Instance.GameOver == true)
         {
-            if (Cursor.lockState != CursorLockMode.None)
+            if (GameManager.Instance.noCheckpoint == false)
             {
-                Cursor.lockState = CursorLockMode.None;
-                if (GameManager.Instance.noCheckpoint == false)
-                {
-                    loadButton.image.color = loadButton.colors.normalColor;
-                }
-                exitButton.image.color = exitButton.colors.normalColor;
+                loadButton.image.color = loadButton.colors.normalColor;
             }
+            exitButton.image.color = exitButton.colors.normalColor;
         }
     }
 

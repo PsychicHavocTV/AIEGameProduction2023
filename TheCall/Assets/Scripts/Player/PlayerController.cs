@@ -28,11 +28,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField, Tooltip("How long till the player can take another photo. (In seconds)")]
     private float cameraFlashCooldown = 2.0f;
 
-    public float CurrentMovingSpeed
-    {
-        get => m_currentMovingSpeed;
-    }
-    private float m_currentMovingSpeed = 0.0f;
+    //public float CurrentMovingSpeed
+    //{
+    //    get => m_currentMovingSpeed;
+    //}
+    //private float m_currentMovingSpeed = 0.0f;
+
+    private float m_animMovingSpeed = 0.0f;
 
     private CharacterController m_controller; // Character Controller component.
 
@@ -56,6 +58,7 @@ public class PlayerController : MonoBehaviour
         if (canMove == true)
         {
             DoPlayerMovement();
+            CalculateAnimatorParameters();
             DoGravity();
         }
 
@@ -97,7 +100,6 @@ public class PlayerController : MonoBehaviour
             move = m_input.x * playerCamera.right + m_input.y * playerCamera.forward; // Get movement direction relative to camera direction.
             move.y = 0;
         }
-        m_currentMovingSpeed = (move.normalized * m_moveSpeed).magnitude;
         m_controller.Move(move.normalized * m_moveSpeed * Time.deltaTime); // Apply player movement.
     }
 
@@ -112,6 +114,39 @@ public class PlayerController : MonoBehaviour
             m_velocity.y += Physics.gravity.y * Time.deltaTime; // Gravity.
         }
         m_controller.Move(m_velocity * Time.deltaTime); // Apply player velocity.
+    }
+
+    const float bobTransitionSpeed = 8.0f;
+    float maxAnimSpeed = 1.0f;
+    private void CalculateAnimatorParameters()
+    {
+        float currentSpeed = m_controller.velocity.normalized.magnitude;
+        if (currentSpeed > 0.0f)
+        {
+            if (m_isRunning)
+            {
+                maxAnimSpeed = 2.0f;
+            }
+            else
+            {
+                maxAnimSpeed = 1.0f;
+            }
+
+            m_animMovingSpeed += Time.deltaTime * bobTransitionSpeed;
+            m_animMovingSpeed = Mathf.Clamp(m_animMovingSpeed, 0.0f, maxAnimSpeed);
+        }
+        else if (currentSpeed < 1f)
+        {
+            m_animMovingSpeed -= Time.deltaTime * bobTransitionSpeed;
+            m_animMovingSpeed = Mathf.Clamp(m_animMovingSpeed, 0.0f, maxAnimSpeed);
+        }
+
+        if (m_animMovingSpeed <= 0.0f)
+        {
+            maxAnimSpeed = 1.0f;
+        }
+
+        playerCamera.GetComponent<Animator>().SetFloat("BobBlend", m_animMovingSpeed);
     }
 
     // Input System messages.
@@ -142,6 +177,14 @@ public class PlayerController : MonoBehaviour
                 interactable.Interacted = true;
             else
                 interactable.Interacted = false;
+        }
+    }
+
+    private void OnPause(InputValue value)
+    {
+        if (GameManager.Instance.GamePaused == false)
+        {
+            GameManager.Instance.GamePaused = true;
         }
     }
 

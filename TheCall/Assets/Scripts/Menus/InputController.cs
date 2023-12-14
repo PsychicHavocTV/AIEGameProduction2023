@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class InputController : MonoBehaviour
 {
@@ -55,13 +56,13 @@ public class InputController : MonoBehaviour
 
     private void OnNavigateUP(InputValue value)
     {
+        if (Cursor.lockState != CursorLockMode.Locked)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
         if (GameManager.Instance.GamePaused == true)
         {
             //pauseHandler.resetColor = false;
-            if (Cursor.lockState != CursorLockMode.Locked)
-            {
-                Cursor.lockState = CursorLockMode.Locked;
-            }
             if (pauseHandler.confirmationWindowShowing == false)
             {
                 if (pauseHandler.currentIndex > 0)
@@ -78,7 +79,7 @@ public class InputController : MonoBehaviour
                         case 1:
                             {
                                 pauseHandler.loadCheckpointButton.image.color = pauseHandler.loadCheckpointButton.colors.normalColor;
-                                pauseHandler.resumeButton.image.color = pauseHandler.resumeButton.colors.normalColor;
+                                pauseHandler.resumeButton.image.color = pauseHandler.resumeButton.colors.highlightedColor;
                                 pauseHandler.currentIndex--;
                                 break;
                             }
@@ -90,13 +91,13 @@ public class InputController : MonoBehaviour
 
     private void OnNavigateDOWN(InputValue value)
     {
+        if (Cursor.lockState != CursorLockMode.Locked)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
         if (GameManager.Instance.GamePaused == true)
         {
             pauseHandler.resetColor = false;
-            if (Cursor.lockState != CursorLockMode.Locked)
-            {
-                Cursor.lockState = CursorLockMode.Locked;
-            }
             if (pauseHandler.confirmationWindowShowing == false)
             {
                 if (pauseHandler.currentIndex < 2)
@@ -126,13 +127,13 @@ public class InputController : MonoBehaviour
 
     private void OnConfirm(InputValue value)
     {
+        if (Cursor.lockState != CursorLockMode.Locked)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
         //pauseHandler.resetColor = false;
         if (GameManager.Instance.GamePaused == true)
         {
-            if (Cursor.lockState != CursorLockMode.Locked)
-            {
-                Cursor.lockState = CursorLockMode.Locked;
-            }
             if (pauseHandler.confirmationWindowShowing == false)
             {
                 switch (pauseHandler.currentIndex)
@@ -145,6 +146,64 @@ public class InputController : MonoBehaviour
                     case 1:
                         {
                             pauseHandler.LoadData();
+                            break;
+                        }
+                    case 2:
+                        {
+                            pauseHandler.QuitGame();
+                            break;
+                        }
+                }
+            }
+        }
+        else if (GameManager.Instance.GameOver == true)
+        {
+            if (Cursor.lockState != CursorLockMode.Locked)
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+            }
+            Button loadButton = null;
+            GameObject confirmWindow = null;
+            loadButton = gameOverHandler.GetLoadButton(loadButton);
+            confirmWindow = gameOverHandler.GetConfirmWindow(confirmWindow);
+            if (gameOverHandler.confirmationWindowShowing == false)
+            {
+                switch (gameOverHandler.currentIndex)
+                {
+                    case 0:
+                        {
+                            
+                            if (loadButton.enabled == true)
+                            {
+                                gameOverHandler.LoadData();
+                            }
+                            else if (loadButton.enabled == false)
+                            {
+                                gameOverHandler.QuitGame();
+                            }
+                            break;
+                        }
+                    case 1:
+                        {
+                            if (loadButton.enabled == true)
+                            {
+                                gameOverHandler.QuitGame();
+                            }
+                            else if (loadButton.enabled == false)
+                            {
+                                gameOverHandler.currentIndex = 0;
+                            }
+                            break;
+                        }
+                }
+            }
+            else if (gameOverHandler.confirmationWindowShowing == true)
+            {
+                switch (gameOverHandler.currentIndex)
+                {
+                    case 0:
+                        {
+                            
                             break;
                         }
                 }
@@ -194,12 +253,12 @@ public class InputController : MonoBehaviour
 
     private void OnNavigateMouse(InputValue value)
     {
+        if (Cursor.lockState != CursorLockMode.None)
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
         if (GameManager.Instance.GamePaused == true)
         {
-            if (Cursor.lockState != CursorLockMode.None)
-            {
-                Cursor.lockState = CursorLockMode.None;
-            }
             pauseHandler.resumeButton.image.color = pauseHandler.resumeButton.colors.normalColor;
             pauseHandler.loadCheckpointButton.image.color = pauseHandler.loadCheckpointButton.colors.normalColor;
             pauseHandler.quitButton.image.color = pauseHandler.quitButton.colors.normalColor;
