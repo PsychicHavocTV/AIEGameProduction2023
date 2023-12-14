@@ -1,86 +1,82 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
+[RequireComponent(typeof(Interaction))]
 public class HidingSpot : MonoBehaviour
 {
+    public GameObject player;
     public GameObject spot;
     public GameObject hiddenTeleport;
-    public GameObject outsideTeleport;
-    public GameObject player;
     public Collider spotCollider;
+    public AudioClip hidingInteractSound;
+    public AudioSource hidingSpeaker;
+    public AudioListener playerEars;
     public int hidingSpotIndex = 0;
     public bool spotOccupied = false;
 
     private HideController hidingController;
-    private GameObject playerWrapperRef;
 
-    public AudioListener playerEars;
-    public AudioSource hidingSpeaker;
-    public AudioClip hidingInteractSound;
+    private Interaction m_interaction;
 
-    bool soundPlayed = false;
-
-    public void PlayInteractSound()
+    private void Start()
     {
-        if (hidingSpeaker.isPlaying == false)
-        {
-            hidingSpeaker.clip = hidingInteractSound;
-            hidingSpeaker.Play();
-        }
-        return;
+        m_interaction = transform.GetComponent<Interaction>();
+        hidingController = player.GetComponentInChildren<HideController>();
     }
 
-    // Start is called before the first frame update
-    void Start()
+    private void Update()
     {
-        playerWrapperRef = GameObject.Find("Player Wrapper");
-        hidingController = playerWrapperRef.GetComponentInChildren<HideController>();
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "Player" || other.tag == "player")
+        if (m_interaction.Interactable)
         {
-            PlayerController pc = player.GetComponent<PlayerController>();
-            pc.hsInteraction = this;
             Debug.Log("player in range");
             hidingController.currentSpotIndex = hidingSpotIndex;
-            hidingController.canHide = true;
-            GameManager.Instance.atHidingSpot = true;
+            if (hidingController.isHiding == true || hidingController.isHidden == true)
+                hidingController.canHide = false;
+            else
+                hidingController.canHide = true;
         }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.tag == "Player" || other.tag == "player")
+        else
         {
             Debug.Log("player no longer in range");
             hidingController.canHide = false;
-            GameManager.Instance.atHidingSpot = false;
+        }
+
+        if (m_interaction.Interacted && hidingController.canHide == true)
+        {
+            if (hidingController.isHiding == false && hidingController.isHidden == false && hidingController.exitingHiding == false)
+            {
+                PlayInteractSound();
+                hidingController.isHiding = true;
+                hidingController.EnterHidingSpot(hidingController.hidingSpots[hidingController.currentSpotIndex]);
+                hidingController.hidingSpots[hidingController.currentSpotIndex].spotOccupied = true;
+                hidingController.isHiding = false;
+                hidingController.isHidden = true;
+                Debug.Log("Player is hiding.");
+                return;
+            }
+        }  
+        if (m_interaction.Interacted && hidingController.canHide == false)
+        {
+            if (hidingController.isHidden == true || hidingController.isHiding == true)
+            {
+                PlayInteractSound();
+                hidingController.exitingHiding = true;
+                hidingController.ExitHidingSpot(hidingController.hidingSpots[hidingController.currentSpotIndex]);
+                hidingController.hidingSpots[hidingController.currentSpotIndex].spotOccupied = false;
+                hidingController.isHidden = false;
+                hidingController.isHiding = false;
+                hidingController.exitingHiding = false;
+                //hidingController.hidingSpots[hidingController.currentSpotIndex].hidingSpotIndex = 99;
+                Debug.Log("Player is no longer hiding.");
+                return;
+            }
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void PlayInteractSound()
     {
-        //if (hidingController.isHiding == true || hidingController.exitingHiding || hidingController.isHidden == true)
-        //{
-        //    if (soundPlayed == false)
-        //    {
-        //        soundPlayed = true;
-        //        PlayInteractSound();
-        //    }
-        //}
-        //else if (hidingController.isHiding == false)
-        //{
-        //    if (soundPlayed == true)
-        //    {
-        //        soundPlayed = false;
-        //    }
-        //    if (hidingSpeaker.isPlaying == false)
-        //    {
-        //    }
-        //}
+        hidingSpeaker.clip = hidingInteractSound;
+        hidingSpeaker.Play();
     }
 }

@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Rendering.HighDefinition;
 using UnityEngine.UIElements;
+using UnityEngine.Animations;
+using System.Runtime.InteropServices.WindowsRuntime;
 
 public class WendigoStateManager : MonoBehaviour
 {
@@ -35,8 +37,18 @@ public class WendigoStateManager : MonoBehaviour
     public bool teleportAway = false; // If the Wendigo is ready to teleport away.
     public float roamSpeed = 4.5f;
 
+    // Animation Parameters & Controllers
+    public Animator stateAnimator;
+    public string idleParam = "NULL";
+    public string walkingParam = "NULL";
+    public string chaseParam = "NULL";
+    public string killParam = "NULL";
+    public string howlParam = "NULL";
+
+
     private void Start()
     {
+        nma.enabled = true;
         // Setup
         {
             // Set NavMeshAgent references
@@ -56,8 +68,9 @@ public class WendigoStateManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (GameManager.Instance.GameOver == false && GameManager.Instance.GamePaused == false)
+        if (GameManager.Instance.GameOver == false)
         {
+            CheckPLAYERView();
             currentState.UpdateState(this); // Update behaviour for the current state each frame.
         }
         else
@@ -69,7 +82,15 @@ public class WendigoStateManager : MonoBehaviour
     {
         if (GameManager.Instance.GameOver == false)
         {
+            if (teleportHandler.hasTeleported == true)
+            {
+                teleportHandler.hasTeleported = false;
+            }
+            GameManager.Instance.finishedChasing = false;
+            GameManager.Instance.wendigoRoaming = false;
+            GameManager.Instance.wendigoChasing = true;
             currentState = chaseState; // Update currentState to chaseState.
+            
             currentState.EnterState(this); // Start behaviour for the current state.
         }
     }
@@ -78,11 +99,14 @@ public class WendigoStateManager : MonoBehaviour
     {
         if (GameManager.Instance.GameOver == false)
         {
+            GameManager.Instance.finishedChasing = true;
             if (GameManager.Instance.wendigoChasing == true)
             {
                 GameManager.Instance.wendigoChasing = false;
             }
             currentState = roamingState; // Update currentState to roamingState.
+            stateAnimator.ResetTrigger(chaseParam);
+            stateAnimator.SetTrigger(walkingParam);
             currentState.EnterState(this); // Start behaviour for the current state.
         }
     }
@@ -147,44 +171,86 @@ public class WendigoStateManager : MonoBehaviour
 
     public IEnumerator ChaseTimer() // Timer to check whether the player has gotten far enough away from the Wendigo CHASING them for it to go back to ROAMING.
     {
-        if (GameManager.Instance.GameOver == false)
+        if (GameManager.Instance.GameOver == false && GameManager.Instance.GamePaused == false)
         {
             timerRunning = true; // Set 'timerRunning' to true.
             timerFinished = false; // Set 'timerFinished' to false.
-            yield return new WaitForSeconds(5f); // Wait for five(5) seconds.
+            if (hidingController.isHidden == true) // If the player is not within the Wendigo's view
+            {
+                timerFinished = true; // Set 'timerFinished' to true.
+                timerRunning = false; // Set 'timerRunning' to false.
+                StartRoaming(); // Start ROAMING.
+                StopCoroutine(ChaseTimer());
+            }
+            yield return new WaitForSecondsRealtime(3f); // Wait for three(3) seconds.
             CheckView();
+            //Vector3 rayDirection = playerRef.transform.position - transform.position;
+            if (inView == false)
+            {
+                StartRoaming();
+                //StopCoroutine(ChaseTimer());
+            }
+            if (inView == true && hidingController.isHidden == false)
+            {
+                GameManager.Instance.finishedChasing = false;
+            }
             timerFinished = true; // Set 'timerFinished' to true.
             timerRunning = false; // Set 'timerRunning' to false.
-            //Vector3 rayDirection = playerRef.transform.position - transform.position;
-            if (inView == false || hidingController.isHidden == true) // If the player is not within the Wendigo's view
-            {
-                StartRoaming(); // Start ROAMING.
-            }
             StopCoroutine(ChaseTimer());
         }
     }
 
     public void CheckView() // Function to check if the player is currently within the Wendigo's view.
     {
-        if (GameManager.Instance.GameOver == false)
+        if (GameManager.Instance.GameOver == false && GameManager.Instance.GamePaused == false)
         {
             RaycastHit hit;
 
             Vector3 rayDirection = playerRef.transform.position - transform.position; // Calculate the direction the player is in.
-            if ((Vector3.Angle(rayDirection, transform.forward)) < 45)
+            if ((Vector3.Angle(rayDirection, transform.forward)) < 50)
             {
-                if ((Vector3.Angle(rayDirection, transform.forward)) < 45) // Is player within field of view
+                if ((Vector3.Angle(rayDirection, transform.forward)) < 50) // Is player within field of view
                 {
                     if (Physics.Raycast(transform.position, rayDirection, out hit, 90)) // If the player is close enough to the wendigo
                     {
                         if (hit.collider.gameObject.tag == "Player")
                         {
                             inView = true; // Set 'inView' to true.
+                            return;
+                        }
+                        else
+                        {
+                            inView = false;
+                            return;
+                        }
+                    }
+                }
+            }
+            return;
+        }
+    }
+
+    public void CheckPLAYERView()
+    {
+        if (GameManager.Instance.GameOver == false && GameManager.Instance.GamePaused == false)
+        {
+            RaycastHit hit;
+
+            Vector3 rayDirection = transform.position - playerRef.transform.position; // Calculate the direction the player is in.
+            if ((Vector3.Angle(rayDirection, playerCamera.transform.forward)) < 20)
+            {
+                if ((Vector3.Angle(rayDirection, playerCamera.transform.forward)) < 20) // Is player within field of view
+                {
+                    if (Physics.Raycast(playerRef.transform.position, rayDirection, out hit, 30)) // If the player is close enough to the wendigo
+                    {
+                        if (hit.collider.gameObject.tag == "Wendigo" || hit.collider.gameObject.tag == "wendigo")
+                        {
+                            GameManager.Instance.outOfPlayerView = false;
                         }
                     }
                     else // Otherwise
                     {
-                        inView = false; // Set 'inView' to false.
+                        GameManager.Instance.outOfPlayerView = true;
                     }
 
                 }
@@ -196,7 +262,7 @@ public class WendigoStateManager : MonoBehaviour
     // Game Over Checking.
     private void OnTriggerEnter(Collider other)
     {
-        if (GameManager.Instance.GameOver == false)
+        if (GameManager.Instance.GameOver == false && GameManager.Instance.GamePaused == false)
         {
             if (currentState == roamingState || currentState == chaseState) // If the Wendigo is currently ROAMING or CHASING
             {

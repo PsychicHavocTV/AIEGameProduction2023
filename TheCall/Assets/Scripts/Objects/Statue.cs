@@ -1,11 +1,10 @@
 using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
+[RequireComponent(typeof(Interaction))]
 public class Statue : MonoBehaviour
 {
-    public StatueInteract interaction;
-    public bool canInteract = true;
     [SerializeField]
     private int statueIndex = 0;
     [SerializeField]
@@ -13,33 +12,53 @@ public class Statue : MonoBehaviour
     [SerializeField]
     private GameObject wendigo;
     [SerializeField]
+    private GameObject[] wendigoCreatures;
+    [SerializeField]
     private CharacterController playerCharacterController;
+    [SerializeField]
+    private StatueInteract sI;
 
+    [Header("UI References")]
+    [SerializeField]
+    private TextMeshProUGUI m_gameSavedText;
 
-    private void OnTriggerEnter(Collider other)
+    private Interaction m_interaction;
+
+    private void Start()
     {
-        if (other.tag == "Player")
-        {
-            PlayerController pc = playerParentRef.GetComponent<PlayerController>();
-            pc.statueInteractions = interaction;
-            Debug.Log("Player Can Now Interact.");
-            if (GameManager.Instance.atStatue == false)
-            {
-                GameManager.Instance.atStatue = true;
-            }
-        }
+        m_interaction = GetComponent<Interaction>();
     }
 
-    private void OnTriggerExit(Collider other)
+    private void Update()
     {
-        if (other.tag == "Player")
+        if (wendigo != GameManager.Instance.activeWendigo && GameManager.Instance.activeWendigo != null)
         {
-            PlayerController pc = playerParentRef.GetComponent<PlayerController>();
-            pc.statueInteractions = null;
-            Debug.Log("Player Can No Longer Interact");
-            if (GameManager.Instance.atStatue == true)
+            wendigo = GameManager.Instance.activeWendigo;
+        }
+
+        if (m_interaction.Interactable)
+        {
+            Debug.Log("Player Can Now Interact.");
+        }
+        else
+        {
+            Debug.Log(this.transform.gameObject.name + " Player Can No Longer Interact");
+        }
+
+        if (m_interaction.Interacted)
+        {
+            SaveCheckpoint();
+            sI.PlayInteractSound();
+
+            if (GameManager.Instance.showSaveText == true)
             {
-                GameManager.Instance.atStatue = false;
+                GameManager.Instance.showSaveText = false;
+                StopCoroutine(ShowGameSaveText());
+                if (m_gameSavedText.enabled == false)
+                {
+                    StartCoroutine(ShowGameSaveText());
+                    GameManager.Instance.showSaveText = false;
+                }
             }
         }
     }
@@ -47,7 +66,10 @@ public class Statue : MonoBehaviour
     public void SaveCheckpoint()
     {
         Debug.Log("***SAVING GAME DATA***");
-        GameManager.Instance.wendigo = wendigo;
+        for (int i = 0; i <= wendigoCreatures.Length - 1; i++)
+        {
+            GameManager.Instance.wendigoCreatures[i] = wendigoCreatures[i];
+        }
         GameManager.Instance.player = playerParentRef;
         GameManager.Instance.UpdateCheckpoint(statueIndex);
         GameManager.Instance.SaveCheckpointData(wendigo, playerParentRef);
@@ -60,20 +82,13 @@ public class Statue : MonoBehaviour
         GameManager.Instance.showSaveText = true;
     }
 
-
-
-
-    // Start is called before the first frame update
-    void Start()
+    public IEnumerator ShowGameSaveText()
     {
-    }
-
-    void Update()
-    {
-        if (GameManager.Instance.interactWithStatue == true)
-        {
-            GameManager.Instance.interactWithStatue = false;
-            SaveCheckpoint();
-        }
+        GameManager.Instance.showSaveText = false;
+        m_gameSavedText.enabled = true;
+        m_gameSavedText.alpha = 255;
+        yield return new WaitForSeconds(1.5f);
+        m_gameSavedText.enabled = false;
+        StopCoroutine(ShowGameSaveText());
     }
 }
