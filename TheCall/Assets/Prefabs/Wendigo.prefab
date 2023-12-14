@@ -1525,6 +1525,18 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Wendigo
       objectReference: {fileID: 0}
+    - target: {fileID: 5834983011569060660, guid: 4521202f523af74489ca30e8674da83d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b046f1a41a972b0418d6ffb5d8259cdd, type: 2}
+    - target: {fileID: 5834983011569060660, guid: 4521202f523af74489ca30e8674da83d, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 221878e43d12d6145a1d3efd7307108c, type: 2}
+    - target: {fileID: 5834983011569060660, guid: 4521202f523af74489ca30e8674da83d, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3c36d2ef96833124faa5ae3730989d7d, type: 2}
     - target: {fileID: 6703499652288802586, guid: 4521202f523af74489ca30e8674da83d, type: 3}
       propertyPath: m_TagString
       value: Wendigo
@@ -1569,6 +1581,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8926237299430180833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6172840482703020593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b080fe27e35789e46bc3b73a252065f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSpeaker: {fileID: 0}
 --- !u!4 &6836892057518885003 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4521202f523af74489ca30e8674da83d, type: 3}

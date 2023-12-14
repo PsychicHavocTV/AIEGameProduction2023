@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations;
+using UnityEngine.Rendering;
 
 public class EventController : MonoBehaviour
 {
@@ -10,9 +11,12 @@ public class EventController : MonoBehaviour
     private bool animPlaying = false;
     private bool particlePlaying = false;
     public bool animFinished = false;
+    public bool hasSound = false;
     public Animator targetAnimator;
     public AnimationClip animClip;
     public Collider eventCollider;
+    public AudioClip eventSound;
+    public AudioSource eventSpeaker;
 
     public void OnTriggerEnter(Collider other)
     {
@@ -20,6 +24,14 @@ public class EventController : MonoBehaviour
         {
             if (animPlaying == false)
             {
+                if (hasSound == true)
+                {
+                    eventSpeaker.clip = eventSound;
+                    if (eventSpeaker.isPlaying == false)
+                    {
+                        eventSpeaker.Play();
+                    }
+                }
                 ExecuteEvent();
             }
         }
@@ -30,6 +42,7 @@ public class EventController : MonoBehaviour
     {
         animPlaying = true;
         targetAnimator.SetTrigger(parameterName);
+        
         StartCoroutine(WaitForClip());
     }
 

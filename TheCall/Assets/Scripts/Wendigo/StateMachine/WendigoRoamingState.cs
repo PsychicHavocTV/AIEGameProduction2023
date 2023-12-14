@@ -80,7 +80,7 @@ public class WendigoRoamingState : BaseState
                 {
                     if ((Vector3.Angle(rayDirection, wendigo.transform.forward)) < 65) // Is player within field of view
                     {
-                        if (Physics.Raycast(wendigo.transform.position, rayDirection, out hit, 130))
+                        if (Physics.Raycast(wendigo.transform.position, rayDirection, out hit, 98))
                         {
                             if (hit.collider.gameObject.tag == "Player")
                             {

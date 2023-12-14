@@ -168,28 +168,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24f077503be6ae942a1e1245dbd53ea9, type: 3}
   m_Name: Bloom
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   quality:
     m_OverrideState: 1
     m_Value: 0
   threshold:
-    m_OverrideState: 1
-    m_Value: 98.23
+    m_OverrideState: 0
+    m_Value: 123.53
   intensity:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 0.499
   scatter:
-    m_OverrideState: 0
-    m_Value: 0.7
+    m_OverrideState: 1
+    m_Value: 0.361
   tint:
     m_OverrideState: 1
-    m_Value: {r: 0.8867924, g: 0.83022034, b: 0.5981666, a: 1}
+    m_Value: {r: 0.78431374, g: 0.74869764, b: 0.38039216, a: 1}
   dirtTexture:
     m_OverrideState: 0
     m_Value: {fileID: 0}
   dirtIntensity:
     m_OverrideState: 0
-    m_Value: 0
+    m_Value: 4
   anamorphic:
     m_OverrideState: 0
     m_Value: 1
@@ -250,7 +250,7 @@ MonoBehaviour:
     m_Value: 500
   meanFreePath:
     m_OverrideState: 1
-    m_Value: 30
+    m_Value: 20
   enableVolumetricFog:
     m_OverrideState: 1
     m_Value: 1
@@ -290,40 +290,6 @@ MonoBehaviour:
   directionalLightsOnly:
     m_OverrideState: 0
     m_Value: 0
---- !u!114 &-2875606438128487534
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b24b200358312b4fa1004e2431c2f1f, type: 3}
-  m_Name: ShadowsMidtonesHighlights
-  m_EditorClassIdentifier: 
-  active: 0
-  shadows:
-    m_OverrideState: 1
-    m_Value: {x: 1, y: 1, z: 1, w: 0.21694915}
-  midtones:
-    m_OverrideState: 0
-    m_Value: {x: 1, y: 0.88156056, z: 0.4531185, w: 0.00000001091068}
-  highlights:
-    m_OverrideState: 0
-    m_Value: {x: 1, y: 0.9082254, z: 0.8491437, w: -0.08813559}
-  shadowsStart:
-    m_OverrideState: 0
-    m_Value: 0
-  shadowsEnd:
-    m_OverrideState: 0
-    m_Value: 0.3
-  highlightsStart:
-    m_OverrideState: 0
-    m_Value: 0.55
-  highlightsEnd:
-    m_OverrideState: 0
-    m_Value: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -345,7 +311,6 @@ MonoBehaviour:
   - {fileID: -6950081540325040395}
   - {fileID: -8699174500667337877}
   - {fileID: 1836055778303195619}
-  - {fileID: -2875606438128487534}
   - {fileID: 8134512315999078721}
 --- !u!114 &1142777632297148762
 MonoBehaviour:
@@ -374,7 +339,7 @@ MonoBehaviour:
     m_Value: 0
   windSpeed:
     m_OverrideState: 0
-    m_Value: 100
+    m_Value: 15
   fogType:
     m_OverrideState: 1
     m_Value: 0
@@ -396,10 +361,10 @@ MonoBehaviour:
     m_Value: 1
   intensity:
     m_OverrideState: 1
-    m_Value: 0.836
+    m_Value: 1
   response:
     m_OverrideState: 0
-    m_Value: 0.8
+    m_Value: 1
   texture:
     m_OverrideState: 0
     m_Value: {fileID: 0}
@@ -689,8 +654,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 1
   postExposure:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 0.63
   contrast:
     m_OverrideState: 0
     m_Value: 0
@@ -701,5 +666,5 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 0
   saturation:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 7.9

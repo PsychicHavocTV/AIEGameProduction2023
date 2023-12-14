@@ -57,7 +57,9 @@ public class TeleportTrigger : MonoBehaviour
         {
             if (isRunning == false)
             {
-                StartCoroutine(WendigoChasingCheck());
+                readyToTP = true;
+                TeleportWendigo();
+                //StartCoroutine(WendigoChasingCheck());
             }
             if (triggered == false)
             {
