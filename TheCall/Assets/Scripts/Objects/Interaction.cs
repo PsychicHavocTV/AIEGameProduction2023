@@ -23,6 +23,9 @@ public class Interaction : MonoBehaviour
     [SerializeField, Tooltip("The offset from the object the interaction object UI will appear at.")]
     private Vector3 m_offset = Vector3.zero;
 
+    [HideInInspector]
+    public GameObject uiInstance = null; // The instance of the prefab.
+
     public bool Interactable
     {
         get => m_interactable;
@@ -44,7 +47,6 @@ public class Interaction : MonoBehaviour
     private bool m_input = false; // Whether the interaction button has been pressed.
 
     private Vector2 m_interactionObjectSize; // The original size of the prefab.
-    private GameObject m_uiInstance = null; // The instance of the prefab.
 
     private void Start()
     {
@@ -66,28 +68,28 @@ public class Interaction : MonoBehaviour
         m_interactable = canUse;
 
         // Handle UI.
-        if (canUse && m_uiInstance == null) // Instantiate UI element when the condition is met.
+        if (canUse && uiInstance == null) // Instantiate UI element when the condition is met.
         {
-            m_uiInstance = Instantiate(m_interactionPrefab, m_interactionsParent.transform);
+            uiInstance = Instantiate(m_interactionPrefab, m_interactionsParent.transform);
         }
-        if (!canUse && m_uiInstance != null) // Destroy UI element when the condition isn't met.
+        if (!canUse && uiInstance != null) // Destroy UI element when the condition isn't met.
         {
-            Destroy(m_uiInstance);
+            Destroy(uiInstance);
         }
 
-        if (m_uiInstance != null)
+        if (uiInstance != null)
         {
             // Adjust position by world position.
             Vector3 rootPos = transform.position + m_offset;
             Vector3 uiPos = cam.WorldToScreenPoint(rootPos);
             Vector3 newPos = new Vector3(uiPos.x, uiPos.y, 0.0f);
-            m_uiInstance.transform.position = Vector3.Lerp(m_uiInstance.transform.position, newPos, Time.deltaTime * 64.0f);
+            uiInstance.transform.position = Vector3.Lerp(uiInstance.transform.position, newPos, Time.deltaTime * 64.0f);
 
             // Adjust size to distance.
             Vector2 uiSize = new Vector2(m_interactionObjectSize.x * uiPos.z, m_interactionObjectSize.y * uiPos.z);
             uiSize.x = Mathf.Clamp(uiSize.x, 0.0f, m_interactionObjectSize.x);
             uiSize.y = Mathf.Clamp(uiSize.y, 0.0f, m_interactionObjectSize.y);
-            m_uiInstance.transform.localScale = uiSize;
+            uiInstance.transform.localScale = uiSize;
         }
     }
 

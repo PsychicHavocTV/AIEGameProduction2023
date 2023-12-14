@@ -18,8 +18,8 @@ public class ItemPickup : MonoBehaviour
         if (m_interaction.Interacted)
         {
             m_playerController.crowbar = true;
-            if (m_interaction.m_uiInstance != null)
-                Destroy(m_interaction.m_uiInstance);
+            if (m_interaction.uiInstance != null)
+                Destroy(m_interaction.uiInstance);
             Destroy(gameObject);
         }
     }
