@@ -91,7 +91,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9179019095834562255}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5db4301302deb90499453dcf323b9ce2, type: 3}
   m_Name: 
@@ -101,8 +101,8 @@ MonoBehaviour:
   resumeButton: {fileID: 9179019097055888737}
   loadCheckpointButton: {fileID: 2588134120240648673}
   quitButton: {fileID: 2588134121909549967}
-  confirmationQuit: {fileID: 0}
-  confirmationCancel: {fileID: 0}
+  confirmationQuit: {fileID: 5559957724004340957}
+  confirmationCancel: {fileID: 5559957723892031519}
   pauseCanvas: {fileID: 9179019095601475233}
   confirmationWindow: {fileID: 5559957725766069898}
   menuButtons:
@@ -144,6 +144,7 @@ MonoBehaviour:
   statue: {fileID: 0}
   confirmationWindowShowing: 0
   gameOverShowing: 0
+  currentIndex: 0
 --- !u!1001 &1509419578785167868
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -376,6 +377,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 9179019095834562250}
     m_Modifications:
+    - target: {fileID: 1844164074446586905, guid: ea15bd8f2a1421e4aa6fb95458f1f05a, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3623881661559880997, guid: ea15bd8f2a1421e4aa6fb95458f1f05a, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3623881661617583521, guid: ea15bd8f2a1421e4aa6fb95458f1f05a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3623881661617583521, guid: ea15bd8f2a1421e4aa6fb95458f1f05a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3623881661617583526, guid: ea15bd8f2a1421e4aa6fb95458f1f05a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3623881661645563330, guid: ea15bd8f2a1421e4aa6fb95458f1f05a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3623881661645563330, guid: ea15bd8f2a1421e4aa6fb95458f1f05a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3623881661645563331, guid: ea15bd8f2a1421e4aa6fb95458f1f05a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3623881662426236824, guid: ea15bd8f2a1421e4aa6fb95458f1f05a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -463,6 +496,14 @@ PrefabInstance:
     - target: {fileID: 3623881662426236827, guid: ea15bd8f2a1421e4aa6fb95458f1f05a, type: 3}
       propertyPath: m_Name
       value: ConfirmationWindowParent
+      objectReference: {fileID: 0}
+    - target: {fileID: 3623881662426236827, guid: ea15bd8f2a1421e4aa6fb95458f1f05a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7666488377485519285, guid: ea15bd8f2a1421e4aa6fb95458f1f05a, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea15bd8f2a1421e4aa6fb95458f1f05a, type: 3}

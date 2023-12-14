@@ -145,6 +145,14 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void OnPause(InputValue value)
+    {
+        if (GameManager.Instance.GamePaused == false)
+        {
+            GameManager.Instance.GamePaused = true;
+        }
+    }
+
     // WENDIGO TESTING ONLY
     private void TakePhoto()
     {
