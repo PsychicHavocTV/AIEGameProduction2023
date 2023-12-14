@@ -124,8 +124,8 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 0.043137256, g: 0.13333334, b: 0.11372549, a: 1}
-  m_Intensity: 3183.0986
+  m_Color: {r: 0.06634924, g: 0.1981132, b: 0.16946883, a: 1}
+  m_Intensity: 512
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -187,7 +187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Intensity: 14.636216
+  m_Intensity: 12
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
@@ -501,9 +501,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8026191237259293608, guid: 8f33b46a49f6bc34b99c93adda15af2e, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8026191237259293609, guid: 8f33b46a49f6bc34b99c93adda15af2e, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9123205879155695869, guid: 8f33b46a49f6bc34b99c93adda15af2e, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f33b46a49f6bc34b99c93adda15af2e, type: 3}
