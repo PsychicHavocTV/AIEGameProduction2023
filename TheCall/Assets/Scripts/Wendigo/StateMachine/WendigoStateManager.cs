@@ -105,8 +105,8 @@ public class WendigoStateManager : MonoBehaviour
                 GameManager.Instance.wendigoChasing = false;
             }
             currentState = roamingState; // Update currentState to roamingState.
-            stateAnimator.ResetTrigger(chaseParam);
-            stateAnimator.SetTrigger(walkingParam);
+            //stateAnimator.ResetTrigger(chaseParam);
+            //stateAnimator.SetTrigger(walkingParam);
             currentState.EnterState(this); // Start behaviour for the current state.
         }
     }
@@ -211,7 +211,7 @@ public class WendigoStateManager : MonoBehaviour
             {
                 if ((Vector3.Angle(rayDirection, transform.forward)) < 50) // Is player within field of view
                 {
-                    if (Physics.Raycast(transform.position, rayDirection, out hit, 90)) // If the player is close enough to the wendigo
+                    if (Physics.Raycast(transform.position, rayDirection, out hit, 98)) // If the player is close enough to the wendigo
                     {
                         if (hit.collider.gameObject.tag == "Player")
                         {

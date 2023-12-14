@@ -16,8 +16,8 @@ public class WendigoChaseState : BaseState
         Debug.Log("Chasing...");
         wendigo.stateAnimator.ResetTrigger(wendigo.walkingParam);
         wendigo.stateAnimator.SetTrigger(wendigo.chaseParam);
-        nma.speed = 18.5f;
-        nma.acceleration = 18.5f;
+        nma.speed = 16f;
+        nma.acceleration = 16f;
     }
 
     public override void UpdateState(WendigoStateManager wendigo)
@@ -36,11 +36,11 @@ public class WendigoChaseState : BaseState
             }
             if (nma.acceleration == 0)
             {
-                nma.acceleration = 18.5f;
+                nma.acceleration = 16f;
             }
-            if (nma.speed != 18.5f)
+            if (nma.speed != 16f)
             {
-                nma.speed = 18.5f;
+                nma.speed = 16f;
             }
             if (wendigo.hidingController.isHidden == true)
             {
@@ -107,10 +107,6 @@ public class WendigoChaseState : BaseState
             nma.CalculatePath(destinationPosition, path);
             nma.SetDestination(destinationPosition);
             nma.SetPath(path);
-            //else if (path.status == NavMeshPathStatus.PathInvalid)
-            //{
-            //  nma.SetDestination(destinationPosition);
-            //}
         }
     }
 }
