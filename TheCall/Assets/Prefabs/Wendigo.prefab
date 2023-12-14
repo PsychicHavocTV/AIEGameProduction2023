@@ -359,8 +359,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.7924528, g: 0.035794362, b: 0, a: 1}
-  m_Intensity: 2.3279047
-  m_Range: 5.65
+  m_Intensity: 2.387324
+  m_Range: 6
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -421,7 +421,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Intensity: 29.253315
+  m_Intensity: 30
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
@@ -547,6 +547,7 @@ GameObject:
   - component: {fileID: 793770927}
   - component: {fileID: 504115921}
   - component: {fileID: 504115922}
+  - component: {fileID: 2201555664219905361}
   m_Layer: 0
   m_Name: Wendigo
   m_TagString: Wendigo
@@ -571,6 +572,7 @@ Transform:
   - {fileID: 6544557794368678909}
   - {fileID: 8687127657077225112}
   - {fileID: 6286526157927239633}
+  - {fileID: 6836892057518885003}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -603,6 +605,12 @@ MonoBehaviour:
   isBehindPlayer: 0
   teleportAway: 0
   roamSpeed: 4.5
+  stateAnimator: {fileID: 1109037190}
+  idleParam: NULL
+  walkingParam: Walk
+  chaseParam: Run
+  killParam: NULL
+  howlParam: NULL
 --- !u!195 &6443310105166568186
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -612,14 +620,14 @@ NavMeshAgent:
   m_GameObject: {fileID: 6443310105166568167}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.68
-  m_Speed: 5
+  m_Radius: 0.8
+  m_Speed: 9
   m_Acceleration: 8
-  avoidancePriority: 75
-  m_AngularSpeed: 403.13
-  m_StoppingDistance: 2
+  avoidancePriority: 94
+  m_AngularSpeed: 180
+  m_StoppingDistance: 0.8
   m_AutoTraverseOffMeshLink: 0
-  m_AutoBraking: 1
+  m_AutoBraking: 0
   m_AutoRepath: 1
   m_Height: 1.68
   m_BaseOffset: 2.07
@@ -637,11 +645,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c223602598586664289935d6a2cb596a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teleportLocations:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  teleportLocations: []
   nma: {fileID: 6443310105166568186}
+  locationChoice: 0
+  hasTeleported: 0
 --- !u!65 &793770926
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -653,8 +660,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.3446884, y: 1.5781076, z: 1.2481852}
-  m_Center: {x: 0.071088426, y: -1.0982012, z: 0.1928752}
+  m_Size: {x: 1.8806543, y: 1.5781076, z: 2.5912158}
+  m_Center: {x: -0.0038728807, y: -0.74, z: 0.07703403}
 --- !u!54 &793770927
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -670,7 +677,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 126
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!114 &504115921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -685,8 +692,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectName: Wendigo
   objectValue: 1
-  objectiveDescription: Wendigo
-  objectiveThreshold: 0
+  objectiveDescription: Take a photo of the wendigo itself.
+  objectiveThreshold: 0.09
+  objectiveIcon: {fileID: 0}
 --- !u!114 &504115922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -700,6 +708,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetCamera: {fileID: 0}
+--- !u!114 &2201555664219905361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6443310105166568167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98bbc2c1e63e98543830eec78d976795, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializedGuid: 
 --- !u!1 &6443310105637956582
 GameObject:
   m_ObjectHideFlags: 0
@@ -1157,8 +1178,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.7924528, g: 0.035794362, b: 0, a: 1}
-  m_Intensity: 2.3279047
-  m_Range: 5.65
+  m_Intensity: 2.387324
+  m_Range: 6
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -1219,7 +1240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Intensity: 29.253315
+  m_Intensity: 30
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
@@ -1392,9 +1413,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5754084199372789682, guid: 2b95b89240b1706448b1903cbc3670a5, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -4035891457021462182, guid: abdfda2f6e5af8e48862ba335e5fdc91, type: 3}
     - target: {fileID: 919132149155446097, guid: 2b95b89240b1706448b1903cbc3670a5, type: 3}
       propertyPath: m_Name
       value: Wendigo_FNL
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2b95b89240b1706448b1903cbc3670a5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b95b89240b1706448b1903cbc3670a5, type: 3}
@@ -1417,7 +1446,131 @@ BoxCollider:
   m_GameObject: {fileID: 6662489158709417323}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 201.12733, y: 360.88165, z: 178.40784}
   m_Center: {x: 0.00024414062, y: 0, z: -0.00024414062}
+--- !u!1001 &6443310105611415392
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 6443310105166568185}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 4521202f523af74489ca30e8674da83d, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4521202f523af74489ca30e8674da83d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.8268066
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4521202f523af74489ca30e8674da83d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.8268064
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4521202f523af74489ca30e8674da83d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.8268066
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4521202f523af74489ca30e8674da83d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4521202f523af74489ca30e8674da83d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.036
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4521202f523af74489ca30e8674da83d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4521202f523af74489ca30e8674da83d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.99962413
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4521202f523af74489ca30e8674da83d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4521202f523af74489ca30e8674da83d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.027414683
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4521202f523af74489ca30e8674da83d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4521202f523af74489ca30e8674da83d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4521202f523af74489ca30e8674da83d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 363.142
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4521202f523af74489ca30e8674da83d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4521202f523af74489ca30e8674da83d, type: 3}
+      propertyPath: m_Name
+      value: WendigoWalk_ANM (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4521202f523af74489ca30e8674da83d, type: 3}
+      propertyPath: m_TagString
+      value: Wendigo
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649545659517877598, guid: 4521202f523af74489ca30e8674da83d, type: 3}
+      propertyPath: m_TagString
+      value: Wendigo
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703499652288802586, guid: 4521202f523af74489ca30e8674da83d, type: 3}
+      propertyPath: m_TagString
+      value: Wendigo
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4521202f523af74489ca30e8674da83d, type: 3}
+--- !u!1 &6172840482703020593 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 4521202f523af74489ca30e8674da83d, type: 3}
+  m_PrefabInstance: {fileID: 6443310105611415392}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1109037192
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6172840482703020593}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 1.6800394, y: 3.672848, z: 1.2193365}
+  m_Center: {x: 0.12333718, y: 1.3364191, z: 0.037957106}
+--- !u!95 &1109037190
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6172840482703020593}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8fa741477878c6d4d88ea047f4ff7e24, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!4 &6836892057518885003 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4521202f523af74489ca30e8674da83d, type: 3}
+  m_PrefabInstance: {fileID: 6443310105611415392}
+  m_PrefabAsset: {fileID: 0}

@@ -12,18 +12,29 @@ public class PlayerController : MonoBehaviour
     public bool takingPhoto = false;
 
     [SerializeField]
-    private HideController hidingController;
+    private GameObject cameraFlash;
 
-    [SerializeField]
-    private GameObject flashlight;
+    [Tooltip("Reference to the player's camera.")]
+    public Transform playerCamera;
 
-    [SerializeField, Tooltip("Reference to the player's camera.")]
-    private Transform playerCamera;
+    [Tooltip("Reference to the player's objectives.")]
+    public PlayerObjectives playerObjectives;
 
     [SerializeField, Tooltip("How fast the player can walk.")]
     private float walkSpeed = 8.0f;
     [SerializeField, Tooltip("How fast the player can run.")]
     private float runSpeed = 16.0f;
+
+    [SerializeField, Tooltip("How long till the player can take another photo. (In seconds)")]
+    private float cameraFlashCooldown = 2.0f;
+
+    //public float CurrentMovingSpeed
+    //{
+    //    get => m_currentMovingSpeed;
+    //}
+    //private float m_currentMovingSpeed = 0.0f;
+
+    private float m_animMovingSpeed = 0.0f;
 
     private CharacterController m_controller; // Character Controller component.
 
@@ -34,6 +45,8 @@ public class PlayerController : MonoBehaviour
     private Vector3 m_velocity = Vector3.zero; // Velocity (Gravity)
     private float m_moveSpeed = 0.0f; // Move speed.
 
+    private float m_cooldown = 0.0f; // The cooldown clock to stop players from spamming photos.
+
     private void Start()
     {
         //GameManager.Instance.GamePaused = true;
@@ -42,54 +55,98 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        DoPlayerMovement();
-        DoGravity();
+        if (canMove == true)
+        {
+            DoPlayerMovement();
+            CalculateAnimatorParameters();
+            DoGravity();
+        }
 
         // Rotate player body towards camera direction.
         transform.rotation = Quaternion.Euler(transform.localEulerAngles.x, playerCamera.localEulerAngles.y, transform.localEulerAngles.z);
 
+        // Take photo.
         if (m_photoInput)
         {
             m_photoInput = false;
-            TakePhoto();
+            if (m_cooldown <= 0.0f)
+            {
+                TakePhoto();
+                m_cooldown = cameraFlashCooldown;
+            }
+        }
+        if (m_cooldown > 0.0f) // Do cooldown.
+        {
+            m_cooldown -= Time.deltaTime;
+        }
+        else if (m_cooldown <= 0.0f) // Clamp cooldown.
+        {
+            m_cooldown = 0.0f;
         }
     }
 
     private void DoPlayerMovement()
     {
-        if (hidingController.isHidden == false && hidingController.isHiding == false)
-        {
-            // Change move speed whether running or not.
-            if (m_isRunning)
-                m_moveSpeed = runSpeed;
-            else
-                m_moveSpeed = walkSpeed;
+        // Change move speed whether running or not.
+        if (m_isRunning)
+            m_moveSpeed = runSpeed;
+        else
+            m_moveSpeed = walkSpeed;
 
-            // Player movement.
-            Vector3 move = Vector3.zero;
-            if (canMove) // Move player only if player input is enabled.
-            {
-                move = m_input.x * playerCamera.right + m_input.y * playerCamera.forward; // Get movement direction relative to camera direction.
-                move.y = 0;
-            }
-            m_controller.Move(move.normalized * m_moveSpeed * Time.deltaTime); // Apply player movement.
+        // Player movement.
+        Vector3 move = Vector3.zero;
+        if (canMove) // Move player only if player input is enabled.
+        {
+            move = m_input.x * playerCamera.right + m_input.y * playerCamera.forward; // Get movement direction relative to camera direction.
+            move.y = 0;
         }
+        m_controller.Move(move.normalized * m_moveSpeed * Time.deltaTime); // Apply player movement.
     }
 
     private void DoGravity()
     {
-        if (hidingController.isHidden == false && hidingController.isHiding == false && hidingController.exitingHiding == false)
+        if (m_controller.isGrounded) // Is player touching ground.
         {
-            if (m_controller.isGrounded) // Is player touching ground.
+            m_velocity.y = -1.0f; // Push player out of ground.
+        }
+        else
+        {
+            m_velocity.y += Physics.gravity.y * Time.deltaTime; // Gravity.
+        }
+        m_controller.Move(m_velocity * Time.deltaTime); // Apply player velocity.
+    }
+
+    const float bobTransitionSpeed = 8.0f;
+    float maxAnimSpeed = 1.0f;
+    private void CalculateAnimatorParameters()
+    {
+        float currentSpeed = m_controller.velocity.normalized.magnitude;
+        if (currentSpeed > 0.0f)
+        {
+            if (m_isRunning)
             {
-                m_velocity.y = -1.0f; // Push player out of ground.
+                maxAnimSpeed = 2.0f;
             }
             else
             {
-                m_velocity.y += Physics.gravity.y * Time.deltaTime; // Gravity.
+                maxAnimSpeed = 1.0f;
             }
-            m_controller.Move(m_velocity * Time.deltaTime); // Apply player velocity.
+
+            m_animMovingSpeed += Time.deltaTime * bobTransitionSpeed;
+            m_animMovingSpeed = Mathf.Clamp(m_animMovingSpeed, 0.0f, maxAnimSpeed);
         }
+        else if (currentSpeed < 1f)
+        {
+            m_animMovingSpeed -= Time.deltaTime * bobTransitionSpeed;
+            m_animMovingSpeed = Mathf.Clamp(m_animMovingSpeed, 0.0f, maxAnimSpeed);
+        }
+
+        if (m_animMovingSpeed <= 0.0f)
+        {
+            maxAnimSpeed = 1.0f;
+        }
+
+        playerCamera.GetComponent<Animator>().SetFloat("BobBlend", m_animMovingSpeed);
     }
 
     // Input System messages.
@@ -108,67 +165,40 @@ public class PlayerController : MonoBehaviour
         m_photoInput = value.Get<float>() >= 0.5f; // Is photo button pressed.
     }
 
-    private void OnFlashlight(InputValue value)
+    private void OnInteract(InputValue value)
     {
-        if (flashlight.activeSelf == true)
+        // Interactables
+        var interactables = UnityEngine.Object.FindObjectsOfType<Interaction>();
+        for (int i = 0; i < interactables.Length; i++)
         {
-            flashlight.SetActive(false);
-        }
-        else if (flashlight.activeSelf == false)
-        {
-            flashlight.SetActive(true);
+            var interactable = interactables[i];
+            interactable.Input = true;
+            if (interactable.Interactable == true)
+                interactable.Interacted = true;
+            else
+                interactable.Interacted = false;
         }
     }
 
-    private void OnInteract(InputValue value)
+    private void OnPause(InputValue value)
     {
-        // Statues
-        if (GameManager.Instance.atStatue == true)
+        if (GameManager.Instance.GamePaused == false)
         {
-            GameManager.Instance.interactWithStatue = true;
-            Debug.Log("Game Saved.");
-        }
-
-
-        // Hiding
-        if (hidingController.isHidden == true || hidingController.isHiding == true)
-        {
-            hidingController.exitingHiding = true;
-            hidingController.ExitHidingSpot(hidingController.hidingSpots[hidingController.currentSpotIndex]);
-            hidingController.hidingSpots[hidingController.currentSpotIndex].spotOccupied = false;
-            hidingController.isHidden = false;
-            hidingController.isHiding = false;
-            hidingController.exitingHiding = false;
-            //hidingController.hidingSpots[hidingController.currentSpotIndex].hidingSpotIndex = 99;
-            Debug.Log("Player is no longer hiding.");
-        }
-        else if (hidingController.canHide == true)
-        {
-            if (hidingController.isHiding == false && hidingController.isHidden == false && hidingController.exitingHiding == false)
-            {
-                hidingController.isHiding = true;
-                hidingController.EnterHidingSpot(hidingController.hidingSpots[hidingController.currentSpotIndex]);
-                hidingController.hidingSpots[hidingController.currentSpotIndex].spotOccupied = true;
-                hidingController.isHiding = false;
-                hidingController.isHidden = true;
-                Debug.Log("Player is hiding.");
-            }
+            GameManager.Instance.GamePaused = true;
         }
     }
 
     // WENDIGO TESTING ONLY
     private void TakePhoto()
     {
-        if (hidingController.isHiding == false && hidingController.isHidden == false)
-        {
-            StartCoroutine(CameraTakePhoto());
-        }
+        StartCoroutine(CameraTakePhoto());
     }
 
     private IEnumerator CameraTakePhoto()
     {
         takingPhoto = true;
         Debug.Log("Taking Photo!!");
+        cameraFlash.GetComponent<Animator>().SetTrigger("Flash");
         yield return new WaitForNextFrameUnit();
         takingPhoto = false;
         StopCoroutine(CameraTakePhoto());
