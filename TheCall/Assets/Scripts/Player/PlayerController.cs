@@ -74,12 +74,9 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (canMove == true)
-        {
-            DoPlayerMovement();
-            CalculateAnimatorParameters();
-            DoGravity();
-        }
+        DoPlayerMovement();
+        CalculateAnimatorParameters();
+        DoGravity();
 
         // Rotate player body towards camera direction.
         transform.rotation = Quaternion.Euler(transform.localEulerAngles.x, playerCamera.localEulerAngles.y, transform.localEulerAngles.z);
@@ -106,31 +103,41 @@ public class PlayerController : MonoBehaviour
 
     private void DoPlayerMovement()
     {
-        // Change move speed whether running or not.
-        if (m_isRunning)
-            m_moveSpeed = runSpeed;
-        else
-            m_moveSpeed = walkSpeed;
-
-        // Player movement.
         Vector3 move = Vector3.zero;
-        if (canMove) // Move player only if player input is enabled.
+        if (canMove == true)
         {
-            move = m_input.x * playerCamera.right + m_input.y * playerCamera.forward; // Get movement direction relative to camera direction.
-            move.y = 0;
+            // Change move speed whether running or not.
+            if (m_isRunning)
+                m_moveSpeed = runSpeed;
+            else
+                m_moveSpeed = walkSpeed;
+
+            // Player movement.
+            if (canMove) // Move player only if player input is enabled.
+            {
+                move = m_input.x * playerCamera.right + m_input.y * playerCamera.forward; // Get movement direction relative to camera direction.
+                move.y = 0;
+            }
         }
         m_controller.Move(move.normalized * m_moveSpeed * Time.deltaTime); // Apply player movement.
     }
 
     private void DoGravity()
     {
-        if (m_controller.isGrounded) // Is player touching ground.
+        if (canMove == true)
         {
-            m_velocity.y = -1.0f; // Push player out of ground.
+            if (m_controller.isGrounded) // Is player touching ground.
+            {
+                m_velocity.y = -1.0f; // Push player out of ground.
+            }
+            else
+            {
+                m_velocity.y += Physics.gravity.y * Time.deltaTime; // Gravity.
+            }
         }
         else
         {
-            m_velocity.y += Physics.gravity.y * Time.deltaTime; // Gravity.
+            m_velocity = Vector3.zero;
         }
         m_controller.Move(m_velocity * Time.deltaTime); // Apply player velocity.
     }
