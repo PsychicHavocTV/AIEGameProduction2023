@@ -7,14 +7,12 @@ using System.Security;
 
 public class GameOverMenuController : MonoBehaviour
 {
-    [SerializeField]
-    PlayerInput playerInput;
+    //[SerializeField]
+    //PlayerInput playerInput;
     [SerializeField]
     PlayerInput menuInput;
-    [SerializeField]
-    Button loadButton;
-    [SerializeField]
-    Button exitButton;
+    public Button loadButton;
+    public Button exitButton;
     [SerializeField]
     Button confirmQuitButton;
     [SerializeField]
@@ -114,62 +112,56 @@ public class GameOverMenuController : MonoBehaviour
         }
     }
 
-    private void OnNavigateUP(InputValue value)
-    {
-        if(Cursor.lockState != CursorLockMode.Locked)
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-        }
-        if (GameManager.Instance.GameOver == true)
-        {
-            if (confirmationWindowShowing == false)
-            {
-                if (GameManager.Instance.noCheckpoint == false)
-                {
-                    if (currentIndex > 0)
-                    {
-                        exitButton.image.color = exitButton.colors.normalColor;
-                        loadButton.image.color = loadButton.colors.highlightedColor;
-                        currentIndex--;
-                    }
-                }
-                else
-                {
-                        exitButton.image.color = exitButton.colors.highlightedColor;
-                }
-            }
-        }
-        
-    }
-
-    private void OnNavigateDOWN(InputValue value)
-    {
-        if (Cursor.lockState != CursorLockMode.Locked)
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-        }
-        if (GameManager.Instance.GameOver == true)
-        {
-            if (confirmationWindowShowing == false)
-            {
-                if (GameManager.Instance.noCheckpoint == false)
-                {
-                    if (currentIndex < 1)
-                    {
-                        loadButton.image.color = loadButton.colors.normalColor;
-                        exitButton.image.color = exitButton.colors.highlightedColor;
-                        currentIndex++;
-                    }
-                }
-                else
-                {
-                        exitButton.image.color = exitButton.colors.highlightedColor;
-                }
-            }
-
-        }
-        
-    }
+    //private void OnNavigateUP(InputValue value)
+    //{
+    //    if (GameManager.Instance.GameOver == true)
+    //    {
+    //        Cursor.lockState = CursorLockMode.Locked;
+    //        if (confirmationWindowShowing == false)
+    //        {
+    //            if (GameManager.Instance.noCheckpoint == false)
+    //            {
+    //                if (currentIndex > 0)
+    //                {
+    //                    exitButton.image.color = exitButton.colors.normalColor;
+    //                    loadButton.image.color = loadButton.colors.highlightedColor;
+    //                    currentIndex--;
+    //                }
+    //            }
+    //            else
+    //            {
+    //                    exitButton.image.color = exitButton.colors.highlightedColor;
+    //            }
+    //        }
+    //    }
+    //    
+    //}
+    //
+    //private void OnNavigateDOWN(InputValue value)
+    //{
+    //    if (GameManager.Instance.GameOver == true)
+    //    {
+    //        Cursor.lockState = CursorLockMode.Locked;
+    //        if (confirmationWindowShowing == false)
+    //        {
+    //            if (GameManager.Instance.noCheckpoint == false)
+    //            {
+    //                if (currentIndex < 1)
+    //                {
+    //                    loadButton.image.color = loadButton.colors.normalColor;
+    //                    exitButton.image.color = exitButton.colors.highlightedColor;
+    //                    currentIndex++;
+    //                }
+    //            }
+    //            else
+    //            {
+    //                    exitButton.image.color = exitButton.colors.highlightedColor;
+    //            }
+    //        }
+    //
+    //    }
+    //    
+    //}
 
     private void OnNavigateLeft(InputValue value)
     {
@@ -225,66 +217,66 @@ public class GameOverMenuController : MonoBehaviour
         }
     }
 
-    private void OnConfirm(InputValue value)
-    {
-        if (Cursor.lockState != CursorLockMode.Locked)
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-        }
-        if (GameManager.Instance.GameOver == true)
-        {
-            if (confirmationWindowShowing == false)
-            {
-                switch (currentIndex)
-                {
-                    case 0:
-                        {
-                            if (GameManager.Instance.noCheckpoint == false)
-                            {
-                                loadButton.image.color = loadButton.colors.pressedColor;
-                                Debug.Log("Load most recent checkpoint.");
-                            }
-                            else
-                            {
-                                exitButton.image.color = exitButton.colors.pressedColor;
-                                Debug.Log("Open Confirmation Window.");
-                                confirmationWindowShowing = true;
-                                if (confirmationWindow.activeSelf == false)
-                                {
-                                    confirmationWindow.SetActive(true);
-                                    currentIndex = 0;
-                                }
-                            }
-                            break;
-                        }
-                    case 1:
-                        {
-                            exitButton.image.color = exitButton.colors.pressedColor;
-                            OpenConfirmWindow();
-                            break;
-                        }
-                }
-            }
-            else if (confirmationWindowShowing == true)
-            {
-                if (currentIndex == 0)
-                {
-                    confirmQuitButton.image.color = confirmQuitButton.colors.pressedColor;
-                    QuitGame();
-                }
-                else if (currentIndex == 1)
-                {
-                    if (confirmationWindow.activeSelf == true)
-                    {
-                        currentIndex = 1;
-                        confirmationWindow.SetActive(false);
-
-                        confirmationWindowShowing = false;
-                    }
-                }
-            }
-        }    
-    }
+    //private void OnConfirm(InputValue value)
+    //{
+    //    if (GameManager.Instance.GameOver == true)
+    //    {
+    //        if (Cursor.lockState != CursorLockMode.Locked)
+    //        {
+    //            Cursor.lockState = CursorLockMode.Locked;
+    //        }
+    //        if (confirmationWindowShowing == false)
+    //        {
+    //            switch (currentIndex)
+    //            {
+    //                case 0:
+    //                    {
+    //                        if (loadButton.enabled == true)
+    //                        {
+    //                            loadButton.image.color = loadButton.colors.pressedColor;
+    //                            LoadData();
+    //                        }
+    //                        else
+    //                        {
+    //                            exitButton.image.color = exitButton.colors.pressedColor;
+    //                            Debug.Log("Open Confirmation Window.");
+    //                            confirmationWindowShowing = true;
+    //                            if (confirmationWindow.activeSelf == false)
+    //                            {
+    //                                confirmationWindow.SetActive(true);
+    //                                currentIndex = 0;
+    //                            }
+    //                        }
+    //                        break;
+    //                    }
+    //                case 1:
+    //                    {
+    //                        Debug.Log("Open Confirm Window");
+    //                        exitButton.image.color = exitButton.colors.pressedColor;
+    //                        break;
+    //                    }
+    //            }
+    //        }
+    //        else if (confirmationWindowShowing == true)
+    //        {
+    //            if (currentIndex == 0)
+    //            {
+    //                confirmQuitButton.image.color = confirmQuitButton.colors.pressedColor;
+    //                QuitGame();
+    //            }
+    //            else if (currentIndex == 1)
+    //            {
+    //                if (confirmationWindow.activeSelf == true)
+    //                {
+    //                    currentIndex = 1;
+    //                    confirmationWindow.SetActive(false);
+    //
+    //                    confirmationWindowShowing = false;
+    //                }
+    //            }
+    //        }
+    //    }    
+    //}
 
     private void OnBack(InputValue value)
     {
@@ -301,12 +293,12 @@ public class GameOverMenuController : MonoBehaviour
 
     private void OnNavigateMouse(InputValue value)
     {
-        if (Cursor.lockState != CursorLockMode.None)
-        {
-            Cursor.lockState = CursorLockMode.None;
-        }
         if (GameManager.Instance.GameOver == true)
         {
+            if (Cursor.lockState != CursorLockMode.None)
+            {
+                Cursor.lockState = CursorLockMode.None;
+            }
             if (GameManager.Instance.noCheckpoint == false)
             {
                 loadButton.image.color = loadButton.colors.normalColor;
