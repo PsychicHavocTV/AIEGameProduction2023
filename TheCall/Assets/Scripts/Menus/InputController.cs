@@ -19,7 +19,6 @@ public class InputController : MonoBehaviour
     {
         if (GameManager.Instance.GameOver == true || GameManager.Instance.GamePaused == true)
         {
-            Debug.Log("Game should pause.");
             if (playerInput.enabled == true)
             {
                 playerInput.enabled = false;
@@ -27,6 +26,7 @@ public class InputController : MonoBehaviour
             if (menuInput.enabled == false)
             {
                 menuInput.enabled = true;
+                Debug.Log("Game should pause.");
             }
         }
         else
@@ -41,25 +41,22 @@ public class InputController : MonoBehaviour
             }
         }
 
-        //if (GameManager.Instance.GamePaused == true)
-        //{
-        //    gameOverHandler.enabled = false;
-        //    pauseHandler.enabled = true;
-        //}
-        //else if (GameManager.Instance.GameOver == true)
-        //{
-        //    pauseHandler.enabled = false;
-        //    gameOverHandler.enabled = true;
-        //}
+        if (GameManager.Instance.GameOver == true)
+        {
+            pauseHandler.enabled = false;
+            gameOverHandler.enabled = true;
+        }
+        if (GameManager.Instance.GamePaused == true)
+        {
+            gameOverHandler.enabled = false;
+            pauseHandler.enabled = true;
+        }
     }
 
 
     private void OnNavigateUP(InputValue value)
     {
-        if (Cursor.lockState != CursorLockMode.Locked)
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-        }
+        Cursor.lockState = CursorLockMode.Locked;
         if (GameManager.Instance.GamePaused == true)
         {
             //pauseHandler.resetColor = false;
@@ -86,22 +83,58 @@ public class InputController : MonoBehaviour
                     }
                 }
             }
+            if (GameManager.Instance.GameOver == true)
+            {
+                if (gameOverHandler.currentIndex > 0)
+                {
+                    Debug.Log("Going Up.");
+                    switch (gameOverHandler.currentIndex)
+                    {
+                        case 1:
+                            {
+                                if (gameOverHandler.loadButton.enabled == true)
+                                {
+                                    gameOverHandler.loadButton.image.color = gameOverHandler.loadButton.colors.highlightedColor;
+                                    gameOverHandler.exitButton.image.color = gameOverHandler.exitButton.colors.normalColor;
+                                    gameOverHandler.currentIndex--;
+                                }
+                                else
+                                {
+                                    gameOverHandler.exitButton.image.color = gameOverHandler.exitButton.colors.highlightedColor;
+                                    gameOverHandler.currentIndex = 1;
+                                }
+                                break;
+                            }
+                        case 0:
+                            {
+                                gameOverHandler.currentIndex = 0;
+                                if (gameOverHandler.loadButton.enabled == true)
+                                {
+                                    gameOverHandler.loadButton.image.color = gameOverHandler.loadButton.colors.highlightedColor;
+                                }
+                                else
+                                {
+                                    gameOverHandler.exitButton.image.color = gameOverHandler.exitButton.colors.highlightedColor;
+                                }
+                                break;
+                            }
+                    }
+                }
+            }
         }
     }
 
     private void OnNavigateDOWN(InputValue value)
     {
-        if (Cursor.lockState != CursorLockMode.Locked)
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-        }
+        Cursor.lockState = CursorLockMode.Locked;
         if (GameManager.Instance.GamePaused == true)
         {
             pauseHandler.resetColor = false;
-            if (pauseHandler.confirmationWindowShowing == false)
-            {
+            //if (pauseHandler.confirmationWindowShowing == false)
+            //{
                 if (pauseHandler.currentIndex < 2)
                 {
+                    Debug.Log("Going Down.");
                     switch (pauseHandler.currentIndex)
                     {
                         case 0:
@@ -120,6 +153,30 @@ public class InputController : MonoBehaviour
                             }
                     }
                 }
+            //}
+        }
+        if (GameManager.Instance.GameOver == true)
+        {
+            if (gameOverHandler.currentIndex < 2)
+            {
+                switch (gameOverHandler.currentIndex)
+                {
+                    case 0:
+                        {
+                            if (gameOverHandler.loadButton.enabled == true)
+                            {
+                                gameOverHandler.loadButton.image.color = gameOverHandler.loadButton.colors.normalColor;
+                                gameOverHandler.exitButton.image.color = gameOverHandler.exitButton.colors.highlightedColor;
+                                gameOverHandler.currentIndex++;
+                            }
+                            else
+                            {
+                                gameOverHandler.currentIndex = 0;
+                                gameOverHandler.exitButton.image.color = gameOverHandler.exitButton.colors.highlightedColor;
+                            }
+                            break;
+                        }
+                }
             }
         }
     }
@@ -127,13 +184,13 @@ public class InputController : MonoBehaviour
 
     private void OnConfirm(InputValue value)
     {
-        if (Cursor.lockState != CursorLockMode.Locked)
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-        }
         //pauseHandler.resetColor = false;
         if (GameManager.Instance.GamePaused == true)
         {
+            if (Cursor.lockState != CursorLockMode.Locked)
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+            }
             if (pauseHandler.confirmationWindowShowing == false)
             {
                 switch (pauseHandler.currentIndex)
@@ -158,73 +215,70 @@ public class InputController : MonoBehaviour
         }
         else if (GameManager.Instance.GameOver == true)
         {
-            if (Cursor.lockState != CursorLockMode.Locked)
-            {
-                Cursor.lockState = CursorLockMode.Locked;
-            }
             Button loadButton = null;
             GameObject confirmWindow = null;
             loadButton = gameOverHandler.GetLoadButton(loadButton);
             confirmWindow = gameOverHandler.GetConfirmWindow(confirmWindow);
-            if (gameOverHandler.confirmationWindowShowing == false)
+            Cursor.lockState = CursorLockMode.Locked;
+            //if (gameOverHandler.confirmationWindowShowing == false)
+            //{
+            //}
+            switch (gameOverHandler.currentIndex)
             {
-                switch (gameOverHandler.currentIndex)
-                {
-                    case 0:
+                case 0:
+                    {
+                        
+                        if (loadButton.enabled == true)
                         {
-                            
-                            if (loadButton.enabled == true)
-                            {
-                                gameOverHandler.LoadData();
-                            }
-                            else if (loadButton.enabled == false)
-                            {
-                                gameOverHandler.QuitGame();
-                            }
-                            break;
+                            gameOverHandler.LoadData();
                         }
-                    case 1:
+                        else if (loadButton.enabled == false)
                         {
-                            if (loadButton.enabled == true)
-                            {
-                                gameOverHandler.QuitGame();
-                            }
-                            else if (loadButton.enabled == false)
-                            {
-                                gameOverHandler.currentIndex = 0;
-                            }
-                            break;
+                            gameOverHandler.QuitGame();
                         }
-                }
+                        break;
+                    }
+                case 1:
+                    {
+                        if (loadButton.enabled == true)
+                        {
+                            gameOverHandler.QuitGame();
+                        }
+                        else if (loadButton.enabled == false)
+                        {
+                            gameOverHandler.currentIndex = 0;
+                        }
+                        break;
+                    }
             }
-            else if (gameOverHandler.confirmationWindowShowing == true)
-            {
-                switch (gameOverHandler.currentIndex)
-                {
-                    case 0:
-                        {
-                            
-                            break;
-                        }
-                }
-            }
+            //else if (gameOverHandler.confirmationWindowShowing == true)
+            //{
+            //    switch (gameOverHandler.currentIndex)
+            //    {
+            //        case 0:
+            //            {
+            //                
+            //                break;
+            //            }
+            //    }
+            //}
         }
-        //else if (pauseHandler.confirmationWindowShowing == true)
-        //{
-        //    if (pauseHandler.currentIndex == 0)
-        //    {
-        //        pauseHandler.QuitGame();
-        //    }
-        //    else if (pauseHandler.currentIndex == 1)
-        //    {
-        //        if (pauseHandler.confirmationWindow.activeSelf == true)
-        //        {
-        //            pauseHandler.currentIndex = 1;
-        //            pauseHandler.confirmationWindow.SetActive(false);
-        //            pauseHandler.confirmationWindowShowing = false;
-        //        }
-        //    }
-        //}
+        ////else if (pauseHandler.confirmationWindowShowing == true)
+        ////{
+        ////    if (pauseHandler.currentIndex == 0)
+        ////    {
+        ////        pauseHandler.QuitGame();
+        ////    }
+        ////    else if (pauseHandler.currentIndex == 1)
+        ////    {
+        ////        if (pauseHandler.confirmationWindow.activeSelf == true)
+        ////        {
+        ////            pauseHandler.currentIndex = 1;
+        ////            pauseHandler.confirmationWindow.SetActive(false);
+        ////            pauseHandler.confirmationWindowShowing = false;
+        ////        }
+        ////    }
+        ////}
     }
     private void OnNavigateLeft(InputValue value)
     {
@@ -263,10 +317,14 @@ public class InputController : MonoBehaviour
             pauseHandler.loadCheckpointButton.image.color = pauseHandler.loadCheckpointButton.colors.normalColor;
             pauseHandler.quitButton.image.color = pauseHandler.quitButton.colors.normalColor;
 
-            if (pauseHandler.confirmationWindow.activeSelf == true)
+        }
+        else if (GameManager.Instance.GameOver == true)
+        {
+            if (gameOverHandler.loadButton.enabled == true)
             {
-                //pauseHandler.confirmationButtons[1].image.color = pauseHandler.confirmationButtons[1].colors.normalColor;
+                gameOverHandler.loadButton.image.color = gameOverHandler.loadButton.colors.normalColor;
             }
+            gameOverHandler.exitButton.image.color = gameOverHandler.exitButton.colors.normalColor;
         }
     }
 
